@@ -11,6 +11,8 @@
 
 @implementation radioappAppDelegate
 
+@synthesize viewController;
+
 - (id) init
 {	
 	/** If you need to do any extra app-specific initialization, you can do it here
@@ -76,6 +78,8 @@
 - (void)dealloc
 {
 	[ super dealloc ];
+    [viewController release];
+
 }
 
 @end

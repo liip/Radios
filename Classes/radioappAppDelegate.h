@@ -11,6 +11,7 @@
 
 @interface radioappAppDelegate : PhoneGapDelegateXib {
 }
+@property (nonatomic, retain) IBOutlet PhoneGapViewController *viewController;
 
 @end
 
