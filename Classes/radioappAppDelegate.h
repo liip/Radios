@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PhoneGapDelegate.h"
+#import "PhoneGapDelegateXib.h"
 
-@interface radioappAppDelegate : PhoneGapDelegate {
+@interface radioappAppDelegate : PhoneGapDelegateXib {
 }
 
 @end

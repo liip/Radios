@@ -27,7 +27,6 @@
 		302CC88910CD8CCE00C49659 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 302CC88710CD8CCE00C49659 /* icon.png */; };
 		3053AC6F109B7857006FCFE7 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 3053AC6E109B7857006FCFE7 /* VERSION */; };
 		30E1352710E2C1420031B30D /* PhoneGap.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E1352610E2C1420031B30D /* PhoneGap.plist */; };
-		EC03935D112576E300F3209E /* example.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC03935C112576E300F3209E /* example.xib */; };
 		EC18C7CF1132A77300EFF1D3 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 301BF56E109A69640062928A /* www */; };
 		EC18C7D01132A77300EFF1D3 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 3053AC6E109B7857006FCFE7 /* VERSION */; };
 		EC18C7D11132A77300EFF1D3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 302CC88610CD8CCE00C49659 /* Default.png */; };
@@ -100,7 +99,6 @@
 		30E1352610E2C1420031B30D /* PhoneGap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PhoneGap.plist; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* radioapp_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = radioapp_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* radioapp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "radioapp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		EC03935C112576E300F3209E /* example.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = example.xib; sourceTree = "<group>"; };
 		EC18C7E91132A77300EFF1D3 /* radioapp-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radioapp-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC18C7EC1132A77400EFF1D3 /* example.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = example.xib; path = "Resources-iPad/example.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,7 +195,6 @@
 			children = (
 				30E1352610E2C1420031B30D /* PhoneGap.plist */,
 				302CC88610CD8CCE00C49659 /* Default.png */,
-				EC03935C112576E300F3209E /* example.xib */,
 				302CC88710CD8CCE00C49659 /* icon.png */,
 				3053AC6E109B7857006FCFE7 /* VERSION */,
 				8D1107310486CEB800E47090 /* radioapp-Info.plist */,
@@ -334,7 +331,6 @@
 				302CC88810CD8CCE00C49659 /* Default.png in Resources */,
 				302CC88910CD8CCE00C49659 /* icon.png in Resources */,
 				30E1352710E2C1420031B30D /* PhoneGap.plist in Resources */,
-				EC03935D112576E300F3209E /* example.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

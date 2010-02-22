@@ -12,6 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="10"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -42,7 +43,7 @@
 			<object class="IBUIWindow" id="700710457">
 				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
-				<string key="NSFrameSize">{768, 1004}</string>
+				<string key="NSFrameSize">{768, 1024}</string>
 				<object class="NSColor" key="IBUIBackgroundColor" id="846637154">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -57,7 +58,7 @@
 			</object>
 			<object class="IBUIViewController" id="598937973">
 				<object class="IBUIView" key="IBUIView" id="673260324">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">292</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -74,14 +75,14 @@
 						<object class="IBUILabel" id="974720749">
 							<reference key="NSNextResponder" ref="673260324"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{100, 419}, {114, 21}}</string>
+							<string key="NSFrame">{{149, 972}, {123, 21}}</string>
 							<reference key="NSSuperview" ref="673260324"/>
 							<bool key="IBUIOpaque">NO</bool>
 							<bool key="IBUIClipsSubviews">YES</bool>
 							<int key="IBUIContentMode">7</int>
 							<bool key="IBUIUserInteractionEnabled">NO</bool>
 							<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-							<string key="IBUIText">Example Label</string>
+							<string key="IBUIText">Example2 Label</string>
 							<object class="NSColor" key="IBUITextColor">
 								<int key="NSColorSpace">1</int>
 								<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -92,6 +93,7 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{768, 1004}</string>
+					<reference key="NSSuperview"/>
 					<object class="NSColor" key="IBUIBackgroundColor">
 						<int key="NSColorSpace">3</int>
 						<bytes key="NSWhite">MQA</bytes>
@@ -220,6 +222,7 @@
 					<string>12.CustomClassName</string>
 					<string>12.IBPluginDependency</string>
 					<string>14.IBPluginDependency</string>
+					<string>18.IBEditorWindowLastContentRect</string>
 					<string>18.IBLastUsedUIStatusBarStylesToTargetRuntimesMap</string>
 					<string>18.IBPluginDependency</string>
 					<string>20.IBPluginDependency</string>
@@ -236,6 +239,7 @@
 					<string>radioappAppDelegate</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>{{329, 52}, {783, 804}}</string>
 					<object class="NSMutableDictionary">
 						<string key="NS.key.0">IBCocoaTouchFramework</string>
 						<integer value="0" key="NS.object.0"/>
@@ -243,7 +247,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>PhoneGapViewController</string>
-					<string>{{362, 365}, {320, 480}}</string>
+					<string>{{362, 52}, {783, 804}}</string>
 					<object class="NSMutableDictionary">
 						<string key="NS.key.0">IBCocoaTouchFramework</string>
 						<integer value="0" key="NS.object.0"/>

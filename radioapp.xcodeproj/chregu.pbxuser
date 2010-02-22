@@ -1,5 +1,19 @@
 // !$*UTF8*$!
 {
+	1D3623240D0F684500981E51 /* radioappAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {872, 405}}";
+			sepNavSelRange = "{196, 0}";
+			sepNavVisRange = "{0, 265}";
+		};
+	};
+	1D3623250D0F684500981E51 /* radioappAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {872, 1105}}";
+			sepNavSelRange = "{1301, 9}";
+			sepNavVisRange = "{605, 828}";
+		};
+	};
 	1D6058900D05DD3D006BFB54 /* radioapp */ = {
 		activeExec = 0;
 		executables = (
@@ -83,9 +97,32 @@
 			EC27703F1132A91100EC31D9 /* PBXTextBookmark */ = EC27703F1132A91100EC31D9 /* PBXTextBookmark */;
 			EC2770421132A92D00EC31D9 /* PBXTextBookmark */ = EC2770421132A92D00EC31D9 /* PBXTextBookmark */;
 			EC2770431132A92D00EC31D9 /* PBXTextBookmark */ = EC2770431132A92D00EC31D9 /* PBXTextBookmark */;
+			EC2770531132AA4300EC31D9 /* PBXTextBookmark */ = EC2770531132AA4300EC31D9 /* PBXTextBookmark */;
+			EC2770541132AA4300EC31D9 /* PBXTextBookmark */ = EC2770541132AA4300EC31D9 /* PBXTextBookmark */;
+			EC27706A1132AC6800EC31D9 /* PBXTextBookmark */ = EC27706A1132AC6800EC31D9 /* PBXTextBookmark */;
+			EC27706B1132AC6800EC31D9 /* PBXTextBookmark */ = EC27706B1132AC6800EC31D9 /* PBXTextBookmark */;
+			EC27706C1132AC6800EC31D9 /* PBXTextBookmark */ = EC27706C1132AC6800EC31D9 /* PBXTextBookmark */;
+			EC27706D1132AC6800EC31D9 /* PlistBookmark */ = EC27706D1132AC6800EC31D9 /* PlistBookmark */;
+			EC27706E1132AC6800EC31D9 /* PlistBookmark */ = EC27706E1132AC6800EC31D9 /* PlistBookmark */;
+			EC27707C1132AF4900EC31D9 /* PBXTextBookmark */ = EC27707C1132AF4900EC31D9 /* PBXTextBookmark */;
+			EC27707D1132AF4900EC31D9 /* PlistBookmark */ = EC27707D1132AF4900EC31D9 /* PlistBookmark */;
+			EC27707E1132AF4900EC31D9 /* PlistBookmark */ = EC27707E1132AF4900EC31D9 /* PlistBookmark */;
+			EC2770811132AF6100EC31D9 /* PlistBookmark */ = EC2770811132AF6100EC31D9 /* PlistBookmark */;
 		};
 		sourceControlManager = EC18C7A21132A70900EFF1D3 /* Source Control */;
 		userBuildSettings = {
+		};
+	};
+	3053AC6E109B7857006FCFE7 /* VERSION */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {872, 405}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 5}";
+		};
+	};
+	30E1352610E2C1420031B30D /* PhoneGap.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{15, 106}, {1027, 767}}";
 		};
 	};
 	EC18C77F1132A70100EFF1D3 /* radioapp */ = {
@@ -181,9 +218,9 @@
 		path = /opt/git/radioapp/www/index.html;
 		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {872, 546}}";
-			sepNavSelRange = "{880, 0}";
-			sepNavVisRange = "{101, 1265}";
+			sepNavIntBoundsRect = "{{0, 0}, {872, 624}}";
+			sepNavSelRange = "{976, 0}";
+			sepNavVisRange = "{959, 613}";
 		};
 	};
 	EC18C7F71132A79300EFF1D3 /* PBXTextBookmark */ = {
@@ -343,5 +380,120 @@
 		rType = 0;
 		vrLen = 1265;
 		vrLoc = 101;
+	};
+	EC2770531132AA4300EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC18C7F61132A79300EFF1D3 /* index.html */;
+		name = "index.html: 15";
+		rLen = 0;
+		rLoc = 880;
+		rType = 0;
+		vrLen = 1281;
+		vrLoc = 101;
+	};
+	EC2770541132AA4300EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC18C7F61132A79300EFF1D3 /* index.html */;
+		name = "index.html: 23";
+		rLen = 0;
+		rLoc = 976;
+		rType = 0;
+		vrLen = 1281;
+		vrLoc = 101;
+	};
+	EC27706A1132AC6800EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC18C7F61132A79300EFF1D3 /* index.html */;
+		name = "index.html: 23";
+		rLen = 0;
+		rLoc = 976;
+		rType = 0;
+		vrLen = 613;
+		vrLoc = 959;
+	};
+	EC27706B1132AC6800EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* radioappAppDelegate.m */;
+		name = "radioappAppDelegate.m: 55";
+		rLen = 9;
+		rLoc = 1301;
+		rType = 0;
+		vrLen = 828;
+		vrLoc = 605;
+	};
+	EC27706C1132AC6800EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* radioappAppDelegate.h */;
+		name = "radioappAppDelegate.h: 10";
+		rLen = 0;
+		rLoc = 196;
+		rType = 0;
+		vrLen = 265;
+		vrLoc = 0;
+	};
+	EC27706D1132AC6800EC31D9 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* radioapp-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/opt/git/radioapp/radioapp-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	EC27706E1132AC6800EC31D9 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* radioapp-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/opt/git/radioapp/radioapp-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	EC27707C1132AF4900EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3053AC6E109B7857006FCFE7 /* VERSION */;
+		name = "VERSION: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 5;
+		vrLoc = 0;
+	};
+	EC27707D1132AF4900EC31D9 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* radioapp-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/opt/git/radioapp/radioapp-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	EC27707E1132AF4900EC31D9 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* radioapp-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/opt/git/radioapp/radioapp-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	EC2770811132AF6100EC31D9 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* radioapp-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/opt/git/radioapp/radioapp-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
 	};
 }
