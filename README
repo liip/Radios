@@ -1,0 +1,8 @@
+INSTALL
+=======
+
+
+- get chregu's fork of Phonegap at http://github.com/chregu/phonegap-iphone
+- install it
+- Make sure PHONEGAPLIB points to this (Preferences ... -> Source Trees)
+- try to compile this project
