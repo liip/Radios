@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+  <head>
+    <meta name="viewport" content="width=768; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>PhoneGap</title>
+    <link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/lastfm.api.md5.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/lastfm.api.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/lastfm.api.cache.js"></script>
+ <script type="text/javascript" charset="utf-8" src="js/AudioStream.js"></script>
+   
+    <script type="text/javascript" charset="utf-8">
+
+function onDeviceReady()
+	
+	{
+
+		cache = new LastFMCache();
+	  /* Create a LastFM object */
+	lastfm = new LastFM({
+		apiKey    : 'f76b8d609c4af3988283045b8f6123ba',
+		apiSecret : '3cbb48bd2736581e0c242c8a9cf3045c',
+		cache     : cache
+	});
+displayArtist('Foo Fighters');
+						
+	if(isIPad()){
+	 plugins.AudioStream.onMetaDataChange(function(data) {if(data) {
+		var splits=data.split("-");
+		document.getElementById("now_playing").innerHTML = data;
+		displayArtist(splits[0]);}});
+	 playSound();
+	 }
+	}
+	
+	function playSound() {
+	plugins.AudioStream.play("http://zlz-stream11.streamserver.ch/1/drs3/mp3_128");
+}
+	function displayArtist(artist) {
+	
+		
+	lastfm.artist.getInfo({artist:  artist}, {success: function(data){
+			document.getElementById("artist_name").innerHTML = data.artist.name;
+			document.getElementById("artist_bio").innerHTML = data.artist.bio.summary;
+			console.log(data.artist);
+					//	document.getElementById("artist_bio_long").innerHTML = data.artist.bio.content;
+			if(data.artist.image[4] && data.artist.image[4]['#text'])  {
+				document.getElementById("artist_image").src = data.artist.image[4]['#text'];
+			} else {
+				document.getElementById("artist_image").src = "";
+			}
+			var simi = '';
+			if (data.artist.similar && data.artist.similar.artist) {
+			 similar = data.artist.similar.artist;
+			 var simi = '<i>Similar Artists:</i> ';
+			 for (var i = 0; i < similar.length; i++) {
+				simi += '' + similar[i].name + ', ';
+				 
+			 }
+			}
+			document.getElementById("similar").innerHTML = simi;
+			simi = '';
+			if (data.artist.tags && data.artist.tags.tag) {
+			 var tags = data.artist.tags.tag;
+			
+			 simi = '<i>Tags:</i> ';
+			 for (var i = 0; i < tags.length; i++) {
+				simi += '' + tags[i].name + ', ';
+			 }
+			}
+			
+			document.getElementById("tags").innerHTML = simi;
+			
+				lastfm.artist.getImages({artist:data.artist.name}, {success: function(foo) {
+						console.log(foo);
+					}
+				}
+			);
+		
+		}, error: function(code, message){
+				lastfm.artist.search({artist:  artist}, {success: function(data){
+				console.log(data);
+				if(data.results.artistmatches.artist && data.results.artistmatches.artist[0]) {
+				displayArtist(data.results.artistmatches.artist[0]);
+				
+				}
+		}});
+
+			
+				
+						}});
+
+	}
+
+function onWinLoad()
+	{
+  	if(isIPad()){
+onDeviceReady();
+				//document.addEventListener("deviceready",onDeviceReady,false);
+		} else {
+			onDeviceReady();
+		}
+		    
+		testEl = $('testElement');
+	testEl.onmousedown = testEl.ontouchstart = startDrag;
+	var divs = testEl.getElementsByTagName('div');
+	for (var i=0;i<divs.length;i+=1) {
+			divs[i].style.left = position + 'px';
+			position += divs[i].offsetWidth + 10;
+	}
+
+	}
+ 
+function isIPad() {
+return navigator.userAgent.match(/Safari.531/i) ||  navigator.userAgent.match(/iPhone/i);
+}
+
+ 
+    </script>
+	
+	<script>
+
+var testEl,position=0;
+
+
+
+var scroll;
+function startDrag(e) {
+
+
+	var pos = [testEl.offsetLeft,testEl.offsetTop];
+	var origin = getCoors(e);
+	var originTime = new Date().getTime();
+	var step = 50,	// in milliseconds
+		startPos,speed,
+		distance = 0,
+		min = -position + $('wrapper').offsetWidth/2,
+		max = $('wrapper').offsetWidth/2;
+	clearInterval(scroll);
+
+	testEl.ontouchmove = testEl.onmousemove = moveDrag;
+	testEl.ontouchend = document.onmouseup = function (e) {
+		var end  = getCoors(e);
+		startPos = testEl.offsetLeft;
+		var endTime = new Date().getTime();
+		var dist = end - origin;
+		var time = endTime - originTime;
+		speed = dist/(time/1000); // pixels per second
+		scroll = setInterval(extraScroll,step);
+		testEl.ontouchmove = testEl.ontouchend = testEl.onmousemove = document.onmouseup = null;
+	}
+
+	return false; // cancels scrolling
+
+	function extraScroll() {
+		distance += Math.round(speed*(step/1000))
+		var newPos = startPos + distance;
+		if (newPos > max || newPos < min) {
+			clearInterval(scroll);
+			return;
+		}
+		testEl.style.left = newPos + 'px';
+		speed *= .85;
+		if (Math.abs(speed) < 10) {
+			speed = 0;
+			clearInterval(scroll);
+		}
+	}
+
+	function moveDrag (e) {
+		var currentPos = getCoors(e);
+		var newPos = (currentPos - origin) + pos[0];
+		if (newPos <= max && newPos >= min) {
+			testEl.style.left = newPos + 'px';
+		}
+	}
+
+	function getCoors(e) {
+		var coors;
+		if (e.changedTouches) { 	// iPhone
+			coors = e.changedTouches[0].clientX;
+		} else { 								// all others
+			coors = e.clientX;
+		}
+		return coors;
+	}
+}
+
+function $(id) {
+	return document.getElementById(id);
+}
+
+
+</script>
+	
+	
+  </head>
+  <body onload="onWinLoad()" id="stage" class="theme">
+  <div id="now_container">Now playing: DRS 3 - <span id="now_playing"> </span></div>
+  <div id="wrapper">
+<div id="testElement">
+	<div class="item">
+  <img id="artist_image" width="350px" />
+  </div>
+<!--	<div class="item">
+  <img img src="http://userserve-ak.last.fm/serve/500/15739739/Sonic+Youth.jpg" width="350px" />
+  </div>
+-->
+  </div>
+</div>
+  <h1 id="artist_name">Loading...</h1>
+  <div id="artist_bio"> </div>
+
+  <div id="artist_bio_long"> </div>¨
+  <div id="similar">
+  
+  </div>
+  <div id="tags">
+  </div>
+  </body>
+  
+  </head>

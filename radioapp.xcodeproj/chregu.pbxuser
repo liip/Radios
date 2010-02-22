@@ -1,0 +1,347 @@
+// !$*UTF8*$!
+{
+	1D6058900D05DD3D006BFB54 /* radioapp */ = {
+		activeExec = 0;
+		executables = (
+			EC18C77F1132A70100EFF1D3 /* radioapp */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = EC18C7EA1132A77300EFF1D3 /* radioapp-iPad */;
+		activeSDKPreference = iphonesimulator3.2;
+		activeTarget = EC18C7C91132A77300EFF1D3 /* radioapp-iPad */;
+		addToTargets = (
+			EC18C7C91132A77300EFF1D3 /* radioapp-iPad */,
+		);
+		codeSenseManager = EC18C7A31132A70900EFF1D3 /* Code sense */;
+		executables = (
+			EC18C77F1132A70100EFF1D3 /* radioapp */,
+			EC18C7EA1132A77300EFF1D3 /* radioapp-iPad */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					694,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					416,
+					60,
+					20,
+					48.16259765625,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 288532406;
+			PBXWorkspaceStateSaveDate = 288532406;
+		};
+		perUserProjectItems = {
+			EC18C7F51132A79300EFF1D3 = EC18C7F51132A79300EFF1D3 /* PBXTextBookmark */;
+			EC18C7F71132A79300EFF1D3 = EC18C7F71132A79300EFF1D3 /* PBXTextBookmark */;
+			EC2770031132A7C900EC31D9 /* PBXTextBookmark */ = EC2770031132A7C900EC31D9 /* PBXTextBookmark */;
+			EC27702B1132A82F00EC31D9 /* PBXTextBookmark */ = EC27702B1132A82F00EC31D9 /* PBXTextBookmark */;
+			EC27702C1132A82F00EC31D9 /* PBXTextBookmark */ = EC27702C1132A82F00EC31D9 /* PBXTextBookmark */;
+			EC27702F1132A83A00EC31D9 /* PBXTextBookmark */ = EC27702F1132A83A00EC31D9 /* PBXTextBookmark */;
+			EC2770321132A86A00EC31D9 /* PBXTextBookmark */ = EC2770321132A86A00EC31D9 /* PBXTextBookmark */;
+			EC2770341132A86A00EC31D9 /* PBXTextBookmark */ = EC2770341132A86A00EC31D9 /* PBXTextBookmark */;
+			EC2770351132A86A00EC31D9 /* PBXTextBookmark */ = EC2770351132A86A00EC31D9 /* PBXTextBookmark */;
+			EC2770381132A88600EC31D9 /* PBXTextBookmark */ = EC2770381132A88600EC31D9 /* PBXTextBookmark */;
+			EC27703D1132A91100EC31D9 /* PBXTextBookmark */ = EC27703D1132A91100EC31D9 /* PBXTextBookmark */;
+			EC27703E1132A91100EC31D9 /* PBXTextBookmark */ = EC27703E1132A91100EC31D9 /* PBXTextBookmark */;
+			EC27703F1132A91100EC31D9 /* PBXTextBookmark */ = EC27703F1132A91100EC31D9 /* PBXTextBookmark */;
+			EC2770421132A92D00EC31D9 /* PBXTextBookmark */ = EC2770421132A92D00EC31D9 /* PBXTextBookmark */;
+			EC2770431132A92D00EC31D9 /* PBXTextBookmark */ = EC2770431132A92D00EC31D9 /* PBXTextBookmark */;
+		};
+		sourceControlManager = EC18C7A21132A70900EFF1D3 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	EC18C77F1132A70100EFF1D3 /* radioapp */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = radioapp;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	EC18C7A21132A70900EFF1D3 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	EC18C7A31132A70900EFF1D3 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	EC18C7C91132A77300EFF1D3 /* radioapp-iPad */ = {
+		activeExec = 0;
+		executables = (
+			EC18C7EA1132A77300EFF1D3 /* radioapp-iPad */,
+		);
+	};
+	EC18C7EA1132A77300EFF1D3 /* radioapp-iPad */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "radioapp-iPad";
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	EC18C7F51132A79300EFF1D3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC18C7F61132A79300EFF1D3 /* index.html */;
+		name = "index.html: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 982;
+		vrLoc = 0;
+	};
+	EC18C7F61132A79300EFF1D3 /* index.html */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text.html;
+		name = index.html;
+		path = /opt/git/radioapp/www/index.html;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {872, 546}}";
+			sepNavSelRange = "{880, 0}";
+			sepNavVisRange = "{101, 1265}";
+		};
+	};
+	EC18C7F71132A79300EFF1D3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC18C7F81132A79300EFF1D3 /* index.html */;
+		name = "index.html: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 982;
+		vrLoc = 0;
+	};
+	EC18C7F81132A79300EFF1D3 /* index.html */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text.html;
+		name = index.html;
+		path = /opt/git/radioapp/www/index.html;
+		sourceTree = "<absolute>";
+	};
+	EC2770031132A7C900EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC18C7F61132A79300EFF1D3 /* index.html */;
+		name = "index.html: 119";
+		rLen = 0;
+		rLoc = 945;
+		rType = 0;
+		vrLen = 575;
+		vrLoc = 3290;
+	};
+	EC27702B1132A82F00EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC18C7F61132A79300EFF1D3 /* index.html */;
+		name = "index.html: 125";
+		rLen = 0;
+		rLoc = 962;
+		rType = 0;
+		vrLen = 629;
+		vrLoc = 3656;
+	};
+	EC27702C1132A82F00EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC18C7F61132A79300EFF1D3 /* index.html */;
+		name = "index.html: 41";
+		rLen = 0;
+		rLoc = 945;
+		rType = 0;
+		vrLen = 1021;
+		vrLoc = 927;
+	};
+	EC27702F1132A83A00EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC18C7F61132A79300EFF1D3 /* index.html */;
+		name = "index.html: 32";
+		rLen = 0;
+		rLoc = 945;
+		rType = 0;
+		vrLen = 975;
+		vrLoc = 927;
+	};
+	EC2770321132A86A00EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC2770331132A86A00EC31D9 /* AudioStream.js */;
+		name = "AudioStream.js: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 659;
+		vrLoc = 1542;
+	};
+	EC2770331132A86A00EC31D9 /* AudioStream.js */ = {
+		isa = PBXFileReference;
+		name = AudioStream.js;
+		path = /opt/git/radioapp/www/js/AudioStream.js;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {872, 1014}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 821}";
+		};
+	};
+	EC2770341132A86A00EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC18C7F61132A79300EFF1D3 /* index.html */;
+		name = "index.html: 15";
+		rLen = 0;
+		rLoc = 892;
+		rType = 0;
+		vrLen = 1136;
+		vrLoc = 94;
+	};
+	EC2770351132A86A00EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC18C7F61132A79300EFF1D3 /* index.html */;
+		name = "index.html: 32";
+		rLen = 0;
+		rLoc = 945;
+		rType = 0;
+		vrLen = 983;
+		vrLoc = 927;
+	};
+	EC2770381132A88600EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC18C7F61132A79300EFF1D3 /* index.html */;
+		name = "index.html: 102";
+		rLen = 0;
+		rLoc = 945;
+		rType = 0;
+		vrLen = 558;
+		vrLoc = 3078;
+	};
+	EC27703D1132A91100EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC18C7F61132A79300EFF1D3 /* index.html */;
+		name = "index.html: 17";
+		rLen = 0;
+		rLoc = 945;
+		rType = 0;
+		vrLen = 978;
+		vrLoc = 466;
+	};
+	EC27703E1132A91100EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC2770331132A86A00EC31D9 /* AudioStream.js */;
+		name = "AudioStream.js: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 736;
+		vrLoc = 1465;
+	};
+	EC27703F1132A91100EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC2770331132A86A00EC31D9 /* AudioStream.js */;
+		name = "AudioStream.js: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 732;
+		vrLoc = 1465;
+	};
+	EC2770421132A92D00EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC2770331132A86A00EC31D9 /* AudioStream.js */;
+		name = "AudioStream.js: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 821;
+		vrLoc = 0;
+	};
+	EC2770431132A92D00EC31D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC18C7F61132A79300EFF1D3 /* index.html */;
+		name = "index.html: 15";
+		rLen = 0;
+		rLoc = 880;
+		rType = 0;
+		vrLen = 1265;
+		vrLoc = 101;
+	};
+}
