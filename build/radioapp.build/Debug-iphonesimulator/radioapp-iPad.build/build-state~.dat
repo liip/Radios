@@ -1,524 +1,0 @@
-Tradioapp-iPad
-v7
-r0
-t288532351.098288
-cCheck dependencies
-cProcessInfoPlistFile /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/Info.plist radioapp-Info.plist
-cPhaseScriptExecution "Copy PhoneGap Javascript" /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Script-EC18C7CC1132A77300EFF1D3.sh
-cPhaseScriptExecution "Touch www folder" /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Script-EC18C7CD1132A77300EFF1D3.sh
-cCpResource build/Debug-iphonesimulator/radioapp-iPad.app/www www
-cCpResource build/Debug-iphonesimulator/radioapp-iPad.app/VERSION /Users/chregu/Documents/PhoneGapLib/VERSION
-cCpResource build/Debug-iphonesimulator/radioapp-iPad.app/Default.png Default.png
-cCpResource build/Debug-iphonesimulator/radioapp-iPad.app/icon.png icon.png
-cCopyPlistFile /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/PhoneGap.plist PhoneGap.plist
-cCompileXIB /opt/git/radioapp/Resources-iPad/example.xib
-cProcessPCH /var/folders/KK/KKszNpFbEI0LToSFcAzfJ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/radioapp_Prefix-fxeknyshpvabszdckzofurjiyxof/radioapp_Prefix.pch.gch radioapp_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal/i386/main.o /opt/git/radioapp/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal/i386/radioappAppDelegate.o /opt/git/radioapp/Classes/radioappAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cLd /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/radioapp-iPad normal i386
-cGenerateDSYMFile /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app.dSYM /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/radioapp-iPad
-cTouch /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk
-c000000004B74031C0000000000000110
-t1265894172
-s272
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
-c000000004B6BA67F0000000000012140
-t1265346175
-s74048
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVFoundation.h
-c000000004B6BA67D00000000000000EB
-t1265346173
-s235
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/AddressBook.framework/AddressBook
-c000000004B6BB0EC000000000003E8A0
-t1265348844
-s256160
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/AddressBook.framework/Headers/ABAddressBook.h
-c000000004B6BB0E70000000000000A8C
-t1265348839
-s2700
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
-c000000004B6BC2EB00000000001252C0
-t1265353451
-s1200832
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/AddressBookUI.framework/Headers/AddressBookUI.h
-c000000004B6BC2D900000000000001D4
-t1265353433
-s468
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
-c000000004B6BA5BB00000000001A5FE0
-t1265345979
-s1728480
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioServices.h
-c000000004B6BA5A8000000000000E37C
-t1265345960
-s58236
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/CFNetwork.framework/CFNetwork
-c000000004B6BA59E00000000001255B0
-t1265345950
-s1201584
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-c000000004B6BA5E8000000000026F020
-t1265346024
-s2551840
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/CoreLocation.framework/CoreLocation
-c000000004B6BC047000000000005FCD0
-t1265352775
-s392400
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.h
-c000000004B6BC02F00000000000001AF
-t1265352751
-s431
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c000000004B6BA6030000000000288B20
-t1265346051
-s2657056
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c000000004B6BA5F60000000000001355
-t1265346038
-s4949
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
-c000000004B6BC639000000000010DFE0
-t1265354297
-s1105888
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
-c000000004B6BB35D000000000011BDC0
-t1265349469
-s1162688
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/SystemConfiguration.framework/SystemConfiguration
-c000000004B6BA5490000000000055570
-t1265345865
-s349552
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIDevice.h
-c000000004B6BC10400000000000011E5
-t1265352964
-s4581
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
-c000000004B6BC0FA000000000000098F
-t1265352954
-s2447
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UINavigationController.h
-c000000004B6BC0FF00000000000019A1
-t1265352959
-s6561
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITabBar.h
-c000000004B6BC1070000000000000BF1
-t1265352967
-s3057
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIToolbar.h
-c000000004B6BC0FC0000000000000704
-t1265352956
-s1796
-
-N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c000000004B6BC203000000000211A810
-t1265353219
-s34711568
-
-N/Users/chregu/Documents/PhoneGapLib/Classes/Contacts.h
-c000000004B7464540000000000000A53
-t1265919060
-s2643
-i<Foundation/Foundation.h>
-i<AddressBook/ABAddressBook.h>
-i<AddressBookUI/AddressBookUI.h>
-i"PhoneGapCommand.h"
-
-N/Users/chregu/Documents/PhoneGapLib/Classes/DebugConsole.h
-c000000004B7464540000000000000170
-t1265919060
-s368
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-i"PhoneGapCommand.h"
-
-N/Users/chregu/Documents/PhoneGapLib/Classes/Device.h
-c000000004B7464540000000000000141
-t1265919060
-s321
-i<UIKit/UIKit.h>
-i<UIKit/UIDevice.h>
-i"PhoneGapCommand.h"
-
-N/Users/chregu/Documents/PhoneGapLib/Classes/JSON/JSON.h
-c000000004B74645400000000000008F9
-t1265919060
-s2297
-i"SBJSON.h"
-i"NSObject+SBJSON.h"
-i"NSString+SBJSON.h"
-
-N/Users/chregu/Documents/PhoneGapLib/Classes/Location.h
-c000000004B7464540000000000000530
-t1265919060
-s1328
-i<UIKit/UIKit.h>
-i<CoreLocation/CoreLocation.h>
-i"PhoneGapCommand.h"
-
-N/Users/chregu/Documents/PhoneGapLib/Classes/PhoneGapCommand.h
-c000000004B74645400000000000002ED
-t1265919060
-s749
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/Users/chregu/Documents/PhoneGapLib/Classes/PhoneGapDelegate.h
-c000000004B74645400000000000006C7
-t1265919060
-s1735
-i<UIKit/UIKit.h>
-i<CoreLocation/CoreLocation.h>
-i<UIKit/UINavigationController.h>
-i"JSON/JSON.h"
-i"Location.h"
-i"Device.h"
-i"Sound.h"
-i"Contacts.h"
-i"DebugConsole.h"
-i"UIControls.h"
-
-N/Users/chregu/Documents/PhoneGapLib/Classes/PhoneGapViewController.h
-c000000004B746454000000000000029B
-t1265919060
-s667
-i<UIKit/UIKit.h>
-i<Foundation/Foundation.h>
-
-N/Users/chregu/Documents/PhoneGapLib/Classes/Sound.h
-c000000004B746454000000000000060C
-t1265919060
-s1548
-i<Foundation/Foundation.h>
-i<AudioToolbox/AudioServices.h>
-i<AVFoundation/AVFoundation.h>
-i"PhoneGapCommand.h"
-
-N/Users/chregu/Documents/PhoneGapLib/Classes/UIControls.h
-c000000004B746454000000000000066A
-t1265919060
-s1642
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-i<UIKit/UITabBar.h>
-i<UIKit/UIToolbar.h>
-i"PhoneGapCommand.h"
-
-N/Users/chregu/Documents/PhoneGapLib/VERSION
-c000000004B7464540000000000000005
-t1265919060
-s5
-
-N/Users/chregu/Documents/PhoneGapLib/build/Debug-iphonesimulator/libPhoneGapLib.a
-c000000004B7937DF00000000000E7678
-t1266235359
-s947832
-
-N/opt/git/radioapp/Classes/radioappAppDelegate.h
-c000000004B826F810000000000000103
-t1266839425
-s259
-i<UIKit/UIKit.h>
-i"PhoneGapDelegate.h"
-
-N/opt/git/radioapp/Classes/radioappAppDelegate.m
-c000000004B826F8100000000000007F2
-t1266839425
-s2034
-i"radioappAppDelegate.h"
-i"PhoneGapViewController.h"
-
-N/opt/git/radioapp/Default.png
-c000000004B826F810000000000000BAE
-t1266839425
-s2990
-
-N/opt/git/radioapp/PhoneGap.plist
-c000000004B826F81000000000000030F
-t1266839425
-s783
-
-N/opt/git/radioapp/Resources-iPad/example.xib
-c000000004B826FF4000000000000687E
-t1266839540
-s26750
-
-N/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app
-t1266839551
-s374
-
-N/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app.dSYM
-t1266839551
-s102
-
-N/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/Default.png
-t1266839550
-s2990
-
-N/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/Info.plist
-t1266839550
-s618
-
-N/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/PhoneGap.plist
-t1266839550
-s352
-
-N/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/PkgInfo
-t1266839550
-s8
-
-N/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/VERSION
-t1266839550
-s5
-
-N/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/example.nib
-t1266839550
-s2419
-
-N/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/icon.png
-t1266839550
-s7390
-
-N/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/radioapp-iPad
-t1266839551
-s264340
-
-N/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/www
-t1266839550
-s204
-
-N/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal/i386/main.o
-t1266839550
-s6084
-
-N/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal/i386/radioapp-iPad.LinkFileList
-c000000004B826FFE00000000000000E7
-t1266839550
-s231
-
-N/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal/i386/radioappAppDelegate.o
-t1266839550
-s42556
-
-N/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Script-EC18C7CC1132A77300EFF1D3.sh
-c000000004B826FFE00000000000000BE
-t1266839550
-s190
-
-N/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Script-EC18C7CD1132A77300EFF1D3.sh
-c000000004B826FFE0000000000000027
-t1266839550
-s39
-
-N/opt/git/radioapp/example.xib
-c000000004B826F8100000000000066EF
-t1266839425
-s26351
-
-N/opt/git/radioapp/icon.png
-c000000004B826F810000000000001CDE
-t1266839425
-s7390
-
-N/opt/git/radioapp/main.m
-c000000004B826F810000000000000179
-t1266839425
-s377
-i<UIKit/UIKit.h>
-
-N/opt/git/radioapp/radioapp_Prefix.pch
-c000000004B826F8100000000000000B9
-t1266839425
-s185
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-
-N/opt/git/radioapp/www
-c000000004B826FFE00000000000000CC
-t1266839550
-s204
-
-N/var/folders/KK/KKszNpFbEI0LToSFcAzfJ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/radioapp_Prefix-fxeknyshpvabszdckzofurjiyxof/radioapp_Prefix.pch.gch
-t1266839494
-s13756272
-
-Nradioapp-Info.plist
-c000000004B826F81000000000000038B
-t1266839425
-s907
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies288532350#288532350#0(0"0(0#1#0"4300907768#0"0#
-
-CCompileC build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal/i386/main.o /opt/git/radioapp/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s288532350.819333
-e288532350.909718
-r1
-xCompileC
-xbuild/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal/i386/main.o
-x/opt/git/radioapp/main.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@32"Compile /opt/git/radioapp/main.m288532350#288532350#0(0"0(0#0#24"/opt/git/radioapp/main.m4300907768#1752"    cd /opt/git/radioapp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/radioapp-iPad-generated-files.hmap -I/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/radioapp-iPad-own-target-headers.hmap -I/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/radioapp-iPad-all-target-headers.hmap -iquote /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/radioapp-iPad-project-headers.hmap -F/opt/git/radioapp/build/Debug-iphonesimulator -iquote/Users/chregu/Documents/PhoneGapLib/Classes -I/opt/git/radioapp/build/Debug-iphonesimulator/include -I/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/DerivedSources/i386 -I/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/DerivedSources -include /var/folders/KK/KKszNpFbEI0LToSFcAzfJ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/radioapp_Prefix-fxeknyshpvabszdckzofurjiyxof/radioapp_Prefix.pch -c /opt/git/radioapp/main.m -o /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal/i386/main.o0#
-
-CCompileC build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal/i386/radioappAppDelegate.o /opt/git/radioapp/Classes/radioappAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s288532350.820677
-e288532350.959721
-r1
-xCompileC
-xbuild/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal/i386/radioappAppDelegate.o
-x/opt/git/radioapp/Classes/radioappAppDelegate.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@55"Compile /opt/git/radioapp/Classes/radioappAppDelegate.m288532350#288532350#0(0"0(0#0#47"/opt/git/radioapp/Classes/radioappAppDelegate.m4300907768#1790"    cd /opt/git/radioapp    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/radioapp-iPad-generated-files.hmap -I/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/radioapp-iPad-own-target-headers.hmap -I/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/radioapp-iPad-all-target-headers.hmap -iquote /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/radioapp-iPad-project-headers.hmap -F/opt/git/radioapp/build/Debug-iphonesimulator -iquote/Users/chregu/Documents/PhoneGapLib/Classes -I/opt/git/radioapp/build/Debug-iphonesimulator/include -I/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/DerivedSources/i386 -I/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/DerivedSources -include /var/folders/KK/KKszNpFbEI0LToSFcAzfJ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/radioapp_Prefix-fxeknyshpvabszdckzofurjiyxof/radioapp_Prefix.pch -c /opt/git/radioapp/Classes/radioappAppDelegate.m -o /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal/i386/radioappAppDelegate.o0#
-
-CCompileXIB /opt/git/radioapp/Resources-iPad/example.xib
-s288532350.465995
-e288532350.819123
-r1
-xCompileXIB
-x/opt/git/radioapp/Resources-iPad/example.xib
-o/* com.apple.ibtool.document.warnings */
-o/opt/git/radioapp/Resources-iPad/example.xib:12: warning: The 'viewController' outlet of 'Radioapp App Delegate' is connected to 'Phone Gap View Controller' but 'viewController' is no longer defined on radioappAppDelegate.
-o/opt/git/radioapp/Resources-iPad/example.xib:12: warning: The 'window' outlet of 'Radioapp App Delegate' is connected to 'Window' but 'window' is no longer defined on radioappAppDelegate.
-o/opt/git/radioapp/Resources-iPad/example.xib:12: warning: The 'webView' outlet of 'Radioapp App Delegate' is connected to 'Web View' but 'webView' is no longer defined on radioappAppDelegate.
-o/opt/git/radioapp/Resources-iPad/example.xib:18: warning: The "Full Screen at Launch" property is not available on iPhone OS versions prior to 3.2.
-o/opt/git/radioapp/Resources-iPad/example.xib:8: warning: The 'webView' outlet of 'Phone Gap View Controller' is connected to 'Web View' but 'webView' is no longer defined on PhoneGapViewController.
-lSLF07#2@37"CompileXIB Resources-iPad/example.xib288532350#288532350#0(990"/* com.apple.ibtool.document.warnings *//opt/git/radioapp/Resources-iPad/example.xib:12: warning: The 'viewController' outlet of 'Radioapp App Delegate' is connected to 'Phone Gap View Controller' but 'viewController' is no longer defined on radioappAppDelegate./opt/git/radioapp/Resources-iPad/example.xib:12: warning: The 'window' outlet of 'Radioapp App Delegate' is connected to 'Window' but 'window' is no longer defined on radioappAppDelegate./opt/git/radioapp/Resources-iPad/example.xib:12: warning: The 'webView' outlet of 'Radioapp App Delegate' is connected to 'Web View' but 'webView' is no longer defined on radioappAppDelegate./opt/git/radioapp/Resources-iPad/example.xib:18: warning: The "Full Screen at Launch" property is not available on iPhone OS versions prior to 3.2./opt/git/radioapp/Resources-iPad/example.xib:8: warning: The 'webView' outlet of 'Phone Gap View Controller' is connected to 'Web View' but 'webView' is no longer defined on PhoneGapViewController.5(22@164"The 'viewController' outlet of 'Radioapp App Delegate' is connected to 'Phone Gap View Controller' but 'viewController' is no longer defined on radioappAppDelegate.288532350#18446744073709551615#0#0(6@44"/opt/git/radioapp/Resources-iPad/example.xib288532340#12#0#12#0#0"0(22@129"The 'window' outlet of 'Radioapp App Delegate' is connected to 'Window' but 'window' is no longer defined on radioappAppDelegate.288532350#18446744073709551615#0#0(6@44"/opt/git/radioapp/Resources-iPad/example.xib288532340#12#0#12#0#0"0(22@133"The 'webView' outlet of 'Radioapp App Delegate' is connected to 'Web View' but 'webView' is no longer defined on radioappAppDelegate.288532350#18446744073709551615#0#0(6@44"/opt/git/radioapp/Resources-iPad/example.xib288532340#12#0#12#0#0"0(22@89"The "Full Screen at Launch" property is not available on iPhone OS versions prior to 3.2.288532350#18446744073709551615#0#0(6@44"/opt/git/radioapp/Resources-iPad/example.xib288532340#18#0#18#0#0"0(22@140"The 'webView' outlet of 'Phone Gap View Controller' is connected to 'Web View' but 'webView' is no longer defined on PhoneGapViewController.288532350#18446744073709551615#0#0(6@44"/opt/git/radioapp/Resources-iPad/example.xib288532340#8#0#8#0#0"0(0#0#44"/opt/git/radioapp/Resources-iPad/example.xib4300907768#432"    cd /opt/git/radioapp    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.0    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/example.nib /opt/git/radioapp/Resources-iPad/example.xib0#
-
-CCompileXIB /opt/git/radioapp/example.xib
-r0
-
-CCopyPlistFile /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/PhoneGap.plist PhoneGap.plist
-s288532350.448362
-e288532350.503122
-r1
-xCopyPlistFile
-x/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/PhoneGap.plist
-xPhoneGap.plist
-lSLF07#2@19"Copy PhoneGap.plist288532350#288532350#0(0"0(0#0#32"/opt/git/radioapp/PhoneGap.plist4300907768#353"    cd /opt/git/radioapp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copyplist --convert binary1 PhoneGap.plist --outdir /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app0#
-
-CCpResource build/Debug-iphonesimulator/radioapp-iPad.app/Default.png Default.png
-s288532350.444454
-e288532350.456939
-r1
-xCpResource
-xbuild/Debug-iphonesimulator/radioapp-iPad.app/Default.png
-xDefault.png
-lSLF07#2@16"Copy Default.png288532350#288532350#0(0"0(0#0#29"/opt/git/radioapp/Default.png4300907768#398"    cd /opt/git/radioapp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /opt/git/radioapp/Default.png /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app0#
-
-CCpResource build/Debug-iphonesimulator/radioapp-iPad.app/VERSION /Users/chregu/Documents/PhoneGapLib/VERSION
-s288532350.439401
-e288532350.455974
-r1
-xCpResource
-xbuild/Debug-iphonesimulator/radioapp-iPad.app/VERSION
-x/Users/chregu/Documents/PhoneGapLib/VERSION
-lSLF07#2@48"Copy /Users/chregu/Documents/PhoneGapLib/VERSION288532350#288532350#0(0"0(0#0#43"/Users/chregu/Documents/PhoneGapLib/VERSION4300907768#412"    cd /opt/git/radioapp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/chregu/Documents/PhoneGapLib/VERSION /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app0#
-
-CCpResource build/Debug-iphonesimulator/radioapp-iPad.app/icon.png icon.png
-s288532350.446401
-e288532350.462286
-r1
-xCpResource
-xbuild/Debug-iphonesimulator/radioapp-iPad.app/icon.png
-xicon.png
-lSLF07#2@13"Copy icon.png288532350#288532350#0(0"0(0#0#26"/opt/git/radioapp/icon.png4300907768#395"    cd /opt/git/radioapp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /opt/git/radioapp/icon.png /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app0#
-
-CCpResource build/Debug-iphonesimulator/radioapp-iPad.app/www www
-s288532350.433972
-e288532350.465906
-r1
-xCpResource
-xbuild/Debug-iphonesimulator/radioapp-iPad.app/www
-xwww
-lSLF07#2@8"Copy www288532350#288532350#0(0"0(0#0#21"/opt/git/radioapp/www4300907768#390"    cd /opt/git/radioapp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /opt/git/radioapp/www /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app0#
-
-CGenerateDSYMFile /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app.dSYM /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/radioapp-iPad
-s288532351.025793
-e288532351.093055
-r1
-xGenerateDSYMFile
-x/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app.dSYM
-x/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/radioapp-iPad
-lSLF07#2@127"GenerateDSYMFile build/Debug-iphonesimulator/radioapp-iPad.app.dSYM build/Debug-iphonesimulator/radioapp-iPad.app/radioapp-iPad288532351#288532351#0(0"0(0#0#77"/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/radioapp-iPad4300907768#338"    cd /opt/git/radioapp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/radioapp-iPad -o /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app.dSYM0#
-
-CLd /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/radioapp-iPad normal i386
-s288532350.959820
-e288532351.025677
-r1
-xLd
-x/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/radioapp-iPad
-xnormal
-xi386
-lSLF07#2@82"Link /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/radioapp-iPad288532350#288532351#0(0"0(0#0#0"4300907768#1097"    cd /opt/git/radioapp    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -L/opt/git/radioapp/build/Debug-iphonesimulator -F/opt/git/radioapp/build/Debug-iphonesimulator -filelist /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal/i386/radioapp-iPad.LinkFileList -mmacosx-version-min=10.5 -all_load -Obj-C /Users/chregu/Documents/PhoneGapLib/build/Debug-iphonesimulator/libPhoneGapLib.a -framework Foundation -framework UIKit -framework CoreGraphics -framework AddressBook -framework AddressBookUI -framework AudioToolbox -framework AVFoundation -framework CFNetwork -framework CoreLocation -framework MediaPlayer -framework QuartzCore -framework SystemConfiguration -o /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/radioapp-iPad0#
-
-CPhaseScriptExecution "Copy PhoneGap Javascript" /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Script-EC18C7CC1132A77300EFF1D3.sh
-s288532350.380045
-e288532350.413353
-r1
-xPhaseScriptExecution
-xCopy PhoneGap Javascript
-x/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Script-EC18C7CC1132A77300EFF1D3.sh
-omake: Nothing to be done for `all'.
-ocp /Users/chregu/Documents/PhoneGapLib/javascripts/phonegap.js /opt/git/radioapp/www/phonegap.js
-lSLF07#2@50"Run custom shell script 'Copy PhoneGap Javascript'288532350#288532350#0(133"make: Nothing to be done for `all'.cp /Users/chregu/Documents/PhoneGapLib/javascripts/phonegap.js /opt/git/radioapp/www/phonegap.js2(13@36"make: Nothing to be done for `all'.288532350#0#36#0(1@0"0(13@97"cp /Users/chregu/Documents/PhoneGapLib/javascripts/phonegap.js /opt/git/radioapp/www/phonegap.js288532350#36#97#0(1@0"0(0#0#0"4300907768#16400"    cd /opt/git/radioapp    setenv ACTION build    setenv ALTERNATE_GROUP staff    setenv ALTERNATE_MODE u+w,go-w,a+rX    setenv ALTERNATE_OWNER chregu    setenv ALWAYS_SEARCH_USER_PATHS NO    setenv APPLE_INTERNAL_DEVELOPER_DIR /AppleInternal/Developer    setenv APPLE_INTERNAL_DIR /AppleInternal    setenv APPLE_INTERNAL_DOCUMENTATION_DIR /AppleInternal/Documentation    setenv APPLE_INTERNAL_LIBRARY_DIR /AppleInternal/Library    setenv APPLE_INTERNAL_TOOLS /AppleInternal/Developer/Tools    setenv APPLY_RULES_IN_COPY_FILES NO    setenv ARCHS i386    setenv ARCHS_STANDARD_32_BIT i386    setenv ARCHS_UNIVERSAL_IPHONE_OS i386    setenv BUILD_COMPONENTS "headers build"    setenv BUILD_DIR /opt/git/radioapp/build    setenv BUILD_ROOT /opt/git/radioapp/build    setenv BUILD_STYLE Debug    setenv BUILD_VARIANTS normal    setenv BUILT_PRODUCTS_DIR /opt/git/radioapp/build/Debug-iphonesimulator    setenv CACHE_ROOT /var/folders/KK/KKszNpFbEI0LToSFcAzfJ++++TI/-Caches-/com.apple.Xcode.501    setenv CCHROOT /var/folders/KK/KKszNpFbEI0LToSFcAzfJ++++TI/-Caches-/com.apple.Xcode.501    setenv CHMOD /bin/chmod    setenv CHOWN /usr/sbin/chown    setenv CLASS_FILE_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/JavaClasses    setenv CLEAN_PRECOMPS YES    setenv CLONE_HEADERS NO    setenv CODESIGNING_FOLDER_PATH /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app    setenv CODE_SIGN_CONTEXT_CLASS XCCodeSignContext    setenv COMMAND_MODE legacy    setenv COMPOSITE_SDK_DIRS /var/folders/KK/KKszNpFbEI0LToSFcAzfJ++++TI/-Caches-/com.apple.Xcode.501/CompositeSDKs    setenv COMPRESS_PNG_FILES YES    setenv CONFIGURATION Debug    setenv CONFIGURATION_BUILD_DIR /opt/git/radioapp/build/Debug-iphonesimulator    setenv CONFIGURATION_TEMP_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator    setenv CONTENTS_FOLDER_PATH radioapp-iPad.app    setenv COPYING_PRESERVES_HFS_DATA NO    setenv COPY_PHASE_STRIP NO    setenv COPY_RESOURCES_FROM_STATIC_FRAMEWORKS YES    setenv CP /bin/cp    setenv CURRENT_ARCH i386    setenv CURRENT_VARIANT normal    setenv DEAD_CODE_STRIPPING NO    setenv DEBUGGING_SYMBOLS YES    setenv DEBUG_INFORMATION_FORMAT dwarf-with-dsym    setenv DEPLOYMENT_LOCATION NO    setenv DEPLOYMENT_POSTPROCESSING NO    setenv DERIVED_FILES_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/DerivedSources    setenv DERIVED_FILE_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/DerivedSources    setenv DERIVED_SOURCES_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/DerivedSources    setenv DEVELOPER_APPLICATIONS_DIR /Developer/Applications    setenv DEVELOPER_BIN_DIR /Developer/usr/bin    setenv DEVELOPER_DIR /Developer    setenv DEVELOPER_FRAMEWORKS_DIR /Developer/Library/Frameworks    setenv DEVELOPER_FRAMEWORKS_DIR_QUOTED "\"/Developer/Library/Frameworks\""    setenv DEVELOPER_LIBRARY_DIR /Developer/Library    setenv DEVELOPER_SDK_DIR /Developer/SDKs    setenv DEVELOPER_TOOLS_DIR /Developer/Tools    setenv DEVELOPER_USR_DIR /Developer/usr    setenv DEVELOPMENT_LANGUAGE English    setenv DOCUMENTATION_FOLDER_PATH /Documentation    setenv DO_HEADER_SCANNING_IN_JAM NO    setenv DSTROOT /tmp/radioapp.dst    setenv DWARF_DSYM_FILE_NAME radioapp-iPad.app.dSYM    setenv DWARF_DSYM_FOLDER_PATH /opt/git/radioapp/build/Debug-iphonesimulator    setenv EFFECTIVE_PLATFORM_NAME -iphonesimulator    setenv ENABLE_HEADER_DEPENDENCIES YES    setenv ENABLE_OPENMP_SUPPORT NO    setenv EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS ".svn CVS"    setenv EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES "*.nib *.lproj *.framework *.gch (*) CVS .svn *.xcodeproj *.xcode *.pbproj *.pbxproj"    setenv EXECUTABLES_FOLDER_PATH radioapp-iPad.app/Executables    setenv EXECUTABLE_FOLDER_PATH radioapp-iPad.app    setenv EXECUTABLE_NAME radioapp-iPad    setenv EXECUTABLE_PATH radioapp-iPad.app/radioapp-iPad    setenv FILE_LIST /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects/LinkFileList    setenv FIXED_FILES_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/FixedFiles    setenv FRAMEWORKS_FOLDER_PATH radioapp-iPad.app/Frameworks    setenv FRAMEWORK_FLAG_PREFIX -framework    setenv FRAMEWORK_SEARCH_PATHS "\"/opt/git/radioapp/build/Debug-iphonesimulator\" "    setenv FRAMEWORK_VERSION A    setenv FULL_PRODUCT_NAME radioapp-iPad.app    setenv GCC3_VERSION 3.3    setenv GCC_C_LANGUAGE_STANDARD c99    setenv GCC_DYNAMIC_NO_PIC NO    setenv GCC_INLINES_ARE_PRIVATE_EXTERN YES    setenv GCC_OPTIMIZATION_LEVEL 0    setenv GCC_PFE_FILE_C_DIALECTS "c objective-c c++ objective-c++"    setenv GCC_PRECOMPILE_PREFIX_HEADER YES    setenv GCC_PREFIX_HEADER radioapp_Prefix.pch    setenv GCC_PRODUCT_TYPE_PREPROCESSOR_DEFINITIONS " __IPHONE_OS_VERSION_MIN_REQUIRED=30000"    setenv GCC_SYMBOLS_PRIVATE_EXTERN YES    setenv GCC_TREAT_WARNINGS_AS_ERRORS NO    setenv GCC_VERSION 4.2    setenv GCC_VERSION_IDENTIFIER __2    setenv GCC_WARN_ABOUT_RETURN_TYPE YES    setenv GCC_WARN_UNUSED_VARIABLE YES    setenv GENERATE_MASTER_OBJECT_FILE NO    setenv GENERATE_PKGINFO_FILE YES    setenv GENERATE_PROFILING_CODE NO    setenv GID 20    setenv GROUP staff    setenv HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT YES    setenv HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES YES    setenv HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS YES    setenv HEADERMAP_INCLUDES_PROJECT_HEADERS YES    setenv HEADER_SEARCH_PATHS "\"/opt/git/radioapp/build/Debug-iphonesimulator/include\" "    setenv ICONV /usr/bin/iconv    setenv INFOPLIST_EXPAND_BUILD_SETTINGS YES    setenv INFOPLIST_FILE radioapp-Info.plist    setenv INFOPLIST_OUTPUT_FORMAT binary    setenv INFOPLIST_PATH radioapp-iPad.app/Info.plist    setenv INFOPLIST_PREPROCESS NO    setenv INFOSTRINGS_PATH /InfoPlist.strings    setenv INSTALL_DIR /tmp/radioapp.dst/Users/chregu/Applications    setenv INSTALL_GROUP staff    setenv INSTALL_MODE_FLAG u+w,go-w,a+rX    setenv INSTALL_OWNER chregu    setenv INSTALL_PATH /Users/chregu/Applications    setenv INSTALL_ROOT /tmp/radioapp.dst    setenv IPHONEOS_DEPLOYMENT_TARGET 3.0    setenv JAVAC_DEFAULT_FLAGS "-J-Xms64m -J-XX:NewSize=4M -J-Dfile.encoding=UTF8"    setenv JAVA_APP_STUB /System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub    setenv JAVA_ARCHIVE_CLASSES YES    setenv JAVA_ARCHIVE_TYPE JAR    setenv JAVA_COMPILER /usr/bin/javac    setenv JAVA_FOLDER_PATH radioapp-iPad.app/Java    setenv JAVA_FRAMEWORK_RESOURCES_DIRS Resources    setenv JAVA_JAR_FLAGS cv    setenv JAVA_SOURCE_SUBDIR .    setenv JAVA_USE_DEPENDENCIES YES    setenv JAVA_ZIP_FLAGS -urg    setenv JIKES_DEFAULT_FLAGS "+E +OLDCSO"    setenv KEEP_PRIVATE_EXTERNS NO    setenv LD_GENERATE_MAP_FILE NO    setenv LD_MAP_FILE_PATH /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/radioapp-iPad-LinkMap-normal-i386.txt    setenv LD_OPENMP_FLAGS -fopenmp    setenv LEX /Developer/usr/bin/lex    setenv LIBRARY_FLAG_NOSPACE YES    setenv LIBRARY_FLAG_PREFIX -l    setenv LIBRARY_SEARCH_PATHS "\"/opt/git/radioapp/build/Debug-iphonesimulator\" "    setenv LINKER_DISPLAYS_MANGLED_NAMES NO    setenv LINK_FILE_LIST_normal_i386 /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal/i386/radioapp-iPad.LinkFileList    setenv LINK_WITH_STANDARD_LIBRARIES YES    setenv LOCAL_ADMIN_APPS_DIR /Applications/Utilities    setenv LOCAL_APPS_DIR /Applications    setenv LOCAL_DEVELOPER_DIR /Library/Developer    setenv LOCAL_LIBRARY_DIR /Library    setenv MACH_O_TYPE mh_execute    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv MAC_OS_X_VERSION_ACTUAL 1062    setenv MAC_OS_X_VERSION_MAJOR 1060    setenv MAC_OS_X_VERSION_MINOR 0602    setenv NATIVE_ARCH i386    setenv NATIVE_ARCH_32_BIT i386    setenv NATIVE_ARCH_64_BIT x86_64    setenv NATIVE_ARCH_ACTUAL x86_64    setenv NO_COMMON YES    setenv OBJECT_FILE_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects    setenv OBJECT_FILE_DIR_normal /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal    setenv OBJROOT /opt/git/radioapp/build    setenv ONLY_ACTIVE_ARCH NO    setenv OPTIMIZATION_LEVEL 0    setenv OS MACOS    setenv OSAC /usr/bin/osacompile    setenv OTHER_LDFLAGS "-all_load -Obj-C"    setenv PACKAGE_TYPE com.apple.package-type.wrapper.application    setenv PASCAL_STRINGS YES    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES "/usr/include /usr/local/include /System/Library/Frameworks /System/Library/PrivateFrameworks /Developer/Headers /Developer/SDKs /Developer/Platforms"    setenv PBDEVELOPMENTPLIST_PATH radioapp-iPad.app/pbdevelopment.plist    setenv PFE_FILE_C_DIALECTS objective-c    setenv PHONEGAPLIB /Users/chregu/Documents/PhoneGapLib    setenv PKGINFO_FILE_PATH /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/PkgInfo    setenv PKGINFO_PATH radioapp-iPad.app/PkgInfo    setenv PLATFORM_DEVELOPER_APPLICATIONS_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/Applications    setenv PLATFORM_DEVELOPER_BIN_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin    setenv PLATFORM_DEVELOPER_LIBRARY_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/Library    setenv PLATFORM_DEVELOPER_SDK_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs    setenv PLATFORM_DEVELOPER_TOOLS_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/Tools    setenv PLATFORM_DEVELOPER_USR_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/usr    setenv PLATFORM_DIR /Developer/Platforms/iPhoneSimulator.platform    setenv PLATFORM_NAME iphonesimulator    setenv PLIST_FILE_OUTPUT_FORMAT binary    setenv PLUGINS_FOLDER_PATH radioapp-iPad.app/PlugIns    setenv PREBINDING NO    setenv PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR YES    setenv PRECOMP_DESTINATION_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/PrefixHeaders    setenv PRESERVE_DEAD_CODE_INITS_AND_TERMS NO    setenv PRIVATE_HEADERS_FOLDER_PATH radioapp-iPad.app/PrivateHeaders    setenv PRODUCT_NAME radioapp-iPad    setenv PRODUCT_SETTINGS_PATH /opt/git/radioapp/radioapp-Info.plist    setenv PRODUCT_TYPE com.apple.product-type.application    setenv PROFILING_CODE NO    setenv PROJECT radioapp    setenv PROJECT_DERIVED_FILE_DIR /opt/git/radioapp/build/radioapp.build/DerivedSources    setenv PROJECT_DIR /opt/git/radioapp    setenv PROJECT_FILE_PATH /opt/git/radioapp/radioapp.xcodeproj    setenv PROJECT_NAME radioapp    setenv PROJECT_TEMP_DIR /opt/git/radioapp/build/radioapp.build    setenv PUBLIC_HEADERS_FOLDER_PATH radioapp-iPad.app/Headers    setenv RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS YES    setenv REMOVE_CVS_FROM_RESOURCES YES    setenv REMOVE_SVN_FROM_RESOURCES YES    setenv REZ_COLLECTOR_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/ResourceManagerResources    setenv REZ_OBJECTS_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/ResourceManagerResources/Objects    setenv REZ_SEARCH_PATHS "\"/opt/git/radioapp/build/Debug-iphonesimulator\" "    setenv RUN_CLANG_STATIC_ANALYZER NO    setenv SCAN_ALL_SOURCE_FILES_FOR_INCLUDES NO    setenv SCRIPTS_FOLDER_PATH radioapp-iPad.app/Scripts    setenv SCRIPT_INPUT_FILE_COUNT 0    setenv SCRIPT_OUTPUT_FILE_COUNT 0    setenv SDKROOT /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk    setenv SDK_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk    setenv SDK_NAME iphonesimulator3.2    setenv SED /usr/bin/sed    setenv SEPARATE_STRIP NO    setenv SEPARATE_SYMBOL_EDIT NO    setenv SET_DIR_MODE_OWNER_GROUP YES    setenv SET_FILE_MODE_OWNER_GROUP NO    setenv SHALLOW_BUNDLE YES    setenv SHARED_DERIVED_FILE_DIR /opt/git/radioapp/build/Debug-iphonesimulator/DerivedSources    setenv SHARED_FRAMEWORKS_FOLDER_PATH radioapp-iPad.app/SharedFrameworks    setenv SHARED_PRECOMPS_DIR /var/folders/KK/KKszNpFbEI0LToSFcAzfJ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders    setenv SHARED_SUPPORT_FOLDER_PATH radioapp-iPad.app/SharedSupport    setenv SKIP_INSTALL YES    setenv SOURCE_ROOT /opt/git/radioapp    setenv SRCROOT /opt/git/radioapp    setenv STANDARD_C_PLUS_PLUS_LIBRARY_TYPE dynamic    setenv STRINGS_FILE_OUTPUT_ENCODING binary    setenv STRIP_INSTALLED_PRODUCT YES    setenv STRIP_STYLE all    setenv SUPPORTED_DEVICE_FAMILIES "1 2"    setenv SYMBOL_REPOSITORY_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/SymbolRepositories    setenv SYMROOT /opt/git/radioapp/build    setenv SYSTEM_ADMIN_APPS_DIR /Applications/Utilities    setenv SYSTEM_APPS_DIR /Applications    setenv SYSTEM_CORE_SERVICES_DIR /System/Library/CoreServices    setenv SYSTEM_DEMOS_DIR /Applications/Extras    setenv SYSTEM_DEVELOPER_APPS_DIR /Developer/Applications    setenv SYSTEM_DEVELOPER_BIN_DIR /Developer/usr/bin    setenv SYSTEM_DEVELOPER_DEMOS_DIR "/Developer/Applications/Utilities/Built Examples"    setenv SYSTEM_DEVELOPER_DIR /Developer    setenv SYSTEM_DEVELOPER_DOC_DIR "/Developer/ADC Reference Library"    setenv SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR "/Developer/Applications/Graphics Tools"    setenv SYSTEM_DEVELOPER_JAVA_TOOLS_DIR "/Developer/Applications/Java Tools"    setenv SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR "/Developer/Applications/Performance Tools"    setenv SYSTEM_DEVELOPER_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes"    setenv SYSTEM_DEVELOPER_TOOLS /Developer/Tools    setenv SYSTEM_DEVELOPER_TOOLS_DOC_DIR "/Developer/ADC Reference Library/documentation/DeveloperTools"    setenv SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes/DeveloperTools"    setenv SYSTEM_DEVELOPER_USR_DIR /Developer/usr    setenv SYSTEM_DEVELOPER_UTILITIES_DIR /Developer/Applications/Utilities    setenv SYSTEM_DOCUMENTATION_DIR /Library/Documentation    setenv SYSTEM_LIBRARY_DIR /System/Library    setenv TARGETED_DEVICE_FAMILY 2    setenv TARGETNAME radioapp-iPad    setenv TARGET_BUILD_DIR /opt/git/radioapp/build/Debug-iphonesimulator    setenv TARGET_NAME radioapp-iPad    setenv TARGET_TEMP_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build    setenv TEMP_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build    setenv TEMP_FILES_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build    setenv TEMP_FILE_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build    setenv TEMP_ROOT /opt/git/radioapp/build    setenv UID 501    setenv UNLOCALIZED_RESOURCES_FOLDER_PATH radioapp-iPad.app    setenv UNSTRIPPED_PRODUCT NO    setenv USER chregu    setenv USER_APPS_DIR /Users/chregu/Applications    setenv USER_HEADER_SEARCH_PATHS /Users/chregu/Documents/PhoneGapLib/Classes    setenv USER_LIBRARY_DIR /Users/chregu/Library    setenv USE_DYNAMIC_NO_PIC YES    setenv USE_HEADERMAP YES    setenv USE_HEADER_SYMLINKS NO    setenv VALIDATE_PRODUCT NO    setenv VALID_ARCHS i386    setenv VERBOSE_PBXCP NO    setenv VERSIONPLIST_PATH radioapp-iPad.app/version.plist    setenv VERSION_INFO_BUILDER chregu    setenv VERSION_INFO_FILE radioapp-iPad_vers.c    setenv VERSION_INFO_STRING "\"@(#)PROGRAM:radioapp-iPad  PROJECT:radioapp-\""    setenv WRAPPER_EXTENSION app    setenv WRAPPER_NAME radioapp-iPad.app    setenv WRAPPER_SUFFIX .app    setenv XCODE_APP_SUPPORT_DIR /Developer/Library/Xcode    setenv XCODE_VERSION_ACTUAL 0322    setenv XCODE_VERSION_MAJOR 0300    setenv XCODE_VERSION_MINOR 0320    setenv YACC /Developer/usr/bin/yacc    /bin/sh -c /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Script-EC18C7CC1132A77300EFF1D3.sh0#
-
-CPhaseScriptExecution "Touch www folder" /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Script-EC18C7CD1132A77300EFF1D3.sh
-s288532350.413439
-e288532350.433540
-r1
-xPhaseScriptExecution
-xTouch www folder
-x/opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Script-EC18C7CD1132A77300EFF1D3.sh
-lSLF07#2@42"Run custom shell script 'Touch www folder'288532350#288532350#0(0"0(0#0#0"4300907768#16400"    cd /opt/git/radioapp    setenv ACTION build    setenv ALTERNATE_GROUP staff    setenv ALTERNATE_MODE u+w,go-w,a+rX    setenv ALTERNATE_OWNER chregu    setenv ALWAYS_SEARCH_USER_PATHS NO    setenv APPLE_INTERNAL_DEVELOPER_DIR /AppleInternal/Developer    setenv APPLE_INTERNAL_DIR /AppleInternal    setenv APPLE_INTERNAL_DOCUMENTATION_DIR /AppleInternal/Documentation    setenv APPLE_INTERNAL_LIBRARY_DIR /AppleInternal/Library    setenv APPLE_INTERNAL_TOOLS /AppleInternal/Developer/Tools    setenv APPLY_RULES_IN_COPY_FILES NO    setenv ARCHS i386    setenv ARCHS_STANDARD_32_BIT i386    setenv ARCHS_UNIVERSAL_IPHONE_OS i386    setenv BUILD_COMPONENTS "headers build"    setenv BUILD_DIR /opt/git/radioapp/build    setenv BUILD_ROOT /opt/git/radioapp/build    setenv BUILD_STYLE Debug    setenv BUILD_VARIANTS normal    setenv BUILT_PRODUCTS_DIR /opt/git/radioapp/build/Debug-iphonesimulator    setenv CACHE_ROOT /var/folders/KK/KKszNpFbEI0LToSFcAzfJ++++TI/-Caches-/com.apple.Xcode.501    setenv CCHROOT /var/folders/KK/KKszNpFbEI0LToSFcAzfJ++++TI/-Caches-/com.apple.Xcode.501    setenv CHMOD /bin/chmod    setenv CHOWN /usr/sbin/chown    setenv CLASS_FILE_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/JavaClasses    setenv CLEAN_PRECOMPS YES    setenv CLONE_HEADERS NO    setenv CODESIGNING_FOLDER_PATH /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app    setenv CODE_SIGN_CONTEXT_CLASS XCCodeSignContext    setenv COMMAND_MODE legacy    setenv COMPOSITE_SDK_DIRS /var/folders/KK/KKszNpFbEI0LToSFcAzfJ++++TI/-Caches-/com.apple.Xcode.501/CompositeSDKs    setenv COMPRESS_PNG_FILES YES    setenv CONFIGURATION Debug    setenv CONFIGURATION_BUILD_DIR /opt/git/radioapp/build/Debug-iphonesimulator    setenv CONFIGURATION_TEMP_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator    setenv CONTENTS_FOLDER_PATH radioapp-iPad.app    setenv COPYING_PRESERVES_HFS_DATA NO    setenv COPY_PHASE_STRIP NO    setenv COPY_RESOURCES_FROM_STATIC_FRAMEWORKS YES    setenv CP /bin/cp    setenv CURRENT_ARCH i386    setenv CURRENT_VARIANT normal    setenv DEAD_CODE_STRIPPING NO    setenv DEBUGGING_SYMBOLS YES    setenv DEBUG_INFORMATION_FORMAT dwarf-with-dsym    setenv DEPLOYMENT_LOCATION NO    setenv DEPLOYMENT_POSTPROCESSING NO    setenv DERIVED_FILES_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/DerivedSources    setenv DERIVED_FILE_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/DerivedSources    setenv DERIVED_SOURCES_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/DerivedSources    setenv DEVELOPER_APPLICATIONS_DIR /Developer/Applications    setenv DEVELOPER_BIN_DIR /Developer/usr/bin    setenv DEVELOPER_DIR /Developer    setenv DEVELOPER_FRAMEWORKS_DIR /Developer/Library/Frameworks    setenv DEVELOPER_FRAMEWORKS_DIR_QUOTED "\"/Developer/Library/Frameworks\""    setenv DEVELOPER_LIBRARY_DIR /Developer/Library    setenv DEVELOPER_SDK_DIR /Developer/SDKs    setenv DEVELOPER_TOOLS_DIR /Developer/Tools    setenv DEVELOPER_USR_DIR /Developer/usr    setenv DEVELOPMENT_LANGUAGE English    setenv DOCUMENTATION_FOLDER_PATH /Documentation    setenv DO_HEADER_SCANNING_IN_JAM NO    setenv DSTROOT /tmp/radioapp.dst    setenv DWARF_DSYM_FILE_NAME radioapp-iPad.app.dSYM    setenv DWARF_DSYM_FOLDER_PATH /opt/git/radioapp/build/Debug-iphonesimulator    setenv EFFECTIVE_PLATFORM_NAME -iphonesimulator    setenv ENABLE_HEADER_DEPENDENCIES YES    setenv ENABLE_OPENMP_SUPPORT NO    setenv EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS ".svn CVS"    setenv EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES "*.nib *.lproj *.framework *.gch (*) CVS .svn *.xcodeproj *.xcode *.pbproj *.pbxproj"    setenv EXECUTABLES_FOLDER_PATH radioapp-iPad.app/Executables    setenv EXECUTABLE_FOLDER_PATH radioapp-iPad.app    setenv EXECUTABLE_NAME radioapp-iPad    setenv EXECUTABLE_PATH radioapp-iPad.app/radioapp-iPad    setenv FILE_LIST /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects/LinkFileList    setenv FIXED_FILES_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/FixedFiles    setenv FRAMEWORKS_FOLDER_PATH radioapp-iPad.app/Frameworks    setenv FRAMEWORK_FLAG_PREFIX -framework    setenv FRAMEWORK_SEARCH_PATHS "\"/opt/git/radioapp/build/Debug-iphonesimulator\" "    setenv FRAMEWORK_VERSION A    setenv FULL_PRODUCT_NAME radioapp-iPad.app    setenv GCC3_VERSION 3.3    setenv GCC_C_LANGUAGE_STANDARD c99    setenv GCC_DYNAMIC_NO_PIC NO    setenv GCC_INLINES_ARE_PRIVATE_EXTERN YES    setenv GCC_OPTIMIZATION_LEVEL 0    setenv GCC_PFE_FILE_C_DIALECTS "c objective-c c++ objective-c++"    setenv GCC_PRECOMPILE_PREFIX_HEADER YES    setenv GCC_PREFIX_HEADER radioapp_Prefix.pch    setenv GCC_PRODUCT_TYPE_PREPROCESSOR_DEFINITIONS " __IPHONE_OS_VERSION_MIN_REQUIRED=30000"    setenv GCC_SYMBOLS_PRIVATE_EXTERN YES    setenv GCC_TREAT_WARNINGS_AS_ERRORS NO    setenv GCC_VERSION 4.2    setenv GCC_VERSION_IDENTIFIER __2    setenv GCC_WARN_ABOUT_RETURN_TYPE YES    setenv GCC_WARN_UNUSED_VARIABLE YES    setenv GENERATE_MASTER_OBJECT_FILE NO    setenv GENERATE_PKGINFO_FILE YES    setenv GENERATE_PROFILING_CODE NO    setenv GID 20    setenv GROUP staff    setenv HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT YES    setenv HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES YES    setenv HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS YES    setenv HEADERMAP_INCLUDES_PROJECT_HEADERS YES    setenv HEADER_SEARCH_PATHS "\"/opt/git/radioapp/build/Debug-iphonesimulator/include\" "    setenv ICONV /usr/bin/iconv    setenv INFOPLIST_EXPAND_BUILD_SETTINGS YES    setenv INFOPLIST_FILE radioapp-Info.plist    setenv INFOPLIST_OUTPUT_FORMAT binary    setenv INFOPLIST_PATH radioapp-iPad.app/Info.plist    setenv INFOPLIST_PREPROCESS NO    setenv INFOSTRINGS_PATH /InfoPlist.strings    setenv INSTALL_DIR /tmp/radioapp.dst/Users/chregu/Applications    setenv INSTALL_GROUP staff    setenv INSTALL_MODE_FLAG u+w,go-w,a+rX    setenv INSTALL_OWNER chregu    setenv INSTALL_PATH /Users/chregu/Applications    setenv INSTALL_ROOT /tmp/radioapp.dst    setenv IPHONEOS_DEPLOYMENT_TARGET 3.0    setenv JAVAC_DEFAULT_FLAGS "-J-Xms64m -J-XX:NewSize=4M -J-Dfile.encoding=UTF8"    setenv JAVA_APP_STUB /System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub    setenv JAVA_ARCHIVE_CLASSES YES    setenv JAVA_ARCHIVE_TYPE JAR    setenv JAVA_COMPILER /usr/bin/javac    setenv JAVA_FOLDER_PATH radioapp-iPad.app/Java    setenv JAVA_FRAMEWORK_RESOURCES_DIRS Resources    setenv JAVA_JAR_FLAGS cv    setenv JAVA_SOURCE_SUBDIR .    setenv JAVA_USE_DEPENDENCIES YES    setenv JAVA_ZIP_FLAGS -urg    setenv JIKES_DEFAULT_FLAGS "+E +OLDCSO"    setenv KEEP_PRIVATE_EXTERNS NO    setenv LD_GENERATE_MAP_FILE NO    setenv LD_MAP_FILE_PATH /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/radioapp-iPad-LinkMap-normal-i386.txt    setenv LD_OPENMP_FLAGS -fopenmp    setenv LEX /Developer/usr/bin/lex    setenv LIBRARY_FLAG_NOSPACE YES    setenv LIBRARY_FLAG_PREFIX -l    setenv LIBRARY_SEARCH_PATHS "\"/opt/git/radioapp/build/Debug-iphonesimulator\" "    setenv LINKER_DISPLAYS_MANGLED_NAMES NO    setenv LINK_FILE_LIST_normal_i386 /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal/i386/radioapp-iPad.LinkFileList    setenv LINK_WITH_STANDARD_LIBRARIES YES    setenv LOCAL_ADMIN_APPS_DIR /Applications/Utilities    setenv LOCAL_APPS_DIR /Applications    setenv LOCAL_DEVELOPER_DIR /Library/Developer    setenv LOCAL_LIBRARY_DIR /Library    setenv MACH_O_TYPE mh_execute    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv MAC_OS_X_VERSION_ACTUAL 1062    setenv MAC_OS_X_VERSION_MAJOR 1060    setenv MAC_OS_X_VERSION_MINOR 0602    setenv NATIVE_ARCH i386    setenv NATIVE_ARCH_32_BIT i386    setenv NATIVE_ARCH_64_BIT x86_64    setenv NATIVE_ARCH_ACTUAL x86_64    setenv NO_COMMON YES    setenv OBJECT_FILE_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects    setenv OBJECT_FILE_DIR_normal /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Objects-normal    setenv OBJROOT /opt/git/radioapp/build    setenv ONLY_ACTIVE_ARCH NO    setenv OPTIMIZATION_LEVEL 0    setenv OS MACOS    setenv OSAC /usr/bin/osacompile    setenv OTHER_LDFLAGS "-all_load -Obj-C"    setenv PACKAGE_TYPE com.apple.package-type.wrapper.application    setenv PASCAL_STRINGS YES    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES "/usr/include /usr/local/include /System/Library/Frameworks /System/Library/PrivateFrameworks /Developer/Headers /Developer/SDKs /Developer/Platforms"    setenv PBDEVELOPMENTPLIST_PATH radioapp-iPad.app/pbdevelopment.plist    setenv PFE_FILE_C_DIALECTS objective-c    setenv PHONEGAPLIB /Users/chregu/Documents/PhoneGapLib    setenv PKGINFO_FILE_PATH /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/PkgInfo    setenv PKGINFO_PATH radioapp-iPad.app/PkgInfo    setenv PLATFORM_DEVELOPER_APPLICATIONS_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/Applications    setenv PLATFORM_DEVELOPER_BIN_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin    setenv PLATFORM_DEVELOPER_LIBRARY_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/Library    setenv PLATFORM_DEVELOPER_SDK_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs    setenv PLATFORM_DEVELOPER_TOOLS_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/Tools    setenv PLATFORM_DEVELOPER_USR_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/usr    setenv PLATFORM_DIR /Developer/Platforms/iPhoneSimulator.platform    setenv PLATFORM_NAME iphonesimulator    setenv PLIST_FILE_OUTPUT_FORMAT binary    setenv PLUGINS_FOLDER_PATH radioapp-iPad.app/PlugIns    setenv PREBINDING NO    setenv PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR YES    setenv PRECOMP_DESTINATION_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/PrefixHeaders    setenv PRESERVE_DEAD_CODE_INITS_AND_TERMS NO    setenv PRIVATE_HEADERS_FOLDER_PATH radioapp-iPad.app/PrivateHeaders    setenv PRODUCT_NAME radioapp-iPad    setenv PRODUCT_SETTINGS_PATH /opt/git/radioapp/radioapp-Info.plist    setenv PRODUCT_TYPE com.apple.product-type.application    setenv PROFILING_CODE NO    setenv PROJECT radioapp    setenv PROJECT_DERIVED_FILE_DIR /opt/git/radioapp/build/radioapp.build/DerivedSources    setenv PROJECT_DIR /opt/git/radioapp    setenv PROJECT_FILE_PATH /opt/git/radioapp/radioapp.xcodeproj    setenv PROJECT_NAME radioapp    setenv PROJECT_TEMP_DIR /opt/git/radioapp/build/radioapp.build    setenv PUBLIC_HEADERS_FOLDER_PATH radioapp-iPad.app/Headers    setenv RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS YES    setenv REMOVE_CVS_FROM_RESOURCES YES    setenv REMOVE_SVN_FROM_RESOURCES YES    setenv REZ_COLLECTOR_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/ResourceManagerResources    setenv REZ_OBJECTS_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/ResourceManagerResources/Objects    setenv REZ_SEARCH_PATHS "\"/opt/git/radioapp/build/Debug-iphonesimulator\" "    setenv RUN_CLANG_STATIC_ANALYZER NO    setenv SCAN_ALL_SOURCE_FILES_FOR_INCLUDES NO    setenv SCRIPTS_FOLDER_PATH radioapp-iPad.app/Scripts    setenv SCRIPT_INPUT_FILE_COUNT 0    setenv SCRIPT_OUTPUT_FILE_COUNT 0    setenv SDKROOT /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk    setenv SDK_DIR /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk    setenv SDK_NAME iphonesimulator3.2    setenv SED /usr/bin/sed    setenv SEPARATE_STRIP NO    setenv SEPARATE_SYMBOL_EDIT NO    setenv SET_DIR_MODE_OWNER_GROUP YES    setenv SET_FILE_MODE_OWNER_GROUP NO    setenv SHALLOW_BUNDLE YES    setenv SHARED_DERIVED_FILE_DIR /opt/git/radioapp/build/Debug-iphonesimulator/DerivedSources    setenv SHARED_FRAMEWORKS_FOLDER_PATH radioapp-iPad.app/SharedFrameworks    setenv SHARED_PRECOMPS_DIR /var/folders/KK/KKszNpFbEI0LToSFcAzfJ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders    setenv SHARED_SUPPORT_FOLDER_PATH radioapp-iPad.app/SharedSupport    setenv SKIP_INSTALL YES    setenv SOURCE_ROOT /opt/git/radioapp    setenv SRCROOT /opt/git/radioapp    setenv STANDARD_C_PLUS_PLUS_LIBRARY_TYPE dynamic    setenv STRINGS_FILE_OUTPUT_ENCODING binary    setenv STRIP_INSTALLED_PRODUCT YES    setenv STRIP_STYLE all    setenv SUPPORTED_DEVICE_FAMILIES "1 2"    setenv SYMBOL_REPOSITORY_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/SymbolRepositories    setenv SYMROOT /opt/git/radioapp/build    setenv SYSTEM_ADMIN_APPS_DIR /Applications/Utilities    setenv SYSTEM_APPS_DIR /Applications    setenv SYSTEM_CORE_SERVICES_DIR /System/Library/CoreServices    setenv SYSTEM_DEMOS_DIR /Applications/Extras    setenv SYSTEM_DEVELOPER_APPS_DIR /Developer/Applications    setenv SYSTEM_DEVELOPER_BIN_DIR /Developer/usr/bin    setenv SYSTEM_DEVELOPER_DEMOS_DIR "/Developer/Applications/Utilities/Built Examples"    setenv SYSTEM_DEVELOPER_DIR /Developer    setenv SYSTEM_DEVELOPER_DOC_DIR "/Developer/ADC Reference Library"    setenv SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR "/Developer/Applications/Graphics Tools"    setenv SYSTEM_DEVELOPER_JAVA_TOOLS_DIR "/Developer/Applications/Java Tools"    setenv SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR "/Developer/Applications/Performance Tools"    setenv SYSTEM_DEVELOPER_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes"    setenv SYSTEM_DEVELOPER_TOOLS /Developer/Tools    setenv SYSTEM_DEVELOPER_TOOLS_DOC_DIR "/Developer/ADC Reference Library/documentation/DeveloperTools"    setenv SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes/DeveloperTools"    setenv SYSTEM_DEVELOPER_USR_DIR /Developer/usr    setenv SYSTEM_DEVELOPER_UTILITIES_DIR /Developer/Applications/Utilities    setenv SYSTEM_DOCUMENTATION_DIR /Library/Documentation    setenv SYSTEM_LIBRARY_DIR /System/Library    setenv TARGETED_DEVICE_FAMILY 2    setenv TARGETNAME radioapp-iPad    setenv TARGET_BUILD_DIR /opt/git/radioapp/build/Debug-iphonesimulator    setenv TARGET_NAME radioapp-iPad    setenv TARGET_TEMP_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build    setenv TEMP_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build    setenv TEMP_FILES_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build    setenv TEMP_FILE_DIR /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build    setenv TEMP_ROOT /opt/git/radioapp/build    setenv UID 501    setenv UNLOCALIZED_RESOURCES_FOLDER_PATH radioapp-iPad.app    setenv UNSTRIPPED_PRODUCT NO    setenv USER chregu    setenv USER_APPS_DIR /Users/chregu/Applications    setenv USER_HEADER_SEARCH_PATHS /Users/chregu/Documents/PhoneGapLib/Classes    setenv USER_LIBRARY_DIR /Users/chregu/Library    setenv USE_DYNAMIC_NO_PIC YES    setenv USE_HEADERMAP YES    setenv USE_HEADER_SYMLINKS NO    setenv VALIDATE_PRODUCT NO    setenv VALID_ARCHS i386    setenv VERBOSE_PBXCP NO    setenv VERSIONPLIST_PATH radioapp-iPad.app/version.plist    setenv VERSION_INFO_BUILDER chregu    setenv VERSION_INFO_FILE radioapp-iPad_vers.c    setenv VERSION_INFO_STRING "\"@(#)PROGRAM:radioapp-iPad  PROJECT:radioapp-\""    setenv WRAPPER_EXTENSION app    setenv WRAPPER_NAME radioapp-iPad.app    setenv WRAPPER_SUFFIX .app    setenv XCODE_APP_SUPPORT_DIR /Developer/Library/Xcode    setenv XCODE_VERSION_ACTUAL 0322    setenv XCODE_VERSION_MAJOR 0300    setenv XCODE_VERSION_MINOR 0320    setenv YACC /Developer/usr/bin/yacc    /bin/sh -c /opt/git/radioapp/build/radioapp.build/Debug-iphonesimulator/radioapp-iPad.build/Script-EC18C7CD1132A77300EFF1D3.sh0#
-
-CProcessInfoPlistFile /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/Info.plist radioapp-Info.plist
-s288532350.376818
-e288532350.379951
-r1
-xProcessInfoPlistFile
-x/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/Info.plist
-xradioapp-Info.plist
-lSLF07#2@27"Process radioapp-Info.plist288532350#288532350#0(0"0(0#0#37"/opt/git/radioapp/radioapp-Info.plist4300907768#429"    cd /opt/git/radioapp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility radioapp-Info.plist -genpkginfo /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app/Info.plist0#
-
-CProcessPCH /var/folders/KK/KKszNpFbEI0LToSFcAzfJ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/radioapp_Prefix-fxeknyshpvabszdckzofurjiyxof/radioapp_Prefix.pch.gch radioapp_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-r0
-
-CTouch /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app
-s288532351.093133
-e288532351.098147
-r1
-xTouch
-x/opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app
-lSLF07#2@69"Touch /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app288532351#288532351#0(0"0(0#0#0"4300907768#242"    cd /opt/git/radioapp    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /opt/git/radioapp/build/Debug-iphonesimulator/radioapp-iPad.app0#
-
