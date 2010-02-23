@@ -2,8 +2,15 @@ INSTALL
 =======
 
 
-- get the plugins branch of chregu's fork of Phonegap at http://github.com/chregu/phonegap-iphone with
+- get and installthe plugins branch of chregu's fork of Phonegap at http://github.com/chregu/phonegap-iphone with
+    
     git clone -b plugins git://github.com/chregu/phonegap-iphone.git
-- install it
+    cd phonegap-iphone
+    make
+    open  PhoneGapLibInstaller.pkg
+
 - Make sure PHONEGAPLIB points to this (Preferences ... -> Source Trees)
 - try to compile this project
+- open the radioapp xcode project
+- change the target to "radioapp-iPad"
+- build & run
