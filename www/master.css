@@ -49,6 +49,7 @@ body {
 	background-color: white;
 	width: 280px;
 	min-height: 100%;
+	-webkit-box-shadow: 1px 0 5px rgba(0, 0, 0, 0.3);
 }
 
 #search {
@@ -67,15 +68,13 @@ body {
 
 
 ul {
-	font-size: 20px;             /* All text content is 20 pixels */
+	font-size: 20px;
 	font-family: Helvetica;
 	font-weight: bold;
 	color: black;
-	
-	margin: 0;               /* The list fills the whole iPhone screen */
+	margin: 0;
 	padding: 0;
-	
-	width: 280px;           /* Each cell is 320 pixels wide */
+	width: 280px;
 	background-color: white;
 }
 
@@ -111,7 +110,8 @@ li:first-child {
 
 #title {
 	background-color: rgba(255, 255, 255, 0.85);
-	/*background-image: url('images/background.png');*/
+	background-image: url('images/shadow.png');
+	background-repeat: repeat-y;
 	margin-left: 280px;
 	height: 60px;
 	padding: 10px 0 5px 70px;
