@@ -20,6 +20,11 @@ function onDeviceReady()
     }
 }
 
+function touchMove(event) {
+	// Prevent scrolling on this element
+	event.preventDefault();
+}
+
 function playSound() {
     plugins.AudioStream.play("http://zlz-stream11.streamserver.ch/1/drs3/mp3_128");
 }
