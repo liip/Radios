@@ -1,7 +1,7 @@
 function onMetaDataChangeSuccess(data) {
     if(data) {
         var splits=data.split("-");
-        document.getElementById("now_playing").innerHTML = data;
+        //document.getElementById("now_playing").innerHTML = data;
         radioapp_displayArtist(splits[0], splits[1], data);
     }
 }
@@ -41,11 +41,13 @@ function touchMove(event) {
 	// event.preventDefault();
 }
 
-function playSound() {
- 
-    plugins.AudioStream.play("http://zlz-stream11.streamserver.ch/1/drs3/mp3_128");
-  
-}
+function playSound(url) {
+    if (!url) {
+        plugins.AudioStream.play("http://zlz-stream11.streamserver.ch/1/drs3/mp3_128");
+    } else {
+        plugins.AudioStream.play(url);
+    }
+    }
 
 
 function stopSound() {

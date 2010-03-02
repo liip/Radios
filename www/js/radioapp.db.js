@@ -11,7 +11,9 @@ RA.db = function() {
   
   var defaultStations = [
 [ "DRS 3", "http://zlz-stream11.streamserver.ch/1/drs3/mp3_128"],
-[ "DRS 4", "http://liip.ch"]
+[ "DRS 4", "http://liip.ch"],
+[ "Virus", "http://zlz-stream11.streamserver.ch/1/drsvirus/mp3_128"]
+
 ];
   
   var ERR_NONDB = 0;
@@ -161,7 +163,8 @@ function populateNav() {
         var id = this.getAttribute('id').split('-')[1]; 
         RA.db.getStation(id, function(station) {
           ev.target.appendChild(playing);
-          alert("Tune into: " + station.stream);
+                         debug.log(station.stream);
+          playSound(station.stream);
         }, true);
         
       };
