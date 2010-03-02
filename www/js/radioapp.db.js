@@ -141,6 +141,11 @@ function populateNav() {
   RA.db.getStations(function(stations) {
     var ul = document.createElement('ul');
     var li, txt;
+    var playing = document.createElement('span');
+    var playingOn = document.createTextNode('On');
+    playing.setAttribute('class', 'playing');
+    playing.appendChild(playingOn);
+    
     for( var i=0; i<stations.length; ++i ) {
       console.log(stations.item(i).name);
       li = document.createElement('li');
@@ -150,6 +155,7 @@ function populateNav() {
       li.onclick = function(ev) { 
         var id = this.getAttribute('id').split('-')[1]; 
         RA.db.getStation(id, function(station) {
+          ev.target.appendChild(playing);
           alert("Tune into: " + station.stream);
         }, true);
       };
