@@ -14,13 +14,13 @@ body {
 #header {
 	height: 82px;
 	background-image: url('images/header.png');
+	position: relative;
 }
 
 #header #logo {
 	margin: 0;
 	color: white;
 	content: url('images/logo.png'), contents;
-	float: left;
 }
 
 #header #mic {
@@ -31,10 +31,16 @@ body {
 }
 
 #header #now_container {
+	position: absolute;
+	top: 43px;
+	left: 350px;
 	color: white;
 	font-style: italic;
-	padding-top: 43px;
-	padding-left: 350px;
+	width: 50%;
+	margin-right: 300px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 #sidebar {
