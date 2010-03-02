@@ -15,7 +15,7 @@ function onDeviceReady()
         plugins.AudioStream.onMetaDataChange(function(data) {if(data) {
                 var splits=data.split("-");
                 document.getElementById("now_playing").innerHTML = data;
-        radioapp_displayArtist(splits[0], splits[1]);}});
+        radioapp_displayArtist(splits[0], splits[1], data);}});
         playSound();
     }
 }
@@ -34,63 +34,51 @@ function stopSound() {
     plugins.AudioStream.stop();
 }
 
-function radioapp_displayArtist(artist, song) {
+function radioapp_displayArtist(artist, song, full) {
 
-    lastfm.artist.getInfo({artist:  artist, lang: 'de'}, {success: function(data){
-            document.getElementById("artist_name").innerHTML = data.artist.name;
-            document.getElementById("artist_bio").innerHTML = data.artist.bio.summary;
-            console.log(data.artist);
-            //    document.getElementById("artist_bio_long").innerHTML = data.artist.bio.content;
-            if(data.artist.image[3] && data.artist.image[4]['#text'])  {
-                document.getElementById("artist_image").src = data.artist.image[4]['#text'];
-            } else {
-                document.getElementById("artist_image").src = "";
-            }
-            var simi = '';
-            if (data.artist.similar && data.artist.similar.artist) {
-                similar = data.artist.similar.artist;
-                var simi = '<i>Similar Artists:</i> ';
-                for (var i = 0; i < similar.length; i++) {
-                    simi += '' + similar[i].name + ', ';
-                    
-                }
-            }
-            document.getElementById("similar").innerHTML = simi;
-            simi = '';
-            if (data.artist.tags && data.artist.tags.tag) {
-                var tags = data.artist.tags.tag;
-                
-                simi = '<i>Tags:</i> ';
-                for (var i = 0; i < tags.length; i++) {
-                    simi += '' + tags[i].name + ', ';
-                }
-            }
-            
-            document.getElementById("tags").innerHTML = simi;
-            
-            lastfm.artist.getImages({artist:data.artist.name}, {success: function(foo) {
-                    console.log(foo);
-            }
-            }
-            );
-    }, error: function(code, message){
-        lastfm.artist.search({artist:  artist}, {success: function(data){
-                if(data.results.artistmatches.artist && data.results.artistmatches.artist[0]) {
-                    radioapp_displayArtist(data.results.artistmatches.artist[0].name, song);
-                }
-        }});
-    }});
-	
-	
-    lastfm.track.getInfo({artist:  artist, track: song}, {success: function(data){
-		document.getElementById("song_name").innerHTML = data.track.name;
+	lastfm.track.getInfo({artist:  artist, track: song}, {success: function(data){
+		
+		document.getElementById("song_name").innerHTML = 'mit ' + data.track.name;
+		
+		lastfm.artist.getInfo({artist:  artist, lang: 'de'}, {success: function(data){
+		
+			document.getElementById("artist_name").innerHTML = data.artist.name;
+		   	document.getElementById("artist_bio").innerHTML = data.artist.bio.summary;
+		
+			console.log(data.artist);
+			
+		   	lastfm.artist.getImages({artist: data.artist.name}, {success: function(data) {
+		   		for (i = 0; i <= data.images.image.length; i++) {
+		   			var image = data.images.image[i].sizes.size[0];
+		   			if (image['width'] > image['height']) {
+		   				document.getElementById("artist_image").src = image['#text'];
+		   				break;
+		   			}
+		   		}
+			}, error: function(code, message) {
+				if(data.artist.image[4] && data.artist.image[4]['#text']) {
+					document.getElementById("artist_image").src = data.artist.image[4]['#text'];
+				} else {
+					document.getElementById("artist_image").src = "";
+				}
+			}});
+		}, error: function(code, message){
+			// Ignore
+		}});
 	}, error: function(code, message){
 		lastfm.track.search({artist:  artist, track: song}, {success: function(data){
 			if(data.results.trackmatches.track && data.results.artistmatches.track[0]) {
-				radioapp_displayArtist(data.results.artistmatches.track[0].artist, ata.results.artistmatches.track[0].name);
+				radioapp_displayArtist(data.results.artistmatches.track[0].artist, ata.results.artistmatches.track[0].name, full);
+			} else {
+				document.getElementById("artist_name").innerHTML = 'DRS 3';
+				document.getElementById("song_name").innerHTML = full;
 			}
 		}});			 
 	}});
+	
+    
+	
+	
     
 }
 

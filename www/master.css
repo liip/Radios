@@ -127,6 +127,10 @@ li:first-child {
 	font-size: 26px;
 	letter-spacing: -0.5px;
 	margin: 0;
+	width: 90%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 #song_name {
@@ -134,6 +138,10 @@ li:first-child {
 	font-size: 19px;
 	letter-spacing: -0.5px;
 	margin: 0;
+	width: 90%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 #image {
