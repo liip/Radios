@@ -8,37 +8,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.64">
     
     <link rel="stylesheet" href="screensaver.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="animation.css" type="text/css" media="screen" charset="utf-8">
     <!-- The Leaves.js file creates the leaves -->
-    <script src="screensaver.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8" src="../phonegap.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/lastfm.api.md5.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/lastfm.api.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/lastfm.api.cache.js"></script>
+
+<script type="text/javascript" charset="utf-8" src="../js/radioapp.js"></script>
+<script type="text/javascript" charset="utf-8" src="screensaver.js"></script>
   </head>
-  <body onload="drawBackground();">
-    <canvas id="background" width="1024px" height="768px"></canvas>
-    <div class="box" id="radioname">
-      <p>DRS 3</p>
-    </div>
-    <div class="box" id="songinfo">
-      <p id="artist">The White Stripes</p>
-      <p id="song">Icky Thumb</p>
-    </div>
-    <div id="imgContainer">
-      <div class="image" id="image1">
-        <img src="./images/TheWhiteStripes1.jpg" />
+  <body>
+      <canvas id="background" width="1024px" height="1024px"></canvas>
+      <div class="box" id="radioname">
+        <p>DRS 3</p>
       </div>
-      <div class="image" id="image2">
-        <img src="./images/TheWhiteStripes2.jpg" />
+      <div class="box" id="songinfo">
+        <p id="artist">The White Stripes</p>
+        <p id="song">Icky Thumb</p>
       </div>
-      <div class="image" id="image3">
-        <img src="./images/TheWhiteStripes3.jpg" />
+      <div id="imgContainer">
+        <!--
+        <div class="image" id="image1">
+          <img src="./images/TheWhiteStripes1.jpg" />
+        </div>
+        <div class="image" id="image2">
+          <img src="./images/TheWhiteStripes2.jpg" />
+        </div>
+        <div class="image" id="image3">
+          <img src="./images/TheWhiteStripes3.jpg" />
+        </div>
+        <div class="image" id="image4">
+          <img src="./images/TheWhiteStripes4.jpg" />
+        </div>
+        <div class="image" id="image5">
+          <img src="./images/TheWhiteStripes5.jpg" />
+        </div>
+        <div class="image" id="image6">
+          <img src="./images/TheWhiteStripes6.jpg" />
+        </div>
+        -->
       </div>
-      <div class="image" id="image4">
-        <img src="./images/TheWhiteStripes4.jpg" />
-      </div>
-      <div class="image" id="image5">
-        <img src="./images/TheWhiteStripes5.jpg" />
-      </div>
-      <div class="image" id="image6">
-        <img src="./images/TheWhiteStripes6.jpg" />
-      </div>
-    </div>
   </body>
 </html>

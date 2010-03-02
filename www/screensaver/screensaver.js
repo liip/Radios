@@ -1,51 +1,47 @@
+function init(artist)
+{
+  drawBackground();
+  loadImages();
+}
 function drawBackground() {
   var ctx = document.getElementById('background').getContext('2d');
 
-  var radgrad = ctx.createRadialGradient(300,300,0,300,300,600);
+  var radgrad = ctx.createRadialGradient(400,400,0,400,400,600);
   radgrad.addColorStop(0, '#666');
   radgrad.addColorStop(1, '#000');
   
   ctx.fillStyle = radgrad;
-  ctx.fillRect(0,0,1024,768);
+  ctx.fillRect(0,0,1024,1024);
 }
 
 
+const NUMBER_OF_IMGAGES = 10;
+const FADE_DURATION = 3;
 
-const NUMBER_OF_IMGAGES = 6;
+function randomInteger(low, high)
+{
+    return low + Math.floor(Math.random() * (high - low));
+}
 
-
-/*
-   Receives the lowest and highest values of a range and
-   returns a random float that falls within that range.
-*/
 function randomFloat(low, high)
 {
     return low + Math.random() * (high - low);
 }
 
-
-/*
-    Receives a number and returns its CSS pixel value.
-*/
 function pixelValue(value)
 {
     return value + 'px';
 }
-
-
-/*
-    Returns a duration value for the falling animation.
-*/
-
 function durationValue(value)
 {
     return value + 's';
 }
 
 
-function init() {
+
+function loadImages() {
   var container = document.getElementById('imgContainer');
-  
+  onDeviceReady();
   for (var i = 0; i < NUMBER_OF_IMGAGES; i++) 
   {
       container.appendChild(createImg());
@@ -54,38 +50,43 @@ function init() {
 
 function createImg()
 {
-    /* Start by creating a wrapper div, and an empty img element */
     var imgDiv = document.createElement('div');
-    var image = document.createElement('img');
+    var img = document.createElement('img');
+    var dur = FADE_DURATION;
+    var imgData = [];
+    img.setAttribute('height', '200');
+		
+    img.style.webkitAnimationName = 'fade';
     
-    /* Randomly choose a leaf image and assign it to the newly created element */
-    image.src = 'images/TheWhiteStripes' + randomInteger(1, NUMBER_OF_IMGAGES) + '.jpg';
+    //img.src = './images/TheWhiteStripes' + i + '.jpg';
+    lastfm.artist.getImages({artist: 'The White Stripes'}, {success: function(data) {
+   		//for (i = 0; i <= data.images.image.length; i++) {
+   		//  img.src = data.images.image[i].sizes.size[0]['#text'];
+   		//alert(data.images.image[randomInteger(0,data.images.image.length)].sizes.size[0]['#text']);
+   		
+   		//imgData.push(data.images.image[randomInteger(0,data.images.image.length)].sizes.size[0]['#text']);
+   		
+   		img.src = data.images.image[randomInteger(0,data.images.image.length)].sizes.size[0]['#text'];
+      
+      img.style.webkitAnimationDuration = durationValue(dur);
+      imgDiv.appendChild(img);
+      
+      //}
+   		
+	  }});
+	
+    imgDiv.style.top = pixelValue(randomInteger(0, 1024));
+    imgDiv.style.left = pixelValue(randomInteger(0, 768));
     
-    /* Position the leaf at a random location within the screen */
-    imgDiv.style.top = pixelValue(randomInteger(-150, -50));
-    imgDiv.style.left = pixelValue(randomInteger(0, 500));
+    /*
+    imgDiv.style.webkitAnimationName = 'fade';
     
-    /* Randomly choose a spin animation */
-    //var spinAnimationName = (Math.random() < 0.5) ? 'clockwiseSpin' : 'counterclockwiseSpinAndFlip';
-    
-    /* Set the -webkit-animation-name property with these values */
-    imgDiv.style.webkitAnimationName = 'fade, drop';
-    image.style.webkitAnimationName = spinAnimationName;
-    
-    /* Figure out a random duration for the fade and drop animations */
     var fadeAndDropDuration = durationValue(randomFloat(5, 11));
     
-    /* Figure out another random duration for the spin animation */
-   // var spinDuration = durationValue(randomFloat(4, 8));
-    /* Set the -webkit-animation-duration property with these values */
     imgDiv.style.webkitAnimationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
-    //image.style.webkitAnimationDuration = spinDuration;
-
-    /* Add the created image to the div */
-    imgDiv.appendChild(image);
-
-    /* Return this div so it can be added to the document */
+    */
+    
     return imgDiv;
 }
 
-window.addEventListener('load', init, false);
+window.addEventListener('load', loadImages, false);
