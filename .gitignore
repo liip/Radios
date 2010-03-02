@@ -1,2 +1,4 @@
 build
 .DS_Store
+radioapp.xcodeproj/*.mode1v3
+radioapp.xcodeproj/*.pbxuser
