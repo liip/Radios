@@ -45,13 +45,35 @@ function touchMove(event) {
 	// event.preventDefault();
 }
 
+function playFromPlaylist(url) {
+  var client = new XMLHttpRequest();
+  
+  client.onreadystatechange = function() {
+    if(this.readyState == 4 && this.status == 200) {
+      // TODO make sure the matches aren't recognized as playlists in playSound() (otherwise endless loop)
+      var streams = this.responseText.match(/http:\S*/gi); 
+      if( streams.length ) 
+        playSound(streams[Math.floor(Math.random()*streams.length)]);
+    } else if (this.readyState == 4 && this.status != 200) {
+    }
+  };
+  client.open("GET", url);
+  debug.log('Fetching: ' + url );
+  client.send();
+}
+
 function playSound(url) {
     if (!url) {
         plugins.AudioStream.play("http://zlz-stream11.streamserver.ch/1/drs3/mp3_128");
     } else {
-        plugins.AudioStream.play(url);
+        debug.log('Playing: ' + url);
+        if( url.match(/(m3u|pls)$/) ) {
+            playFromPlaylist(url);
+        } else {
+            plugins.AudioStream.play(url);
+        }
     }
-    }
+}
 
 
 function stopSound() {
@@ -69,8 +91,6 @@ function radioapp_displayArtist(artist, song, full) {
 		
 			document.getElementById("artist_name").innerHTML = data.artist.name;
 		   	document.getElementById("artist_bio").innerHTML = data.artist.bio.content.replace(/(<([^>]+)>)/ig, "").replace(/\n/g, "<br/>");
-		
-			debug.log(data.artist);
 			
 			// Remove old images
 			var olds = document.querySelectorAll("#image img:not(:last-child)");
@@ -79,10 +99,9 @@ function radioapp_displayArtist(artist, song, full) {
 			}
 			
 			// fade out image
-			document.querySelector("#image img").style.webkitAnimationName = 'fadeout';
-			document.querySelector("#image img").style.webkitAnimationDuration = '8s';
+			document.querySelector("#image img").setAttribute('class', 'hidden');
 			
-		   	lastfm.artist.getImages({artist: data.track.artist.mbid}, {success: function(data) {
+		   	lastfm.artist.getImages({artist: data.artist.name}, {success: function(data) {
 		   		var found = false;
 		   		for (i = 0; i < data.images.image.length; i++) {
 		   			var image = data.images.image[i].sizes.size[0];
@@ -91,9 +110,9 @@ function radioapp_displayArtist(artist, song, full) {
 		   				var img = document.createElement('img');
 		   				img.setAttribute('src', image['#text']);
 		   				img.setAttribute('height', '200');
+		   				img.setAttribute('class', 'hidden');
 		   				document.getElementById("image").appendChild(img);
-		   				img.style.webkitAnimationName = 'fade';
-		   				img.style.webkitAnimationDuration = '5s';
+		   				setTimeout("document.querySelector('#image img:last-child').setAttribute('class', '')", 100);
 		   				found = true;
 		   				break;
 		   			}
@@ -103,10 +122,9 @@ function radioapp_displayArtist(artist, song, full) {
 		   			var img = document.createElement('img');
 		   			img.setAttribute('src', data.artist.image[4]['#text']);
 		   			img.setAttribute('height', '200');
+		   			img.setAttribute('class', 'hidden');
 		   			document.getElementById("image").appendChild(img);
-		   			img.style.webkitAnimationName = 'fade';
-		   			img.style.webkitAnimationDuration = '5s';
-		   			found = true;
+		   			setTimeout("document.querySelector('#image img:last-child').setAttribute('class', '')", 100);
 		   		}
 			}});
 		}, error: function(code, message){
@@ -130,15 +148,13 @@ function radioapp_displayArtist(artist, song, full) {
 				}
 				
 				// fade out image
-				document.querySelector("#image img").style.webkitAnimationName = 'fadeout';
-				document.querySelector("#image img").style.webkitAnimationDuration = '2s';
-				
+				document.querySelector("#image img").setAttribute('class', 'hidden');				
 				var img = document.createElement('img');
 				img.setAttribute('src', 'images/drs3.png');
 				img.setAttribute('height', '200');
+				img.setAttribute('class', 'hidden');
 				document.getElementById("image").appendChild(img);
-				img.style.webkitAnimationName = 'fade';
-				img.style.webkitAnimationDuration = '5s';
+				setTimeout("document.querySelector('#image img:last-child').setAttribute('class', '')", 100);
 			}
 		}});			 
 	}});
