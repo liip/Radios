@@ -63,18 +63,14 @@ function playFromPlaylist(url) {
 }
 
 function playSound(url) {
-    if (!url) {
-        plugins.AudioStream.play("http://zlz-stream11.streamserver.ch/1/drs3/mp3_128");
+    url = url || "http://zlz-stream11.streamserver.ch/1/drs3/mp3_128";
+    debug.log('Playing: ' + url);
+    if( url.match(/(m3u|pls)$/) ) {
+        playFromPlaylist(url);
     } else {
-        debug.log('Playing: ' + url);
-        if( url.match(/(m3u|pls)$/) ) {
-            playFromPlaylist(url);
-        } else {
-            plugins.AudioStream.play(url);
-        }
+        plugins.AudioStream.play(url);
     }
 }
-
 
 function stopSound() {
     plugins.AudioStream.stop();
