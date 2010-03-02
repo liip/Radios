@@ -1,20 +1,11 @@
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #000;
-  width: 100%;
-  
-  font-size: 50pt;
-  font-family: Helvetica;
-  text-align: left;
-}
 
 /* 1024 x 768*/
-div#wrapper
+div#screensaver
 {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
+  z-index:1001;
 }
 
 div.box
@@ -93,4 +84,19 @@ div#image5
 div#image6
 {
   top:800px; left:630px;
+}
+#imgContainer > div 
+{
+    z-index: 0;
+    position: absolute;
+}
+
+#imgContainer > div > img {
+     position: absolute;
+}
+
+@-webkit-keyframes fade
+{
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
 }

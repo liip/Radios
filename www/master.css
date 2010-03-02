@@ -26,7 +26,7 @@ body {
 	content: url('images/mic.png'), contents;
 	top: 0;
 	left: 150px;
-	z-index: 6000;
+	z-index: 1000;
 }
 
 #header #now_container {
@@ -166,4 +166,3 @@ li:first-child {
 #bio div {
 	margin-bottom: 1em;
 }
-

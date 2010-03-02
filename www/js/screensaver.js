@@ -1,8 +1,13 @@
-function init(artist)
+const NUMBER_OF_IMGAGES = 10;
+const FADE_DURATION = 3;
+
+function initScreensaver()
 {
   drawBackground();
+  document.getElementById('screensaver').style.visibility="visible";
   loadImages();
 }
+
 function drawBackground() {
   var ctx = document.getElementById('background').getContext('2d');
 
@@ -13,10 +18,6 @@ function drawBackground() {
   ctx.fillStyle = radgrad;
   ctx.fillRect(0,0,1024,1024);
 }
-
-
-const NUMBER_OF_IMGAGES = 10;
-const FADE_DURATION = 3;
 
 function randomInteger(low, high)
 {
@@ -32,6 +33,7 @@ function pixelValue(value)
 {
     return value + 'px';
 }
+
 function durationValue(value)
 {
     return value + 's';
@@ -88,5 +90,4 @@ function createImg()
     
     return imgDiv;
 }
-
-window.addEventListener('load', loadImages, false);
+//window.addEventListener('load', loadImages, false);

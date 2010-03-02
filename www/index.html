@@ -7,12 +7,14 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>PhoneGap</title>
     <link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="screensaver.css" type="text/css" media="screen" title="no title" charset="utf-8">
     <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/lastfm.api.md5.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/lastfm.api.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/lastfm.api.cache.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/radioapp.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/radioapp.db.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/screensaver.js"></script>
 
     <script type="text/javascript" charset="utf-8">
     </script>
@@ -22,7 +24,18 @@
 	
   </head>
   <body onload="onWinLoad()" ontouchmove="touchMove(event)" id="stage" class="theme">
-  
+  <div id="screensaver" style="visibility:hidden;">
+    <canvas id="background" width="1024px" height="1024px"></canvas>
+    <div class="box" id="radioname">
+      <p>DRS 3</p>
+    </div>
+    <div class="box" id="songinfo">
+      <p id="artist">The White Stripes</p>
+      <p id="song">Icky Thumb</p>
+    </div>
+    <div id="imgContainer">
+    </div>
+  </div>
   <div id="header">
 	<h1 id="logo">Radio</h1>
 	<h2 id="mic">App</h2>
@@ -39,11 +52,11 @@
 			<li>Radio Radius <span class="playing">On</span></li>
 			<li>Radio 24</li
 			<li>Energy Zürich</li>
-<li onclick="playSound()">Start</li>
-
- <li onclick="stopSound()">Stop</li>
 		</ul>
 	</div>
+	<!-- dirty! -->
+  <ul><li onclick="initScreensaver()">Screensaver</li></ul>
+  
   </div>
   
   
