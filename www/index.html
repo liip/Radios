@@ -11,7 +11,6 @@
     <script type="text/javascript" charset="utf-8" src="js/lastfm.api.md5.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/lastfm.api.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/lastfm.api.cache.js"></script>
- <script type="text/javascript" charset="utf-8" src="js/AudioStream.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/radioapp.js"></script>
 
     <script type="text/javascript" charset="utf-8">
@@ -26,7 +25,7 @@
   <div id="header">
 	<h1 id="logo">Radio</h1>
 	<h2 id="mic">App</h2>
-	<div id="now_container"> <span id="now_playing"> </span></div>
+	<div id="now_container"><span id="now_station"> </span><span id="now_playing"> </span></div>
   </div>
   
   <div id="sidebar">
@@ -39,6 +38,9 @@
 			<li>Radio Radius <span class="playing">On</span></li>
 			<li>Radio 24</li
 			<li>Energy Zürich</li>
+<li onclick="playSound()">Start</li>
+
+ <li onclick="stopSound()">Stop</li>
 		</ul>
 	</div>
   </div>

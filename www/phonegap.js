@@ -1501,6 +1501,7 @@ function AudioStream() {
     this.lastMetaData = null;
     this.callbacks = {
 	onMetaDataChanged: [],
+    onStatusChanged: [],
 	onError: []
     };
 }
@@ -1517,7 +1518,8 @@ AudioStream.prototype.getMetaData = function(successCallback, errorCallback, opt
         successCallback(this.lastMetaData);
     }
     return this.lastMetaData;
-}
+};
+
 
 
 /**
@@ -1529,7 +1531,7 @@ AudioStream.prototype.getMetaData = function(successCallback, errorCallback, opt
  * @param {HeadingOptions} options The options for getting the heading data
  * such as timeout and the frequency of the watch.
  */
-AudioStream.prototype.onMetaDataChange= function(successCallback, errorCallback, options) {
+AudioStream.prototype.onMetaDataChange = function(successCallback, errorCallback, options) {
     // Invoke the appropriate callback with a new Position object every time the implementation 
     // determines that the position of the hosting device has changed. 
     
@@ -1537,8 +1539,8 @@ AudioStream.prototype.onMetaDataChange= function(successCallback, errorCallback,
     this.callbacks.onMetaDataChanged.push(successCallback);
 };
 
-
 AudioStream.prototype.setMetaData = function(metaData) {
+    metaData = metaData.replace(/StreamTitle='(.*)'/,"$1");
     this.lastMetaData = metaData;
     for (var i = 0; i < this.callbacks.onMetaDataChanged.length; i++) {
         
@@ -1547,19 +1549,28 @@ AudioStream.prototype.setMetaData = function(metaData) {
     }
 };
 
-PhoneGap.addConstructor(function() 
-						
-						{
-							if(!window.plugins)
-						{
-						window.plugins = {};
-						}
-						if (AudioStream) {
-							window.plugins.AudioStream = new AudioStream();
-						}
-						}
-						
-						);
+AudioStream.prototype.onStatusChange = function(successCallback, errorCallback, options) {
+    this.callbacks.onStatusChanged.push(successCallback);
+};
+
+AudioStream.prototype.setStatus = function(status) {
+    for (var i = 0; i < this.callbacks.onStatusChanged.length; i++) {
+        
+        var f = this.callbacks.onStatusChanged[i];
+        f(status);
+    }
+};
+
+PhoneGap.addConstructor(function() {
+    if(!window.plugins) {
+        window.plugins = {};
+    }
+    if (AudioStream) {
+        window.plugins.AudioStream = new AudioStream();
+    }
+}
+    
+);
 
 /**
  **/

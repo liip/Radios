@@ -1,3 +1,11 @@
+function onMetaDataChangeSuccess(data) {
+    if(data) {
+        var splits=data.split("-");
+        document.getElementById("now_playing").innerHTML = data;
+        radioapp_displayArtist(splits[0], splits[1], data);
+    }
+}
+
 
 function onDeviceReady() {
 
@@ -10,15 +18,23 @@ function onDeviceReady() {
     });
     
     if(isIPad()){
-        plugins.AudioStream.onMetaDataChange(function(data) {
-        	if(data) {
-                var splits = data.split("-");
-        		radioapp_displayArtist(splits[0], splits[1], data);
-        	}
-        });
+        plugins.AudioStream.onMetaDataChange(onMetaDataChangeSuccess,null,null);
+        
+        if (plugins.AudioStream.onStatusChange) {
+            
+            plugins.AudioStream.onStatusChange(function(status) {
+                                               if(status == 'isPlaying') {
+                                                //  document.getElementById('now_station').innerHTML = 'Now Playing DRS 3: ';
+                                                   } else {
+                                               //    document.getElementById('now_station').innerHTML = 'Stopped. ';
+                                                   }
+                                     }
+                                     );
+        }
         playSound();
     }
 }
+
 
 function touchMove(event) {
 	// Prevent scrolling on this element
@@ -26,7 +42,9 @@ function touchMove(event) {
 }
 
 function playSound() {
+ 
     plugins.AudioStream.play("http://zlz-stream11.streamserver.ch/1/drs3/mp3_128");
+  
 }
 
 
