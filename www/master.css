@@ -113,15 +113,26 @@ li:first-child {
 	background-color: rgba(255, 255, 255, 0.85);
 	/*background-image: url('images/background.png');*/
 	margin-left: 280px;
-	height: 75px;
-	padding: 10px 0 10px 70px;
+	height: 60px;
+	padding: 10px 0 5px 70px;
 	border-bottom: 1px solid #dddddd;
 	position: relative;
-	top: -102px;
+	top: -82px;
+	line-height: 1.8em;
 }
 
 #artist_name {
 	font-weight: normal;
+	font-size: 26px;
+	letter-spacing: -0.5px;
+	margin: 0;
+}
+
+#song_name {
+	font-weight: normal;
+	font-size: 19px;
+	letter-spacing: -0.5px;
+	margin: 0;
 }
 
 #image {
@@ -134,9 +145,9 @@ li:first-child {
 }
 
 #bio {
-	font-size: 12px;
-	line-height: 1.5em;
-	margin-top: -80px;
+	font-size: 14px;
+	line-height: 1.4em;
+	margin-top: -60px;
 	margin-left: 350px;
 	padding-right: 40px;
 }
