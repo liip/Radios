@@ -48,8 +48,6 @@
 		EC18C7E41132A77300EFF1D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF5C2109A6A2B0062928A /* QuartzCore.framework */; };
 		EC18C7E51132A77300EFF1D3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF5C4109A6A2B0062928A /* SystemConfiguration.framework */; };
 		EC18C7ED1132A77400EFF1D3 /* example.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC18C7EC1132A77400EFF1D3 /* example.xib */; };
-		EC2770D01132BDFF00EC31D9 /* radioappViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2770CF1132BDFF00EC31D9 /* radioappViewController.m */; };
-		EC2770FE1132BF9200EC31D9 /* RecentSearchesController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2770FD1132BF9200EC31D9 /* RecentSearchesController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,10 +101,6 @@
 		8D1107310486CEB800E47090 /* radioapp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "radioapp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		EC18C7E91132A77300EFF1D3 /* radioapp-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radioapp-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC18C7EC1132A77400EFF1D3 /* example.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = example.xib; path = "Resources-iPad/example.xib"; sourceTree = "<group>"; };
-		EC2770CE1132BDFF00EC31D9 /* radioappViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = radioappViewController.h; sourceTree = "<group>"; };
-		EC2770CF1132BDFF00EC31D9 /* radioappViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = radioappViewController.m; sourceTree = "<group>"; };
-		EC2770FC1132BF9200EC31D9 /* RecentSearchesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentSearchesController.h; sourceTree = "<group>"; };
-		EC2770FD1132BF9200EC31D9 /* RecentSearchesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentSearchesController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,11 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				1D3623240D0F684500981E51 /* radioappAppDelegate.h */,
-				EC2770FC1132BF9200EC31D9 /* RecentSearchesController.h */,
-				EC2770FD1132BF9200EC31D9 /* RecentSearchesController.m */,
 				1D3623250D0F684500981E51 /* radioappAppDelegate.m */,
-				EC2770CE1132BDFF00EC31D9 /* radioappViewController.h */,
-				EC2770CF1132BDFF00EC31D9 /* radioappViewController.m */,
 			);
 			path = Classes;
 			sourceTree = SOURCE_ROOT;
@@ -434,8 +424,6 @@
 			files = (
 				EC18C7D61132A77300EFF1D3 /* main.m in Sources */,
 				EC18C7D71132A77300EFF1D3 /* radioappAppDelegate.m in Sources */,
-				EC2770D01132BDFF00EC31D9 /* radioappViewController.m in Sources */,
-				EC2770FE1132BF9200EC31D9 /* RecentSearchesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

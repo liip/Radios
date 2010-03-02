@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PhoneGapDelegateXib.h"
+#import "PhoneGapDelegate.h"
 
-@interface radioappAppDelegate : PhoneGapDelegateXib {
+@interface radioappAppDelegate : PhoneGapDelegate {
 }
-@property (nonatomic, retain) IBOutlet PhoneGapViewController *viewController;
 
 @end
 
