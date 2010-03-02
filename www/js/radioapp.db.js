@@ -15,7 +15,8 @@ RA.db = function() {
                           [ "DRS 3"     , "http://zlz-stream10.streamserver.ch/1/drs3/mp3_128"],
                           [ "DRS 4 News", "http://zlz-stream11.streamserver.ch/1/drs4news/mp3_128"],
                           [ "Virus"     , "http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128"],
-                          [ "Radio 1", "http://stream.radio1.ch:8000/radio1"]
+                          [ "Radio 1", "http://stream.radio1.ch:8000/radio1"],
+                          [ "Radio 3fach", "http://212.203.92.45:8000/listen.pls"],
 
 ];
   
@@ -167,7 +168,7 @@ function populateStations(filter) {
     var playingOn = document.createTextNode('On');
     playing.setAttribute('class', 'playing');
     playing.appendChild(playingOn);
-    
+
     for( var i=0; i<stations.length; ++i ) {
       console.log(stations.item(i).name);
       li = document.createElement('li');
@@ -178,8 +179,7 @@ function populateStations(filter) {
       
         var id = this.getAttribute('id').split('-')[1]; 
         RA.db.getStation(id, function(station) {
-          ev.target.appendChild(playing);
-                         debug.log(station.stream);
+          document.getElementById('station-'+station.id).appendChild(playing);
           playSound(station.stream);
         }, true);
         

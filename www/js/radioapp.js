@@ -45,13 +45,35 @@ function touchMove(event) {
 	// event.preventDefault();
 }
 
+function playFromPlaylist(url) {
+  var client = new XMLHttpRequest();
+  
+  client.onreadystatechange = function() {
+    if(this.readyState == 4 && this.status == 200) {
+      // TODO make sure the matches aren't recognized as playlists in playSound() (otherwise endless loop)
+      var streams = this.responseText.match(/http:\S*/gi); 
+      if( streams.length ) 
+        playSound(streams[Math.floor(Math.random()*streams.length)]);
+    } else if (this.readyState == 4 && this.status != 200) {
+    }
+  };
+  client.open("GET", url);
+  debug.log('Fetching: ' + url );
+  client.send();
+}
+
 function playSound(url) {
     if (!url) {
         plugins.AudioStream.play("http://zlz-stream11.streamserver.ch/1/drs3/mp3_128");
     } else {
-        plugins.AudioStream.play(url);
+        debug.log('Playing: ' + url);
+        if( url.match(/(m3u|pls)$/) ) {
+            playFromPlaylist(url);
+        } else {
+            plugins.AudioStream.play(url);
+        }
     }
-    }
+}
 
 
 function stopSound() {
