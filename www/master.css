@@ -106,7 +106,6 @@ li:first-child {
 }
 
 #content {
-	position: relative;
 	min-height: 100%;
 }
 
@@ -140,10 +139,7 @@ li:first-child {
 #image {
 	text-align: right;
 	padding: 60px 30px 0 0;
-}
-
-#image img {
-	z-index: 0;
+	margin-left: 350px;
 }
 
 #bio {
