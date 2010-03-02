@@ -1,9 +1,7 @@
-html, body {
-	height: 100%;
-}
-
 body {
 	background-color: #fef4b4;
+	background-image: url('images/background.png'), -webkit-gradient(radial, 300 90, 0, 300 90, 460, from(#ebebec), to(#fef4b4), color-stop(0%, rgba(255, 255, 255, 0.6)));
+	background-repeat: repeat-y, no-repeat;
 	color: #000;
 	font-family: Helvetica;
 	font-size: 100%;
@@ -46,10 +44,8 @@ body {
 
 #sidebar {
 	float: left;
-	background-color: white;
 	width: 280px;
 	min-height: 100%;
-	-webkit-box-shadow: 1px 0 5px rgba(0, 0, 0, 0.3);
 }
 
 #search {
@@ -65,7 +61,6 @@ body {
 	margin-top: 10px;
 	margin-left: 28px;
 }
-
 
 ul {
 	font-size: 20px;
@@ -105,7 +100,8 @@ li:first-child {
 }
 
 #content {
-	position: relative;
+	min-height: 500px;
+	margin-bottom: 100px;
 }
 
 #title {
@@ -133,15 +129,16 @@ li:first-child {
 	font-size: 19px;
 	letter-spacing: -0.5px;
 	margin: 0;
+	width: 90%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 #image {
 	text-align: right;
 	padding: 60px 30px 0 0;
-}
-
-#image img {
-	z-index: 0;
+	margin-left: 350px;
 }
 
 #bio {

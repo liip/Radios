@@ -11,8 +11,8 @@
     <script type="text/javascript" charset="utf-8" src="js/lastfm.api.md5.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/lastfm.api.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/lastfm.api.cache.js"></script>
- <script type="text/javascript" charset="utf-8" src="js/AudioStream.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/radioapp.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/radioapp.db.js"></script>
 
     <script type="text/javascript" charset="utf-8">
     </script>
@@ -21,12 +21,12 @@
 	
 	
   </head>
-  <body onload="onWinLoad()" id="stage" class="theme">
+  <body onload="onWinLoad()" ontouchmove="touchMove(event)" id="stage" class="theme">
   
   <div id="header">
 	<h1 id="logo">Radio</h1>
 	<h2 id="mic">App</h2>
-	<div id="now_container">Now playing: DRS 3 - <span id="now_playing">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</span></div>
+	<div id="now_container"><span id="now_station"> </span><span id="now_playing"> </span></div>
   </div>
   
   <div id="sidebar">
@@ -35,10 +35,13 @@
 	</div>
 	<div id="stations">
 		<ul>
-			<li>DRS 1</li>
+			<li>DRS 3</li>
 			<li>Radio Radius <span class="playing">On</span></li>
 			<li>Radio 24</li
 			<li>Energy Zürich</li>
+<li onclick="playSound()">Start</li>
+
+ <li onclick="stopSound()">Stop</li>
 		</ul>
 	</div>
   </div>
@@ -46,17 +49,14 @@
   
   <div id="content">
 	<div id="image">
-		<img id="artist_image" src="http://userserve-ak.last.fm/serve/_/391495/The+White+Stripes.jpg" height="190" />
+		<img id="artist_image" src="http://userserve-ak.last.fm/serve/_/391495/The+White+Stripes.jpg" height="200" />
 	</div>
 	<div id="title">
 		<h1 id="artist_name">The White Stripes</h1>
-		<h2 id="song_name">Icky Thumb</h2>
+		<h2 id="song_name">mit Icky Thumb</h2>
 	</div>
 	<div id="bio">
 		<div id="artist_bio">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</div>
-		<div id="artist_bio_long">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</div>
-		<div id="similar"> </div>
-		<div id="tags"></div>
 	</div>
   </div>
 

@@ -1,8 +1,14 @@
+function onMetaDataChangeSuccess(data) {
+    if(data) {
+        var splits=data.split("-");
+        //document.getElementById("now_playing").innerHTML = data;
+        radioapp_displayArtist(splits[0], splits[1], data);
+    }
+}
 
-function onDeviceReady()
 
-{
-    
+function onDeviceReady() {
+
     cache = new LastFMCache();
     /* Create a LastFM object */
     lastfm = new LastFM({
@@ -12,81 +18,88 @@ function onDeviceReady()
     });
     
     if(isIPad()){
-        plugins.AudioStream.onMetaDataChange(function(data) {if(data) {
-                var splits=data.split("-");
-                document.getElementById("now_playing").innerHTML = data;
-        radioapp_displayArtist(splits[0], splits[1]);}});
+        plugins.AudioStream.onMetaDataChange(onMetaDataChangeSuccess,null,null);
+        
+        if (plugins.AudioStream.onStatusChange) {
+            
+            plugins.AudioStream.onStatusChange(function(status) {
+                                               if(status == 'isPlaying') {
+                                                //  document.getElementById('now_station').innerHTML = 'Now Playing DRS 3: ';
+                                                   } else {
+                                               //    document.getElementById('now_station').innerHTML = 'Stopped. ';
+                                                   }
+                                     }
+                                     );
+        }
         playSound();
     }
 }
 
-function playSound() {
-    plugins.AudioStream.play("http://zlz-stream11.streamserver.ch/1/drs3/mp3_128");
+
+function touchMove(event) {
+	// Prevent scrolling on this element
+	// event.preventDefault();
 }
+
+function playSound(url) {
+    if (!url) {
+        plugins.AudioStream.play("http://zlz-stream11.streamserver.ch/1/drs3/mp3_128");
+    } else {
+        plugins.AudioStream.play(url);
+    }
+    }
 
 
 function stopSound() {
     plugins.AudioStream.stop();
 }
 
-function radioapp_displayArtist(artist, song) {
+function radioapp_displayArtist(artist, song, full) {
 
-    lastfm.artist.getInfo({artist:  artist}, {success: function(data){
-            document.getElementById("artist_name").innerHTML = data.artist.name;
-            document.getElementById("artist_bio").innerHTML = data.artist.bio.summary;
-            console.log(data.artist);
-            //    document.getElementById("artist_bio_long").innerHTML = data.artist.bio.content;
-            if(data.artist.image[4] && data.artist.image[4]['#text'])  {
-                document.getElementById("artist_image").src = data.artist.image[4]['#text'];
-            } else {
-                document.getElementById("artist_image").src = "";
-            }
-            var simi = '';
-            if (data.artist.similar && data.artist.similar.artist) {
-                similar = data.artist.similar.artist;
-                var simi = '<i>Similar Artists:</i> ';
-                for (var i = 0; i < similar.length; i++) {
-                    simi += '' + similar[i].name + ', ';
-                    
-                }
-            }
-            document.getElementById("similar").innerHTML = simi;
-            simi = '';
-            if (data.artist.tags && data.artist.tags.tag) {
-                var tags = data.artist.tags.tag;
-                
-                simi = '<i>Tags:</i> ';
-                for (var i = 0; i < tags.length; i++) {
-                    simi += '' + tags[i].name + ', ';
-                }
-            }
-            
-            document.getElementById("tags").innerHTML = simi;
-            
-            lastfm.artist.getImages({artist:data.artist.name}, {success: function(foo) {
-                    console.log(foo);
-            }
-            }
-            );
-            
-    }, error: function(code, message){
-        lastfm.artist.search({artist:  artist}, {success: function(data){
-                if(data.results.artistmatches.artist && data.results.artistmatches.artist[0]) {
-                    radioapp_displayArtist(data.results.artistmatches.artist[0]);
-                    
-                }
-        }});
-        
-        
-        
-    }});
-	
-	
-    lastfm.track.getInfo({artist:  artist, track: song}, {success: function(data){
-		  document.getElementById("song_name").innerHTML = data.track.name;
+	lastfm.track.getInfo({artist:  artist, track: song}, {success: function(data){
+		
+		document.getElementById("song_name").innerHTML = 'mit ' + data.track.name;
+		
+		lastfm.artist.getInfo({artist: artist, lang: 'de'}, {success: function(data){
+		
+			document.getElementById("artist_name").innerHTML = data.artist.name;
+		   	document.getElementById("artist_bio").innerHTML = data.artist.bio.content.replace(/(<([^>]+)>)/ig, "").replace(/\n/g, "<br>");
+		
+			debug.log(data.artist);
+			
+		   	lastfm.artist.getImages({artist: data.artist.name}, {success: function(data) {
+		   		var found = false;
+		   		for (i = 0; i <= data.images.image.length; i++) {
+		   			var image = data.images.image[i].sizes.size[0];
+		   			if (parseInt(image['width']) > parseInt(image['height'])) {
+		   				document.getElementById("artist_image").src = image['#text'];
+		   				found = true;
+		   				break;
+		   			}
+		   		}
+		   		if(!found && data.artist.image[4] && data.artist.image[4]['#text']) {
+		   			document.getElementById("artist_image").src = data.artist.image[4]['#text'];
+		   		}
+			}});
+		}, error: function(code, message){
+			// Ignore
+		}});
 	}, error: function(code, message){
-		alert('Error!');				 
+		lastfm.track.search({artist:  artist, track: song}, {success: function(data){
+			if(data.results.trackmatches.track && data.results.artistmatches.track[0]) {
+				radioapp_displayArtist(data.results.artistmatches.track[0].artist, ata.results.artistmatches.track[0].name, full);
+			} else {
+				document.getElementById("artist_name").innerHTML = 'DRS 3';
+				document.getElementById("song_name").innerHTML = full;
+				document.getElementById("artist_image").src = 'images/drs3.png';
+				document.getElementById("artist_bio").innerHTML = '';
+			}
+		}});			 
 	}});
+	
+    
+	
+	
     
 }
 
