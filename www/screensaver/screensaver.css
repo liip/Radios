@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  
+  
+  font-size: 180%;
+  font-family: Helvetica;
+  text-align: left;
+}
+div#wrapper
+{
+  width: 100%;
+  height: 100%;
+}
+div#radioname
+{
+    position: relative;
+    width: 60%;
+    
+    margin: 100px 0px;
+    padding: 0px;
+    background: rgba(255, 255, 255, 0.9);
+    
+}
+div#radioname p
+{
+  font-size: 120%;
+  padding: 20px 10px;
+  color: #000;
+}
+
+
+div#songinfo
+{
+    position: relative;
+    float: right;
+    width: 80%;
+    
+    margin: auto 0px 100px 0px;
+    padding: 0px;
+    background: rgba(255, 255, 255, 0.9);
+}
+div#songinfo p#artist
+{
+  margin: 0px;
+}
+div#songinfo p#artist
+{
+  font-size: 150%;
+  padding: 20px 10px 0px 10px;
+  color: #000;
+}
+
+div#songinfo p#song
+{
+  font-size: 120%;
+  padding: 0px 10px 20px 10px;
+  color: #000;
+}

@@ -25,8 +25,22 @@ body {
 #sidebar {
 	float: left;
 	background-color: white;
-	width: 200px;
+	width: 280px;
 	min-height: 100%;
+}
+
+#search {
+	background-image: url('images/search.png');
+	height: 43px;
+}
+
+#search input {
+	border: 0;
+	width: 180px;
+	font-size: 11pt;
+	height: 24px;
+	margin-top: 10px;
+	margin-left: 28px;
 }
 
 #artist_image {
