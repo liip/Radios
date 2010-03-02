@@ -15,7 +15,7 @@ function onDeviceReady()
         plugins.AudioStream.onMetaDataChange(function(data) {if(data) {
                 var splits=data.split("-");
                 document.getElementById("now_playing").innerHTML = data;
-        radioapp_displayArtist(splits[0]);}});
+        radioapp_displayArtist(splits[0], splits[1]);}});
         playSound();
     }
 }
@@ -29,9 +29,8 @@ function stopSound() {
     plugins.AudioStream.stop();
 }
 
-function radioapp_displayArtist(artist) {
-    
-    
+function radioapp_displayArtist(artist, song) {
+
     lastfm.artist.getInfo({artist:  artist}, {success: function(data){
             document.getElementById("artist_name").innerHTML = data.artist.name;
             document.getElementById("artist_bio").innerHTML = data.artist.bio.summary;
@@ -81,6 +80,13 @@ function radioapp_displayArtist(artist) {
         
         
     }});
+	
+	
+    lastfm.track.getInfo({artist:  artist, track: song}, {success: function(data){
+		  document.getElementById("song_name").innerHTML = data.track.name;
+	}, error: function(code, message){
+		alert('Error!');				 
+	}});
     
 }
 
