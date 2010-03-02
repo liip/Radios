@@ -15,7 +15,7 @@ function onDeviceReady()
         plugins.AudioStream.onMetaDataChange(function(data) {if(data) {
                 var splits=data.split("-");
                 document.getElementById("now_playing").innerHTML = data;
-        radioapp_displayArtist(splits[0]);}});
+        radioapp_displayArtist(splits[0], splits[1]);}});
         playSound();
     }
 }
@@ -24,8 +24,9 @@ function playSound() {
     plugins.AudioStream.play("http://zlz-stream11.streamserver.ch/1/drs3/mp3_128");
 }
 
-function radioapp_displayArtist(artist) {
-    
+function radioapp_displayArtist(artist, song) {
+	
+	document.getElementById("song_name").innerHTML = song;
     
     lastfm.artist.getInfo({artist:  artist}, {success: function(data){
             document.getElementById("artist_name").innerHTML = data.artist.name;
