@@ -31,12 +31,12 @@ function stopSound() {
 
 function radioapp_displayArtist(artist, song) {
 
-    lastfm.artist.getInfo({artist:  artist}, {success: function(data){
+    lastfm.artist.getInfo({artist:  artist, lang: 'de'}, {success: function(data){
             document.getElementById("artist_name").innerHTML = data.artist.name;
             document.getElementById("artist_bio").innerHTML = data.artist.bio.summary;
             console.log(data.artist);
             //    document.getElementById("artist_bio_long").innerHTML = data.artist.bio.content;
-            if(data.artist.image[4] && data.artist.image[4]['#text'])  {
+            if(data.artist.image[3] && data.artist.image[4]['#text'])  {
                 document.getElementById("artist_image").src = data.artist.image[4]['#text'];
             } else {
                 document.getElementById("artist_image").src = "";
@@ -68,24 +68,23 @@ function radioapp_displayArtist(artist, song) {
             }
             }
             );
-            
     }, error: function(code, message){
         lastfm.artist.search({artist:  artist}, {success: function(data){
                 if(data.results.artistmatches.artist && data.results.artistmatches.artist[0]) {
-                    radioapp_displayArtist(data.results.artistmatches.artist[0]);
-                    
+                    radioapp_displayArtist(data.results.artistmatches.artist[0].name, song);
                 }
         }});
-        
-        
-        
     }});
 	
 	
     lastfm.track.getInfo({artist:  artist, track: song}, {success: function(data){
-		  document.getElementById("song_name").innerHTML = data.track.name;
+		document.getElementById("song_name").innerHTML = data.track.name;
 	}, error: function(code, message){
-		alert('Error!');				 
+		lastfm.track.search({artist:  artist, track: song}, {success: function(data){
+			if(data.results.trackmatches.track && data.results.artistmatches.track[0]) {
+				radioapp_displayArtist(data.results.artistmatches.track[0].artist, ata.results.artistmatches.track[0].name);
+			}
+		}});			 
 	}});
     
 }
