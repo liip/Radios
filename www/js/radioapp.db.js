@@ -10,9 +10,12 @@ RA.db = function() {
   var db_ = null;
   
   var defaultStations = [
-[ "DRS 3", "http://zlz-stream11.streamserver.ch/1/drs3/mp3_128"],
-[ "DRS 4", "http://liip.ch"],
-[ "Virus", "http://zlz-stream11.streamserver.ch/1/drsvirus/mp3_128"]
+                          [ "DRS 1"     , "http://glb-stream11.streamserver.ch/1/regi_zh_sh/mp3_128"],
+                         [ "DRS 2"     , "http://glb-stream13.streamserver.ch/1/drs2/mp3_128"],
+                          [ "DRS 3"     , "http://zlz-stream10.streamserver.ch/1/drs3/mp3_128"],
+                          [ "DRS 4 News", "http://zlz-stream11.streamserver.ch/1/drs4news/mp3_128"],
+                          [ "Virus"     , "http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128"],
+                          [ "Radio 1", "http://stream.radio1.ch:8000/radio1"]
 
 ];
   
@@ -127,7 +130,7 @@ RA.db = function() {
     },
     getStations: function(resultHandler, filter) {
       var where = '';
-      if ( filter != undefined && filter != '' ) {
+      if ( filter ) {
         where = " WHERE name LIKE '%" + filter + "%';"; // FIXME EEEEESCAPE!
       }
       db_.transaction(function(t) {
@@ -135,15 +138,28 @@ RA.db = function() {
           resultHandler(results.rows);
         }, errorHandler);
       });
+    },
+    insertStation: function(station) {
+      db_.transaction(function(t) {
+        var query = 
+        t.executeSql('INSERT INTO stations(name, stream, listened_at) VALUES(?, ?, NULL);', [ station.name, station.stream ], nullDataHandler, errorHandler);
+      });
     }
   };
 }();
 
 
-document.addEventListener("deviceready", populateNav, false);
 
-function populateNav() {
-  RA.db.init();
+document.addEventListener("deviceready", function() { RA.db.init(); populateStations(); autoSearch()}, false);
+
+function autoSearch() {
+  var searchel = document.getElementById('search-field');
+  searchel.onkeyup = function(ev) {
+    populateStations(searchel.value);
+  };
+}
+
+function populateStations(filter) {  
   RA.db.getStations(function(stations) {
     var ul = document.createElement('ul');
     var li, txt;
@@ -178,18 +194,5 @@ function populateNav() {
     }
     // append updated nav
     statel.appendChild(ul);
-  });
-}
-
-function testDb() {
-  RA.db.getStations(function(rows) {
-    for( var i=0; i < rows.length; ++i ) {
-      console.log("[" + rows.item(i).id + "] " + rows.item(i).name + " = " + rows.item(i).stream);
-    }
-  });
-  
-  RA.db.getStation(1, function(station) {
-    console.log(station.name + ' ' + station.listened_at);
-  }, true);
-
+  }, filter);
 }
