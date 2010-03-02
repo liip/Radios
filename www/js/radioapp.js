@@ -22,7 +22,7 @@ function onDeviceReady() {
 
 function touchMove(event) {
 	// Prevent scrolling on this element
-	event.preventDefault();
+	// event.preventDefault();
 }
 
 function playSound() {
@@ -43,7 +43,7 @@ function radioapp_displayArtist(artist, song, full) {
 		lastfm.artist.getInfo({artist: artist, lang: 'de'}, {success: function(data){
 		
 			document.getElementById("artist_name").innerHTML = data.artist.name;
-		   	document.getElementById("artist_bio").innerHTML = data.artist.bio.content.replace(/\n/g, "<br>");
+		   	document.getElementById("artist_bio").innerHTML = data.artist.bio.content.replace(/(<([^>]+)>)/ig, "").replace(/\n/g, "<br>");
 		
 			debug.log(data.artist);
 			
