@@ -38,7 +38,7 @@ RA.db = function() {
   
   function createTables(transaction) {
     //transaction.executeSql('DROP TABLE IF EXISTS stations');
-    transaction.executeSql('CREATE TABLE stations(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT REPLACE, stream TEXT NOT NULL, listened_at DATE );', [], nullDataHandler, errorHandler);
+    transaction.executeSql('CREATE TABLE IF NOT EXISTS stations(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT REPLACE, stream TEXT NOT NULL, listened_at DATE );', [], nullDataHandler, errorHandler);
     
     // insert default data
     var query = 'INSERT INTO stations(name, stream, listened_at) VALUES(?, ?, NULL);';
@@ -84,6 +84,7 @@ RA.db = function() {
           }
           */
           db_ = openDatabase(opts.shortName, opts.version, opts.displayName, opts.maxSize);
+          db_.transaction(function(transaction) { createTables(transaction); });
           debug.log('Current db version: '+db_.version + ' (want ' + opts.version + ')');
         }
         return db_;
