@@ -14,12 +14,33 @@ body {
 #header {
 	height: 82px;
 	background-image: url('images/header.png');
+	position: relative;
 }
 
-#header h1 {
+#header #logo {
 	margin: 0;
 	color: white;
 	content: url('images/logo.png'), contents;
+}
+
+#header #mic {
+	position: absolute;
+	content: url('images/mic.png'), contents;
+	top: 0;
+	left: 150px;
+}
+
+#header #now_container {
+	position: absolute;
+	top: 43px;
+	left: 350px;
+	color: white;
+	font-style: italic;
+	width: 50%;
+	margin-right: 300px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 #sidebar {
