@@ -64,6 +64,47 @@ body {
 	margin-left: 28px;
 }
 
+
+ul {
+	font-size: 20px;             /* All text content is 20 pixels */
+	font-family: Helvetica;
+	font-weight: bold;
+	color: black;
+	
+	margin: 0;               /* The list fills the whole iPhone screen */
+	padding: 0;
+	
+	width: 280px;           /* Each cell is 320 pixels wide */
+	background-color: white;
+}
+
+
+li {
+	list-style-type: none;
+	border-top-width: 1px;
+	border-top-color: rgb(217,217,217);
+	border-top-style: solid;
+	padding-top: 13px;
+	padding-right: 10px;
+	padding-bottom: 14px;
+	padding-left: 10px;
+	height: 19px;
+	line-height: 19px;
+}
+
+
+li:first-child {
+	border-top: 0;
+}
+
+.playing {
+	float: right;
+	margin-right: 50px;	  
+	margin-top: 2px;
+	content: url('images/playing.png'), contents;
+	
+}
+
 #artist_image {
 	margin-top: 20px;
 	margin-left: 10px;
