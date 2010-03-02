@@ -39,8 +39,11 @@ RA.db = function() {
   function createTables(transaction) {
     //transaction.executeSql('DROP TABLE IF EXISTS stations');
     transaction.executeSql('CREATE TABLE IF NOT EXISTS stations(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT REPLACE, stream TEXT NOT NULL, listened_at DATE );', [], nullDataHandler, errorHandler);
-    
-    // insert default data
+  }
+  
+  // FIXME need something better.. this restores db id on each insert (
+  function insertDefaults(transaction) {
+  // insert default data
     var query = 'INSERT INTO stations(name, stream, listened_at) VALUES(?, ?, NULL);';
     for( var i=0; i < defaultStations.length; ++i ) {
       transaction.executeSql(query, defaultStations[i], nullDataHandler, errorHandler);
@@ -84,7 +87,7 @@ RA.db = function() {
           }
           */
           db_ = openDatabase(opts.shortName, opts.version, opts.displayName, opts.maxSize);
-          db_.transaction(function(transaction) { createTables(transaction); });
+          db_.transaction(function(transaction) { createTables(transaction); insertDefaults(transaction); });
           debug.log('Current db version: '+db_.version + ' (want ' + opts.version + ')');
         }
         return db_;
@@ -154,19 +157,23 @@ function populateNav() {
       li.appendChild(txt);
       li.setAttribute('id', 'station-'+ stations.item(i).id);
       li.onclick = function(ev) { 
+      
         var id = this.getAttribute('id').split('-')[1]; 
         RA.db.getStation(id, function(station) {
           ev.target.appendChild(playing);
           alert("Tune into: " + station.stream);
         }, true);
+        
       };
       ul.appendChild(li);
     }
+    // remove current nav
     var statel = document.getElementById("stations");
     if( statel.hasChildNodes() ) {
       while( statel.childNodes.length >= 1 ) 
         statel.removeChild(statel.firstChild);
     }
+    // append updated nav
     statel.appendChild(ul);
   });
 }
