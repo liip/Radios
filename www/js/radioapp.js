@@ -25,9 +25,7 @@ function playSound() {
 }
 
 function radioapp_displayArtist(artist, song) {
-	
-	document.getElementById("song_name").innerHTML = song;
-    
+
     lastfm.artist.getInfo({artist:  artist}, {success: function(data){
             document.getElementById("artist_name").innerHTML = data.artist.name;
             document.getElementById("artist_bio").innerHTML = data.artist.bio.summary;
@@ -77,6 +75,13 @@ function radioapp_displayArtist(artist, song) {
         
         
     }});
+	
+	
+    lastfm.track.getInfo({artist:  artist, track: song}, {success: function(data){
+		  document.getElementById("song_name").innerHTML = data.track.name;
+	}, error: function(code, message){
+		alert('Error!');				 
+	}});
     
 }
 
