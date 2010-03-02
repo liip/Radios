@@ -45,22 +45,21 @@ function radioapp_displayArtist(artist, song, full) {
 			document.getElementById("artist_name").innerHTML = data.artist.name;
 		   	document.getElementById("artist_bio").innerHTML = data.artist.bio.summary;
 		
-			console.log(data.artist);
+			debug.log(data.artist);
 			
 		   	lastfm.artist.getImages({artist: data.artist.name}, {success: function(data) {
+		   		var found = false;
 		   		for (i = 0; i <= data.images.image.length; i++) {
 		   			var image = data.images.image[i].sizes.size[0];
-		   			if (image['width'] > image['height']) {
+		   			if (parseInt(image['width']) > parseInt(image['height'])) {
 		   				document.getElementById("artist_image").src = image['#text'];
+		   				found = true;
 		   				break;
 		   			}
 		   		}
-			}, error: function(code, message) {
-				if(data.artist.image[4] && data.artist.image[4]['#text']) {
-					document.getElementById("artist_image").src = data.artist.image[4]['#text'];
-				} else {
-					document.getElementById("artist_image").src = "";
-				}
+		   		if(!found && data.artist.image[4] && data.artist.image[4]['#text']) {
+		   			document.getElementById("artist_image").src = data.artist.image[4]['#text'];
+		   		}
 			}});
 		}, error: function(code, message){
 			// Ignore
