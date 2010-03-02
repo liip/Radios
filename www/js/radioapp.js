@@ -24,6 +24,11 @@ function playSound() {
     plugins.AudioStream.play("http://zlz-stream11.streamserver.ch/1/drs3/mp3_128");
 }
 
+
+function stopSound() {
+    plugins.AudioStream.stop();
+}
+
 function radioapp_displayArtist(artist) {
     
     
