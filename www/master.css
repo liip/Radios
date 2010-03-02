@@ -1,11 +1,47 @@
+html, body {
+	height: 100%;
+}
 
 body {
-  background:#fff none repeat scroll 0 0;
-  color:#000;
-  font-family:Helvetica;
-  font-size:100%;
-  line-height:1.5em;
-  }
+	background-color: #fef4b4;
+	color: #000;
+	font-family: Helvetica;
+	font-size: 100%;
+	line-height: 1.5em;
+	margin: 0;
+}
+
+#header {
+	height: 82px;
+	background-image: url('images/header.png');
+}
+
+#header h1 {
+	margin: 0;
+	color: white;
+	content: url('images/logo.png'), contents;
+}
+
+#sidebar {
+	float: left;
+	background-color: white;
+	width: 280px;
+	min-height: 100%;
+}
+
+#search {
+	background-image: url('images/search.png');
+	height: 43px;
+}
+
+#search input {
+	border: 0;
+	width: 180px;
+	font-size: 11pt;
+	height: 24px;
+	margin-top: 10px;
+	margin-left: 28px;
+}
 
 #artist_image {
 	margin-top: 20px;
