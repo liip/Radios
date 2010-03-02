@@ -83,7 +83,7 @@ function radioapp_displayArtist(artist, song, full) {
 
 		document.getElementById("song_name").innerHTML = 'mit ' + data.track.name;
 		
-		lastfm.artist.getInfo({mbid: data.track.artist.mbid, lang: 'de'}, {success: function(data){
+		lastfm.artist.getInfo({artist: data.track.artist.name, lang: 'de'}, {success: function(data){
 		
 			document.getElementById("artist_name").innerHTML = data.artist.name;
 		   	document.getElementById("artist_bio").innerHTML = data.artist.bio.content.replace(/(<([^>]+)>)/ig, "").replace(/\n/g, "<br/>");
@@ -113,10 +113,10 @@ function radioapp_displayArtist(artist, song, full) {
 		   				break;
 		   			}
 		   		}
-		   		if(!found && data.artist.image[4] && data.artist.image[4]['#text']) {
+		   		if(!found && data.images.image[0] && data.images.image[0].sizes.size[0] && data.images.image[0].sizes.size[0]['#text']) {
 		   			
 		   			var img = document.createElement('img');
-		   			img.setAttribute('src', data.artist.image[4]['#text']);
+		   			img.setAttribute('src', data.images.image[0].sizes.size[0]['#text']);
 		   			img.setAttribute('height', '200');
 		   			img.setAttribute('class', 'hidden');
 		   			document.getElementById("image").appendChild(img);
@@ -159,8 +159,23 @@ function radioapp_displayArtist(artist, song, full) {
         artist = artist[0].split(".");
         document.getElementById("artist_name").innerHTML = artist[0];
         document.getElementById("song_name").innerHTML = full;
-        document.getElementById("artist_image").src = 'images/drs3.png';
+        //document.getElementById("artist_image").src = 'images/drs3.png';
         document.getElementById("artist_bio").innerHTML = '';
+        
+        // Remove old images
+        var olds = document.querySelectorAll("#image img:not(:last-child)");
+        for (i = 0; i < olds.length; i++) {
+        	document.getElementById('image').removeChild(olds[i]);
+        }
+        
+        // fade out image
+        document.querySelector("#image img").setAttribute('class', 'hidden');				
+        var img = document.createElement('img');
+        img.setAttribute('src', 'images/drs3.png');
+        img.setAttribute('height', '200');
+        img.setAttribute('class', 'hidden');
+        document.getElementById("image").appendChild(img);
+        setTimeout("document.querySelector('#image img:last-child').setAttribute('class', '')", 100);
     }        
 	
     
