@@ -4,6 +4,7 @@ html, body {
 
 body {
 	background-color: #fef4b4;
+	background-image: -webkit-gradient(radial, 300 90, 0, 300 90, 460, from(#ebebec), to(#fef4b4), color-stop(0%, rgba(255, 255, 255, 0.6)));
 	color: #000;
 	font-family: Helvetica;
 	font-size: 100%;
@@ -106,6 +107,7 @@ li:first-child {
 
 #content {
 	position: relative;
+	min-height: 100%;
 }
 
 #title {
