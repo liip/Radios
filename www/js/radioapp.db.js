@@ -127,7 +127,7 @@ RA.db = function() {
     },
     getStations: function(resultHandler, filter) {
       var where = '';
-      if ( filter != undefined && filter != '' ) {
+      if ( filter ) {
         where = " WHERE name LIKE '%" + filter + "%';"; // FIXME EEEEESCAPE!
       }
       db_.transaction(function(t) {
@@ -146,10 +146,17 @@ RA.db = function() {
 }();
 
 
-document.addEventListener("deviceready", populateNav, false);
 
-function populateNav() {
-  RA.db.init();
+document.addEventListener("deviceready", function() { RA.db.init(); populateStations(); autoSearch()}, false);
+
+function autoSearch() {
+  var searchel = document.getElementById('search-field');
+  searchel.onkeyup = function(ev) {
+    populateStations(searchel.value);
+  };
+}
+
+function populateStations(filter) {  
   RA.db.getStations(function(stations) {
     var ul = document.createElement('ul');
     var li, txt;
@@ -184,18 +191,5 @@ function populateNav() {
     }
     // append updated nav
     statel.appendChild(ul);
-  });
-}
-
-function testDb() {
-  RA.db.getStations(function(rows) {
-    for( var i=0; i < rows.length; ++i ) {
-      console.log("[" + rows.item(i).id + "] " + rows.item(i).name + " = " + rows.item(i).stream);
-    }
-  });
-  
-  RA.db.getStation(1, function(station) {
-    console.log(station.name + ' ' + station.listened_at);
-  }, true);
-
+  }, filter);
 }
