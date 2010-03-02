@@ -3,6 +3,7 @@
 
 
 
+
 if(!RA) var RA = {};
 
 RA.db = function() {
@@ -64,6 +65,7 @@ RA.db = function() {
           alert('Need window.openDatabase :/');
         } else {
 
+/*
           db_ = openDatabase(opts.shortName, "", opts.displayName, opts.maxSize);
           
           if( db_.version == '' ) {
@@ -80,14 +82,14 @@ RA.db = function() {
               alert('Changing db version failed: ' + e);
             }
           }
+          */
           db_ = openDatabase(opts.shortName, opts.version, opts.displayName, opts.maxSize);
-          console.log('Current db version: '+db_.version + ' (want ' + opts.version + ')');
+          debug.log('Current db version: '+db_.version + ' (want ' + opts.version + ')');
         }
         return db_;
       } catch(e) {
         if(e.code == ERR_VERSION_MISMATCH) {
           alert('Invalid db version.');
-          // this means we have an incomplete/buggy upgrade() method
         } else {
           alert('Unknown error: ' + e);
         }
@@ -131,9 +133,38 @@ RA.db = function() {
   };
 }();
 
-function testDb() {
+
+document.addEventListener("deviceready", populateNav, false);
+
+function populateNav() {
   RA.db.init();
-  
+  RA.db.getStations(function(stations) {
+    var ul = document.createElement('ul');
+    var li, txt;
+    for( var i=0; i<stations.length; ++i ) {
+      console.log(stations.item(i).name);
+      li = document.createElement('li');
+      txt = document.createTextNode(stations.item(i).name);
+      li.appendChild(txt);
+      li.setAttribute('id', 'station-'+ stations.item(i).id);
+      li.onclick = function(ev) { 
+        var id = this.getAttribute('id').split('-')[1]; 
+        RA.db.getStation(id, function(station) {
+          alert("Tune into: " + station.stream);
+        }, true);
+      };
+      ul.appendChild(li);
+    }
+    var statel = document.getElementById("stations");
+    if( statel.hasChildNodes() ) {
+      while( statel.childNodes.length >= 1 ) 
+        statel.removeChild(statel.firstChild);
+    }
+    statel.appendChild(ul);
+  });
+}
+
+function testDb() {
   RA.db.getStations(function(rows) {
     for( var i=0; i < rows.length; ++i ) {
       console.log("[" + rows.item(i).id + "] " + rows.item(i).name + " = " + rows.item(i).stream);
