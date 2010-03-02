@@ -10,9 +10,12 @@ RA.db = function() {
   var db_ = null;
   
   var defaultStations = [
-[ "DRS 3", "http://zlz-stream11.streamserver.ch/1/drs3/mp3_128"],
-[ "DRS 4", "http://liip.ch"],
-[ "Virus", "http://zlz-stream11.streamserver.ch/1/drsvirus/mp3_128"]
+                          [ "DRS 1"     , "http://glb-stream11.streamserver.ch/1/regi_zh_sh/mp3_128"],
+                         [ "DRS 2"     , "http://glb-stream13.streamserver.ch/1/drs2/mp3_128"],
+                          [ "DRS 3"     , "http://zlz-stream10.streamserver.ch/1/drs3/mp3_128"],
+                          [ "DRS 4 News", "http://zlz-stream11.streamserver.ch/1/drs4news/mp3_128"],
+                          [ "Virus"     , "http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128"],
+                          [ "Radio 1", "http://stream.radio1.ch:8000/radio1"]
 
 ];
   
