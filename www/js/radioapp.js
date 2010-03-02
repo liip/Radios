@@ -75,7 +75,7 @@ function radioapp_displayArtist(artist, song, full) {
 			document.querySelector("#image img").style.webkitAnimationName = 'fadeout';
 			document.querySelector("#image img").style.webkitAnimationDuration = '8s';
 			
-		   	lastfm.artist.getImages({artist: data.artist.name}, {success: function(data) {
+		   	lastfm.artist.getImages({artist: data.track.artist.mbid}, {success: function(data) {
 		   		var found = false;
 		   		for (i = 0; i < data.images.image.length; i++) {
 		   			var image = data.images.image[i].sizes.size[0];
