@@ -135,6 +135,12 @@ RA.db = function() {
           resultHandler(results.rows);
         }, errorHandler);
       });
+    },
+    insertStation: function(station) {
+      db_.transaction(function(t) {
+        var query = 
+        t.executeSql('INSERT INTO stations(name, stream, listened_at) VALUES(?, ?, NULL);', [ station.name, station.stream ], nullDataHandler, errorHandler);
+      });
     }
   };
 }();
