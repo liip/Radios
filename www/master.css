@@ -16,10 +16,25 @@ body {
 	background-image: url('images/header.png');
 }
 
-#header h1 {
+#header #logo {
 	margin: 0;
 	color: white;
 	content: url('images/logo.png'), contents;
+	float: left;
+}
+
+#header #mic {
+	position: absolute;
+	content: url('images/mic.png'), contents;
+	top: 0;
+	left: 150px;
+}
+
+#header #now_container {
+	color: white;
+	font-style: italic;
+	padding-top: 43px;
+	padding-left: 350px;
 }
 
 #sidebar {
