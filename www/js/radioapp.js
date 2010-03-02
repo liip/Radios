@@ -59,30 +59,54 @@ function stopSound() {
 }
 
 function radioapp_displayArtist(artist, song, full) {
+
     if (artist) {
-	lastfm.track.getInfo({artist:  artist, track: song}, {success: function(data){
-		
+    lastfm.track.getInfo({artist: artist, track: song}, {success: function(data){
+
 		document.getElementById("song_name").innerHTML = 'mit ' + data.track.name;
 		
-		lastfm.artist.getInfo({artist: artist, lang: 'de'}, {success: function(data){
+		lastfm.artist.getInfo({mbid: data.track.artist.mbid, lang: 'de'}, {success: function(data){
 		
 			document.getElementById("artist_name").innerHTML = data.artist.name;
-		   	document.getElementById("artist_bio").innerHTML = data.artist.bio.content.replace(/(<([^>]+)>)/ig, "").replace(/\n/g, "<br>");
+		   	document.getElementById("artist_bio").innerHTML = data.artist.bio.content.replace(/(<([^>]+)>)/ig, "").replace(/\n/g, "<br/>");
 		
 			debug.log(data.artist);
 			
-		   	lastfm.artist.getImages({artist: data.artist.name}, {success: function(data) {
+			// Remove old images
+			var olds = document.querySelectorAll("#image img:not(:last-child)");
+			for (i = 0; i < olds.length; i++) {
+				document.getElementById('image').removeChild(olds[i]);
+			}
+			
+			// fade out image
+			document.querySelector("#image img").style.webkitAnimationName = 'fadeout';
+			document.querySelector("#image img").style.webkitAnimationDuration = '8s';
+			
+		   	lastfm.artist.getImages({artist: data.track.artist.mbid}, {success: function(data) {
 		   		var found = false;
-		   		for (i = 0; i <= data.images.image.length; i++) {
+		   		for (i = 0; i < data.images.image.length; i++) {
 		   			var image = data.images.image[i].sizes.size[0];
 		   			if (parseInt(image['width']) > parseInt(image['height'])) {
-		   				document.getElementById("artist_image").src = image['#text'];
+		   				
+		   				var img = document.createElement('img');
+		   				img.setAttribute('src', image['#text']);
+		   				img.setAttribute('height', '200');
+		   				document.getElementById("image").appendChild(img);
+		   				img.style.webkitAnimationName = 'fade';
+		   				img.style.webkitAnimationDuration = '5s';
 		   				found = true;
 		   				break;
 		   			}
 		   		}
 		   		if(!found && data.artist.image[4] && data.artist.image[4]['#text']) {
-		   			document.getElementById("artist_image").src = data.artist.image[4]['#text'];
+		   			
+		   			var img = document.createElement('img');
+		   			img.setAttribute('src', data.artist.image[4]['#text']);
+		   			img.setAttribute('height', '200');
+		   			document.getElementById("image").appendChild(img);
+		   			img.style.webkitAnimationName = 'fade';
+		   			img.style.webkitAnimationDuration = '5s';
+		   			found = true;
 		   		}
 			}});
 		}, error: function(code, message){
@@ -96,8 +120,25 @@ function radioapp_displayArtist(artist, song, full) {
                 artist = artist.split(",");
 				document.getElementById("artist_name").innerHTML = artist[0];
 				document.getElementById("song_name").innerHTML = full;
-				document.getElementById("artist_image").src = 'images/drs3.png';
+				//document.getElementById("artist_image").src = 'images/drs3.png';
 				document.getElementById("artist_bio").innerHTML = '';
+				
+				// Remove old images
+				var olds = document.querySelectorAll("#image img:not(:last-child)");
+				for (i = 0; i < olds.length; i++) {
+					document.getElementById('image').removeChild(olds[i]);
+				}
+				
+				// fade out image
+				document.querySelector("#image img").style.webkitAnimationName = 'fadeout';
+				document.querySelector("#image img").style.webkitAnimationDuration = '2s';
+				
+				var img = document.createElement('img');
+				img.setAttribute('src', 'images/drs3.png');
+				img.setAttribute('height', '200');
+				document.getElementById("image").appendChild(img);
+				img.style.webkitAnimationName = 'fade';
+				img.style.webkitAnimationDuration = '5s';
 			}
 		}});			 
 	}});

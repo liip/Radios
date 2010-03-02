@@ -139,11 +139,28 @@ li:first-child {
 	text-align: right;
 	padding: 60px 30px 0 0;
 	margin-left: 350px;
+	height: 207px;
+	position: relative;
+}
+
+#image img {
+	position: absolute;
+	right: 30px;
+}
+
+@-webkit-keyframes fade {
+	0%   { opacity: 0;   }
+	100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes fadeout {
+	0%   { opacity: 1.0;   }
+	100% { opacity: 0; }
 }
 
 #bio {
 	font-size: 14px;
-	line-height: 1.4em;
+	line-height: 1.5em;
 	margin-top: -60px;
 	margin-left: 350px;
 	padding-right: 40px;
