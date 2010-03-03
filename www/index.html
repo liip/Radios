@@ -24,14 +24,14 @@
 	
   </head>
   <body onload="onWinLoad()" ontouchmove="touchMove(event)" id="stage" class="theme">
-  <div id="screensaver" style="visibility:hidden;">
+  <div id="screensaver" style="visibility:hidden;" onclick="hideScreensaver();">
     <canvas id="background" width="1024px" height="1024px"></canvas>
     <div class="box" id="radioname">
-      <p>DRS 3</p>
+      <h1 id="station">RADIOSENDER</h1>
     </div>
     <div class="box" id="songinfo">
-      <p id="artist">The White Stripes</p>
-      <p id="song">Icky Thumb</p>
+      <h1 id="artist">ARTIST</p>
+      <h2 id="song">SONG</p>
     </div>
     <div id="imgContainer">
     </div>

@@ -1,9 +1,12 @@
 function onMetaDataChangeSuccess(data) {
     if(data) {
         var splits=data.split("-");
+        //debug.log(splits[0]);
+        
         //document.getElementById("now_playing").innerHTML = data;
         if (splits[1]) {
             radioapp_displayArtist(splits[0], splits[1], data);
+            updateScreensaver(splits[0], splits[1]);
         } else {
             radioapp_displayArtist("", data, data);
         }
