@@ -89,7 +89,22 @@ function radioapp_displayArtist(artist, song, full) {
 		lastfm.artist.getInfo({artist: data.track.artist.name, lang: 'de'}, {success: function(data){
 		
 			document.getElementById("artist_name").innerHTML = data.artist.name;
-		   	document.getElementById("artist_bio").innerHTML = data.artist.bio.content.replace(/(<([^>]+)>)/ig, "").replace(/\n/g, "<br/>");
+			if (data.artist.bio.content) {
+				document.getElementById("artist_bio").innerHTML = data.artist.bio.content.replace(/(<([^>]+)>)/ig, "").replace(/\n/g, "<br/>");
+			} else if (data.artist.bio.summary) {
+			    document.getElementById("artist_bio").innerHTML = data.artist.bio.summary;		  
+			} else {
+		    	artists = artist.split(/(Feat.|Ft.|\/|and|&amp;)/i);
+		    	if (artists[0]) {
+    		    	lastfm.artist.getInfo({artist: artists[0], lang: 'de'}, {success: function(data){
+    		    	    if (data.artist.bio.content) {
+    		    	    	document.getElementById("artist_bio").innerHTML = data.artist.bio.content.replace(/(<([^>]+)>)/ig, "").replace(/\n/g, "<br/>");
+    		    	    } else if (data.artist.bio.summary) {
+    		    	        document.getElementById("artist_bio").innerHTML = data.artist.bio.summary;		  
+    		    	    }
+    		        }});
+		    	}
+			}
 			
 			// Remove old images
 			var olds = document.querySelectorAll("#image img:not(:last-child)");
