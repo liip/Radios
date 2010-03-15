@@ -62,7 +62,7 @@ function loadImages(artist) {
   
     
     
-    lastfm.artist.getImages(
+    Radio.lastfm.artist.getImages(
       {artist: artist},
       {
         success: function(data) {
