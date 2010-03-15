@@ -10,13 +10,13 @@ RA.db = function() {
   var db_ = null;
   
   var defaultStations = [
-                          [ "DRS 1"     , "http://glb-stream11.streamserver.ch/1/regi_zh_sh/mp3_128"],
-                         [ "DRS 2"     , "http://glb-stream13.streamserver.ch/1/drs2/mp3_128"],
-                          [ "DRS 3"     , "http://zlz-stream10.streamserver.ch/1/drs3/mp3_128"],
-                          [ "DRS 4 News", "http://zlz-stream11.streamserver.ch/1/drs4news/mp3_128"],
-                          [ "Virus"     , "http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128"],
-                          [ "Radio 1", "http://stream.radio1.ch:8000/radio1"],
-                          [ "Radio 3fach", "http://212.203.92.45:8000/listen.pls"],
+                          [ "DRS 1"     , "http://glb-stream11.streamserver.ch/1/regi_zh_sh/mp3_128", "drs1.png"],
+                         [ "DRS 2"     , "http://glb-stream13.streamserver.ch/1/drs2/mp3_128", "drs2.png"],
+                          [ "DRS 3"     , "http://zlz-stream10.streamserver.ch/1/drs3/mp3_128", "drs3.png"],
+                          [ "DRS 4 News", "http://zlz-stream11.streamserver.ch/1/drs4news/mp3_128", "drs4.png"],
+                          [ "Virus"     , "http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128", "drsvirus.png"],
+                          [ "Radio 1", "http://stream.radio1.ch:8000/radio1", "drs3.png"],
+                          [ "Radio 3fach", "http://212.203.92.45:8000/listen.pls", "3fach.gif"],
 
 ];
   
@@ -44,13 +44,13 @@ RA.db = function() {
   
   function createTables(transaction) {
     //transaction.executeSql('DROP TABLE IF EXISTS stations');
-    transaction.executeSql('CREATE TABLE IF NOT EXISTS stations(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT REPLACE, stream TEXT NOT NULL, listened_at DATE );', [], nullDataHandler, errorHandler);
+    transaction.executeSql('CREATE TABLE IF NOT EXISTS stations(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT REPLACE, stream TEXT NOT NULL, logo TEXT NOT NULL, listened_at DATE );', [], nullDataHandler, errorHandler);
   }
   
   // FIXME need something better.. this restores db id on each insert (
   function insertDefaults(transaction) {
   // insert default data
-    var query = 'INSERT INTO stations(name, stream, listened_at) VALUES(?, ?, NULL);';
+    var query = 'INSERT INTO stations(name, stream, logo, listened_at) VALUES(?, ?, ?, NULL);';
     for( var i=0; i < defaultStations.length; ++i ) {
       transaction.executeSql(query, defaultStations[i], nullDataHandler, errorHandler);
     }
@@ -121,7 +121,7 @@ RA.db = function() {
         this.updateListenAt(id);
         
       db_.transaction(function(t) {
-        t.executeSql("SELECT id, name, stream, listened_at FROM stations WHERE id = ?", [ id ] , function(t, results) {
+        t.executeSql("SELECT id, name, stream, logo, listened_at FROM stations WHERE id = ?", [ id ] , function(t, results) {
           if( results.rows.length == 0 )
             resultHandler(null);
           else 
@@ -135,7 +135,7 @@ RA.db = function() {
         where = " WHERE name LIKE '%" + filter + "%';"; // FIXME EEEEESCAPE!
       }
       db_.transaction(function(t) {
-        t.executeSql("SELECT id, name, stream, listened_at FROM stations " + where + " ORDER BY listened_at DESC", [ ] , function(t, results) {
+        t.executeSql("SELECT id, name, stream, logo, listened_at FROM stations " + where + " ORDER BY listened_at DESC", [ ] , function(t, results) {
           resultHandler(results.rows);
         }, errorHandler);
       });
@@ -143,7 +143,7 @@ RA.db = function() {
     insertStation: function(station) {
       db_.transaction(function(t) {
         var query = 
-        t.executeSql('INSERT INTO stations(name, stream, listened_at) VALUES(?, ?, NULL);', [ station.name, station.stream ], nullDataHandler, errorHandler);
+        t.executeSql('INSERT INTO stations(name, stream, logo, listened_at) VALUES(?, ?, ?, NULL);', [ station.name, station.stream, station.logo ], nullDataHandler, errorHandler);
       });
     }
   };
@@ -175,11 +175,15 @@ function populateStations(filter) {
       txt = document.createTextNode(stations.item(i).name);
       li.appendChild(txt);
       li.setAttribute('id', 'station-'+ stations.item(i).id);
+      if (stations.item(i).name == "DRS 3") {
+          li.appendChild(playing);
+      }
       li.onclick = function(ev) { 
       
         var id = this.getAttribute('id').split('-')[1]; 
         RA.db.getStation(id, function(station) {
           document.getElementById('station-'+station.id).appendChild(playing);
+          radio.logo = station.logo;
           playSound(station.stream);
         }, true);
         

@@ -4,16 +4,27 @@ var Radio = function () {
     
     var metadata = "";
     
-    function displayImage(image) {
+    var that = this;
+    
+    this.logo = "drs3.png";
+    
+    /* Create a LastFM object */
+    this.lastfm = new LastFM({
+        apiKey: 'f76b8d609c4af3988283045b8f6123ba',
+        apiSecret: '3cbb48bd2736581e0c242c8a9cf3045c',
+        cache: cache
+    });
+    
+    this.displayImage = function (image) {
         var img = document.createElement('img');
         img.setAttribute('src', image['#text']);
         img.setAttribute('height', '200');
         img.setAttribute('class', 'hidden');
         document.getElementById("image").appendChild(img);
         setTimeout("document.querySelector('#image img:last-child').setAttribute('class', '')", 100);
-    }
+    };
     
-    function displayBio(data) {
+    this.displayBio = function (data) {
     
         if (data.artist.bio.content) {
         	document.getElementById("artist_bio").innerHTML = data.artist.bio.content.replace(/(<([^>]+)>)/ig, "").replace(/\n/g, "<br/>");
@@ -24,40 +35,40 @@ var Radio = function () {
         }
         
         return true;
-    }
+    };
     
-    function displayArtist(data) {
+    this.displayArtist = function (data) {
         
-        if (!displayBio(data)) {
+        if (!that.displayBio(data)) {
             // detected featuring artists
         	var artists = data.artist.name.split(/(Feat.|Ft.|\/|and|\&)/i);
         	if (artists[0] && artists[1]) {
-            	Radio.lastfm.artist.getInfo({artist: artists[0], lang: 'de'}, {success: displayBio});
+            	that.lastfm.artist.getInfo({artist: artists[0], lang: 'de'}, {success: that.displayBio});
         	} else {
         	    // No featuring, no bio
         	}
         }
-    }
+    };
     
-    function displaySongInformation(artist, track) {
+    this.displaySongInformation = function (artist, track) {
         
         updateScreensaver(artist, track);
         
         document.getElementById("artist_name").innerHTML = artist;
 		document.getElementById("song_name").innerHTML = 'mit ' + track;
 		
-		Radio.lastfm.artist.getInfo({artist: artist, lang: 'de'}, {success: function (data){
+		that.lastfm.artist.getInfo({artist: artist, lang: 'de'}, {success: function (data) {
 		    
-			displayArtist(data);
+			that.displayArtist(data);
 			
-		   	Radio.lastfm.artist.getImages({artist: data.artist.name}, {success: function(data) {
+		   	that.lastfm.artist.getImages({artist: data.artist.name}, {success: function(data) {
 		   	    
 		   		var found = false;
 		   		
 		   		for (i = 0; i < data.images.image.length; i++) {
 		   			var image = data.images.image[i].sizes.size[0];
 		   			if (parseInt(image['width']) > parseInt(image['height'])) {
-		   				displayImage(image);
+		   				that.displayImage(image);
 		   				found = true;
 		   				break;
 		   			}
@@ -66,28 +77,32 @@ var Radio = function () {
 		   		// if no widescreen image wass found, try first one instead
 		   		if(!found && data.images.image[0] && data.images.image[0].sizes.size[0] && data.images.image[0].sizes.size[0]['#text']) {
 		   		    image = data.images.image[0].sizes.size[0];
-		   			displayImage(image);
+		   			that.displayImage(image);
 		   		} else if (!found && data.images.image && data.images.image.sizes.size[0] && data.images.image.sizes.size[0]['#text']) {
 		   		    // only one image
 	   		        image = data.images.image.sizes.size[0];
-	   		    	displayImage(image);
+	   		    	that.displayImage(image);
 		   		}
 			}});
 		}, error: function(code, message){
 		    debug.log('artist.getInfo failed: ' + message);	
 		}});
-    }
+    };
     
-    function searchTrackInformation(artist, track) {
+    this.searchTrackInformation = function (artist, track) {
+        
+        artist = artist.replace(':', '');
+        track = track.replace(':', '');
         
         // try track search
-        Radio.lastfm.track.search({artist: artist, track: track}, {success: function (data) {
-            
+        that.lastfm.track.search({artist: artist, track: track}, {success: function (data) {
+            debug.log(artist);
+            debug.log(track);
         	if (data.results.trackmatches.track) {
         	    if (data.results.trackmatches.track[0]) {
-        		    displaySongInformation(data.results.trackmatches.track[0].artist, data.results.trackmatches.track[0].name);
+        		    that.displaySongInformation(data.results.trackmatches.track[0].artist, data.results.trackmatches.track[0].name);
         		} else {
-        		    displaySongInformation(data.results.trackmatches.track.artist, data.results.trackmatches.track.name);
+        		    that.displaySongInformation(data.results.trackmatches.track.artist, data.results.trackmatches.track.name);
         		}
         	} else {
         	
@@ -96,7 +111,7 @@ var Radio = function () {
         		document.getElementById("song_name").innerHTML = track;
         						
         		var img = document.createElement('img');
-        		img.setAttribute('src', 'images/drs3.png');
+        		img.setAttribute('src', 'images/' + that.logo);
         		img.setAttribute('height', '200');
         		img.setAttribute('class', 'hidden');
         		document.getElementById("image").appendChild(img);
@@ -105,29 +120,39 @@ var Radio = function () {
         }, error: function (code, message) {
             debug.log('track.search failed: ' + message);	
         }});
-    }
+    };
     
-    function parseMetadata(data) {
+    this.parseMetadata = function (data) {
         
         metadata = data;
         
         var splits = data.split("-");
         if (splits[1]) {
-            searchTrackInformation(splits[0], splits[1]);
+            that.searchTrackInformation(splits[0], splits[1]);
         } else {
             splits = data.split(",");
             if (splits[1]) {
-                searchTrackInformation(splits[0], splits[1]);
+                that.searchTrackInformation(splits[0], splits[1]);
             } else {
                 splits = data.split(".");
                 if (splits[1]) {
-                    searchTrackInformation(splits[0], splits[1]);
+                    that.searchTrackInformation(splits[0], splits[1]);
+                } else {
+                    // can't split artist and track
+                	document.getElementById("artist_name").innerHTML = data;
+                					
+                	var img = document.createElement('img');
+                	img.setAttribute('src', 'images/drs3.png');
+                	img.setAttribute('height', '200');
+                	img.setAttribute('class', 'hidden');
+                	document.getElementById("image").appendChild(img);
+                	setTimeout("document.querySelector('#image img:last-child').setAttribute('class', '')", 100);
                 }
             }
         }
-    }
+    };
     
-    function onMetaDataChangeSuccess(data) {
+    this.onMetaDataChangeSuccess = function (data) {
         
         if (data) {
             
@@ -145,53 +170,40 @@ var Radio = function () {
             // fade out image
             document.querySelector("#image img").setAttribute('class', 'hidden');
             
-            parseMetadata(data);
-        }
-    }
-    
-    return {
-        
-        lastfm: null,
-        
-        init: function () {
-            
-            /* Create a LastFM object */
-            this.lastfm = new LastFM({
-                apiKey: 'f76b8d609c4af3988283045b8f6123ba',
-                apiSecret: '3cbb48bd2736581e0c242c8a9cf3045c',
-                cache: cache
-            });
-            
-            if (this.isIPad()) {
-                plugins.AudioStream.onMetaDataChange(onMetaDataChangeSuccess, null, null);
-                
-                if (plugins.AudioStream.onStatusChange) {
-                    
-                    plugins.AudioStream.onStatusChange(function(status) {
-                        if(status == 'isPlaying') {
-                            // document.getElementById('now_station').innerHTML = 'Now Playing DRS 3: ';
-                        } else {
-                            // document.getElementById('now_station').innerHTML = 'Stopped. ';
-                        }
-                    });
-                }
-                
-                playSound();
-            }
-        },
-        
-        isIPad: function () {
-            return navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPhone/i);
+            that.parseMetadata(data);
         }
     };
-}();
+    
+    if (isIPad()) {
+        plugins.AudioStream.onMetaDataChange(this.onMetaDataChangeSuccess, null, null);
+        
+        if (plugins.AudioStream.onStatusChange) {
+            
+            plugins.AudioStream.onStatusChange(function(status) {
+                if(status == 'isPlaying') {
+                    // document.getElementById('now_station').innerHTML = 'Now Playing DRS 3: ';
+                } else {
+                    // document.getElementById('now_station').innerHTML = 'Stopped. ';
+                }
+            });
+        }
+        
+        playSound();
+    }
+};
 
+var radio = null;
 
 function onDeviceReady() {
 
-    Radio.init();
+    radio = new Radio();
 }
 
+
+function isIPad() {
+    return true;
+    return navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPhone/i);
+}
 
 function touchMove(event) {
 	// Prevent scrolling on this element
@@ -232,7 +244,7 @@ function stopSound() {
 
 
 function onWinLoad() {
-    if(Radio.isIPad()){
+    if(isIPad()){
         document.addEventListener("deviceready", onDeviceReady, false);
     } else {
         onDeviceReady();
