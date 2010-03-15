@@ -181,7 +181,6 @@ var Radio = function () {
         },
         
         isIPad: function () {
-            return true;
             return navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPhone/i);
         }
     };
