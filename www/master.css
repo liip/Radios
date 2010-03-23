@@ -1,18 +1,43 @@
+html {
+    height: 100%;
+}
+
 body {
-	background-color: #fef4b4;
-	background-image: url('images/background.png'), -webkit-gradient(radial, 300 90, 0, 300 90, 460, from(#ebebec), to(#fef4b4), color-stop(0%, rgba(255, 255, 255, 0.6)));
-	background-repeat: repeat-y, no-repeat;
+    background-color: #333;
 	color: #000;
 	font-family: Helvetica;
 	font-size: 100%;
 	line-height: 1.5em;
 	margin: 0;
+	
+	/* Give some depth to the card */
+	-webkit-perspective: 600;
+	height: 100%;
+}
+
+#card {
+    width: 100%;
+    height: 100%;
+    /* Ensure that the card lives correctly in 3D space */
+    -webkit-transform-style: preserve-3d;
+    
+    /* We apply this property to the card so it can smoothly flip between its sides */
+    -webkit-transition-property: -webkit-transform;
+    /* Make the animation occur over a period of 1.5 seconds */
+    -webkit-transition-duration: 1.5s;
+}
+
+#main {
+	background-color: #fef4b4;
+	background-image: url('images/background.png'), -webkit-gradient(radial, 300 90, 0, 300 90, 460, from(#ebebec), to(#fef4b4), color-stop(0%, rgba(255, 255, 255, 0.6)));
+	background-repeat: repeat-y, no-repeat;
 }
 
 #header {
 	height: 82px;
 	background-image: url('images/header.png');
 	position: relative;
+	-webkit-backface-visibility: hidden;
 }
 
 #header #logo {
@@ -27,6 +52,7 @@ body {
 	top: 0;
 	left: 150px;
 	z-index: 1000;
+	-webkit-backface-visibility: hidden;
 }
 
 #header #now_container {
@@ -40,6 +66,7 @@ body {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	-webkit-backface-visibility: hidden;
 }
 
 #sidebar {
@@ -115,6 +142,7 @@ li:first-child {
 	position: relative;
 	top: -82px;
 	line-height: 1.8em;
+	-webkit-backface-visibility: hidden;
 }
 
 #artist_name {
@@ -145,6 +173,7 @@ li:first-child {
 	margin-left: 350px;
 	height: 207px;
 	position: relative;
+	-webkit-backface-visibility: hidden;
 }
 
 #image img {
@@ -153,6 +182,7 @@ li:first-child {
 	opacity: 1.0;
 	-webkit-transition-property: opacity;
 	-webkit-transition-duration: 2s;
+	-webkit-backface-visibility: hidden;
 }
 
 #image img.hidden {
@@ -174,3 +204,46 @@ li:first-child {
 #bio img {
     vertical-align: sub;
 }
+
+
+
+/* Applies the flip animation to the card */
+.card.flipped
+{
+
+	/* Rotate the card 180 degrees along the y-axis. This animation allows the card to
+	  toggle between its regular and flipped states. */
+	-webkit-transform: rotateY(180deg);
+}
+
+
+/* Styles the card and hides its "back side" when the card is flipped */
+.face 
+{
+      position: absolute;
+      left:0;
+      top:0;
+      width: 100%;
+      height: 100%;
+	/* Make sure that users will not be able to select anything on the card */
+	
+	/* We create the card by stacking two div elements at the exact same location. The back of the card 
+	   is shown when we rotated the card 180 degrees along the y-axis. Setting this property to hidden
+	   ensures that the "back side" is hidden when the card is flipped
+	*/
+	-webkit-backface-visibility: hidden;
+}
+
+.front 
+{
+}
+
+
+/* Styles the back of the card */
+.back 
+{
+	
+	/* Ensure the "back side" is flipped already */
+	-webkit-transform: rotateY(180deg);
+}
+

@@ -3,12 +3,7 @@ const FADE_DURATION = 3;
 
 function initScreensaver()
 {
-  drawBackground();
-  document.getElementById('screensaver').style.visibility="visible";
-}
-function hideScreensaver()
-{
-  document.getElementById('screensaver').style.visibility="hidden";
+	$('#card').toggleClass('flipped');
 }
 
 function updateScreensaver(artist, track)
