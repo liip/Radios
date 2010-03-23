@@ -27,9 +27,17 @@ var Radio = function () {
     this.displayBio = function (data) {
     
         if (data.artist.bio.content) {
-        	document.getElementById("artist_bio").innerHTML = data.artist.bio.content.replace(/(<([^>]+)>)/ig, "").replace(/\n/g, "<br/>");
+            bio = data.artist.bio.content.replace(/(<([^>]+)>)/ig, "").replace(/\n/g, "<br/>");
+            if (bio.length > 1000) {
+                bio = bio.substring(0, 1000) + "…";
+            }
+        	document.getElementById("artist_bio").innerHTML = bio;
         } else if (data.artist.bio.summary) {
-            document.getElementById("artist_bio").innerHTML = data.artist.bio.summary;		  
+            bio = data.artist.bio.summary;
+            if (bio.length > 1000) {
+                bio = bio.substring(0, 1000) + "…";
+            }
+            document.getElementById("artist_bio").innerHTML = bio;		  
         } else {
             return false;
         }
