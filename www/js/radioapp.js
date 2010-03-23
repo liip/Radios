@@ -51,7 +51,7 @@ var Radio = function () {
     };
     
     this.displaySongInformation = function (artist, track) {
-        artist = "The White Stripes";
+        
         document.getElementById("artist_name").innerHTML = artist;
 		document.getElementById("song_name").innerHTML = 'mit ' + track;
 		
