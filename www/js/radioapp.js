@@ -51,27 +51,51 @@ var Radio = function () {
     };
     
     this.displaySongInformation = function (artist, track) {
-        
-        updateScreensaver(artist, track);
-        
+        artist = "The White Stripes";
         document.getElementById("artist_name").innerHTML = artist;
 		document.getElementById("song_name").innerHTML = 'mit ' + track;
+		
+        document.getElementById("artist").innerHTML = artist;
+        document.getElementById("song").innerHTML = 'mit ' + track;
 		
 		that.lastfm.artist.getInfo({artist: artist, lang: 'de'}, {success: function (data) {
 		    
 			that.displayArtist(data);
 			
-		   	that.lastfm.artist.getImages({artist: data.artist.name}, {success: function(data) {
+		   	that.lastfm.artist.getImages({artist: data.artist.name, limit: 5}, {success: function(data) {
 		   	    
 		   		var found = false;
 		   		
+		   		var container = document.getElementById('imgContainer');
+		   		container.innerHTML = "";
+		   		
 		   		for (i = 0; i < data.images.image.length; i++) {
+		   			
 		   			var image = data.images.image[i].sizes.size[0];
-		   			if (parseInt(image['width']) > parseInt(image['height'])) {
+		   			
+		   			if (!found && parseInt(image['width']) > parseInt(image['height'])) {
 		   				that.displayImage(image);
 		   				found = true;
-		   				break;
 		   			}
+                    
+                    var imgDiv = document.createElement('div');
+                    var img = document.createElement('img');
+                    
+                    img.src = image['#text'];
+                    
+                    img.setAttribute('height', '300');
+                    
+                    img.style.webkitAnimationName = 'fade';
+                    img.style.webkitAnimationDuration = 3 + "s";
+                    img.style.webkitAnimationDelay = (i * 3) + "s";
+                    //img.style.webkitTransform = "rotate(" + Math.floor(Math.random() * 10) + "deg)";
+                    
+                    imgDiv.appendChild(img);
+                    
+                    imgDiv.style.top = Math.floor(Math.random() * 800) + "px";
+                    imgDiv.style.left = Math.floor(Math.random() * 400) + "px";
+                    
+                    container.appendChild(imgDiv);
 		   		}
 		   		
 		   		// if no widescreen image wass found, try first one instead
@@ -190,6 +214,7 @@ var Radio = function () {
         
         playSound();
     }
+	playSound();
 };
 
 var radio = null;
@@ -197,11 +222,12 @@ var radio = null;
 function onDeviceReady() {
 
     radio = new Radio();
+	
+	RA.db.init(); populateStations(); autoSearch()
 }
 
 
 function isIPad() {
-    return true;
     return navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPhone/i);
 }
 
