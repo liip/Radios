@@ -2,6 +2,10 @@ html {
     height: 100%;
 }
 
+* {
+    -webkit-backface-visibility: hidden;
+}
+
 body {
     background-color: #333;
 	color: #000;
@@ -37,7 +41,6 @@ body {
 	height: 82px;
 	background-image: url('images/header.png');
 	position: relative;
-	-webkit-backface-visibility: hidden;
 }
 
 #header #logo {
@@ -52,7 +55,6 @@ body {
 	top: 0;
 	left: 150px;
 	z-index: 1000;
-	-webkit-backface-visibility: hidden;
 }
 
 #header #now_container {
@@ -66,7 +68,6 @@ body {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	-webkit-backface-visibility: hidden;
 }
 
 #sidebar {
@@ -142,7 +143,6 @@ li:first-child {
 	position: relative;
 	top: -82px;
 	line-height: 1.8em;
-	-webkit-backface-visibility: hidden;
 }
 
 #artist_name {
@@ -173,7 +173,6 @@ li:first-child {
 	margin-left: 350px;
 	height: 207px;
 	position: relative;
-	-webkit-backface-visibility: hidden;
 }
 
 #image img {
@@ -182,7 +181,6 @@ li:first-child {
 	opacity: 1.0;
 	-webkit-transition-property: opacity;
 	-webkit-transition-duration: 2s;
-	-webkit-backface-visibility: hidden;
 }
 
 #image img.hidden {
@@ -231,7 +229,6 @@ li:first-child {
 	   is shown when we rotated the card 180 degrees along the y-axis. Setting this property to hidden
 	   ensures that the "back side" is hidden when the card is flipped
 	*/
-	-webkit-backface-visibility: hidden;
 }
 
 .front 
@@ -242,8 +239,6 @@ li:first-child {
 /* Styles the back of the card */
 .back 
 {
-	
 	/* Ensure the "back side" is flipped already */
 	-webkit-transform: rotateY(180deg);
 }
-
