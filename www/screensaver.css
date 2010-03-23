@@ -17,7 +17,7 @@ div.box h1, div.box h2
 div#radioname
 {
   position: absolute;
-  top: 150px;
+  top: 100px;
   left: 0px;
   width: 60%;
 }
@@ -32,7 +32,7 @@ div#radioname p
 div#songinfo
 {
     position: absolute;
-    bottom: 50px;
+    bottom: 150px;
     right: 0px;
     width: 80%;
 }

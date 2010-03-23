@@ -29,6 +29,7 @@ body {
     -webkit-transition-property: -webkit-transform;
     /* Make the animation occur over a period of 1.5 seconds */
     -webkit-transition-duration: 1.5s;
+        -webkit-backface-visibility: visible !important;
 }
 
 #main {
