@@ -115,17 +115,12 @@ RA.db = function() {
       });
     },
     getStation: function(id, resultHandler, updateListen) {
-      updateListen = updateListen || false;
-      
       if( updateListen )
         this.updateListenAt(id);
         
       db_.transaction(function(t) {
         t.executeSql("SELECT id, name, stream, logo, listened_at FROM stations WHERE id = ?", [ id ] , function(t, results) {
-          if( results.rows.length == 0 )
-            resultHandler(null);
-          else 
-            resultHandler(results.rows.item(0));
+          resultHandler( result.rows.length == 0 ? null : results.rows.item(0) );
         }, errorHandler);
       });
     },
