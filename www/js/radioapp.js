@@ -135,6 +135,9 @@ var Radio = function () {
                     imgDiv.style.left = Math.floor(Math.random() * 400) + "px";
                     
                     container.appendChild(imgDiv);
+                    
+                    // fade in collage
+                    document.querySelector("#collage").setAttribute('class', '');
 		   		}
 		   		
 		   		// if no widescreen image wass found, try first one instead
@@ -228,6 +231,9 @@ var Radio = function () {
     
         // fade out last.fm
         document.querySelector("#lastfm").setAttribute('class', 'hidden');
+        
+        // fade out collage
+        document.querySelector("#collage").setAttribute('class', 'hidden');
         
         // Remove old titles
         var olds = document.querySelectorAll("#title div:not(:last-child)");

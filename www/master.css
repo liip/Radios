@@ -79,6 +79,14 @@ body {
 	right: 20px;
 	opacity: 0.7;
 	z-index: 1000;
+    opacity: 1.0;
+    -webkit-transition-property: opacity;
+    -webkit-transition-duration: 2s;
+    -webkit-backface-visibility: hidden;
+}
+
+#collage.hidden {
+    opacity: 0;
 }
 
 #sidebar {
