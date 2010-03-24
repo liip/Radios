@@ -1,3 +1,46 @@
+(function($) {
+	$.fn.ellipsis = function(enableUpdating){
+		var s = document.documentElement.style;
+		return this.each(function(){
+			var el = $(this);
+			if(el.css("overflow") == "hidden"){
+				var originalText = el.html();
+				var w = el.width();
+				
+				var t = $(this.cloneNode(true)).hide().css({
+                    'position': 'absolute',
+                    'width': w,
+                    'height': 'auto',
+                    'overflow': 'visible',
+                    'max-height': 'inherit',
+                    'background-color': 'green'
+                });
+				el.after(t);
+				
+				var text = originalText;
+				while(text.length > 0 && t.height() > el.height()){
+					text = text.substr(0, text.length - 5);
+					t.html(text + "…");
+				}
+				el.html(t.html());
+				
+				t.remove();
+				
+				if(enableUpdating == true){
+					var oldW = el.height();
+					setInterval(function(){
+						if(el.height() != oldW){
+							oldW = el.height();
+							el.html(originalText);
+							el.ellipsis();
+						}
+					}, 200);
+				}
+			}
+		});
+	};
+})(jQuery);
+
 var Radio = function () {
 
     var cache = new LastFMCache();
@@ -28,19 +71,14 @@ var Radio = function () {
     
         if (data.artist.bio.content) {
             bio = data.artist.bio.content.replace(/(<([^>]+)>)/ig, "").replace(/\n/g, "<br/>");
-            if (bio.length > 1000) {
-                bio = bio.substring(0, 1000) + "…";
-            }
         	document.getElementById("artist_bio").innerHTML = bio;
         } else if (data.artist.bio.summary) {
             bio = data.artist.bio.summary;
-            if (bio.length > 1000) {
-                bio = bio.substring(0, 1000) + "…";
-            }
             document.getElementById("artist_bio").innerHTML = bio;		  
         } else {
             return false;
         }
+        $("#artist_bio").ellipsis();
         
         return true;
     };
