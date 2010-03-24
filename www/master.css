@@ -75,7 +75,7 @@ body {
 #collage {
 	position: absolute;
 	content: url('images/magic_wand.png'), contents;
-	bottom: 40px;
+	bottom: 50px;
 	right: 20px;
 	opacity: 0.7;
 	z-index: 1000;
@@ -222,7 +222,6 @@ li:first-child {
 	margin-top: -60px;
 	margin-left: 350px;
 	padding-right: 40px;
-	height: 54%;
 }
 
 #bio div {
@@ -235,7 +234,6 @@ li:first-child {
 
 #artist_bio {
     position: relative;
-    height: 100%;
 }
 
 #artist_bio div {
@@ -243,10 +241,9 @@ li:first-child {
     -webkit-transition-property: opacity;
     -webkit-transition-duration: 2s;
         -webkit-backface-visibility: hidden;
-    height: 100%;
-    overflow: hidden;
     position: absolute;
     top: 0;
+    height: 10px;
     margin-bottom: 0;
 }
 
@@ -254,10 +251,30 @@ li:first-child {
 	opacity: 0;
 }
 
+#lastfm {
+    -webkit-backface-visibility: hidden;
+    	font-size: 14px;
+    	line-height: 1.5em;
+    position: absolute;
+    bottom: 30px;
+    left: 350px;
+    opacity: 1.0;
+    -webkit-transition-property: opacity;
+    -webkit-transition-duration: 2s;
+}
+
+#lastfm img {
+    vertical-align: sub;
+}
+
+#lastfm.hidden {
+	opacity: 0;
+}
+
 
 
 /* Applies the flip animation to the card */
-.card.flipped
+#card.flipped
 {
 
 	/* Rotate the card 180 degrees along the y-axis. This animation allows the card to

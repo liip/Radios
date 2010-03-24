@@ -1,46 +1,16 @@
-(function($) {
-	$.fn.ellipsis = function(enableUpdating){
-		var s = document.documentElement.style;
-		return this.each(function(){
-			var el = $(this);
-			if(el.css("overflow") == "hidden"){
-				var originalText = el.html();
-				var w = el.width();
-				
-				var t = $(this.cloneNode(true)).hide().css({
-                    'position': 'absolute',
-                    'width': w,
-                    'height': 'auto',
-                    'overflow': 'visible',
-                    'max-height': 'inherit',
-                    'background-color': 'green'
-                });
-				el.after(t);
-				
-				var text = originalText;
-				var i = 0;
-				while(originalText.length > i && t.height() > el.height()){
-					text = originalText.replace(/(<([^>]+)>)/ig, "").substr(0, originalText.length - i++);
-					t.html(text.replace(/\s+$/,"").replace(/\n/g, "<br/>") + " …");
-				}
-				el.html(t.html());
-				
-				t.remove();
-				
-				if(enableUpdating == true){
-					var oldW = el.height();
-					setInterval(function(){
-						if(el.height() != oldW){
-							oldW = el.height();
-							el.html(originalText);
-							el.ellipsis();
-						}
-					}, 200);
-				}
-			}
-		});
-	};
-})(jQuery);
+
+if (!isIPad()) {
+    window.debug = (function() {
+        
+        that = {};
+        
+        that.log = function (param) {
+            console.log(param);
+        };
+        
+        return that;
+    })();
+}
 
 var Radio = function () {
 
@@ -51,6 +21,8 @@ var Radio = function () {
     var that = this;
     
     this.logo = "drs3.png";
+    
+    this.station = null;
     
     /* Create a LastFM object */
     this.lastfm = new LastFM({
@@ -80,10 +52,14 @@ var Radio = function () {
         }
         
         var div = document.createElement('div');
-        div.innerHTML = bio;
+        bio = bio.replace(/(<([^>]+)>)/ig, "").replace(/\s+$/, "");
+        if (bio.length > 930) {
+            bio = bio.substr(0, 930);
+            bio = bio.substr(0, bio.lastIndexOf(" ")) + " …";
+        }
+        div.innerHTML = bio.replace(/\n/g, "<br/>");
         div.setAttribute('class', 'hidden');
         document.getElementById("artist_bio").appendChild(div);
-        $("#artist_bio div:last-child").ellipsis();
         setTimeout("document.querySelector('#artist_bio div:last-child').setAttribute('class', '')", 10);
         
         return true;
@@ -114,15 +90,15 @@ var Radio = function () {
 		div.setAttribute('class', 'hidden');
 		document.getElementById("title").appendChild(div);
 		setTimeout("document.querySelector('#title div:last-child').setAttribute('class', '')", 10);
+	
+	    // fade in last.fm
+	    document.querySelector("#lastfm").setAttribute('class', '');
 		
         document.getElementById("artist").innerHTML = artist;
         document.getElementById("song").innerHTML = 'mit ' + track;
 		
-		debug.log("displaySongInformation: " + artist + ", " + track);
 		that.lastfm.artist.getInfo({artist: artist, lang: 'de'}, {success: function (data) {
 		    
-		    debug.log("displaySongInformation response: ");
-		    debug.log(data);
 			that.displayArtist(data);
 			
 		   	that.lastfm.artist.getImages({artist: data.artist.name, limit: 5}, {success: function(data) {
@@ -176,13 +152,26 @@ var Radio = function () {
 		}});
     };
     
-    this.searchTrackInformation = function (artist, track) {
+    this.searchTrackInformation = function (track, artist) {
+    
+        that.clear();
         
-        artist = artist.replace(':', '');
+        if (track == "" && that.station != null) {
+            track = that.station;
+        }
+        
+        // avoid Last.fm problems
         track = track.replace(':', '');
         
+        var params = {};
+        params.track = track;
+        if (artist != null) {
+            artist = artist.replace(':', '');
+            params.artist = artist;
+        }
+        
         // try track search
-        that.lastfm.track.search({artist: artist, track: track}, {success: function (data) {
+        that.lastfm.track.search(params, {success: function (data) {
             debug.log(artist);
             debug.log(track);
         	if (data.results.trackmatches.track) {
@@ -194,97 +183,82 @@ var Radio = function () {
         	} else {
         	    
         	    // no track found
-        	    var div = document.createElement('div');
-        	    var h1 = document.createElement('h1');
-        	    h1.innerHTML = artist;
-        	    div.appendChild(h1);
-        	    var h2 = document.createElement('h2');
-        	    h2.innerHTML = 'mit ' + track;
-        	    div.appendChild(h2);
-        	    div.setAttribute('class', 'hidden');
-        	    document.getElementById("title").appendChild(div);
-        	    setTimeout("document.querySelector('#title div:last-child').setAttribute('class', '')", 10);
-        						
-        		var img = document.createElement('img');
-        		img.setAttribute('src', 'images/' + that.logo);
-        		img.setAttribute('height', '200');
-        		img.setAttribute('class', 'hidden');
-        		document.getElementById("image").appendChild(img);
-        		setTimeout("document.querySelector('#image img:last-child').setAttribute('class', '')", 100);
+        	    if (that.station != null) {
+            	    var div = document.createElement('div');
+            	    var h1 = document.createElement('h1');
+            	    h1.innerHTML = that.station;
+            	    div.appendChild(h1);
+            	    div.setAttribute('class', 'hidden');
+            	    document.getElementById("title").appendChild(div);
+            	    setTimeout("document.querySelector('#title div:last-child').setAttribute('class', '')", 10);
+        	    }
         	}
         }, error: function (code, message) {
             debug.log('track.search failed: ' + message);	
         }});
     };
     
-    this.parseMetadata = function (data) {
+    this.onMetaDataChangeSuccess = function (data) {
         
-        metadata = data;
+        if (data) {
+            data = data.replace(/^\s+|\s+$/g, "");
+            
+            that.metadata = data;
         
-        var splits = data.split("-");
-        if (splits[1]) {
-            that.searchTrackInformation(splits[0], splits[1]);
-        } else {
-            splits = data.split(",");
+            var splits = data.split("-");
             if (splits[1]) {
-                that.searchTrackInformation(splits[0], splits[1]);
+                that.searchTrackInformation(splits[1], splits[0]);
             } else {
-                splits = data.split(".");
+                splits = data.split(",");
                 if (splits[1]) {
-                    that.searchTrackInformation(splits[0], splits[1]);
+                    that.searchTrackInformation(splits[1], splits[0]);
                 } else {
-                    // can't split artist and track
-                	document.getElementById("artist_name").innerHTML = data;
-                					
-                	var img = document.createElement('img');
-                	img.setAttribute('src', 'images/drs3.png');
-                	img.setAttribute('height', '200');
-                	img.setAttribute('class', 'hidden');
-                	document.getElementById("image").appendChild(img);
-                	setTimeout("document.querySelector('#image img:last-child').setAttribute('class', '')", 100);
+                    splits = data.split(".");
+                    if (splits[1]) {
+                        that.searchTrackInformation(splits[1], splits[0]);
+                    } else {
+                        that.searchTrackInformation(data, null);
+                    }
                 }
             }
         }
     };
     
-    this.onMetaDataChangeSuccess = function (data) {
+    this.clear = function () {
+    
+        // fade out last.fm
+        document.querySelector("#lastfm").setAttribute('class', 'hidden');
         
-        if (data) {
-            
-            // clear display
-            
-            // Remove old titles
-            var olds = document.querySelectorAll("#title div:not(:last-child)");
-            for (i = 0; i < olds.length; i++) {
-            	document.getElementById('title').removeChild(olds[i]);
-            }
-            
-            // fade out title
-            document.querySelector("#title div").setAttribute('class', 'hidden');
-            
-            // Remove old bios
-            var olds = document.querySelectorAll("#artist_bio div:not(:last-child)");
-            for (i = 0; i < olds.length; i++) {
-            	document.getElementById('artist_bio').removeChild(olds[i]);
-            }
-            
-            // fade out bio
-            document.querySelector("#artist_bio div").setAttribute('class', 'hidden');
-            
-            // Remove old images
-            var olds = document.querySelectorAll("#image img:not(:last-child)");
-            for (i = 0; i < olds.length; i++) {
-            	document.getElementById('image').removeChild(olds[i]);
-            }
-            
-            // fade out image
-            document.querySelector("#image img").setAttribute('class', 'hidden');
-            
-            that.parseMetadata(data);
+        // Remove old titles
+        var olds = document.querySelectorAll("#title div:not(:last-child)");
+        for (i = 0; i < olds.length; i++) {
+        	document.getElementById('title').removeChild(olds[i]);
         }
+        
+        // fade out title
+        document.querySelector("#title div").setAttribute('class', 'hidden');
+        
+        // Remove old bios
+        var olds = document.querySelectorAll("#artist_bio div:not(:last-child)");
+        for (i = 0; i < olds.length; i++) {
+        	document.getElementById('artist_bio').removeChild(olds[i]);
+        }
+        
+        // fade out bio
+        document.querySelector("#artist_bio div").setAttribute('class', 'hidden');
+        
+        // Remove old images
+        var olds = document.querySelectorAll("#image img:not(:last-child)");
+        for (i = 0; i < olds.length; i++) {
+        	document.getElementById('image').removeChild(olds[i]);
+        }
+        
+        // fade out image
+        document.querySelector("#image img").setAttribute('class', 'hidden');
     };
     
     if (isIPad()) {
+        
         plugins.AudioStream.onMetaDataChange(this.onMetaDataChangeSuccess, null, null);
         
         if (plugins.AudioStream.onStatusChange) {
@@ -297,10 +271,7 @@ var Radio = function () {
                 }
             });
         }
-        
-        playSound();
     }
-	playSound();
 };
 
 var radio = null;
@@ -309,7 +280,7 @@ function onDeviceReady() {
 
     radio = new Radio();
 	
-	RA.db.init(); populateStations(); autoSearch()
+	RA.db.init(radio); populateStations(); autoSearch()
 }
 
 
@@ -319,61 +290,66 @@ function isIPad() {
 
 function touchMove(event) {
 	// Prevent scrolling on this element
-	// event.preventDefault();
+	event.preventDefault();
 }
 
-function playFromPlaylist(url) {
-  var client = new XMLHttpRequest();
-  
-  client.onreadystatechange = function() {
-    if(this.readyState == 4 && this.status == 200) {
-      // TODO make sure the matches aren't recognized as playlists in playSound() (otherwise endless loop)
-      var streams = this.responseText.match(/http:\S*/gi); 
-      if( streams.length ) 
-        playSound(streams[Math.floor(Math.random()*streams.length)]);
-    } else if (this.readyState == 4 && this.status != 200) {
+var audio = null;
+
+function playStream(url) {
+    if (isIPad()) {
+        plugins.AudioStream.play(url);
+    } else {
+        if (audio != null) {
+        	audio.pause();
+        	audio = null;
+        }
+        audio = new Audio(url);
+        audio.play();
+        
+        // simulate a artist
+        radio.searchTrackInformation("Icky Thump", "The White Stripes");
     }
-  };
-  client.open("GET", url);
-  debug.log('Fetching: ' + url );
-  client.send();
 }
 
 function playSound(url) {
-    url = url || "http://zlz-stream11.streamserver.ch/1/drs3/mp3_128";
-    debug.log('Playing: ' + url);
-    if( url.match(/(m3u|pls)$/) ) {
-        playFromPlaylist(url);
+    
+    console.log('Playing: ' + url);
+    
+    if(url.match(/(m3u|pls)$/)) {
+        
+        var client = new XMLHttpRequest();
+        
+        client.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+                var streams = this.responseText.match(/http:\S*/gi); 
+                if(streams.length) {
+                    url = streams[Math.floor(Math.random() * streams.length)];
+                    playStream(url);
+                }
+            } else if (this.readyState == 4 && this.status != 200) {
+            }
+        };
+        client.open("GET", url);
+        debug.log('Fetching: ' + url );
+        client.send();
     } else {
-        plugins.AudioStream.play(url);
+        playStream(url);
     }
 }
 
 function stopSound() {
-    plugins.AudioStream.stop();
+    if (isIPad()) {
+        plugins.AudioStream.stop();
+    } else {
+    	audio.pause();
+    	audio = null;
+    }
 }
 
-
-
 function onWinLoad() {
-    $("#artist_bio div").ellipsis();
     if(isIPad()){
         document.addEventListener("deviceready", onDeviceReady, false);
     } else {
         onDeviceReady();
     }
-    
-    /*
-    testEl = $('testElement');
-    testEl.onmousedown = testEl.ontouchstart = startDrag;
-    
-    var divs = testEl.getElementsByTagName('div');
-    for (var i=0;i<divs.length;i+=1) {
-        divs[i].style.left = position + 'px';
-        position += divs[i].offsetWidth + 10;
-    }
-    */
-    
 }
-
-

@@ -7,6 +7,7 @@
 if(!RA) var RA = {};
 
 RA.db = function() {
+    var radio = null;
   var db_ = null;
   
   var defaultStations = [
@@ -62,7 +63,8 @@ RA.db = function() {
       createTables(transaction);
     },
 
-    init: function() {
+    init: function(radio) {
+        this.radio = radio;
       var opts = {
         shortName:'radioapp_stations_orly', 
         version:'1.0', 
@@ -170,27 +172,20 @@ function populateStations(filter) {
       txt = document.createTextNode(stations.item(i).name);
       li.appendChild(txt);
       li.setAttribute('id', 'station-'+ stations.item(i).id);
-      if (stations.item(i).name == "DRS 3") {
-          li.appendChild(playing);
-      }
       li.onclick = function(ev) { 
       
         var id = this.getAttribute('id').split('-')[1]; 
         RA.db.getStation(id, function(station) {
           document.getElementById('station-'+station.id).appendChild(playing);
-          radio.logo = station.logo;
+          //radio.logo = station.logo;
           playSound(station.stream);
+          radio.station = station.name;
         }, true);
         
       };
       ul.appendChild(li);
     }
-    // remove current nav
     var statel = document.getElementById("stations");
-    if( statel.hasChildNodes() ) {
-      while( statel.childNodes.length >= 1 ) 
-        statel.removeChild(statel.firstChild);
-    }
     // append updated nav
     statel.appendChild(ul);
   }, filter);
