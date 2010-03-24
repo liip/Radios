@@ -151,21 +151,39 @@ li:first-child {
 	border-bottom: 1px solid #dddddd;
 	position: relative;
 	top: -82px;
-	line-height: 1.8em;
+	line-height: 2em;
 }
 
-#artist_name {
+#title div {
+    opacity: 1;
+    -webkit-transition-property: opacity;
+    -webkit-transition-duration: 2s;
+}
+
+#title div.hidden {
+	opacity: 0;
+}
+
+#title div {
+	position: absolute;
+	height: 60px;
+	width: 90%;
+}
+
+#title h1 {
 	font-weight: normal;
 	font-size: 26px;
 	letter-spacing: -0.5px;
 	margin: 0;
-	width: 90%;
+	width: 100%;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	position: absolute;
+	top: 0;
 }
 
-#song_name {
+#title h2 {
 	font-weight: normal;
 	font-size: 19px;
 	letter-spacing: -0.5px;
@@ -174,6 +192,8 @@ li:first-child {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	position: absolute;
+	top: 28px;
 }
 
 #image {
@@ -189,7 +209,7 @@ li:first-child {
 	right: 30px;
 	opacity: 1.0;
 	-webkit-transition-property: opacity;
-	-webkit-transition-duration: 1s;
+	-webkit-transition-duration: 2s;
 }
 
 #image img.hidden {
@@ -202,14 +222,36 @@ li:first-child {
 	margin-top: -60px;
 	margin-left: 350px;
 	padding-right: 40px;
+	height: 54%;
 }
 
 #bio div {
-	margin-bottom: 1em;
+	margin-bottom: 0;
 }
 
 #bio img {
     vertical-align: sub;
+}
+
+#artist_bio {
+    position: relative;
+    height: 100%;
+}
+
+#artist_bio div {
+    opacity: 1.0;
+    -webkit-transition-property: opacity;
+    -webkit-transition-duration: 2s;
+        -webkit-backface-visibility: hidden;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    margin-bottom: 0;
+}
+
+#artist_bio div.hidden {
+	opacity: 0;
 }
 
 
