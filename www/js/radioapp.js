@@ -77,7 +77,7 @@ var Radio = function () {
         debug.log('img['+count+']: ' +image['#text']+ ' // area: ' + area + ' ' + val1 + ':' + val2);
         
         document.getElementById("imgContainer").appendChild(imgDiv);
-        setTimeout("document.querySelector('#imgContainer div#img'"+count+").setAttribute('class', '')", count);
+        setTimeout("document.querySelector('#imgContainer div#img"+count+"').setAttribute('class', '')", count);
     };
     
     this.displayBio = function (data) {
