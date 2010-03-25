@@ -39,6 +39,46 @@ var Radio = function () {
         document.getElementById("image").appendChild(img);
         setTimeout("document.querySelector('#image img:last-child').setAttribute('class', '')", 10);
     };
+
+    this.displayImageSceensaver = function (image, count, area) {
+        var imgDiv = document.createElement('div');
+        var img = document.createElement('img');
+        var val1 = (Math.floor(Math.random() * 31) + 10)+'%';
+        var val2 = (Math.floor(Math.random() * 31) + 10)+'%';
+        
+        img.setAttribute('src', image['#text']);
+        img.setAttribute('height', '300');
+        
+        imgDiv.appendChild(img);
+        imgDiv.setAttribute('class', 'hidden');
+        imgDiv.setAttribute('id', 'img'+count);
+        
+        
+        
+        switch (area) {
+          case 1:
+            imgDiv.style.top = val1;
+            imgDiv.style.left = val2;
+            break;
+          case 2:
+            imgDiv.style.top = val1;
+            imgDiv.style.right = val2;
+            break;
+          case 3:
+            imgDiv.style.bottom = val1;
+            imgDiv.style.left = val2;
+            break;
+          case 4:
+            imgDiv.style.bottom = val1;
+            imgDiv.style.right = val2;
+            break;
+        }
+        
+        debug.log('img['+count+']: ' +image['#text']+ ' // area: ' + area + ' ' + val1 + ':' + val2);
+        
+        document.getElementById("imgContainer").appendChild(imgDiv);
+        setTimeout("document.querySelector('#imgContainer div#img'"+count+").setAttribute('class', '')", count);
+    };
     
     this.displayBio = function (data) {
         
@@ -69,90 +109,87 @@ var Radio = function () {
         
         if (!that.displayBio(data)) {
             // detected featuring artists
-        	var artists = data.artist.name.split(/(Feat.|Ft.|\/|and|\&)/i);
-        	if (artists[0] && artists[1]) {
-            	that.lastfm.artist.getInfo({artist: artists[0], lang: 'de'}, {success: that.displayBio});
-        	} else {
-        	    // No featuring, no bio
-        	}
+            var artists = data.artist.name.split(/(Feat.|Ft.|\/|and|\&)/i);
+            if (artists[0] && artists[1]) {
+              that.lastfm.artist.getInfo({artist: artists[0], lang: 'de'}, {success: that.displayBio});
+            } else {
+              // No featuring, no bio
+            }
         }
     };
     
     this.displaySongInformation = function (artist, track) {
+        //artist = 'The White Stripes'; //todo: remove
         
-		var div = document.createElement('div');
-		var h1 = document.createElement('h1');
-		h1.innerHTML = artist;
-		div.appendChild(h1);
-		var h2 = document.createElement('h2');
-		h2.innerHTML = 'mit ' + track;
-		div.appendChild(h2);
-		div.setAttribute('class', 'hidden');
-		document.getElementById("title").appendChild(div);
-		setTimeout("document.querySelector('#title div:last-child').setAttribute('class', '')", 10);
-	
-	    // fade in last.fm
-	    document.querySelector("#lastfm").setAttribute('class', '');
-		
+        var div = document.createElement('div');
+        var h1 = document.createElement('h1');
+        h1.innerHTML = artist;
+        div.appendChild(h1);
+        var h2 = document.createElement('h2');
+        h2.innerHTML = 'mit ' + track;
+        div.appendChild(h2);
+        div.setAttribute('class', 'hidden');
+        document.getElementById("title").appendChild(div);
+        setTimeout("document.querySelector('#title div:last-child').setAttribute('class', '')", 10);
+
+        // fade in last.fm
+        document.querySelector("#lastfm").setAttribute('class', '');
+
         document.getElementById("artist").innerHTML = artist;
         document.getElementById("song").innerHTML = 'mit ' + track;
-		
-		that.lastfm.artist.getInfo({artist: artist, lang: 'de'}, {success: function (data) {
-		    
-			that.displayArtist(data);
-			
-		   	that.lastfm.artist.getImages({artist: data.artist.name, limit: 5}, {success: function(data) {
-		   	    
-		   		var found = false;
-		   		
-		   		var container = document.getElementById('imgContainer');
-		   		container.innerHTML = "";
-		   		
-		   		for (i = 0; i < data.images.image.length; i++) {
-		   			
-		   			var image = data.images.image[i].sizes.size[0];
-		   			
-		   			if (!found && parseInt(image['width']) > parseInt(image['height'])) {
-		   				that.displayImage(image);
-		   				found = true;
-		   			}
-                    
-                    var imgDiv = document.createElement('div');
-                    var img = document.createElement('img');
-                    
-                    img.src = image['#text'];
-                    
-                    img.setAttribute('height', '300');
-                    
-                    img.style.webkitAnimationName = 'fade';
-                    img.style.webkitAnimationDuration = 3 + "s";
-                    img.style.webkitAnimationDelay = (i * 3) + "s";
-                    //img.style.webkitTransform = "rotate(" + Math.floor(Math.random() * 10) + "deg)";
-                    
-                    imgDiv.appendChild(img);
-                    
-                    imgDiv.style.top = Math.floor(Math.random() * 800) + "px";
-                    imgDiv.style.left = Math.floor(Math.random() * 400) + "px";
-                    
-                    container.appendChild(imgDiv);
-                    
-                    // fade in collage
-                    document.querySelector("#collage").setAttribute('class', '');
-		   		}
-		   		
-		   		// if no widescreen image wass found, try first one instead
-		   		if(!found && data.images.image[0] && data.images.image[0].sizes.size[0] && data.images.image[0].sizes.size[0]['#text']) {
-		   		    image = data.images.image[0].sizes.size[0];
-		   			that.displayImage(image);
-		   		} else if (!found && data.images.image && data.images.image.sizes.size[0] && data.images.image.sizes.size[0]['#text']) {
-		   		    // only one image
-	   		        image = data.images.image.sizes.size[0];
-	   		    	that.displayImage(image);
-		   		}
-			}});
-		}, error: function(code, message){
-		    debug.log('artist.getInfo failed: ' + message);	
-		}});
+
+        that.lastfm.artist.getInfo({artist: artist, lang: 'de'}, {success: function (data) {
+
+          that.displayArtist(data);
+
+          that.lastfm.artist.getImages({artist: data.artist.name, limit: 20}, {success: function(data) {
+
+          var found = false;
+
+          //var container = document.getElementById('imgContainer');
+          //container.innerHTML = "";
+
+          var area = Math.floor(Math.random() * 4);
+
+          for (i = 0; i < data.images.image.length; i++) {
+
+            var image = data.images.image[i].sizes.size[0];
+
+            if (!found && parseInt(image['width']) > parseInt(image['height'])) {
+              that.displayImage(image);
+              found = true;
+          }
+
+
+          if (area == 4) area = 0;
+          area++;
+
+          that.displayImageSceensaver(image, i, area);
+
+          imgDiv.appendChild(img);
+
+          imgDiv.style.top = Math.floor(Math.random() * 800) + "px";
+          imgDiv.style.left = Math.floor(Math.random() * 400) + "px";
+
+          container.appendChild(imgDiv);
+
+          // fade in collage
+          document.querySelector("#collage").setAttribute('class', '');
+        }
+
+// if no widescreen image wass found, try first one instead
+if(!found && data.images.image[0] && data.images.image[0].sizes.size[0] && data.images.image[0].sizes.size[0]['#text']) {
+    image = data.images.image[0].sizes.size[0];
+	that.displayImage(image);
+} else if (!found && data.images.image && data.images.image.sizes.size[0] && data.images.image.sizes.size[0]['#text']) {
+    // only one image
+    image = data.images.image.sizes.size[0];
+    that.displayImage(image);
+}
+}});
+}, error: function(code, message){
+    debug.log('artist.getInfo failed: ' + message);	
+}});
     };
     
     this.searchTrackInformation = function (track, artist) {
