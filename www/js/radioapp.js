@@ -23,6 +23,46 @@ var Radio = function () {
         document.getElementById("image").appendChild(img);
         setTimeout("document.querySelector('#image img:last-child').setAttribute('class', '')", 100);
     };
+	
+    this.displayImageSceensaver = function (image, count, area) {
+        var imgDiv = document.createElement('div');
+		var img = document.createElement('img');
+        var val1 = (Math.floor(Math.random() * 31) + 10)+'%';
+        var val2 = (Math.floor(Math.random() * 31) + 10)+'%';
+        
+		img.setAttribute('src', image['#text']);
+        img.setAttribute('height', '300');
+        
+        imgDiv.appendChild(img);
+        imgDiv.setAttribute('class', 'hidden');
+        imgDiv.setAttribute('id', 'img'+count);
+		 
+		
+		    
+			switch (area) {
+    			case 1:
+					imgDiv.style.top = val1;
+    				imgDiv.style.left = val2;
+    				break;
+    			case 2:
+					imgDiv.style.top = val1;
+					imgDiv.style.right = val2;
+    				break;
+    			case 3:
+					imgDiv.style.bottom = val1;
+					imgDiv.style.left = val2;
+    				break;
+    			case 4:
+					imgDiv.style.bottom = val1;
+					imgDiv.style.right = val2;
+    				break;
+		    }
+		
+		    debug.log('img['+count+']: ' +image['#text']+ ' // area: ' + area + ' ' + val1 + ':' + val2);
+		
+        document.getElementById("imgContainer").appendChild(imgDiv);
+        setTimeout("document.querySelector('#imgContainer div#img'"+count+").setAttribute('class', '')", count);
+    };
     
     this.displayBio = function (data) {
     
@@ -51,6 +91,7 @@ var Radio = function () {
     };
     
     this.displaySongInformation = function (artist, track) {
+        //artist = 'The White Stripes'; //todo: remove
         
         document.getElementById("artist_name").innerHTML = artist;
 		document.getElementById("song_name").innerHTML = 'mit ' + track;
@@ -62,13 +103,15 @@ var Radio = function () {
 		    
 			that.displayArtist(data);
 			
-		   	that.lastfm.artist.getImages({artist: data.artist.name, limit: 5}, {success: function(data) {
+		   	that.lastfm.artist.getImages({artist: data.artist.name, limit: 20}, {success: function(data) {
 		   	    
 		   		var found = false;
 		   		
-		   		var container = document.getElementById('imgContainer');
-		   		container.innerHTML = "";
+		   		//var container = document.getElementById('imgContainer');
+		   		//container.innerHTML = "";
 		   		
+				  var area = Math.floor(Math.random() * 4);
+										 
 		   		for (i = 0; i < data.images.image.length; i++) {
 		   			
 		   			var image = data.images.image[i].sizes.size[0];
@@ -78,24 +121,33 @@ var Radio = function () {
 		   				found = true;
 		   			}
                     
-                    var imgDiv = document.createElement('div');
+					/*
+					
+					var imgDiv = document.createElement('div');
                     var img = document.createElement('img');
                     
-                    img.src = image['#text'];
                     
-                    img.setAttribute('height', '300');
+					img.src = image['#text'];
+					img.setAttribute('height', '300');
+					 
                     
                     img.style.webkitAnimationName = 'fade';
                     img.style.webkitAnimationDuration = 3 + "s";
                     img.style.webkitAnimationDelay = (i * 3) + "s";
                     //img.style.webkitTransform = "rotate(" + Math.floor(Math.random() * 10) + "deg)";
                     
-                    imgDiv.appendChild(img);
-                    
-                    imgDiv.style.top = Math.floor(Math.random() * 800) + "px";
-                    imgDiv.style.left = Math.floor(Math.random() * 400) + "px";
-                    
-                    container.appendChild(imgDiv);
+					 imgDiv.appendChild(img);
+					 
+					 imgDiv.style.top = Math.floor(Math.random() * 800) + "px";
+					 imgDiv.style.left = Math.floor(Math.random() * 400) + "px";
+					 
+					 container.appendChild(imgDiv);
+
+					 */
+					 if (area == 4) area = 0;
+					 area++;
+					
+					 that.displayImageSceensaver(image, i, area);
 		   		}
 		   		
 		   		// if no widescreen image wass found, try first one instead
