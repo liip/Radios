@@ -41,6 +41,7 @@ var Radio = function () {
     };
 
     this.displayImageSceensaver = function (image, count, area) {
+        
         var imgDiv = document.createElement('div');
         var img = document.createElement('img');
         var val1 = (Math.floor(Math.random() * 25) + 3)+'%';
@@ -77,7 +78,7 @@ var Radio = function () {
         debug.log('img['+count+']: ' +image['#text']+ ' // area: ' + area + ' ' + val1 + ':' + val2);
         
         document.getElementById("imgContainer").appendChild(imgDiv);
-        setTimeout("document.querySelector('#imgContainer div#img"+count+"').setAttribute('class', '')", (count + 2) * 1000);
+        setTimeout("document.querySelector('#imgContainer div#img"+count+"').setAttribute('class', '')", (count * 5) * 1000);
     };
     
     this.displayBio = function (data) {
@@ -164,7 +165,7 @@ var Radio = function () {
                 if (area == 4) area = 0;
                 area++;
                 
-                if (i < 5) {
+                if (i <= 6) {
                     that.displayImageSceensaver(image, i, area);
                 }
                 
@@ -296,6 +297,12 @@ var Radio = function () {
         
         // fade out image
         document.querySelector("#image img").setAttribute('class', 'hidden');
+        
+        // Remove old screensaver images
+        var olds = document.querySelectorAll("#imgContainer div");
+        for (i = 0; i < olds.length; i++) {
+        	document.getElementById('imgContainer').removeChild(olds[i]);
+        }
     };
     
     if (isIPad()) {
