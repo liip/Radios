@@ -143,53 +143,46 @@ var Radio = function () {
           that.displayArtist(data);
 
           that.lastfm.artist.getImages({artist: data.artist.name, limit: 20}, {success: function(data) {
-
-          var found = false;
-
-          //var container = document.getElementById('imgContainer');
-          //container.innerHTML = "";
-
-          var area = Math.floor(Math.random() * 4);
-
-          for (i = 0; i < data.images.image.length; i++) {
-
-            var image = data.images.image[i].sizes.size[0];
-
-            if (!found && parseInt(image['width']) > parseInt(image['height'])) {
-              that.displayImage(image);
-              found = true;
-          }
-
-
-          if (area == 4) area = 0;
-          area++;
-
-          that.displayImageSceensaver(image, i, area);
-
-          imgDiv.appendChild(img);
-
-          imgDiv.style.top = Math.floor(Math.random() * 800) + "px";
-          imgDiv.style.left = Math.floor(Math.random() * 400) + "px";
-
-          container.appendChild(imgDiv);
-
-          // fade in collage
-          document.querySelector("#collage").setAttribute('class', '');
-        }
-
-// if no widescreen image wass found, try first one instead
-if(!found && data.images.image[0] && data.images.image[0].sizes.size[0] && data.images.image[0].sizes.size[0]['#text']) {
-    image = data.images.image[0].sizes.size[0];
-	that.displayImage(image);
-} else if (!found && data.images.image && data.images.image.sizes.size[0] && data.images.image.sizes.size[0]['#text']) {
-    // only one image
-    image = data.images.image.sizes.size[0];
-    that.displayImage(image);
-}
-}});
-}, error: function(code, message){
-    debug.log('artist.getInfo failed: ' + message);	
-}});
+            
+            var found = false;
+            
+            //var container = document.getElementById('imgContainer');
+            //container.innerHTML = "";
+            
+            var area = Math.floor(Math.random() * 4);
+            
+            for (i = 0; i < data.images.image.length; i++) {
+                
+                var image = data.images.image[i].sizes.size[0];
+                
+                if (!found && parseInt(image['width']) > parseInt(image['height'])) {
+                  that.displayImage(image);
+                  found = true;
+                }
+                
+                
+                if (area == 4) area = 0;
+                area++;
+                
+                that.displayImageSceensaver(image, i, area);
+                
+                // fade in collage
+                document.querySelector("#collage").setAttribute('class', '');
+            }
+            
+            // if no widescreen image wass found, try first one instead
+            if(!found && data.images.image[0] && data.images.image[0].sizes.size[0] && data.images.image[0].sizes.size[0]['#text']) {
+                image = data.images.image[0].sizes.size[0];
+            	that.displayImage(image);
+            } else if (!found && data.images.image && data.images.image.sizes.size[0] && data.images.image.sizes.size[0]['#text']) {
+                // only one image
+                image = data.images.image.sizes.size[0];
+                that.displayImage(image);
+            }
+            }});
+        }, error: function(code, message){
+            debug.log('artist.getInfo failed: ' + message);	
+        }});
     };
     
     this.searchTrackInformation = function (track, artist) {
