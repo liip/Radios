@@ -43,8 +43,8 @@ var Radio = function () {
     this.displayImageSceensaver = function (image, count, area) {
         var imgDiv = document.createElement('div');
         var img = document.createElement('img');
-        var val1 = (Math.floor(Math.random() * 31) + 10)+'%';
-        var val2 = (Math.floor(Math.random() * 31) + 10)+'%';
+        var val1 = (Math.floor(Math.random() * 25) + 3)+'%';
+        var val2 = (Math.floor(Math.random() * 25) + 3)+'%';
         
         img.setAttribute('src', image['#text']);
         img.setAttribute('height', '300');
@@ -77,7 +77,7 @@ var Radio = function () {
         debug.log('img['+count+']: ' +image['#text']+ ' // area: ' + area + ' ' + val1 + ':' + val2);
         
         document.getElementById("imgContainer").appendChild(imgDiv);
-        setTimeout("document.querySelector('#imgContainer div#img"+count+"').setAttribute('class', '')", count);
+        setTimeout("document.querySelector('#imgContainer div#img"+count+"').setAttribute('class', '')", (count + 2) * 1000);
     };
     
     this.displayBio = function (data) {
@@ -164,7 +164,9 @@ var Radio = function () {
                 if (area == 4) area = 0;
                 area++;
                 
-                that.displayImageSceensaver(image, i, area);
+                if (i < 5) {
+                    that.displayImageSceensaver(image, i, area);
+                }
                 
                 // fade in collage
                 document.querySelector("#collage").setAttribute('class', '');
