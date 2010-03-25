@@ -191,6 +191,9 @@ var Radio = function () {
             	    var h1 = document.createElement('h1');
             	    h1.innerHTML = that.station;
             	    div.appendChild(h1);
+            	    var h2 = document.createElement('h2');
+            	    h2.innerHTML = 'Keine Songinformationen vorhanden.';
+            	    div.appendChild(h2);
             	    div.setAttribute('class', 'hidden');
             	    document.getElementById("title").appendChild(div);
             	    setTimeout("document.querySelector('#title div:last-child').setAttribute('class', '')", 10);
