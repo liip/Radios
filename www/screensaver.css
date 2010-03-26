@@ -13,6 +13,7 @@ div.box
 }
 div.box h1, div.box h2
 {
+    font-weight: normal;
     margin: 0;
   padding: 0px 10px;
   line-height: 1.3em;
