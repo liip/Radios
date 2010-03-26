@@ -41,11 +41,10 @@ var Radio = function () {
     };
 
     this.displayImageSceensaver = function (image, count, area) {
-        
         var imgDiv = document.createElement('div');
         var img = document.createElement('img');
-        var val1 = (Math.floor(Math.random() * 25) + 3)+'%';
-        var val2 = (Math.floor(Math.random() * 25) + 3)+'%';
+        var val1 = (Math.floor(Math.random() * 31) + 5)+'%';
+        var val2 = (Math.floor(Math.random() * 11) + 5)+'%';
         
         img.setAttribute('src', image['#text']);
         img.setAttribute('height', '300');
@@ -53,8 +52,6 @@ var Radio = function () {
         imgDiv.appendChild(img);
         imgDiv.setAttribute('class', 'hidden');
         imgDiv.setAttribute('id', 'img'+count);
-        
-        
         
         switch (area) {
           case 1:
@@ -147,13 +144,8 @@ var Radio = function () {
             
             var found = false;
             
-            //var container = document.getElementById('imgContainer');
-            //container.innerHTML = "";
-            
             var area = Math.floor(Math.random() * 4);
-            
             for (i = 0; i < data.images.image.length; i++) {
-                
                 var image = data.images.image[i].sizes.size[0];
                 
                 if (!found && parseInt(image['width']) > parseInt(image['height'])) {
