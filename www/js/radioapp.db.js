@@ -137,11 +137,11 @@ RadioDb = function() {
 
     var getStation = function(id, resultHandler, doUpdateListen) {
         if( doUpdateListen )
-            this.updateListenAt(id);
+            that.updateListenAt(id);
         
         db.transaction(function(t) {
             t.executeSql("SELECT id, name, stream, logo, listened_at FROM stations WHERE id = ?", [ id ] , function(t, results) {
-                resultHandler( result.rows.length == 0 ? null : results.rows.item(0) );
+                resultHandler( results.rows.length == 0 ? null : results.rows.item(0) );
             }, errorHandler);
         });
     };
