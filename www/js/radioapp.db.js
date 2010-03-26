@@ -45,12 +45,13 @@ RadioDb = function() {
 
     var defaultStations = [
         [ "DRS 1"     , "http://glb-stream11.streamserver.ch/1/regi_zh_sh/mp3_128", "drs1.png"],
-        [ "DRS 2"     , "http://glb-stream13.streamserver.ch/1/drs2/mp3_128", "drs2.png"],
         [ "DRS 3"     , "http://zlz-stream10.streamserver.ch/1/drs3/mp3_128", "drs3.png"],
-        [ "DRS 4 News", "http://zlz-stream11.streamserver.ch/1/drs4news/mp3_128", "drs4.png"],
         [ "Virus"     , "http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128", "drsvirus.png"],
         [ "Radio 1", "http://stream.radio1.ch:8000/radio1", "drs3.png"],
-        [ "Radio 3fach", "http://212.203.92.45:8000/listen.pls", "3fach.gif"],
+        [ 'Radio 24', 'http://s3.global-streaming.net:8000/listen.pls', ''],
+        ['Energy Zürich', 'http://broadcast.infomaniak.net/energyzuerich-high.mp3.pls', ''],
+        ['Radio Argovia', 'http://shoutcast.argovia.ch:8060/listen.pls', ''],
+        ['Radio Pilatus', 'http://www.radiopilatus.ch/streams/pilatus128.pls', ''],
 
         ];
 
@@ -152,7 +153,7 @@ RadioDb = function() {
             where = " WHERE name LIKE '%" + filter + "%';"; // FIXME EEEEESCAPE!
         }
         db.transaction(function(t) {
-            t.executeSql("SELECT id, name, stream, logo, listened_at FROM stations " + where, [ ] , function(t, results) {
+            t.executeSql("SELECT id, name, stream, logo, listened_at FROM stations " + where + " ORDER BY name ASC", [ ] , function(t, results) {
                 resultHandler(results.rows);
             }, errorHandler);
         });
