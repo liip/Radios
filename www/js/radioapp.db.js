@@ -131,7 +131,7 @@ RadioDb = function() {
     this.getLastListenedStation = function(resultHandler) {
         db.transaction(function(t) {
             t.executeSql("SELECT id, name, stream, logo, listened_at FROM stations ORDER BY listened_at DESC LIMIT 1", [] , function(t, results) {
-                resultHandler( result.rows.length == 0 ? null : results.rows.item(0) );
+                resultHandler( results.rows.length == 0 ? null : results.rows.item(0) );
             }, errorHandler);
         });
     };
@@ -193,22 +193,22 @@ RadioDb = function() {
           
                     var id = this.getAttribute('id').split('-')[1]; 
                     getStation(id, function(station) {
-                    document.getElementById('station-'+station.id).appendChild(playing);
-                    radio.logo = station.logo;
-                    playSound(station.stream);
-                }, true);
+                        document.getElementById('station-'+station.id).appendChild(playing);
+                        //radio.logo = station.logo;
+                        playSound(station.stream);
+                    }, true);
             
-            };
-            ul.appendChild(li);
-        }
-        // remove current nav
-        var statel = document.getElementById("stations");
-        if( statel.hasChildNodes() ) {
-            while( statel.childNodes.length >= 1 ) 
-                statel.removeChild(statel.firstChild);
-        }
-        // append updated nav
-        statel.appendChild(ul);
+                };
+                ul.appendChild(li);
+            }
+            // remove current nav
+            var statel = document.getElementById("stations");
+            if( statel.hasChildNodes() ) {
+                while( statel.childNodes.length >= 1 ) 
+                    statel.removeChild(statel.firstChild);
+            }
+            // append updated nav
+            statel.appendChild(ul);
         }, filter);
     };
 };
