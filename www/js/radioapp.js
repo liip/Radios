@@ -43,8 +43,8 @@ var Radio = function () {
     this.displayImageSceensaver = function (image, count, area) {
         var imgDiv = document.createElement('div');
         var img = document.createElement('img');
-        var val1 = (Math.floor(Math.random() * 31) + 5)+'%';
-        var val2 = (Math.floor(Math.random() * 11) + 5)+'%';
+        var val1 = (Math.floor(Math.random() * 31) + 2)+'%';
+        var val2 = (Math.floor(Math.random() * 11) + 1)+'%';
         
         img.setAttribute('src', image['#text']);
         img.setAttribute('height', '300');
