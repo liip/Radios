@@ -122,7 +122,7 @@ RA.db = function() {
         
       db_.transaction(function(t) {
         t.executeSql("SELECT id, name, stream, logo, listened_at FROM stations WHERE id = ?", [ id ] , function(t, results) {
-          resultHandler( result.rows.length == 0 ? null : results.rows.item(0) );
+          resultHandler( results.rows.length == 0 ? null : results.rows.item(0) );
         }, errorHandler);
       });
     },
