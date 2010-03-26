@@ -155,9 +155,11 @@ li:first-child {
 	background-repeat: repeat-y;
 	margin-left: 280px;
 	height: 60px;
+	margin-top: 267px;
 	padding: 10px 0 5px 70px;
 	border-bottom: 1px solid #dddddd;
 	position: relative;
+	z-index: 999999999;
 	top: -82px;
 	line-height: 2em;
 }
@@ -188,7 +190,7 @@ li:first-child {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	position: absolute;
-	top: 0;
+	top: 1px;
 }
 
 #title h2 {
@@ -202,7 +204,11 @@ li:first-child {
 	white-space: nowrap;
 	position: absolute;
 	top: 28px;
-	color:  #999;
+	color: #999;
+}
+
+#title h2.notrack {
+    color: #DDD;
 }
 
 #image {
@@ -210,7 +216,10 @@ li:first-child {
 	padding: 60px 30px 0 0;
 	margin-left: 350px;
 	height: 207px;
-	position: relative;
+	position: absolute;
+	top:  82px;
+	right: 0;
+	z-index: 1;
 }
 
 #image img {

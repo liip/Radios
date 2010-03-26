@@ -133,6 +133,7 @@ var Radio = function () {
         // fade in last.fm
         document.querySelector("#lastfm").setAttribute('class', '');
 
+        document.getElementById("station_name").innerHTML = that.station;
         document.getElementById("artist").innerHTML = artist;
         document.getElementById("song").innerHTML = 'mit ' + track;
 
@@ -217,7 +218,8 @@ var Radio = function () {
             	    h1.innerHTML = that.station;
             	    div.appendChild(h1);
             	    var h2 = document.createElement('h2');
-            	    h2.innerHTML = 'Keine Songinformationen vorhanden.';
+            	    h2.innerHTML = 'Keine Künstlerinformationen vorhanden';
+            	    h2.setAttribute('class', 'notrack');
             	    div.appendChild(h2);
             	    div.setAttribute('class', 'hidden');
             	    document.getElementById("title").appendChild(div);
