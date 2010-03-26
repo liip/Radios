@@ -9,10 +9,14 @@ div.box
 {
   z-index: 1;
   background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
 }
 div.box h1, div.box h2
 {
+    font-weight: normal;
+    margin: 0;
   padding: 0px 10px;
+  line-height: 1.3em;
 } 
 div#radioname
 {
@@ -53,6 +57,7 @@ div#songinfo p#song
   color: #000;
 }
 */
+/*
 div.image
 {
   z-index: 0;
@@ -63,30 +68,6 @@ div#imgContainer
   width: 100%;
   height: 100%;
 }
-div#image1
-{
-  top:100px; left:20px;
-}
-div#image2
-{
-  top:30px; left:650px;
-}
-div#image3
-{
-  top:500px; left:40px;
-}
-div#image4
-{
-  top:450px; left:500px;
-}
-div#image5
-{
-  top:750px; left:200px;
-}
-div#image6
-{
-  top:800px; left:630px;
-}
 #imgContainer > div 
 {
     z-index: 0;
@@ -94,11 +75,27 @@ div#image6
 }
 
 #imgContainer > div > img {
-     position: absolute;
+	position: absolute;
 }
 
-@-webkit-keyframes fade
+@-webkit-keyframes fade1
 {
     0%   { opacity: 0; }
-    100% { opacity: 1; }
+    10% { opacity: 1; }
+    20%   { opacity: 0; }
+}
+*/
+
+#screensaver #imgContainer div {
+  z-index: 0;
+}
+#screensaver #imgContainer div {
+  position: absolute;
+	opacity: 1.0;
+	-webkit-transition-property: opacity;
+	-webkit-transition-duration: 3s;
+}
+
+#screensaver #imgContainer div.hidden {
+	opacity: 0;
 }

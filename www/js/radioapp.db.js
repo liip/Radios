@@ -1,15 +1,5 @@
 /* http://developer.apple.com/safari/library/documentation/iPhone/Conceptual/SafariJSDatabaseGuide/UsingtheJavascriptDatabase/UsingtheJavascriptDatabase.html */
 
-if(!debug) {
-    var debug = function() {
-        return  {
-            log:function(msg) {
-                alert(msg);
-             }
-        };
-    }();
-}
-
 function Migrator(db) {
     var migrations = [];
     var doReload = false;
@@ -71,9 +61,6 @@ RadioDb = function() {
     var ERR_MAXSIZE_EXCEEDED = 4;
     var ERR_LOCK_ERROR = 5; // contention
     var ERR_CONSTRAINT = 6;
-
-  
-
 
     var upgradeSuccess = function() { debug.log('Successfully upgraded db.'); };
     var upgradeError = function(error) { debug.log('Failed upgrading db.'); return true; /* treat all errs as fatal */ };
@@ -146,7 +133,7 @@ RadioDb = function() {
                 resultHandler( result.rows.length == 0 ? null : results.rows.item(0) );
             }, errorHandler);
         });
-    }
+    };
 
     var getStation = function(id, resultHandler, doUpdateListen) {
         if( doUpdateListen )
@@ -224,6 +211,5 @@ RadioDb = function() {
         }, filter);
     };
 };
-
 
 

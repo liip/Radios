@@ -1,12 +1,13 @@
-<!DOCTYPE HTML PUBLIC"-// W3C//DTD HTML 4.01//EN"" http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 
 <html>
     <head>
         <meta name="viewport" content="user-scalable=no, width=device-width">
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-        <title>PhoneGap</title>
+        <title>Radios</title>
         <link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="screensaver.css" type="text/css" media="screen" title="no title" charset="utf-8">
+        
         <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/lastfm.api.md5.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/lastfm.api.js"></script>
@@ -14,7 +15,6 @@
         <script type="text/javascript" charset="utf-8" src="js/radioapp.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/radioapp.db.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/screensaver.js"></script>
-        <script type="text/javascript" charset="utf-8" src="jquery.js"></script>
         
     </head>
     <body onload="onWinLoad()" ontouchmove="touchMove(event)" id="stage" class="theme">
@@ -22,7 +22,7 @@
 
             <div id="main" class="face front">
                 <div id="header">
-                    <h1 id="logo">Radio</h1>
+                    <h1 id="logo">Radios</h1>
                     <h2 id="mic">App</h2>
                     <div id="now_container">
                         <span id="now_station"> 
@@ -31,57 +31,43 @@
                         </span>
                     </div>
                 </div>
+                <div id="collage" onclick="initScreensaver()" class="hidden"> </div>
 
                 <div id="sidebar">
                     <div id="search">
                         <input id="search-field" type="search"/>
                     </div>
                     <div id="stations">
-                        <ul>
-                            <li>DRS 3
-                            </li>
-                            <li>Radio Radius 
-                                <span class="playing">On
-                                </span>
-                            </li>
-                            <li>Radio 24
-                            </li <li>Energy Zürich
-                            </li>
-                        </ul>
                     </div>
-                    <!-- dirty! -->
-                    <ul>
-                        <li onclick="initScreensaver()">Screensaver</li>
-                    </ul>
-
                 </div>
 
 
                 <div id="content">
                     <div id="image">
-                        <img src="http://userserve-ak.last.fm/serve/_/391495/The+White+Stripes.jpg" height="200"/>
+                        <img />
                     </div>
                     <div id="title">
-                        <h1 id="artist_name">The White Stripes
-                        </h1>
-                        <h2 id="song_name">mit Icky Thumb
-                        </h2>
+                        <div>
+                            <h1></h1>
+                            <h2></h2>
+                        </div>
                     </div>
                     <div id="bio">
-                        <div id="artist_bio">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
+                        <div id="artist_bio">
+                            <div></div>
                         </div>
-                        <p>
-                            <br/>Lied- und Künstlerinformationen von 
-                            <img src="images/lastfm.png" alt="Last.fm" height="18"/>.
-                        </p>
                     </div>
+                    <p id="lastfm" class="hidden">
+                        <br/>Künstlerinformationen von 
+                        <img src="images/lastfm.png" alt="Last.fm" height="18"/>.
+                    </p>
                 </div>
             </div>
 
 
             <div id="screensaver" onclick="initScreensaver();" class="face back">
                 <div class="box" id="radioname">
-                    <h1 id="station">RADIOSENDER</h1>
+                    <h1 id="station_name">RADIOSENDER</h1>
                 </div>
                 <div class="box" id="songinfo">
                     <h1 id="artist">ARTIST</h1>

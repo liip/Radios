@@ -3,7 +3,11 @@ const FADE_DURATION = 3;
 
 function initScreensaver()
 {
-	$('#card').toggleClass('flipped');
+    if (document.getElementById('card').getAttribute('class') == 'flipped') {
+        document.getElementById('card').setAttribute('class', '');
+	} else {
+	    document.getElementById('card').setAttribute('class', 'flipped');
+	}
 }
 
 function drawBackground() {
