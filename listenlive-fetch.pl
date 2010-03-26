@@ -3,8 +3,8 @@
 # Parses content of http://www.listenlive.eu/switzerland.html for MP3 streams
 #
 # USAGE
-#   ./listenlive.pl [url]
-#   will take default if no url specified
+#   ./listenlive-fetch.pl [url|file]
+#   will take default url if no argument specified
 #
 # PARSING INFO
 #   Always picks last stream if there are several on a single line (supposedly of highest bitrate).
@@ -42,16 +42,16 @@ my $stream_comment;
 
 
 sub print_pre {
-  print "[\n";
+  print "    var defaultStations = [\n";
 }
 sub print_stream {
   if (!$stream_name || !$stream_url) {
     print STDERR "/* Missing info: '$stream_name' '$stream_url' '$stream_location' '$stream_comment' */\n";
   }
-  print "  ['$stream_name', '$stream_url', ''],\n";
+  print "        ['$stream_name', '$stream_url', ''],\n";
 }
 sub print_post {
-  print "];\n";
+  print "    ];\n";
 }
 
 
