@@ -136,6 +136,7 @@ var Radio = function () {
         // fade in last.fm
         document.querySelector("#lastfm").setAttribute('class', '');
 
+        document.getElementById("station_name").innerHTML = that.station;
         document.getElementById("artist").innerHTML = artist;
         document.getElementById("song").innerHTML = 'mit ' + track;
 
