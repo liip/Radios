@@ -5,7 +5,7 @@ var Radio = function () {
     var metadata = "";
     
     var that = this;
-    
+
     this.logo = "drs3.png";
     
     /* Create a LastFM object */
@@ -14,6 +14,7 @@ var Radio = function () {
         apiSecret: '3cbb48bd2736581e0c242c8a9cf3045c',
         cache: cache
     });
+
     
     this.displayImage = function (image) {
         var img = document.createElement('img');
@@ -218,12 +219,16 @@ var Radio = function () {
 };
 
 var radio = null;
+var radioDb = null;
 
 function onDeviceReady() {
 
     radio = new Radio();
-	
-	RA.db.init(); populateStations(); autoSearch()
+
+    radioDb = new RadioDb();
+    radioDb.init();
+    radioDb.populateStations();
+    radioDb.autoSearch();
 }
 
 
@@ -241,11 +246,11 @@ function playFromPlaylist(url) {
   
   client.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
-      // TODO make sure the matches aren't recognized as playlists in playSound() (otherwise endless loop)
       var streams = this.responseText.match(/http:\S*/gi); 
       if( streams.length ) 
         playSound(streams[Math.floor(Math.random()*streams.length)]);
     } else if (this.readyState == 4 && this.status != 200) {
+        alert('Playlist nicht erreichbar (' + this.status + ')');
     }
   };
   client.open("GET", url);
