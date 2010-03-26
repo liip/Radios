@@ -9,10 +9,13 @@ div.box
 {
   z-index: 1;
   background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
 }
 div.box h1, div.box h2
 {
+    margin: 0;
   padding: 0px 10px;
+  line-height: 1.3em;
 } 
 div#radioname
 {
