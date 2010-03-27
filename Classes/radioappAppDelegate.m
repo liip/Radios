@@ -25,6 +25,7 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {	
 	[ super applicationDidFinishLaunching:application ];
+	[[UIApplication sharedApplication] setIdleTimerDisabled: YES];
 }
 
 -(id) getCommandInstance:(NSString*)className
