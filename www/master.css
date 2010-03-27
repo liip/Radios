@@ -85,6 +85,28 @@ body {
     -webkit-backface-visibility: hidden;
 }
 
+#mute {
+	position: absolute;
+	background-image: url('images/sound_mute.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+	top: 0;
+	right: 0;
+	width: 80px;
+	height: 85px;
+	opacity: 0.7;
+	z-index: 1000;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+    opacity: 0.4;
+    -webkit-transition-property: opacity;
+    -webkit-transition-duration: 0.5s;
+    -webkit-backface-visibility: hidden;
+}
+
+#mute.muted {
+    opacity: 1.0;
+}
+
 #collage.hidden {
     opacity: 0;
 }

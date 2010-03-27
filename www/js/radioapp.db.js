@@ -196,6 +196,8 @@ RadioDb = function() {
                         document.getElementById('station-'+station.id).appendChild(playing);
                         //radio.logo = station.logo;
                         playSound(station.stream);
+                        // remove mute
+                        document.getElementById("mute").setAttribute('class', '');
                     }, true);
             
                 };

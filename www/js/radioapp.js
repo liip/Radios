@@ -19,6 +19,8 @@ var Radio = function () {
     var metadata = "";
     
     var that = this;
+    
+    this.done = false;
 
     this.logo = "drs3.png";
     
@@ -119,6 +121,8 @@ var Radio = function () {
     
     this.displaySongInformation = function (artist, track) {
         //artist = 'The White Stripes'; //todo: remove
+        
+        radio.clear();
         
         var div = document.createElement('div');
         var h1 = document.createElement('h1');
@@ -346,6 +350,19 @@ function touchMove(event) {
 	event.preventDefault();
 }
 
+foo = true;
+
+function mute() {
+    if (foo) {
+        document.getElementById("mute").setAttribute('class', 'muted');
+        plugins.AudioStream.mute();
+        foo = false;
+    } else {
+        document.getElementById("mute").setAttribute('class', '');
+        plugins.AudioStream.unmute();
+        foo = true;
+    }
+}
 
 var audio = null;
 
