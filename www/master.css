@@ -5,6 +5,7 @@ html {
 
 * {
     -webkit-backface-visibility: hidden;
+    -webkit-user-select: none;
 }
 
 body {
@@ -219,6 +220,7 @@ li:first-child {
 	white-space: nowrap;
 	position: absolute;
 	top: 1px;
+	-webkit-user-select: text;
 }
 
 #title h2 {
@@ -233,6 +235,7 @@ li:first-child {
 	position: absolute;
 	top: 28px;
 	color: #999;
+	-webkit-user-select: text;
 }
 
 #title h2.notrack {
@@ -272,6 +275,7 @@ li:first-child {
 
 #bio div {
 	margin-bottom: 0;
+	-webkit-user-select: text;
 }
 
 #bio img {
