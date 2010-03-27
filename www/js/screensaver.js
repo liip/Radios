@@ -1,9 +1,9 @@
 const NUMBER_OF_IMGAGES = 10;
 const FADE_DURATION = 3;
 
-function initScreensaver()
+function initScreensaver(force)
 {
-    if (document.getElementById('card').getAttribute('class') == 'flipped') {
+    if (document.getElementById('card').getAttribute('class') == 'flipped' && !force) {
         document.getElementById('card').setAttribute('class', '');
 	} else {
 	    document.getElementById('card').setAttribute('class', 'flipped');

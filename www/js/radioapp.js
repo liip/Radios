@@ -21,10 +21,24 @@ var Radio = function () {
     var that = this;
     
     this.done = false;
+    
+    this.screensaver = null;
 
     this.logo = "drs3.png";
     
     this.station = null;
+    
+    this.timeoutScreensaver = function () {
+        clearTimeout(that.screensaver);
+        that.screensaver = setInterval("initScreensaver(true)", 20000);
+    };
+    
+    document.body.onmousemove = this.timeoutScreensaver;
+    document.body.onmousedown = this.timeoutScreensaver;
+    document.body.onkeydown = this.timeoutScreensaver;
+    document.body.onkeypress = this.timeoutScreensaver;
+    
+    this.timeoutScreensaver();
     
     /* Create a LastFM object */
     this.lastfm = new LastFM({
