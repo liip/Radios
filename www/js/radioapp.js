@@ -187,9 +187,6 @@ var Radio = function () {
     };
     
     this.noTrack = function (force) {
-        debug.log("111: " + force);
-        debug.log("222: " + that.done);
-        debug.log("333: " + that.station);
         if ((!that.done || force) && that.station != null) {
             
             that.clear();
