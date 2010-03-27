@@ -46,7 +46,7 @@ RadioDb = function() {
     var defaultStations = [
         [ "DRS 1"     , "http://glb-stream11.streamserver.ch/1/regi_zh_sh/mp3_128", "drs1.png"],
         [ "DRS 3"     , "http://zlz-stream10.streamserver.ch/1/drs3/mp3_128", "drs3.png"],
-        [ "Virus"     , "http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128", "drsvirus.png"],
+        [ "DRS Virus"     , "http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128", "drsvirus.png"],
         [ "Radio 1", "http://stream.radio1.ch:8000/radio1", "drs3.png"],
         [ 'Radio 24', 'http://s3.global-streaming.net:8000/listen.pls', ''],
         ['Energy Zürich', 'http://broadcast.infomaniak.net/energyzuerich-high.mp3.pls', ''],
@@ -194,7 +194,9 @@ RadioDb = function() {
                     var id = this.getAttribute('id').split('-')[1]; 
                     getStation(id, function(station) {
                         document.getElementById('station-'+station.id).appendChild(playing);
-                        //radio.logo = station.logo;
+                        radio.station = station.name;
+                        radio.clear();
+                        radio.noTrack(true);
                         playSound(station.stream);
                         // remove mute
                         document.getElementById("mute").setAttribute('class', '');

@@ -186,13 +186,31 @@ var Radio = function () {
         }});
     };
     
-    this.searchTrackInformation = function (track, artist) {
-    
-        that.clear();
-        
-        if (track == "" && that.station != null) {
-            track = that.station;
+    this.noTrack = function (force) {
+        debug.log("111: " + force);
+        debug.log("222: " + that.done);
+        debug.log("333: " + that.station);
+        if ((!that.done || force) && that.station != null) {
+            
+            that.clear();
+            
+            var div = document.createElement('div');
+            var h1 = document.createElement('h1');
+            h1.innerHTML = that.station;
+            div.appendChild(h1);
+            var h2 = document.createElement('h2');
+            h2.innerHTML = 'Keine Künstlerinformationen vorhanden';
+            h2.setAttribute('class', 'notrack');
+            div.appendChild(h2);
+            div.setAttribute('class', 'hidden');
+            document.getElementById("title").appendChild(div);
+            setTimeout("document.querySelector('#title div:last-child').setAttribute('class', '')", 10);
+            
+            that.done = true;
         }
+    };
+    
+    this.searchTrackInformation = function (track, artist) {
         
         // avoid Last.fm problems
         track = track.replace(':', '');
@@ -209,6 +227,9 @@ var Radio = function () {
             debug.log(artist);
             debug.log(track);
         	if (data.results.trackmatches.track) {
+        	    
+        	    that.done = false;
+        	    
         	    if (data.results.trackmatches.track[0]) {
         		    that.displaySongInformation(data.results.trackmatches.track[0].artist, data.results.trackmatches.track[0].name);
         		} else {
@@ -217,19 +238,7 @@ var Radio = function () {
         	} else {
         	    
         	    // no track found
-        	    if (that.station != null) {
-            	    var div = document.createElement('div');
-            	    var h1 = document.createElement('h1');
-            	    h1.innerHTML = that.station;
-            	    div.appendChild(h1);
-            	    var h2 = document.createElement('h2');
-            	    h2.innerHTML = 'Keine Künstlerinformationen vorhanden';
-            	    h2.setAttribute('class', 'notrack');
-            	    div.appendChild(h2);
-            	    div.setAttribute('class', 'hidden');
-            	    document.getElementById("title").appendChild(div);
-            	    setTimeout("document.querySelector('#title div:last-child').setAttribute('class', '')", 10);
-        	    }
+        	    that.noTrack();
         	}
         }, error: function (code, message) {
             debug.log('track.search failed: ' + message);	
@@ -240,6 +249,11 @@ var Radio = function () {
         
         if (data) {
             data = data.replace(/^\s+|\s+$/g, "");
+            
+            // blame energy zurich
+            if (data == "System - Mic Off" || data == "System - Mic On" ) {
+                data = "";
+            }
             
             that.metadata = data;
         
@@ -255,7 +269,7 @@ var Radio = function () {
                     if (splits[1]) {
                         that.searchTrackInformation(splits[1], splits[0]);
                     } else {
-                        that.searchTrackInformation(data, null);
+                        that.noTrack();
                     }
                 }
             }
