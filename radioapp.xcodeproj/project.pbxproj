@@ -471,6 +471,55 @@
 			};
 			name = Release;
 		};
+		1FF63552115E5AAA00168E45 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liip AG";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-Obj-C",
+				);
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9DC47B3A-BA2E-4E9A-B9BD-3D5C16D5726E";
+				SDKROOT = iphoneos3.2;
+				USER_HEADER_SEARCH_PATHS = "$(PHONEGAPLIB)/Classes";
+			};
+			name = Distribution;
+		};
+		1FF63553115E5AAA00168E45 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = radioapp_Prefix.pch;
+				INFOPLIST_FILE = "radioapp-Info.plist";
+				PRODUCT_NAME = radioapp;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Distribution;
+		};
+		1FF63554115E5AAA00168E45 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liip AG";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = radioapp_Prefix.pch;
+				INFOPLIST_FILE = "radioapp-Info.plist";
+				PRODUCT_NAME = "radioapp-iPad";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9DC47B3A-BA2E-4E9A-B9BD-3D5C16D5726E";
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Distribution;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -547,6 +596,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				1FF63553115E5AAA00168E45 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -556,6 +606,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				1FF63552115E5AAA00168E45 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -565,6 +616,7 @@
 			buildConfigurations = (
 				EC18C7E71132A77300EFF1D3 /* Debug */,
 				EC18C7E81132A77300EFF1D3 /* Release */,
+				1FF63554115E5AAA00168E45 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
