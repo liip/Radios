@@ -48,6 +48,7 @@
 		EC18C7E41132A77300EFF1D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF5C2109A6A2B0062928A /* QuartzCore.framework */; };
 		EC18C7E51132A77300EFF1D3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF5C4109A6A2B0062928A /* SystemConfiguration.framework */; };
 		EC18C7ED1132A77400EFF1D3 /* example.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC18C7EC1132A77400EFF1D3 /* example.xib */; };
+		EC6C247F116B6B780031F018 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6C247E116B6B780031F018 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		8D1107310486CEB800E47090 /* radioapp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "radioapp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		EC18C7E91132A77300EFF1D3 /* radioapp-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radioapp-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC18C7EC1132A77400EFF1D3 /* example.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = example.xib; path = "Resources-iPad/example.xib"; sourceTree = "<group>"; };
+		EC6C247E116B6B780031F018 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				EC18C7E31132A77300EFF1D3 /* MediaPlayer.framework in Frameworks */,
 				EC18C7E41132A77300EFF1D3 /* QuartzCore.framework in Frameworks */,
 				EC18C7E51132A77300EFF1D3 /* SystemConfiguration.framework in Frameworks */,
+				EC6C247F116B6B780031F018 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +220,7 @@
 				301BF5C0109A6A2B0062928A /* MediaPlayer.framework */,
 				301BF5C2109A6A2B0062928A /* QuartzCore.framework */,
 				301BF5C4109A6A2B0062928A /* SystemConfiguration.framework */,
+				EC6C247E116B6B780031F018 /* MobileCoreServices.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
