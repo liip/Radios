@@ -91,33 +91,23 @@ RadioDb = function() {
     this.init = function() {
         try {
             if(!window.openDatabase) {
-                alert('Ihr Browser unterstützt keine Datenbanken');
+                alert('Ihr Browser unterstützt kein Local Storage');
             } else {
-                db = openDatabase('radios_db', '1', 'Radios Database', 524288); // 512KiB
-                db.transaction(function(t) {
-                    t.executeSql('CREATE TABLE IF NOT EXISTS stations(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT IGNORE, stream TEXT NOT NULL, logo TEXT NOT NULL, listened_at DATE )', 
-                        [], nullDataHandler, errorHandler);
-                    insertDefaults(t);
-                });
-
-                /*
-                // TODO test whether an additional page reload is noticeable for the end user. if not, use this code :)
                 db = openDatabase('radios_db', '', 'Radios Database', 524288); // 512KiB
                 var M = new Migrator(db);
                 M.migration(1, function(t) {
-                    t.executeSql('CREATE TABLE stations(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, stream TEXT NOT NULL, logo TEXT NOT NULL, listened_at DATE )', 
+                    t.executeSql('CREATE TABLE stations(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT IGNORE, stream TEXT NOT NULL, logo TEXT NOT NULL, listened_at DATE )', 
                         [], nullDataHandler, errorHandler);
                     insertDefaults(t);
                 });
                 M.doIt();
-                */
             }
             return db;
         } catch(e) {
             if(e.code == ERR_VERSION_MISMATCH) {
                 debug.log('ERR_VERSION_MISMATCH');
             } else {
-                alert('ERR: ' + e);
+                alert('Error: ' + e);
             }
         }
     };
