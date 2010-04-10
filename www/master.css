@@ -134,6 +134,7 @@ body {
 	height: 24px;
 	margin-top: 10px;
 	margin-left: 28px;
+    -webkit-user-select: auto;
 }
 
 ul {
