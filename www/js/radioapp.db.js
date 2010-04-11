@@ -94,6 +94,7 @@ RadioDb = function() {
                 alert('Ihr Browser unterstützt kein Local Storage');
             } else {
                 db = openDatabase('radios_db', '', 'Radios Database', 524288); // 512KiB
+                debug.log('Current DB Version: ' + db.version);
                 var M = new Migrator(db);
                 M.migration(1, function(t) {
                     t.executeSql('CREATE TABLE stations(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT IGNORE, stream TEXT NOT NULL, logo TEXT NOT NULL, listened_at DATE )', 
