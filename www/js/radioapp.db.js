@@ -178,9 +178,6 @@ RadioDb = function() {
                 txt = document.createTextNode(stations.item(i).name);
                 li.appendChild(txt);
                 li.setAttribute('id', 'station-'+ stations.item(i).id);
-                if (stations.item(i).name == "DRS 3") {
-                    li.appendChild(playing);
-                }
                 li.onclick = function(ev) { 
           
                     var id = this.getAttribute('id').split('-')[1]; 
