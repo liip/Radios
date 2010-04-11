@@ -350,7 +350,22 @@ var radio = null;
 var radioDb = null;
 
 function onDeviceReady() {
+    if(isIPad()){ 
+        navigator.network.isReachable("www.google.com", testReachable_callback);
+    } else {
+        init();
+    }
+}
 
+function testReachable_callback(reachability) {
+    if (reachability. internetConnectionStatus > 0) {
+        init();
+    } else {
+        alert("Es wird eine Internetverbinung benötigt."); 
+    }
+}
+
+function init() {
     radio = new Radio();
 
     radioDb = new RadioDb();
