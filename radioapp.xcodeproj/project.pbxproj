@@ -49,6 +49,7 @@
 		EC18C7E51132A77300EFF1D3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF5C4109A6A2B0062928A /* SystemConfiguration.framework */; };
 		EC18C7ED1132A77400EFF1D3 /* example.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC18C7EC1132A77400EFF1D3 /* example.xib */; };
 		EC6C247F116B6B780031F018 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6C247E116B6B780031F018 /* MobileCoreServices.framework */; };
+		ECDB13E611733718003DD293 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6C247E116B6B780031F018 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 				301BF5C1109A6A2B0062928A /* MediaPlayer.framework in Frameworks */,
 				301BF5C3109A6A2B0062928A /* QuartzCore.framework in Frameworks */,
 				301BF5C5109A6A2B0062928A /* SystemConfiguration.framework in Frameworks */,
+				ECDB13E611733718003DD293 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
