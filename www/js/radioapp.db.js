@@ -73,7 +73,7 @@ RadioDb = function() {
             debug.log('ERR_VERSION_MISMATCH');
             return false;
         }
-        alert('Whoops, DB error: ' + error.message + ' (' + error.code + ')');
+        debug.log('Whoops, DB error: ' + error.message + ' (' + error.code + ')');
         return true; // fatal error
     };
 
@@ -81,7 +81,6 @@ RadioDb = function() {
     var nullDataHandler = function(t, results) { };
   
     var insertDefaults = function(t) {
-        // insert default data
         var query = 'INSERT INTO stations(name, stream, logo, listened_at) VALUES(?, ?, ?, NULL);';
         for( var i=0; i < defaultStations.length; ++i ) {
             t.executeSql(query, defaultStations[i], nullDataHandler, errorHandler);
@@ -93,15 +92,23 @@ RadioDb = function() {
             if(!window.openDatabase) {
                 alert('Ihr Browser unterstützt kein Local Storage');
             } else {
+                db = openDatabase('radios_db', '1', 'Radios Database', 524288); // 512KiB
+                debug.log('Current DB Version: ' + db.version);
+                db.transaction(function(t) {
+                    t.executeSql('CREATE TABLE IF NOT EXISTS stations (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT IGNORE, stream TEXT NOT NULL, logo TEXT NOT NULL, listened_at DATE )', 
+                        [], insertDefaults, errorHandler);
+                });
+                /*
                 db = openDatabase('radios_db', '', 'Radios Database', 524288); // 512KiB
                 debug.log('Current DB Version: ' + db.version);
                 var M = new Migrator(db);
                 M.migration(1, function(t) {
+                        debug.log('ONE');
                     t.executeSql('CREATE TABLE stations(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT IGNORE, stream TEXT NOT NULL, logo TEXT NOT NULL, listened_at DATE )', 
-                        [], nullDataHandler, errorHandler);
-                    insertDefaults(t);
+                        [], insertDefaults, errorHandler);
                 });
                 M.doIt();
+                */
             }
             return db;
         } catch(e) {
@@ -119,7 +126,6 @@ RadioDb = function() {
         });
     };
 
-    /** Returns station that user listened to last. */
     this.getLastListenedStation = function(resultHandler) {
         db.transaction(function(t) {
             t.executeSql("SELECT id, name, stream, logo, listened_at FROM stations ORDER BY listened_at DESC LIMIT 1", [] , function(t, results) {
