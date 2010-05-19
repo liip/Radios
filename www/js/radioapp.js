@@ -21,24 +21,12 @@ var Radio = function () {
     var that = this;
     
     this.done = false;
-    
-    this.screensaver = null;
 
     this.logo = "drs3.png";
     
     this.station = null;
     
-    this.timeoutScreensaver = function () {
-        clearTimeout(that.screensaver);
-        that.screensaver = setInterval("initScreensaver(true)", 20000);
-    };
-    
-    document.body.onmousemove = this.timeoutScreensaver;
-    document.body.onmousedown = this.timeoutScreensaver;
-    document.body.onkeydown = this.timeoutScreensaver;
-    document.body.onkeypress = this.timeoutScreensaver;
-    
-    this.timeoutScreensaver();
+    var iscroll = new iScroll('scroll');
     
     /* Create a LastFM object */
     this.lastfm = new LastFM({
@@ -108,14 +96,13 @@ var Radio = function () {
         
         var div = document.createElement('div');
         bio = bio.replace(/(<([^>]+)>)/ig, "").replace(/\s+$/, "");
-        if (bio.length > 930) {
+        /*if (bio.length > 930) {
             bio = bio.substr(0, 930);
             bio = bio.substr(0, bio.lastIndexOf(" ")) + " …";
-        }
-        div.innerHTML = bio.replace(/\n/g, "<br/>");
-        div.setAttribute('class', 'hidden');
+        }*/
+        div.innerHTML = '<p>' + bio.replace(/\n/g, "<br/>") + '<p class="lastfm" class="hidden"><br/>Künstlerinformationen von <img src="images/lastfm.png" alt="Last.fm" height="18"/>.</p>';
         document.getElementById("artist_bio").appendChild(div);
-        setTimeout("document.querySelector('#artist_bio div:last-child').setAttribute('class', '')", 10);
+        iscroll.refresh();
         
         return true;
     };
@@ -150,7 +137,7 @@ var Radio = function () {
         setTimeout("document.querySelector('#title div:last-child').setAttribute('class', '')", 10);
 
         // fade in last.fm
-        document.querySelector("#lastfm").setAttribute('class', '');
+        //document.querySelector("#lastfm").setAttribute('class', '');
 
         document.getElementById("station_name").innerHTML = that.station;
         document.getElementById("artist").innerHTML = artist;
@@ -213,9 +200,9 @@ var Radio = function () {
             h2.innerHTML = 'Keine Künstlerinformationen vorhanden';
             h2.setAttribute('class', 'notrack');
             div.appendChild(h2);
-            div.setAttribute('class', 'hidden');
+            //div.setAttribute('class', 'hidden');
             document.getElementById("title").appendChild(div);
-            setTimeout("document.querySelector('#title div:last-child').setAttribute('class', '')", 10);
+            //setTimeout("document.querySelector('#title div:last-child').setAttribute('class', '')", 10);
             
             that.done = true;
         }
@@ -290,43 +277,42 @@ var Radio = function () {
     this.clear = function () {
     
         // fade out last.fm
-        document.querySelector("#lastfm").setAttribute('class', 'hidden');
+        //document.querySelector("#lastfm").setAttribute('class', 'hidden');
         
         // fade out collage
         document.querySelector("#collage").setAttribute('class', 'hidden');
         
         // Remove old titles
-        var olds = document.querySelectorAll("#title div:not(:last-child)");
+        var olds = document.querySelectorAll("#title div");
         for (i = 0; i < olds.length; i++) {
         	document.getElementById('title').removeChild(olds[i]);
         }
         
         // fade out title
-        document.querySelector("#title div").setAttribute('class', 'hidden');
+        //document.querySelector("#title div").setAttribute('class', 'hidden');
         
         // Remove old bios
-        var olds = document.querySelectorAll("#artist_bio div:not(:last-child)");
+        var olds = document.querySelectorAll("#artist_bio div");
         for (i = 0; i < olds.length; i++) {
         	document.getElementById('artist_bio').removeChild(olds[i]);
         }
         
-        // fade out bio
-        document.querySelector("#artist_bio div").setAttribute('class', 'hidden');
-        
         // Remove old images
-        var olds = document.querySelectorAll("#image img:not(:last-child)");
+        var olds = document.querySelectorAll("#image img");
         for (i = 0; i < olds.length; i++) {
         	document.getElementById('image').removeChild(olds[i]);
         }
         
         // fade out image
-        document.querySelector("#image img").setAttribute('class', 'hidden');
+        //document.querySelector("#image img").setAttribute('class', 'hidden');
         
-        // Remove old screensaver images
+        // Remove old xco images
         var olds = document.querySelectorAll("#imgContainer div");
         for (i = 0; i < olds.length; i++) {
         	document.getElementById('imgContainer').removeChild(olds[i]);
         }
+        iscroll.refresh();
+		 iscroll.scrollTo(0, 0, '0');
     };
     
     if (isIPad()) {
