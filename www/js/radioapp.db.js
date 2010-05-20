@@ -47,13 +47,22 @@ RadioDb = function() {
         [ "DRS 1"     , "http://glb-stream11.streamserver.ch/1/regi_zh_sh/mp3_128", "drs1.png"],
         [ "DRS 3"     , "http://zlz-stream10.streamserver.ch/1/drs3/mp3_128", "drs3.png"],
         [ "DRS Virus"     , "http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128", "drsvirus.png"],
-        [ "Couleur 3", "http://broadcast.infomaniak.net:80/rsr-couleur3-high.mp3", ""],
+//      [ "Couleur 3", "http://broadcast.infomaniak.net:80/rsr-couleur3-high.mp3", ""],
         [ "Radio 1", "http://stream.radio1.ch:8000/radio1", "drs3.png"],
-        [ 'Radio 24', 'http://s3.global-streaming.net:8000/listen.pls', ''],
         ['Energy Zürich', 'http://broadcast.infomaniak.net/energyzuerich-high.mp3.pls', ''],
-        ['Radio Argovia', 'http://shoutcast.argovia.ch:8060/listen.pls', ''],
-        ['Radio Pilatus', 'http://www.radiopilatus.ch/streams/pilatus128.pls', ''],
-
+        ['Energy Bern', 'http://broadcast.infomaniak.ch/energybern-high.mp3.pls', ''],
+//      ['Radio Argovia', 'http://shoutcast.argovia.ch:8060/listen.pls', ''],
+//      ['Radio Pilatus', 'http://www.radiopilatus.ch/streams/pilatus128.pls', ''],
+//      ['Idobi Radio', 'http://72.13.82.202:80', ''],
+        ['Radio Swiss Jazz', 'http://www.radioswissjazz.ch/live/mp3.m3u', ''],
+        ['Radio Swiss Clas…', 'http://www.radioswissclassic.ch/live/mp3.m3u', ''],
+        ['Rock Nation', 'http://105-stream-02.datacomm.ch:8000/rocknation', ''],
+        ['RSR La Première', 'http://broadcast.infomaniak.net:80/rsr-la1ere-high.mp3', ''],
+//      ['Espace 2', 'http://broadcast.infomaniak.ch/rsr-espace2-high.mp3', ''],
+        ['Option Musique', 'http://broadcast.infomaniak.ch/rsr-optionmusique-high.mp3', ''],
+        ['Frequence Banane', 'http://www.frequencebanane.ch/fb_128.m3u', ''],
+//      ['Radio Rumantsch', 'http://zlz-stream12.streamserver.ch/1/rr/mp3_128', ''],
+//      ['Radio Paradise', 'http://www.radioparadise.com/musiclinks/rp_128.m3u', ''],
         ];
 
     var ERR_NONDB = 0;
