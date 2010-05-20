@@ -34,7 +34,6 @@ var Radio = function () {
         apiSecret: '3cbb48bd2736581e0c242c8a9cf3045c',
         cache: cache
     });
-
     
     this.displayImage = function (image) {
         var img = document.createElement('img');
@@ -130,7 +129,11 @@ var Radio = function () {
         h1.innerHTML = artist;
         div.appendChild(h1);
         var h2 = document.createElement('h2');
-        h2.innerHTML = 'mit ' + track;
+		if (language == 'fr') {
+			h2.innerHTML = 'avec ' + track;
+		} else {
+			h2.innerHTML = 'mit ' + track;
+		}
         div.appendChild(h2);
         div.setAttribute('class', 'hidden');
         document.getElementById("title").appendChild(div);
@@ -141,9 +144,13 @@ var Radio = function () {
 
         document.getElementById("station_name").innerHTML = that.station;
         document.getElementById("artist").innerHTML = artist;
-        document.getElementById("song").innerHTML = 'mit ' + track;
+		if (language == 'fr') {
+			document.getElementById("song").innerHTML = 'avec ' + track;
+		} else {
+			document.getElementById("song").innerHTML = 'mit ' + track;
+		}
 
-        that.lastfm.artist.getInfo({artist: artist, lang: 'de'}, {success: function (data) {
+        that.lastfm.artist.getInfo({artist: artist, lang: language}, {success: function (data) {
 
           that.displayArtist(data);
 
@@ -197,7 +204,11 @@ var Radio = function () {
             h1.innerHTML = that.station;
             div.appendChild(h1);
             var h2 = document.createElement('h2');
-            h2.innerHTML = 'Keine Künstlerinformationen vorhanden';
+			if (language == 'fr') {
+				h2.innerHTML = 'Pas d\'information sur l\'artiste';
+			} else {
+				h2.innerHTML = 'Keine Künstlerinformationen vorhanden';
+			}
             h2.setAttribute('class', 'notrack');
             div.appendChild(h2);
             //div.setAttribute('class', 'hidden');
@@ -334,8 +345,14 @@ var Radio = function () {
 
 var radio = null;
 var radioDb = null;
+var language = 'de';
+
+function lang(lang) {
+	language = lang;
+}
 
 function onDeviceReady() {
+	plugins.AudioStream.lang('lang');
     if(isIPad()){ 
         navigator.network.isReachable("www.google.com", testReachable_callback);
     } else {
@@ -347,7 +364,11 @@ function testReachable_callback(reachability) {
     if (reachability. internetConnectionStatus > 0) {
         init();
     } else {
-        alert("Es wird eine Internetverbinung benötigt."); 
+		if (language == 'fr') {
+			alert("Il a besoin d'une connexion internet.");
+		} else {
+			alert("Es wird eine Internetverbinung benötigt.");
+		}
     }
 }
 
