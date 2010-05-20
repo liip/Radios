@@ -352,8 +352,8 @@ function lang(lang) {
 }
 
 function onDeviceReady() {
-	plugins.AudioStream.lang('lang');
     if(isIPad()){ 
+		plugins.AudioStream.lang('lang');
         navigator.network.isReachable("www.google.com", testReachable_callback);
     } else {
         init();
