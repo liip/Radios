@@ -365,7 +365,7 @@ function testReachable_callback(reachability) {
         init();
     } else {
 		if (language == 'fr') {
-			alert("Il a besoin d'une connexion internet.");
+			alert("Une connexion internet est requise.");
 		} else {
 			alert("Es wird eine Internetverbinung benötigt.");
 		}
