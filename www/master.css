@@ -91,7 +91,7 @@ body {
 }
 
 #collage:active {
-	background-image: url('images/Slideshow.png'), -webkit-gradient(radial, 52 50, 50, 52 50, 5, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 1)));
+	background-image: url('images/Slideshow.png'), -webkit-gradient(radial, 45 50, 50, 45 50, 5, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 1)));
 }
 
 #mute {
@@ -111,7 +111,7 @@ body {
 }
 
 #mute:active {
-	background-image: url('images/Mute.png'), -webkit-gradient(radial, 55 40, 50, 55 40, 5, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 1)));
+	background-image: url('images/Mute.png'), -webkit-gradient(radial, 50 40, 50, 50 40, 5, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 1)));
 }
 
 #mute.muted {
