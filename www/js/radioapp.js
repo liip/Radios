@@ -98,8 +98,12 @@ var Radio = function () {
         /*if (bio.length > 930) {
             bio = bio.substr(0, 930);
             bio = bio.substr(0, bio.lastIndexOf(" ")) + " …";
-        }*/
-        div.innerHTML = '<p>' + bio.replace(/\n/g, "<br/>") + '<p class="lastfm" class="hidden"><br/>Künstlerinformationen von <img src="images/lastfm.png" alt="Last.fm" height="18"/>.</p>';
+		 }*/
+		if (language == 'fr') {
+			div.innerHTML = '<p>' + bio.replace(/\n/g, "<br/>") + '<p class="lastfm" class="hidden"><br/>D\'information sur l\'artiste de <img src="images/lastfm.png" alt="Last.fm" height="18"/>.</p>';
+		} else {
+			div.innerHTML = '<p>' + bio.replace(/\n/g, "<br/>") + '<p class="lastfm" class="hidden"><br/>Künstlerinformationen von <img src="images/lastfm.png" alt="Last.fm" height="18"/>.</p>';	
+		}
         document.getElementById("artist_bio").appendChild(div);
         iscroll.refresh();
         
