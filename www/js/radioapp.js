@@ -378,7 +378,7 @@ function init() {
     radioDb = new RadioDb();
     radioDb.init();
     radioDb.populateStations();
-    radioDb.autoSearch();
+    //radioDb.autoSearch();
     radioDb.getLastListenedStation(function(station) { 
         // if we listened to a station previously, start it again
         if(station && station.listened_at) {
