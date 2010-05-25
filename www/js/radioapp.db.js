@@ -47,7 +47,7 @@ RadioDb = function() {
         [ "DRS 1"     , "http://glb-stream11.streamserver.ch/1/regi_zh_sh/mp3_128", "drs1.png"],
         [ "DRS 3"     , "http://zlz-stream10.streamserver.ch/1/drs3/mp3_128", "drs3.png"],
         [ "DRS Virus"     , "http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128", "drsvirus.png"],
-//      [ "Couleur 3", "http://broadcast.infomaniak.net:80/rsr-couleur3-high.mp3", ""],
+        [ "Couleur 3", "http://broadcast.infomaniak.net:80/rsr-couleur3-high.mp3", ""],
         [ "Radio 1", "http://stream.radio1.ch:8000/radio1", "drs3.png"],
         ['Energy Zürich', 'http://broadcast.infomaniak.net/energyzuerich-high.mp3.pls', ''],
         ['Energy Bern', 'http://broadcast.infomaniak.ch/energybern-high.mp3.pls', ''],
