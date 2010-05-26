@@ -15,4 +15,7 @@ INSTALL
 - change the target to "radioapp-iPad"
 - build & run
 
+LICENSE
+=======
 
+This project is licensed under the MIT license, see the LICENSE file for more details.
