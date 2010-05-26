@@ -49,11 +49,20 @@ RadioDb = function() {
         [ "DRS Virus"     , "http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128", "drsvirus.png"],
         [ "Couleur 3", "http://broadcast.infomaniak.net:80/rsr-couleur3-high.mp3", ""],
         [ "Radio 1", "http://stream.radio1.ch:8000/radio1", "drs3.png"],
-        [ 'Radio 24', 'http://s3.global-streaming.net:8000/listen.pls', ''],
         ['Energy Zürich', 'http://broadcast.infomaniak.net/energyzuerich-high.mp3.pls', ''],
-        ['Radio Argovia', 'http://shoutcast.argovia.ch:8060/listen.pls', ''],
-        ['Radio Pilatus', 'http://www.radiopilatus.ch/streams/pilatus128.pls', ''],
-
+        ['Energy Bern', 'http://broadcast.infomaniak.ch/energybern-high.mp3.pls', ''],
+//      ['Radio Argovia', 'http://shoutcast.argovia.ch:8060/listen.pls', ''],
+//      ['Radio Pilatus', 'http://www.radiopilatus.ch/streams/pilatus128.pls', ''],
+//      ['Idobi Radio', 'http://72.13.82.202:80', ''],
+        ['Radio Swiss Jazz', 'http://www.radioswissjazz.ch/live/mp3.m3u', ''],
+        ['Radio Swiss Clas…', 'http://www.radioswissclassic.ch/live/mp3.m3u', ''],
+        ['Rock Nation', 'http://105-stream-02.datacomm.ch:8000/rocknation', ''],
+        ['RSR La Première', 'http://broadcast.infomaniak.net:80/rsr-la1ere-high.mp3', ''],
+//      ['Espace 2', 'http://broadcast.infomaniak.ch/rsr-espace2-high.mp3', ''],
+        ['Option Musique', 'http://broadcast.infomaniak.ch/rsr-optionmusique-high.mp3', ''],
+        ['Frequence Banane', 'http://www.frequencebanane.ch/fb_128.m3u', ''],
+//      ['Radio Rumantsch', 'http://zlz-stream12.streamserver.ch/1/rr/mp3_128', ''],
+//      ['Radio Paradise', 'http://www.radioparadise.com/musiclinks/rp_128.m3u', ''],
         ];
 
     var ERR_NONDB = 0;
@@ -73,7 +82,7 @@ RadioDb = function() {
             debug.log('ERR_VERSION_MISMATCH');
             return false;
         }
-        alert('Whoops, DB error: ' + error.message + ' (' + error.code + ')');
+        debug.log('Whoops, DB error: ' + error.message + ' (' + error.code + ')');
         return true; // fatal error
     };
 
@@ -81,11 +90,14 @@ RadioDb = function() {
     var nullDataHandler = function(t, results) { };
   
     var insertDefaults = function(t) {
-        // insert default data
         var query = 'INSERT INTO stations(name, stream, logo, listened_at) VALUES(?, ?, ?, NULL);';
         for( var i=0; i < defaultStations.length; ++i ) {
             t.executeSql(query, defaultStations[i], nullDataHandler, errorHandler);
         }
+		// Remove old stations
+		t.executeSql('DELETE FROM stations WHERE name = ?', ['Radio Argovia'], nullDataHandler, errorHandler);
+		t.executeSql('DELETE FROM stations WHERE name = ?', ['Radio Pilatus'], nullDataHandler, errorHandler);
+		t.executeSql('DELETE FROM stations WHERE name = ?', ['Radio 24'], nullDataHandler, errorHandler);
     };
 
     this.init = function() {
@@ -93,15 +105,23 @@ RadioDb = function() {
             if(!window.openDatabase) {
                 alert('Ihr Browser unterstützt kein Local Storage');
             } else {
+                db = openDatabase('radios_db', '1', 'Radios Database', 524288); // 512KiB
+                debug.log('Current DB Version: ' + db.version);
+                db.transaction(function(t) {
+                    t.executeSql('CREATE TABLE IF NOT EXISTS stations (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT IGNORE, stream TEXT NOT NULL, logo TEXT NOT NULL, listened_at DATE )', 
+                        [], insertDefaults, errorHandler);
+                });
+                /*
                 db = openDatabase('radios_db', '', 'Radios Database', 524288); // 512KiB
                 debug.log('Current DB Version: ' + db.version);
                 var M = new Migrator(db);
                 M.migration(1, function(t) {
+                        debug.log('ONE');
                     t.executeSql('CREATE TABLE stations(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT IGNORE, stream TEXT NOT NULL, logo TEXT NOT NULL, listened_at DATE )', 
-                        [], nullDataHandler, errorHandler);
-                    insertDefaults(t);
+                        [], insertDefaults, errorHandler);
                 });
                 M.doIt();
+                */
             }
             return db;
         } catch(e) {
@@ -119,7 +139,6 @@ RadioDb = function() {
         });
     };
 
-    /** Returns station that user listened to last. */
     this.getLastListenedStation = function(resultHandler) {
         db.transaction(function(t) {
             t.executeSql("SELECT id, name, stream, logo, listened_at FROM stations ORDER BY listened_at DESC LIMIT 1", [] , function(t, results) {

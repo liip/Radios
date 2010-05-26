@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="screensaver.css" type="text/css" media="screen" title="no title" charset="utf-8">
         
+        <script type="text/javascript" src="iscroll.js" charset="utf-8"></script>
+        
         <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/lastfm.api.md5.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/lastfm.api.js"></script>
@@ -35,33 +37,30 @@
                 <div id="collage" onclick="initScreensaver()" class="hidden"> </div>
 
                 <div id="sidebar">
-                    <div id="search">
-                        <input id="search-field" type="search"/>
-                    </div>
                     <div id="stations">
                     </div>
                 </div>
 
 
-                <div id="content">
-                    <div id="image">
-                        <img />
-                    </div>
-                    <div id="title">
-                        <div>
-                            <h1></h1>
-                            <h2></h2>
+                <div id="wrapper">
+                    <div id="content">
+                        <div id="scroll">
+                            <div id="image">
+                                <img />
+                            </div>
+                            <div id="title">
+                                <div>
+                                    <h1></h1>
+                                    <h2></h2>
+                                </div>
+                            </div>
+                            <div id="bio">
+                                <div id="artist_bio">
+                                    <div></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div id="bio">
-                        <div id="artist_bio">
-                            <div></div>
-                        </div>
-                    </div>
-                    <p id="lastfm" class="hidden">
-                        <br/>Künstlerinformationen von 
-                        <img src="images/lastfm.png" alt="Last.fm" height="18"/>.
-                    </p>
                 </div>
             </div>
 
