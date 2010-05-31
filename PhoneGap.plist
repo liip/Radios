@@ -10,6 +10,8 @@
 	<true/>
 	<key>EnableAcceleration</key>
 	<true/>
+	<key>AutoRotate</key>
+	<true/>
 	<key>UIControls</key>
 	<dict>
 		<key>TabBarSettings</key>
