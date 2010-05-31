@@ -198,17 +198,17 @@ var Radio = function () {
         }});
     };
     
-    this.noTrack = function (force) {
+    this.noTrack = function (force, datatext) {
         if ((!that.done || force) && that.station != null) {
-            
             that.clear();
-            
             var div = document.createElement('div');
             var h1 = document.createElement('h1');
             h1.innerHTML = that.station;
             div.appendChild(h1);
             var h2 = document.createElement('h2');
-			if (language == 'fr') {
+            if (datatext) {
+                h2.innerHTML = datatext;
+            } else if (language == 'fr') {
 				h2.innerHTML = 'Pas d\'information sur l\'artiste';
 			} else {
 				h2.innerHTML = 'Keine Künstlerinformationen vorhanden';
@@ -237,22 +237,24 @@ var Radio = function () {
         
         // try track search
         that.lastfm.track.search(params, {success: function (data) {
-            debug.log(artist);
-            debug.log(track);
-        	if (data.results.trackmatches.track) {
-        	    
-        	    that.done = false;
-        	    
-        	    if (data.results.trackmatches.track[0]) {
-        		    that.displaySongInformation(data.results.trackmatches.track[0].artist, data.results.trackmatches.track[0].name);
-        		} else {
-        		    that.displaySongInformation(data.results.trackmatches.track.artist, data.results.trackmatches.track.name);
-        		}
-        	} else {
-        	    
-        	    // no track found
-        	    that.noTrack();
-        	}
+                debug.log(artist);
+                debug.log(track);
+                if (data.results.trackmatches.track) {
+                    
+                    that.done = false;
+                    if (data.results.trackmatches.track[0]) {
+                        that.displaySongInformation(data.results.trackmatches.track[0].artist, data.results.trackmatches.track[0].name);
+                    } else {
+                        that.displaySongInformation(data.results.trackmatches.track.artist, data.results.trackmatches.track.name);
+                    }
+                } else {
+                    // no track found
+                    if (that.metadata) {
+                        that.noTrack(true, that.metadata);
+                    } else {
+                        that.noTrack();
+                    }
+                }
         }, error: function (code, message) {
             debug.log('track.search failed: ' + message);	
         }});
@@ -282,7 +284,7 @@ var Radio = function () {
                     if (splits[1]) {
                         that.searchTrackInformation(splits[1], splits[0]);
                     } else {
-                        that.noTrack();
+                        that.noTrack(true,this.metadata);
                     }
                 }
             }
