@@ -261,7 +261,13 @@ var Radio = function () {
     };
     
     this.onMetaDataChangeSuccess = function (data) {
-        
+        //data = 'Muse - Undisclosed Desires';
+        //data = 'The White Stripes - Icky Thump';
+        //data = 'The Raconteurs - Salute Your Solution';
+        //data = 'The Subways - Kalifornia';
+		//data = 'Band of Skulls - I Know What I Am';
+		//data = 'Mando Diao - Gloria';
+		//data = 'Melanie Fiona - Monday Morning';
         if (data) {
             data = data.replace(/^\s+|\s+$/g, "");
             
