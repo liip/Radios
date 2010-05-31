@@ -36,6 +36,6 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>
-	<string>example</string>
+	<string></string>
 </dict>
 </plist>
