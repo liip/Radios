@@ -357,8 +357,13 @@ function lang(lang) {
 
 function onDeviceReady() {
     if(isIPad()){ 
-		plugins.AudioStream.lang('lang');
+        if (plugins.AudioStream.lang) {
+            plugins.AudioStream.lang('lang');
+        } else {
+            alert("plugins.AudioStream.lang not found, taking 'de' as lang");
+        }
         navigator.network.isReachable("www.google.com", testReachable_callback);
+        
     } else {
         init();
     }
