@@ -63,6 +63,7 @@ RadioDb = function() {
         ['Frequence Banane', 'http://www.frequencebanane.ch/fb_128.m3u', ''],
 //      ['Radio Rumantsch', 'http://zlz-stream12.streamserver.ch/1/rr/mp3_128', ''],
 //      ['Radio Paradise', 'http://www.radioparadise.com/musiclinks/rp_128.m3u', ''],
+        ['Backstageradio','http://broadcast.infomaniak.ch/backstageradio-high.mp3.m3u',''],
         ];
 
     var ERR_NONDB = 0;
