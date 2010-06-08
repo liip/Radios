@@ -365,10 +365,10 @@ function lang(lang) {
 
 function onDeviceReady() {
     if(isIPad()){ 
-        if (plugins.AudioStream.lang) {
-            plugins.AudioStream.lang('lang');
+        if (plugins.Lang && plugins.Lang.lang) {
+            plugins.Lang.lang('lang');
         } else {
-            alert("plugins.AudioStream.lang not found, taking 'de' as lang");
+            alert("plugins.Lang.lang not found, taking 'de' as lang");
         }
         navigator.network.isReachable("www.google.com", testReachable_callback);
         

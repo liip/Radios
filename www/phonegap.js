@@ -1521,9 +1521,6 @@ AudioStream.prototype.play = function(url,metaCallBack) {
 AudioStream.prototype.stop = function() {
     PhoneGap.exec("AudioStream.stop");
 };
-AudioStream.prototype.lang = function(successCallback) {
-    PhoneGap.exec("AudioStream.lang", successCallback);
-};
 AudioStream.prototype.mute = function() {
     PhoneGap.exec("AudioStream.mute");
 };
@@ -1585,6 +1582,38 @@ PhoneGap.addConstructor(function() {
     }
     if (AudioStream) {
         window.plugins.AudioStream = new AudioStream();
+    }
+}
+    
+);
+
+/**
+ **//*
+ //  This code is adapted from the work of:
+ //  Created by Michael Nachbaur on 13/04/09.
+ //  Copyright 2009 Decaf Ninja Software. All rights reserved.
+ //  MIT licensed
+ */
+
+/**
+ * This class exposes mobile phone interface controls to JavaScript, such as
+ * native tab and tool bars, etc.
+ * @constructor
+ */
+function Lang() {
+
+}
+
+Lang.prototype.lang = function(successCallback) {
+    PhoneGap.exec("Lang.lang", successCallback);
+};
+
+PhoneGap.addConstructor(function() {
+    if(!window.plugins) {
+        window.plugins = {};
+    }
+    if (Lang) {
+        window.plugins.Lang = new Lang();
     }
 }
     
