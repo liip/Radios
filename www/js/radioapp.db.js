@@ -200,10 +200,12 @@ RadioDb = function() {
                         if (radio.station == station.name) {
                              stopSound();
                              radio.station = null;
+                             radio.stream = null;
                              el.removeChild(el.querySelector('span'));
                         } else {
                             el.appendChild(playing);
                             radio.station = station.name;
+                            radio.stream = station.stream;
                             radio.clear();
                             radio.noTrack(true);
                             playSound(station.stream);

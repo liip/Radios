@@ -439,6 +439,7 @@ function mute() {
 }
 
 var audio = null;
+var isPlaying = false;
 
 function playStream(url) {
 
@@ -455,6 +456,7 @@ function playStream(url) {
         // simulate a artist
         radio.searchTrackInformation("Icky Thump", "The White Stripes");
     }
+    isPlaying = true;
 }
 
 function playSound(url) {
@@ -491,7 +493,19 @@ function stopSound() {
     	audio.pause();
     	audio = null;
     }
+    isPlaying = false;
 }
+
+function toggleSound() {
+    if (!isPlaying && radio.stream) {
+        playSound(radio.stream);
+    } else {
+        stopSound();
+    }
+}
+        
+        
+    
 
 function onWinLoad() {
     if(isIPad()){
