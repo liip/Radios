@@ -26,6 +26,10 @@
 	<string>1.0.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
 	<key>NSMainNibFile</key>
 	<string></string>
 	<key>UIPrerenderedIcon</key>
