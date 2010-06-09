@@ -27,7 +27,6 @@ var Radio = function () {
     this.station = null;
     
     var iscroll = new iScroll('scroll');
-    
     /* Create a LastFM object */
     this.lastfm = new LastFM({
         apiKey: 'f76b8d609c4af3988283045b8f6123ba',
@@ -334,7 +333,7 @@ var Radio = function () {
         for (i = 0; i < olds.length; i++) {
         	document.getElementById('imgContainer').removeChild(olds[i]);
         }
-        iscroll.refresh();
+        //xc.refresh();
 		 iscroll.scrollTo(0, 0, '0');
     };
     
@@ -404,6 +403,11 @@ function init() {
             document.getElementById('station-2').onclick();
         }
     });
+window.setTimeout(function() {
+    var scr = new iScroll('scrollStations');
+    scr.refresh();
+    },1000);
+
 }
 
 
@@ -413,7 +417,7 @@ function isIPad() {
 
 function touchMove(event) {
 	// Prevent scrolling on this element
-	event.preventDefault();
+    event.preventDefault();
 }
 
 foo = true;
@@ -421,11 +425,15 @@ foo = true;
 function mute() {
     if (foo) {
         document.getElementById("mute").setAttribute('class', 'muted');
-        plugins.AudioStream.mute();
+        if (plugins) {
+            plugins.AudioStream.mute();
+        }
         foo = false;
     } else {
         document.getElementById("mute").setAttribute('class', '');
-        plugins.AudioStream.unmute();
+        if (plugins) {
+            plugins.AudioStream.unmute();
+        }
         foo = true;
     }
 }

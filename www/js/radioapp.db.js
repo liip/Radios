@@ -51,19 +51,13 @@ RadioDb = function() {
         [ "Radio 1", "http://stream.radio1.ch:8000/radio1", "drs3.png"],
         ['Energy Zürich', 'http://broadcast.infomaniak.net/energyzuerich-high.mp3.pls', ''],
         ['Energy Bern', 'http://broadcast.infomaniak.ch/energybern-high.mp3.pls', ''],
-//      ['Radio Argovia', 'http://shoutcast.argovia.ch:8060/listen.pls', ''],
-//      ['Radio Pilatus', 'http://www.radiopilatus.ch/streams/pilatus128.pls', ''],
-//      ['Idobi Radio', 'http://72.13.82.202:80', ''],
         ['Radio Swiss Jazz', 'http://www.radioswissjazz.ch/live/mp3.m3u', ''],
         ['Radio Swiss Clas…', 'http://www.radioswissclassic.ch/live/mp3.m3u', ''],
         ['Rock Nation', 'http://105-stream-02.datacomm.ch:8000/rocknation', ''],
         ['RSR La Première', 'http://broadcast.infomaniak.net:80/rsr-la1ere-high.mp3', ''],
-//      ['Espace 2', 'http://broadcast.infomaniak.ch/rsr-espace2-high.mp3', ''],
         ['Option Musique', 'http://broadcast.infomaniak.ch/rsr-optionmusique-high.mp3', ''],
         ['Frequence Banane', 'http://www.frequencebanane.ch/fb_128.m3u', ''],
-//      ['Radio Rumantsch', 'http://zlz-stream12.streamserver.ch/1/rr/mp3_128', ''],
-//      ['Radio Paradise', 'http://www.radioparadise.com/musiclinks/rp_128.m3u', ''],
-        ['Backstageradio','http://broadcast.infomaniak.ch/backstageradio-high.mp3.m3u',''],
+        ['Backstageradio','http://broadcast.infomaniak.ch/backstageradio-hi2gh.mp3.m3u','']
         ];
 
     var ERR_NONDB = 0;
@@ -202,11 +196,18 @@ RadioDb = function() {
           
                     var id = this.getAttribute('id').split('-')[1]; 
                     getStation(id, function(station) {
-                        document.getElementById('station-'+station.id).appendChild(playing);
-                        radio.station = station.name;
-                        radio.clear();
-                        radio.noTrack(true);
-                        playSound(station.stream);
+                        var el = document.getElementById('station-'+station.id);
+                        if (radio.station == station.name) {
+                             stopSound();
+                             radio.station = null;
+                             el.removeChild(el.querySelector('span'));
+                        } else {
+                            el.appendChild(playing);
+                            radio.station = station.name;
+                            radio.clear();
+                            radio.noTrack(true);
+                            playSound(station.stream);
+                        }
                         // remove mute
                         document.getElementById("mute").setAttribute('class', '');
                     }, true);
@@ -215,7 +216,7 @@ RadioDb = function() {
                 ul.appendChild(li);
             }
             // remove current nav
-            var statel = document.getElementById("stations");
+            var statel = document.getElementById("scrollStations");
             if( statel.hasChildNodes() ) {
                 while( statel.childNodes.length >= 1 ) 
                     statel.removeChild(statel.firstChild);
@@ -223,6 +224,8 @@ RadioDb = function() {
             // append updated nav
             statel.appendChild(ul);
         }, filter);
+        
+      
     };
 };
 
