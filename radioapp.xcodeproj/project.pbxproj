@@ -420,7 +420,7 @@
 				PRODUCT_NAME = "radioapp-iPad";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D5393DBC-5B06-4B8B-806C-7A54F57804DA";
 				SDKROOT = iphoneos4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
