@@ -75,6 +75,7 @@
 		8D1107310486CEB800E47090 /* radioapp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "radioapp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		EC18C7E91132A77300EFF1D3 /* radioapp-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radioapp-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC18C7EC1132A77400EFF1D3 /* example.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = example.xib; path = "Resources-iPad/example.xib"; sourceTree = "<group>"; };
+		EC49AAE611C0CB910011137B /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		EC6C247E116B6B780031F018 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		ECAE7F2D11BFD34500C3671D /* UAApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAApplication.h; sourceTree = "<group>"; };
 		ECAE7F2E11BFD34500C3671D /* UAApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAApplication.m; sourceTree = "<group>"; };
@@ -133,6 +134,7 @@
 				EC18C7EB1132A77300EFF1D3 /* Resources-iPad */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				EC49AAE611C0CB910011137B /* Entitlements.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -354,6 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liip AG";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -361,8 +364,9 @@
 				INFOPLIST_FILE = "radioapp-Info.plist";
 				PRODUCT_NAME = "radioapp-iPad";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E273946-A67F-42DA-ADDB-BC6AF84B4275";
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos4.0;
 				TARGETED_DEVICE_FAMILY = 2;
+				VALID_ARCHS = "armv6 armv7";
 			};
 			name = Distribution;
 		};
@@ -410,6 +414,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Christian Stocker (597BY392AH)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -428,6 +433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radioapp_Prefix.pch;
