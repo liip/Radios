@@ -409,6 +409,7 @@ li:first-child {
 		
 	#mute {
 		right: 75px;
+        display: none;
 	}
 	
 	#main {
