@@ -121,6 +121,22 @@ var Radio = function () {
             }
         }
     };
+
+    this.scrollingSongInfo = null;
+    this.displayIPhoneSongInfo = function(info) {
+        if (isIPhone()) {
+            document.querySelector("#stations").style.height = "328px";
+            document.querySelector("#artistsong").style.display = 'block';
+            document.querySelector("#artistsong").innerHTML = info;
+            if (!this.scrollingSongInfo) {
+                this.scrollingSongInfo = new iScroll('artistsonginfo');
+            }
+                this.scrollingSongInfo.refresh();
+            this.scrollingSongInfo.scrollTo(0,0);
+
+        }
+
+    };
     
     this.displaySongInformation = function (artist, track) {
         //artist = 'The White Stripes'; //todo: remove
@@ -153,6 +169,8 @@ var Radio = function () {
 			document.getElementById("song").innerHTML = 'mit ' + track;
 		}
 
+        
+        this.displayIPhoneSongInfo(artist + " - " + track);
          that.lastfm.artist.getInfo({artist: artist, lang: language}, {success: function (data) {
 
           if (!isIPhone()) {
@@ -208,6 +226,7 @@ var Radio = function () {
             var h2 = document.createElement('h2');
             if (datatext) {
                 h2.innerHTML = datatext;
+                that.displayIPhoneSongInfo(datatext);
             } else if (language == 'fr') {
 				h2.innerHTML = 'Pas d\'information sur l\'artiste';
 			} else {

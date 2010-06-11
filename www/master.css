@@ -57,7 +57,7 @@ body {
 	    -webkit-backface-visibility: hidden;
 	content: url('images/mic.png'), contents;
 	top: 0;
-	left: 130px;
+	left: 150px;
 	z-index: 900;
 }
 
@@ -397,6 +397,9 @@ li:first-child {
 	/* Ensure the "back side" is flipped already */
 	-webkit-transform: rotateY(180deg);
 }
+#artistsong {
+display: none;
+}
 
 @media screen and (max-device-width: 480px) {
 	ul {
@@ -418,10 +421,26 @@ li:first-child {
 	}
 	
 	#stations {
-	 height: 385px;
+	 height: 380px;
 	 }
 	 
 	 #wrapper {
 	  display: none;
 	  }
+      
+     #artistsonginfo {
+        height: 40px;
+        padding-left: 10px;
+        padding-top: 12px;
+        background-image: -webkit-gradient(radial, 300 90, 0, 300 90, 460, from(#222), to(#222), color-stop(0%, rgba(255, 255, 255, 0.1)))
+     }
+     
+     #artistsonginfo {
+        text-wrap: none;
+        width: 1000px;
+      }
+    
+      #collage {
+    	bottom: 40px;
+      }
 }
