@@ -361,8 +361,8 @@
 				INFOPLIST_FILE = "radioapp-Info.plist";
 				PRODUCT_NAME = "radioapp-iPad";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E273946-A67F-42DA-ADDB-BC6AF84B4275";
-				SDKROOT = iphoneos3.2;
-				TARGETED_DEVICE_FAMILY = 2;
+				SDKROOT = iphoneos4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Distribution;
 		};
