@@ -178,8 +178,9 @@ li:first-child {
 }
 
 .playing {
-	float: right;
-	margin-right: 50px;
+	float: left;
+    margin-right: 5px;
+	
 	margin-top: 2px;
 	content: url('images/playing.png'), contents;
 }
@@ -410,10 +411,6 @@ li:first-child {
 		right: 75px;
 	}
 	
-	.playing {
-		float: left;
-		margin-right: 5px;
-	}
 	#main {
 		background-image: none;
 		background-color: #ffffff;
