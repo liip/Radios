@@ -31,7 +31,6 @@
 		EC18C7ED1132A77400EFF1D3 /* example.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC18C7EC1132A77400EFF1D3 /* example.xib */; };
 		EC6C247F116B6B780031F018 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6C247E116B6B780031F018 /* MobileCoreServices.framework */; };
 		ECAE7F2F11BFD34500C3671D /* UAApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAE7F2E11BFD34500C3671D /* UAApplication.m */; };
-		ECF3126411C247A100DFA8FD /* iphone.css in Resources */ = {isa = PBXBuildFile; fileRef = ECF3126311C247A100DFA8FD /* iphone.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -277,7 +276,6 @@
 				EC18C7D31132A77300EFF1D3 /* PhoneGap.plist in Resources */,
 				EC18C7ED1132A77400EFF1D3 /* example.xib in Resources */,
 				1F27E40A11A48EF100DB5900 /* StartupIphone.png in Resources */,
-				ECF3126411C247A100DFA8FD /* iphone.css in Resources */,
 				EC1659C711C24FFF000826DB /* StartupIpad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
