@@ -423,6 +423,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radioapp_Prefix.pch;
 				INFOPLIST_FILE = "radioapp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = "radioapp-iPad";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D5393DBC-5B06-4B8B-806C-7A54F57804DA";
 				SDKROOT = iphoneos4.0;
