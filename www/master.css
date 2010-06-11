@@ -57,7 +57,7 @@ body {
 	    -webkit-backface-visibility: hidden;
 	content: url('images/mic.png'), contents;
 	top: 0;
-	left: 150px;
+	left: 130px;
 	z-index: 900;
 }
 
@@ -124,7 +124,7 @@ body {
 
 #sidebar {
     position: absolute;
-	width: 280px;
+	width: 320px;
 	left: 0;
 	z-index: 3;
 	bottom:0;
@@ -395,4 +395,35 @@ li:first-child {
 {
 	/* Ensure the "back side" is flipped already */
 	-webkit-transform: rotateY(180deg);
+}
+
+@media screen and (max-device-width: 480px) {
+	ul {
+		width: 320px;
+	}
+	
+	#header #mic {
+		left: 135px;
+	}
+		
+	#mute {
+		right: 75px;
+	}
+	
+	.playing {
+		float: left;
+		margin-right: 5px;
+	}
+	#main {
+		background-image: none;
+		background-color: #ffffff;
+	}
+	
+	#stations {
+	 height: 385px;
+	 }
+	 
+	 #wrapper {
+	  display: none;
+	  }
 }

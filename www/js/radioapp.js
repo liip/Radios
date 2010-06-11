@@ -1,5 +1,5 @@
 
-if (!isIPad()) {
+if (!isIDevice()) {
     window.debug = (function() {
         
         that = {};
@@ -153,10 +153,11 @@ var Radio = function () {
 			document.getElementById("song").innerHTML = 'mit ' + track;
 		}
 
-        that.lastfm.artist.getInfo({artist: artist, lang: language}, {success: function (data) {
+         that.lastfm.artist.getInfo({artist: artist, lang: language}, {success: function (data) {
 
-          that.displayArtist(data);
-
+          if (!isIPhone()) {
+            that.displayArtist(data);
+          }                           
           that.lastfm.artist.getImages({artist: data.artist.name, limit: 20}, {success: function(data) {
             
             var found = false;
@@ -337,7 +338,7 @@ var Radio = function () {
 		 iscroll.scrollTo(0, 0, '0');
     };
     
-    if (isIPad()) {
+    if (isIDevice()) {
         
         plugins.AudioStream.onMetaDataChange(this.onMetaDataChangeSuccess, null, null);
         
@@ -363,7 +364,7 @@ function lang(lang) {
 }
 
 function onDeviceReady() {
-    if(isIPad()){ 
+    if(isIDevice()){ 
         if (plugins.Lang && plugins.Lang.lang) {
             plugins.Lang.lang('lang');
         } else {
@@ -411,8 +412,12 @@ window.setTimeout(function() {
 }
 
 
-function isIPad() {
+function isIDevice() {
     return navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPhone/i);
+}
+
+function isIPhone() {
+    return navigator.userAgent.match(/iPhone/i);
 }
 
 function touchMove(event) {
@@ -443,7 +448,7 @@ var isPlaying = false;
 
 function playStream(url) {
 
-    if (isIPad()) {
+    if (isIDevice()) {
         plugins.AudioStream.play(url);
     } else {
         if (audio != null) {
@@ -487,7 +492,7 @@ function playSound(url) {
 }
 
 function stopSound() {
-    if (isIPad()) {
+    if (isIDevice()) {
         plugins.AudioStream.stop();
     } else {
     	audio.pause();
@@ -508,7 +513,7 @@ function toggleSound() {
     
 
 function onWinLoad() {
-    if(isIPad()){
+    if(isIDevice()){
         document.addEventListener("deviceready", onDeviceReady, false);
     } else {
         onDeviceReady();

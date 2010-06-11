@@ -99,3 +99,31 @@ div#imgContainer
 #screensaver #imgContainer div.hidden {
 	opacity: 0;
 }
+
+@media screen and (max-device-width: 1480px) {
+div.box h1, div.box h2
+{
+    font-size: 18px;
+  line-height: 1em;
+} 
+
+div#songinfo
+{
+    bottom: 30px;
+    width: 90%;
+}
+
+div#radioname
+{
+    top: 10px;
+    width: auto;
+}
+
+
+div.box
+{
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 5px;
+}
+}
