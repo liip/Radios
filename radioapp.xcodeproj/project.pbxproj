@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F27E40A11A48EF100DB5900 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F27E40911A48EF100DB5900 /* Default.png */; };
+		1F27E40A11A48EF100DB5900 /* StartupIphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F27E40911A48EF100DB5900 /* StartupIphone.png */; };
+		EC1659C711C24FFF000826DB /* StartupIpad.png in Resources */ = {isa = PBXBuildFile; fileRef = EC1659C611C24FFF000826DB /* StartupIpad.png */; };
 		EC18C7CF1132A77300EFF1D3 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 301BF56E109A69640062928A /* www */; };
 		EC18C7D01132A77300EFF1D3 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 3053AC6E109B7857006FCFE7 /* VERSION */; };
 		EC18C7D21132A77300EFF1D3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 302CC88710CD8CCE00C49659 /* icon.png */; };
@@ -30,6 +31,7 @@
 		EC18C7ED1132A77400EFF1D3 /* example.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC18C7EC1132A77400EFF1D3 /* example.xib */; };
 		EC6C247F116B6B780031F018 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6C247E116B6B780031F018 /* MobileCoreServices.framework */; };
 		ECAE7F2F11BFD34500C3671D /* UAApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAE7F2E11BFD34500C3671D /* UAApplication.m */; };
+		ECF3126411C247A100DFA8FD /* iphone.css in Resources */ = {isa = PBXBuildFile; fileRef = ECF3126311C247A100DFA8FD /* iphone.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +56,7 @@
 		1D3623240D0F684500981E51 /* radioappAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = radioappAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* radioappAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = radioappAppDelegate.m; sourceTree = "<group>"; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		1F27E40911A48EF100DB5900 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1F27E40911A48EF100DB5900 /* StartupIphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartupIphone.png; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		301BF52D109A57CC0062928A /* PhoneGapLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = PhoneGapLib.xcodeproj; sourceTree = PHONEGAPLIB; };
@@ -73,11 +75,13 @@
 		30E1352610E2C1420031B30D /* PhoneGap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PhoneGap.plist; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* radioapp_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = radioapp_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* radioapp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "radioapp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		EC1659C611C24FFF000826DB /* StartupIpad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartupIpad.png; sourceTree = "<group>"; };
 		EC18C7E91132A77300EFF1D3 /* radioapp-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radioapp-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC18C7EC1132A77400EFF1D3 /* example.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = example.xib; path = "Resources-iPad/example.xib"; sourceTree = "<group>"; };
 		EC6C247E116B6B780031F018 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		ECAE7F2D11BFD34500C3671D /* UAApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAApplication.h; sourceTree = "<group>"; };
 		ECAE7F2E11BFD34500C3671D /* UAApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAApplication.m; sourceTree = "<group>"; };
+		ECF3126311C247A100DFA8FD /* iphone.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = iphone.css; path = www/iphone.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				ECF3126311C247A100DFA8FD /* iphone.css */,
 				301BF52D109A57CC0062928A /* PhoneGapLib.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				307C750510C5A3420062BCA9 /* Plugins */,
@@ -151,7 +156,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1F27E40911A48EF100DB5900 /* Default.png */,
+				1F27E40911A48EF100DB5900 /* StartupIphone.png */,
+				EC1659C611C24FFF000826DB /* StartupIpad.png */,
 				301BF56E109A69640062928A /* www */,
 				30E1352610E2C1420031B30D /* PhoneGap.plist */,
 				302CC88710CD8CCE00C49659 /* icon.png */,
@@ -270,7 +276,9 @@
 				EC18C7D21132A77300EFF1D3 /* icon.png in Resources */,
 				EC18C7D31132A77300EFF1D3 /* PhoneGap.plist in Resources */,
 				EC18C7ED1132A77400EFF1D3 /* example.xib in Resources */,
-				1F27E40A11A48EF100DB5900 /* Default.png in Resources */,
+				1F27E40A11A48EF100DB5900 /* StartupIphone.png in Resources */,
+				ECF3126411C247A100DFA8FD /* iphone.css in Resources */,
+				EC1659C711C24FFF000826DB /* StartupIpad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

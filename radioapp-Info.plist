@@ -16,6 +16,10 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
+	<key>UILaunchImageFile~ipad</key>
+	<string>StartupIpad.png</string>
+	<key>UILaunchImageFile~iphone</key>
+	<string>StartupIphone.png</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
