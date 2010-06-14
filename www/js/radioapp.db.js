@@ -203,12 +203,13 @@ RadioDb = function() {
                              radio.stream = null;
                              el.removeChild(el.querySelector('span'));
                         } else {
-                            el.appendChild(playing);
                             radio.station = station.name;
                             radio.stream = station.stream;
                             radio.clear();
                             radio.noTrack(true);
-                            playSound(station.stream);
+                            if (playSound(station.stream)) {
+                                el.appendChild(playing);
+                            }
                         }
                         // remove mute
                         document.getElementById("mute").setAttribute('class', '');

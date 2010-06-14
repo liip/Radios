@@ -397,7 +397,8 @@ function onDeviceReady() {
 }
 
 function testReachable_callback(reachability) {
-    if (reachability. internetConnectionStatus > 0) {
+    navigator.network.updateReachability(reachability);
+    if (reachability.internetConnectionStatus > 0) {
         init();
     } else {
 		if (language == 'fr') {
@@ -423,9 +424,9 @@ function init() {
             document.getElementById('station-2').onclick();
         }
     });
-window.setTimeout(function() {
-    var scr = new iScroll('scrollStations');
-    scr.refresh();
+    window.setTimeout(function() {
+        var scr = new iScroll('scrollStations');
+        scr.refresh();
     },1000);
 
 }
@@ -464,6 +465,7 @@ function mute() {
 
 var audio = null;
 var isPlaying = false;
+var confirmedNonWlan = false;
 
 function playStream(url) {
 
@@ -485,8 +487,20 @@ function playStream(url) {
 
 function playSound(url) {
     
-    console.log('Playing: ' + url);
+    debug.log('Playing: ' + url);
     
+    if (!confirmedNonWlan && navigator.network.lastReachability.internetConnectionStatus == 1) {
+          var confirmText = "Sie sind nur über Mobilfunk (3G/Edge) unterwegs. Das kann beim Empfang hohe Kosten verursachen. Wir empfehlen daher, ihr Gerät über ein WLAN mit dem Internet zu verbinden. \n Wollen Sie trotzdem Radios über Mobilfunk empfangen?";
+        if (language == 'fr') {
+                //vconfirmText = 
+        } else if (language == 'de') {
+        }
+        if (!confirm(confirmText)) {
+            return false;
+        } else {
+            confirmedNonWlan = true;
+        }
+    }
     if(url.match(/(m3u|pls)$/)) {
         
         var client = new XMLHttpRequest();
@@ -508,6 +522,7 @@ function playSound(url) {
     } else {
         playStream(url);
     }
+    return true;
 }
 
 function stopSound() {
@@ -522,9 +537,9 @@ function stopSound() {
 
 function toggleSound() {
     if (!isPlaying && radio.stream) {
-        playSound(radio.stream);
+        return playSound(radio.stream);
     } else {
-        stopSound();
+        return stopSound();
     }
 }
         
