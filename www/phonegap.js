@@ -1508,6 +1508,8 @@ PhoneGap.addConstructor(function() {
  */
 function AudioStream() {
     this.lastMetaData = null;
+    this.status = "isStopped";
+    this.isLoading = false;
     this.callbacks = {
 	onMetaDataChanged: [],
     onStatusChanged: [],
@@ -1517,6 +1519,8 @@ function AudioStream() {
 
 AudioStream.prototype.play = function(url,metaCallBack) {
     PhoneGap.exec("AudioStream.play",url,metaCallBack);
+    this.isLoading = true; 
+    this.setStatus("isLoading");
 };
 AudioStream.prototype.stop = function() {
     PhoneGap.exec("AudioStream.stop");
@@ -1535,7 +1539,9 @@ AudioStream.prototype.getMetaData = function(successCallback, errorCallback, opt
     return this.lastMetaData;
 };
 
-
+AudioStream.prototype.getStatus = function() {
+    return this.status;
+}
 
 /**
  * Asynchronously aquires the heading repeatedly at a given interval.
@@ -1569,10 +1575,16 @@ AudioStream.prototype.onStatusChange = function(successCallback, errorCallback, 
 };
 
 AudioStream.prototype.setStatus = function(status) {
+    this.status = status;
+    if (status == 'isPlaying') {
+        this.isLoading = false;
+    } 
     for (var i = 0; i < this.callbacks.onStatusChanged.length; i++) {
-        
         var f = this.callbacks.onStatusChanged[i];
         f(status);
+    }
+    if (status == 'isStopping' && this.isLoading) {
+        this.setStatus('isLoading');
     }
 };
 

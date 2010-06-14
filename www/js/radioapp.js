@@ -365,9 +365,17 @@ var Radio = function () {
         if (plugins.AudioStream.onStatusChange) {
             
             plugins.AudioStream.onStatusChange(function(status) {
+                debug.log("STATUS " + status);
                 if(status == 'isPlaying') {
                     // document.getElementById('now_station').innerHTML = 'Now Playing DRS 3: ';
                 } else if (status == 'isStopping') {
+                    if (isIPhone()) {
+                      document.querySelector("#artistsong").innerHTML = 'Stopped';
+                    }
+                }else if (status == 'isLoading') {
+                    if (isIPhone()) {
+                      document.querySelector("#artistsong").innerHTML = 'Loading ... ';
+                    }
                 }
             });
         }
@@ -464,13 +472,13 @@ function mute() {
 }
 
 var audio = null;
-var isPlaying = false;
 var confirmedNonWlan = false;
 
 function playStream(url) {
 
     if (isIDevice()) {
         plugins.AudioStream.play(url);
+        radio.displayIPhoneSongInfo("Loading ...");
     } else {
         if (audio != null) {
         	audio.pause();
@@ -482,11 +490,13 @@ function playStream(url) {
         // simulate a artist
         radio.searchTrackInformation("Icky Thump", "The White Stripes");
     }
-    isPlaying = true;
 }
 
 function playSound(url) {
     
+    if (plugins.AudioStream.getStatus() == 'isPlaying') {
+        stopSound();       
+    }
     debug.log('Playing: ' + url);
     
     if (!confirmedNonWlan && navigator.network.lastReachability.internetConnectionStatus == 1) {
@@ -526,17 +536,20 @@ function playSound(url) {
 }
 
 function stopSound() {
+    
     if (isIDevice()) {
-        plugins.AudioStream.stop();
+      
+        if (plugins.AudioStream.getStatus() == 'isPlaying') {
+             plugins.AudioStream.stop();
+        }
     } else {
         audio.pause();
         audio = null;
     }
-    isPlaying = false;
 }
 
 function toggleSound() {
-    if (!isPlaying && radio.stream) {
+   if (plugins.AudioStream.getStatus() != 'isPlaying' && radio.stream) {
         return playSound(radio.stream);
     } else {
         return stopSound();
