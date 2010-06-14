@@ -430,14 +430,15 @@ display: none;
       
      #artistsonginfo {
         height: 40px;
-        padding-left: 10px;
+        padding-left: 110px;
         padding-top: 12px;
-        background-image: -webkit-gradient(radial, 300 90, 0, 300 90, 460, from(#222), to(#222), color-stop(0%, rgba(255, 255, 255, 0.1)))
+        margin-left: -100px;
+        background-image: -webkit-gradient(radial, 300 90, 0, 300 90, 460,  color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(100%, rgba(100, 100, 100, 0.5)))
      }
      
      #artistsonginfo {
         text-wrap: none;
-        width: 1000px;
+        width: 700px;
       }
     
       #collage {
