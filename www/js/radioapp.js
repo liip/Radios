@@ -226,12 +226,14 @@ var Radio = function () {
             var h2 = document.createElement('h2');
             if (datatext) {
                 h2.innerHTML = datatext;
-                that.displayIPhoneSongInfo(datatext);
             } else if (language == 'fr') {
 				h2.innerHTML = 'Pas d\'information sur l\'artiste';
+                
 			} else {
 				h2.innerHTML = 'Keine Künstlerinformationen vorhanden';
+                
 			}
+            that.displayIPhoneSongInfo(h2.innerHTML) ;
             h2.setAttribute('class', 'notrack');
             div.appendChild(h2);
             //div.setAttribute('class', 'hidden');
@@ -296,7 +298,6 @@ var Radio = function () {
             }
             
             that.metadata = data;
-        
             var splits = data.split("-");
             if (splits[1]) {
                 that.searchTrackInformation(splits[1], splits[0]);
@@ -309,7 +310,7 @@ var Radio = function () {
                     if (splits[1]) {
                         that.searchTrackInformation(splits[1], splits[0]);
                     } else {
-                        that.noTrack(true,this.metadata);
+                        that.noTrack(true,that.metadata);
                     }
                 }
             }
@@ -366,8 +367,7 @@ var Radio = function () {
             plugins.AudioStream.onStatusChange(function(status) {
                 if(status == 'isPlaying') {
                     // document.getElementById('now_station').innerHTML = 'Now Playing DRS 3: ';
-                } else {
-                    // document.getElementById('now_station').innerHTML = 'Stopped. ';
+                } else if (status == 'isStopping') {
                 }
             });
         }
@@ -529,8 +529,8 @@ function stopSound() {
     if (isIDevice()) {
         plugins.AudioStream.stop();
     } else {
-    	audio.pause();
-    	audio = null;
+        audio.pause();
+        audio = null;
     }
     isPlaying = false;
 }
