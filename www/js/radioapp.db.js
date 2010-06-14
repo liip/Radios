@@ -57,7 +57,7 @@ RadioDb = function() {
         ['RSR La Première', 'http://broadcast.infomaniak.net:80/rsr-la1ere-high.mp3', ''],
         ['Option Musique', 'http://broadcast.infomaniak.ch/rsr-optionmusique-high.mp3', ''],
         ['Frequence Banane', 'http://www.frequencebanane.ch/fb_128.m3u', ''],
-        ['Backstageradio','http://broadcast.infomaniak.ch/backstageradio-hi2gh.mp3.m3u','']
+        ['Backstageradio','http://broadcast.infomaniak.ch/backstageradio-high.mp3.m3u','']
         ];
 
     var ERR_NONDB = 0;
