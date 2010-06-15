@@ -174,7 +174,7 @@ var Radio = function () {
 
         
         this.displayIPhoneSongInfo(artist + " - " + track);
-         that.lastfm.artist.getInfo(
+        that.lastfm.artist.getInfo(
              {artist: artist, lang: language}, 
              {success: function (data) {
 
@@ -184,7 +184,13 @@ var Radio = function () {
                  that.lastfm.artist.getImages(
                      {artist: data.artist.name, limit: 20}, 
                      {success: function(data) {
-                          that.displayImages(data);
+                             that.lastfmdata = data;
+                             if (data.images.image.length > 0) {
+                                 document.querySelector("#collage").setAttribute('class', '');
+                             }
+                             if ( document.getElementById('card').getAttribute('class') == 'flipped') {
+                                 that.displayImages(data);
+                             }
                         }
                      }
                  )
@@ -221,7 +227,6 @@ var Radio = function () {
                 }
                 
                 // fade in collage
-                document.querySelector("#collage").setAttribute('class', '');
             }
             
             // if no widescreen image wass found, try first one instead
@@ -308,6 +313,7 @@ var Radio = function () {
 		//data = 'Band of Skulls - I Know What I Am';
 		//data = 'Mando Diao - Gloria';
 		//data = 'Melanie Fiona - Monday Morning';
+        that.lastfmdata = null;
         if (data) {
             data = data.replace(/^\s+|\s+$/g, "");
             

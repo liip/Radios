@@ -3,10 +3,14 @@ const FADE_DURATION = 3;
 
 function initScreensaver(force)
 {
-    if (document.getElementById('card').getAttribute('class') == 'flipped' && !force) {
-        document.getElementById('card').setAttribute('class', '');
+    var card = document.getElementById('card');
+    if (card.getAttribute('class') == 'flipped' && !force) {
+        card.setAttribute('class', '');
 	} else {
-	    document.getElementById('card').setAttribute('class', 'flipped');
+	    card.setAttribute('class', 'flipped');
+        if (radio.lastfmdata) {
+            radio.displayImages(radio.lastfmdata);
+        }
 	}
 }
 
