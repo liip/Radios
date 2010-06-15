@@ -37,7 +37,9 @@ var Radio = function () {
     this.displayImage = function (image) {
         var img = document.createElement('img');
         img.setAttribute('src', image['#text']);
-        img.setAttribute('height', '200');
+        if (image['height'] > 200) {        
+            img.setAttribute('height', '200');
+        }
         img.setAttribute('class', 'hidden');
         document.getElementById("image").appendChild(img);
         setTimeout("document.querySelector('#image img:last-child').setAttribute('class', '')", 10);
@@ -50,8 +52,9 @@ var Radio = function () {
         var val2 = (Math.floor(Math.random() * 11) + 1)+'%';
         
         img.setAttribute('src', image['#text']);
-        img.setAttribute('height', '300');
-        
+        if (image['height'] > 300) {
+            img.setAttribute('height', '300');
+        }
         imgDiv.appendChild(img);
         imgDiv.setAttribute('class', 'hidden');
         imgDiv.setAttribute('id', 'img'+count);
@@ -179,11 +182,16 @@ var Radio = function () {
           that.lastfm.artist.getImages({artist: data.artist.name, limit: 20}, {success: function(data) {
             
             var found = false;
-            
             var area = Math.floor(Math.random() * 4);
             for (i = 0; i < data.images.image.length; i++) {
-                var image = data.images.image[i].sizes.size[0];
-                
+                var sizes = data.images.image[i].sizes.size;
+                var image = null;
+                if (isIPhone() && sizes[5]) {
+                    image = sizes[5];
+                } else {
+                    image = sizes[0];
+                }
+                    
                 if (!found && parseInt(image['width']) > parseInt(image['height'])) {
                   that.displayImage(image);
                   found = true;
@@ -204,7 +212,7 @@ var Radio = function () {
             // if no widescreen image wass found, try first one instead
             if(!found && data.images.image[0] && data.images.image[0].sizes.size[0] && data.images.image[0].sizes.size[0]['#text']) {
                 image = data.images.image[0].sizes.size[0];
-            	that.displayImage(image);
+                that.displayImage(image);
             } else if (!found && data.images.image && data.images.image.sizes.size[0] && data.images.image.sizes.size[0]['#text']) {
                 // only one image
                 image = data.images.image.sizes.size[0];
@@ -243,7 +251,7 @@ var Radio = function () {
             that.done = true;
         }
     };
-    
+            
     this.searchTrackInformation = function (track, artist) {
         
         // avoid Last.fm problems
