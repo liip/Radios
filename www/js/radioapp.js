@@ -452,9 +452,9 @@ function init() {
     radioDb.getLastListenedStation(function(station) { 
         // if we listened to a station previously, start it again
         if(station && station.listened_at) {
-            document.getElementById('station-'+station.id).ontouchend();
+            document.getElementById('station-'+station.id).onclick();
         } else {
-            document.getElementById('station-2').ontouchend();
+            document.getElementById('station-2').onclick();
         }
     });
     window.setTimeout(function() {
