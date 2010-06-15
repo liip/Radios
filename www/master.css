@@ -96,26 +96,25 @@ body {
 
 #mute {
 	position: absolute;
-	background-image: url('images/Mute.png');
+	background-image: url('images/pause.png');
 	background-repeat: no-repeat;
 	background-position: center center;
-	top: 0;
-	right: 0;
+	top: 6px;
+	left: 140px;
 	width: 90px;
 	height: 85px;
-	opacity: 0.7;
 	z-index: 1000;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
-    opacity: 0.6;
+    opacity: 0.9;
     -webkit-backface-visibility: hidden;
 }
 
 #mute:active {
-	background-image: url('images/Mute.png'), -webkit-gradient(radial, 50 40, 50, 50 40, 5, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 1)));
+	background-image: url('images/pause.png'), -webkit-gradient(radial, 50 40, 50, 50 40, 5, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 1)));
 }
 
 #mute.muted {
-    opacity: 1.0;
+    opacity: 0.6;
 }
 
 #collage.hidden {
@@ -412,7 +411,7 @@ display: none;
 		
 	#mute {
 		right: 75px;
-        display: none;
+     /*   display: none;*/
 	}
 	
 	#main {

@@ -453,23 +453,7 @@ function touchMove(event) {
     event.preventDefault();
 }
 
-foo = true;
 
-function mute() {
-    if (foo) {
-        document.getElementById("mute").setAttribute('class', 'muted');
-        if (plugins) {
-            plugins.AudioStream.mute();
-        }
-        foo = false;
-    } else {
-        document.getElementById("mute").setAttribute('class', '');
-        if (plugins) {
-            plugins.AudioStream.unmute();
-        }
-        foo = true;
-    }
-}
 
 var audio = null;
 var confirmedNonWlan = false;
@@ -477,6 +461,7 @@ var confirmedNonWlan = false;
 function playStream(url) {
 
     if (isIDevice()) {
+        document.getElementById("mute").setAttribute('class', '');
         plugins.AudioStream.play(url);
         radio.displayIPhoneSongInfo("Loading ...");
     } else {
@@ -490,6 +475,7 @@ function playStream(url) {
         // simulate a artist
         radio.searchTrackInformation("Icky Thump", "The White Stripes");
     }
+    
 }
 
 function playSound(url) {
@@ -540,12 +526,14 @@ function stopSound() {
     if (isIDevice()) {
       
         if (plugins.AudioStream.getStatus() == 'isPlaying') {
+             document.getElementById("mute").setAttribute('class', 'muted');
              plugins.AudioStream.stop();
         }
     } else {
         audio.pause();
         audio = null;
     }
+
 }
 
 function toggleSound() {
@@ -553,6 +541,7 @@ function toggleSound() {
         return playSound(radio.stream);
     } else {
         return stopSound();
+
     }
 }
         
