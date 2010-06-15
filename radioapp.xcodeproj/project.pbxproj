@@ -30,6 +30,7 @@
 		EC18C7E51132A77300EFF1D3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF5C4109A6A2B0062928A /* SystemConfiguration.framework */; };
 		EC18C7ED1132A77400EFF1D3 /* example.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC18C7EC1132A77400EFF1D3 /* example.xib */; };
 		EC6C247F116B6B780031F018 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6C247E116B6B780031F018 /* MobileCoreServices.framework */; };
+		EC7E59F611C799A30076768E /* icon-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = EC7E59F511C799A30076768E /* icon-iphone.png */; };
 		ECAE7F2F11BFD34500C3671D /* UAApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAE7F2E11BFD34500C3671D /* UAApplication.m */; };
 /* End PBXBuildFile section */
 
@@ -78,9 +79,9 @@
 		EC18C7E91132A77300EFF1D3 /* radioapp-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radioapp-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC18C7EC1132A77400EFF1D3 /* example.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = example.xib; path = "Resources-iPad/example.xib"; sourceTree = "<group>"; };
 		EC6C247E116B6B780031F018 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		EC7E59F511C799A30076768E /* icon-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iphone.png"; sourceTree = "<group>"; };
 		ECAE7F2D11BFD34500C3671D /* UAApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAApplication.h; sourceTree = "<group>"; };
 		ECAE7F2E11BFD34500C3671D /* UAApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAApplication.m; sourceTree = "<group>"; };
-		ECF3126311C247A100DFA8FD /* iphone.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = iphone.css; path = www/iphone.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +129,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				ECF3126311C247A100DFA8FD /* iphone.css */,
 				301BF52D109A57CC0062928A /* PhoneGapLib.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				307C750510C5A3420062BCA9 /* Plugins */,
@@ -155,6 +155,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EC7E59F511C799A30076768E /* icon-iphone.png */,
 				1F27E40911A48EF100DB5900 /* StartupIphone.png */,
 				EC1659C611C24FFF000826DB /* StartupIpad.png */,
 				301BF56E109A69640062928A /* www */,
@@ -277,6 +278,7 @@
 				EC18C7ED1132A77400EFF1D3 /* example.xib in Resources */,
 				1F27E40A11A48EF100DB5900 /* StartupIphone.png in Resources */,
 				EC1659C711C24FFF000826DB /* StartupIpad.png in Resources */,
+				EC7E59F611C799A30076768E /* icon-iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,7 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Christian Stocker (597BY392AH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -425,7 +427,7 @@
 				INFOPLIST_FILE = "radioapp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = "radioapp-iPad";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D5393DBC-5B06-4B8B-806C-7A54F57804DA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
