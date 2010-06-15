@@ -437,10 +437,13 @@ display: none;
      
      #artistsonginfo {
         text-wrap: none;
-        width: 700px;
+        width: 800px;
       }
     
       #collage {
-    	bottom: 40px;
+		bottom: 70px;
+		display: block;
+		height: 50px;
+	
       }
 }
