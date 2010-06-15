@@ -174,13 +174,28 @@ var Radio = function () {
 
         
         this.displayIPhoneSongInfo(artist + " - " + track);
-         that.lastfm.artist.getInfo({artist: artist, lang: language}, {success: function (data) {
+         that.lastfm.artist.getInfo(
+             {artist: artist, lang: language}, 
+             {success: function (data) {
 
-          if (!isIPhone()) {
-            that.displayArtist(data);
-          }                           
-          that.lastfm.artist.getImages({artist: data.artist.name, limit: 20}, {success: function(data) {
-            
+                 if (!isIPhone()) {
+                     that.displayArtist(data);
+                 }                           
+                 that.lastfm.artist.getImages(
+                     {artist: data.artist.name, limit: 20}, 
+                     {success: function(data) {
+                          that.displayImages(data);
+                        }
+                     }
+                 )
+             } 
+             , error: function(code, message) {
+                 debug.log('artist.getInfo failed: ' + message);
+                }
+             }
+             );
+    };
+    this.displayImages = function(data) {
             var found = false;
             var area = Math.floor(Math.random() * 4);
             for (i = 0; i < data.images.image.length; i++) {
@@ -218,12 +233,8 @@ var Radio = function () {
                 image = data.images.image.sizes.size[0];
                 that.displayImage(image);
             }
-            }});
-        }, error: function(code, message){
-            debug.log('artist.getInfo failed: ' + message);	
-        }});
-    };
-    
+            };
+            
     this.noTrack = function (force, datatext) {
         if ((!that.done || force) && that.station != null) {
             that.clear();
