@@ -83,7 +83,7 @@ body {
 	right: 0;
 	width: 80px;
 	height: 110px;
-	opacity: 0.7;
+	opacity: 0.9;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	z-index: 1000;
     opacity: 1.0;
@@ -96,7 +96,7 @@ body {
 
 #mute {
 	position: absolute;
-	background-image: url('images/Mute.png');
+	background-image: url('images/pause.png');
 	background-repeat: no-repeat;
 	background-position: center center;
 	top: 0;
@@ -105,17 +105,17 @@ body {
 	height: 85px;
 	opacity: 0.7;
 	z-index: 1000;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-    opacity: 0.6;
+   	-webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-backface-visibility: hidden;
 }
 
+
 #mute:active {
-	background-image: url('images/Mute.png'), -webkit-gradient(radial, 50 40, 50, 50 40, 5, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 1)));
+	background-image: url('images/pause.png'), -webkit-gradient(radial, 50 40, 50, 50 40, 5, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 1)));
 }
 
 #mute.muted {
-    opacity: 1.0;
+    opacity: 0.3;
 }
 
 #collage.hidden {
@@ -124,7 +124,7 @@ body {
 
 #sidebar {
     position: absolute;
-	width: 280px;
+	width: 320px;
 	left: 0;
 	z-index: 3;
 	bottom:0;
@@ -178,8 +178,9 @@ li:first-child {
 }
 
 .playing {
-	float: right;
-	margin-right: 50px;
+	float: left;
+    margin-right: 5px;
+	
 	margin-top: 2px;
 	content: url('images/playing.png'), contents;
 }
@@ -395,4 +396,60 @@ li:first-child {
 {
 	/* Ensure the "back side" is flipped already */
 	-webkit-transform: rotateY(180deg);
+}
+#artistsong {
+display: none;
+}
+
+@media screen and (max-device-width: 480px) {
+	ul {
+		width: 320px;
+	}
+	
+	#header #mic {
+		left: 135px;
+	}
+		
+	#mute {
+		right: 75px;
+			top: 6px;
+	left: 140px;
+	width: 90px;
+	height: 85px;
+
+     /*   display: none;*/
+	}
+	
+	#main {
+		background-image: none;
+		background-color: #ffffff;
+	}
+	
+	#stations {
+	 height: 380px;
+	 }
+	 
+	 #wrapper {
+	  display: none;
+	  }
+      
+     #artistsonginfo {
+        height: 40px;
+        padding-left: 110px;
+        padding-top: 12px;
+        margin-left: -100px;
+        background-image: -webkit-gradient(radial, 300 90, 0, 300 90, 460,  color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(100%, rgba(100, 100, 100, 0.5)))
+     }
+     
+     #artistsonginfo {
+        text-wrap: none;
+        width: 800px;
+      }
+    
+      #collage {
+		bottom: 70px;
+		display: block;
+		height: 50px;
+	
+      }
 }

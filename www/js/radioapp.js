@@ -1,5 +1,5 @@
 
-if (!isIPad()) {
+if (!isIDevice()) {
     window.debug = (function() {
         
         that = {};
@@ -37,7 +37,9 @@ var Radio = function () {
     this.displayImage = function (image) {
         var img = document.createElement('img');
         img.setAttribute('src', image['#text']);
-        img.setAttribute('height', '200');
+        if (image['height'] > 200) {        
+            img.setAttribute('height', '200');
+        }
         img.setAttribute('class', 'hidden');
         document.getElementById("image").appendChild(img);
         setTimeout("document.querySelector('#image img:last-child').setAttribute('class', '')", 10);
@@ -50,8 +52,9 @@ var Radio = function () {
         var val2 = (Math.floor(Math.random() * 11) + 1)+'%';
         
         img.setAttribute('src', image['#text']);
-        img.setAttribute('height', '300');
-        
+        if (image['height'] > 300) {
+            img.setAttribute('height', '300');
+        }
         imgDiv.appendChild(img);
         imgDiv.setAttribute('class', 'hidden');
         imgDiv.setAttribute('id', 'img'+count);
@@ -121,6 +124,22 @@ var Radio = function () {
             }
         }
     };
+
+    this.scrollingSongInfo = null;
+    this.displayIPhoneSongInfo = function(info) {
+        if (isIPhone()) {
+            document.querySelector("#stations").style.height = "328px";
+            document.querySelector("#artistsong").style.display = 'block';
+            document.querySelector("#artistsong").innerHTML = info.substr(0,100);
+            if (!this.scrollingSongInfo) {
+                this.scrollingSongInfo = new iScroll('artistsonginfo');
+            }
+                this.scrollingSongInfo.refresh();
+            this.scrollingSongInfo.scrollTo(0,0);
+
+        }
+
+    };
     
     this.displaySongInformation = function (artist, track) {
         //artist = 'The White Stripes'; //todo: remove
@@ -153,18 +172,48 @@ var Radio = function () {
 			document.getElementById("song").innerHTML = 'mit ' + track;
 		}
 
-        that.lastfm.artist.getInfo({artist: artist, lang: language}, {success: function (data) {
+        
+        this.displayIPhoneSongInfo(artist + " - " + track);
+        that.lastfm.artist.getInfo(
+             {artist: artist, lang: language}, 
+             {success: function (data) {
 
-          that.displayArtist(data);
-
-          that.lastfm.artist.getImages({artist: data.artist.name, limit: 20}, {success: function(data) {
-            
+                 if (!isIPhone()) {
+                     that.displayArtist(data);
+                 }                           
+                 that.lastfm.artist.getImages(
+                     {artist: data.artist.name, limit: 20}, 
+                     {success: function(data) {
+                             that.lastfmdata = data;
+                             if (data.images.image.length > 0) {
+                                 document.querySelector("#collage").setAttribute('class', '');
+                             }
+                             if (!isIPhone() || document.getElementById('card').getAttribute('class') == 'flipped') {
+                                 that.displayImages(data);
+                             }
+                             
+                        }
+                     }
+                 )
+             } 
+             , error: function(code, message) {
+                 debug.log('artist.getInfo failed: ' + message);
+                }
+             }
+             );
+    };
+    this.displayImages = function(data) {
             var found = false;
-            
             var area = Math.floor(Math.random() * 4);
             for (i = 0; i < data.images.image.length; i++) {
-                var image = data.images.image[i].sizes.size[0];
-                
+                var sizes = data.images.image[i].sizes.size;
+                var image = null;
+                if (isIPhone() && sizes[5]) {
+                    image = sizes[5];
+                } else {
+                    image = sizes[0];
+                }
+                    
                 if (!found && parseInt(image['width']) > parseInt(image['height'])) {
                   that.displayImage(image);
                   found = true;
@@ -175,28 +224,25 @@ var Radio = function () {
                 area++;
                 
                 if (i <= 6) {
-                    that.displayImageSceensaver(image, i, area);
+                    if ( document.getElementById('card').getAttribute('class') == 'flipped') {
+                        that.displayImageSceensaver(image, i, area);
+                    }
                 }
                 
                 // fade in collage
-                document.querySelector("#collage").setAttribute('class', '');
             }
             
             // if no widescreen image wass found, try first one instead
             if(!found && data.images.image[0] && data.images.image[0].sizes.size[0] && data.images.image[0].sizes.size[0]['#text']) {
                 image = data.images.image[0].sizes.size[0];
-            	that.displayImage(image);
+                that.displayImage(image);
             } else if (!found && data.images.image && data.images.image.sizes.size[0] && data.images.image.sizes.size[0]['#text']) {
                 // only one image
                 image = data.images.image.sizes.size[0];
                 that.displayImage(image);
             }
-            }});
-        }, error: function(code, message){
-            debug.log('artist.getInfo failed: ' + message);	
-        }});
-    };
-    
+            };
+            
     this.noTrack = function (force, datatext) {
         if ((!that.done || force) && that.station != null) {
             that.clear();
@@ -209,9 +255,12 @@ var Radio = function () {
                 h2.innerHTML = datatext;
             } else if (language == 'fr') {
 				h2.innerHTML = 'Pas d\'information sur l\'artiste';
+                
 			} else {
 				h2.innerHTML = 'Keine Künstlerinformationen vorhanden';
+                
 			}
+            that.displayIPhoneSongInfo(h2.innerHTML) ;
             h2.setAttribute('class', 'notrack');
             div.appendChild(h2);
             //div.setAttribute('class', 'hidden');
@@ -221,7 +270,7 @@ var Radio = function () {
             that.done = true;
         }
     };
-    
+            
     this.searchTrackInformation = function (track, artist) {
         
         // avoid Last.fm problems
@@ -236,8 +285,8 @@ var Radio = function () {
         
         // try track search
         that.lastfm.track.search(params, {success: function (data) {
-                debug.log(artist);
-                debug.log(track);
+                debug.log("Artist: " + artist);
+                debug.log("Track: " + track);
                 if (data.results.trackmatches.track) {
                     
                     that.done = false;
@@ -267,6 +316,7 @@ var Radio = function () {
 		//data = 'Band of Skulls - I Know What I Am';
 		//data = 'Mando Diao - Gloria';
 		//data = 'Melanie Fiona - Monday Morning';
+        that.lastfmdata = null;
         if (data) {
             data = data.replace(/^\s+|\s+$/g, "");
             
@@ -276,7 +326,6 @@ var Radio = function () {
             }
             
             that.metadata = data;
-        
             var splits = data.split("-");
             if (splits[1]) {
                 that.searchTrackInformation(splits[1], splits[0]);
@@ -289,7 +338,7 @@ var Radio = function () {
                     if (splits[1]) {
                         that.searchTrackInformation(splits[1], splits[0]);
                     } else {
-                        that.noTrack(true,this.metadata);
+                        that.noTrack(true,that.metadata);
                     }
                 }
             }
@@ -337,17 +386,24 @@ var Radio = function () {
 		 iscroll.scrollTo(0, 0, '0');
     };
     
-    if (isIPad()) {
+    if (isIDevice()) {
         
         plugins.AudioStream.onMetaDataChange(this.onMetaDataChangeSuccess, null, null);
         
         if (plugins.AudioStream.onStatusChange) {
             
             plugins.AudioStream.onStatusChange(function(status) {
+                debug.log("STATUS " + status);
                 if(status == 'isPlaying') {
                     // document.getElementById('now_station').innerHTML = 'Now Playing DRS 3: ';
-                } else {
-                    // document.getElementById('now_station').innerHTML = 'Stopped. ';
+                } else if (status == 'isStopping') {
+                    if (isIPhone()) {
+                      document.querySelector("#artistsong").innerHTML = 'Stopped';
+                    }
+                }else if (status == 'isLoading') {
+                    if (isIPhone()) {
+                      document.querySelector("#artistsong").innerHTML = 'Loading ... ';
+                    }
                 }
             });
         }
@@ -363,7 +419,7 @@ function lang(lang) {
 }
 
 function onDeviceReady() {
-    if(isIPad()){ 
+    if(isIDevice()){ 
         if (plugins.Lang && plugins.Lang.lang) {
             plugins.Lang.lang('lang');
         } else {
@@ -377,7 +433,8 @@ function onDeviceReady() {
 }
 
 function testReachable_callback(reachability) {
-    if (reachability. internetConnectionStatus > 0) {
+    navigator.network.updateReachability(reachability);
+    if (reachability.internetConnectionStatus > 0) {
         init();
     } else {
 		if (language == 'fr') {
@@ -403,16 +460,20 @@ function init() {
             document.getElementById('station-2').onclick();
         }
     });
-window.setTimeout(function() {
-    var scr = new iScroll('scrollStations');
-    scr.refresh();
+    window.setTimeout(function() {
+        var scr = new iScroll('scrollStations');
+        scr.refresh();
     },1000);
 
 }
 
 
-function isIPad() {
+function isIDevice() {
     return navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPhone/i);
+}
+
+function isIPhone() {
+    return navigator.userAgent.match(/iPhone/i);
 }
 
 function touchMove(event) {
@@ -420,31 +481,19 @@ function touchMove(event) {
     event.preventDefault();
 }
 
-foo = true;
 
-function mute() {
-    if (foo) {
-        document.getElementById("mute").setAttribute('class', 'muted');
-        if (plugins) {
-            plugins.AudioStream.mute();
-        }
-        foo = false;
-    } else {
-        document.getElementById("mute").setAttribute('class', '');
-        if (plugins) {
-            plugins.AudioStream.unmute();
-        }
-        foo = true;
-    }
-}
 
 var audio = null;
-var isPlaying = false;
+var confirmedNonWlan = false;
 
 function playStream(url) {
-
-    if (isIPad()) {
+    if (isIDevice()) {
+        document.getElementById("mute").setAttribute('class', '');
         plugins.AudioStream.play(url);
+        if (radio.playingEl) {
+            radio.playingEl.appendChild(radio.playing);
+        }
+        radio.displayIPhoneSongInfo("Loading ...");
     } else {
         if (audio != null) {
         	audio.pause();
@@ -456,13 +505,28 @@ function playStream(url) {
         // simulate a artist
         radio.searchTrackInformation("Icky Thump", "The White Stripes");
     }
-    isPlaying = true;
+    
 }
 
 function playSound(url) {
+    debug.log("playSound" + plugins.AudioStream.getStatus() );
+    if (plugins.AudioStream.getStatus() == 'isPlaying') {
+        stopSound();       
+    }
+    debug.log('Playing: ' + url);
     
-    console.log('Playing: ' + url);
-    
+    if (!confirmedNonWlan && navigator.network.lastReachability.internetConnectionStatus == 1) {
+          var confirmText = "Sie sind nur über Mobilfunk (3G/Edge) unterwegs. Das kann beim Empfang hohe Kosten verursachen. Wir empfehlen daher, ihr Gerät über ein WLAN mit dem Internet zu verbinden. \n Wollen Sie trotzdem Radios über Mobilfunk empfangen?";
+        if (language == 'fr') {
+                //vconfirmText = 
+        } else if (language == 'de') {
+        }
+        if (!confirm(confirmText)) {
+            return false;
+        } else {
+            confirmedNonWlan = true;
+        }
+    }
     if(url.match(/(m3u|pls)$/)) {
         
         var client = new XMLHttpRequest();
@@ -484,23 +548,33 @@ function playSound(url) {
     } else {
         playStream(url);
     }
+    return true;
 }
 
 function stopSound() {
-    if (isIPad()) {
-        plugins.AudioStream.stop();
+    
+    if (isIDevice()) {
+      
+        if (plugins.AudioStream.getStatus() == 'isPlaying') {
+             document.getElementById("mute").setAttribute('class', 'muted');
+             if (radio.playing.parentNode) {
+                 radio.playing.parentNode.removeChild(radio.playing);
+             }
+             plugins.AudioStream.stop();
+        }
     } else {
-    	audio.pause();
-    	audio = null;
+        audio.pause();
+        audio = null;
     }
-    isPlaying = false;
+
 }
 
 function toggleSound() {
-    if (!isPlaying && radio.stream) {
-        playSound(radio.stream);
+   if (plugins.AudioStream.getStatus() != 'isPlaying' && radio.stream) {
+        return playSound(radio.stream);
     } else {
-        stopSound();
+        return stopSound();
+
     }
 }
         
@@ -508,7 +582,7 @@ function toggleSound() {
     
 
 function onWinLoad() {
-    if(isIPad()){
+    if(isIDevice()){
         document.addEventListener("deviceready", onDeviceReady, false);
     } else {
         onDeviceReady();

@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="screensaver.css" type="text/css" media="screen" title="no title" charset="utf-8">
         
+          <script type="text/javascript" src="js/json2-min.js"></script>
+
         <script type="text/javascript" src="iscroll-min.js" charset="utf-8"></script>
         
         <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
@@ -32,7 +34,7 @@
                         <span id="now_playing"> 
                         </span>
                     </div>
-                    <div id="mute" onclick="mute()"> </div>
+                    <div id="mute" ontouchend="toggleSound()"> </div>
                 </div>
                 <div id="collage" onclick="initScreensaver()" class="hidden"> </div>
 
@@ -41,8 +43,11 @@
                     <div id="scrollStations">
                     </div>
                     </div>
+ <div class="box" id="artistsonginfo">
+                    <div id="artistsong">ARTIST SONG</div>
                 </div>
-
+                </div>
+               
 
                 <div id="wrapper">
                     <div id="content">
@@ -67,7 +72,7 @@
             </div>
 
 
-            <div id="screensaver" onclick="initScreensaver();" class="face back">
+            <div id="screensaver" ontouchend="initScreensaver();" class="face back">
                 <div class="box" id="radioname">
                     <h1 id="station_name">RADIOSENDER</h1>
                 </div>

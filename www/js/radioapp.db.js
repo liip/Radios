@@ -57,7 +57,7 @@ RadioDb = function() {
         ['RSR La Première', 'http://broadcast.infomaniak.net:80/rsr-la1ere-high.mp3', ''],
         ['Option Musique', 'http://broadcast.infomaniak.ch/rsr-optionmusique-high.mp3', ''],
         ['Frequence Banane', 'http://www.frequencebanane.ch/fb_128.m3u', ''],
-        ['Backstageradio','http://broadcast.infomaniak.ch/backstageradio-hi2gh.mp3.m3u','']
+        ['Backstageradio','http://broadcast.infomaniak.ch/backstageradio-high.mp3.m3u','']
         ];
 
     var ERR_NONDB = 0;
@@ -186,7 +186,7 @@ RadioDb = function() {
             var playingOn = document.createTextNode('On');
             playing.setAttribute('class', 'playing');
             playing.appendChild(playingOn);
-
+            radio.playing = playing;
             for( var i=0; i<stations.length; ++i ) {
                 li = document.createElement('li');
                 txt = document.createTextNode(stations.item(i).name);
@@ -197,18 +197,19 @@ RadioDb = function() {
                     var id = this.getAttribute('id').split('-')[1]; 
                     getStation(id, function(station) {
                         var el = document.getElementById('station-'+station.id);
-                        if (radio.station == station.name) {
+                        
+                        if (plugins.AudioStream.getStatus() == 'isPlaying' && station.name == radio.station) {
                              stopSound();
-                             radio.station = null;
-                             radio.stream = null;
-                             el.removeChild(el.querySelector('span'));
+//                             el.removeChild(el.querySelector('span'));
                         } else {
-                            el.appendChild(playing);
                             radio.station = station.name;
                             radio.stream = station.stream;
+                            radio.playingEl = el;
                             radio.clear();
                             radio.noTrack(true);
                             playSound(station.stream);
+                                
+                            
                         }
                         // remove mute
                         document.getElementById("mute").setAttribute('class', '');
