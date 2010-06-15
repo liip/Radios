@@ -130,7 +130,7 @@ var Radio = function () {
         if (isIPhone()) {
             document.querySelector("#stations").style.height = "328px";
             document.querySelector("#artistsong").style.display = 'block';
-            document.querySelector("#artistsong").innerHTML = info.substr(0,90);
+            document.querySelector("#artistsong").innerHTML = info.substr(0,100);
             if (!this.scrollingSongInfo) {
                 this.scrollingSongInfo = new iScroll('artistsonginfo');
             }
