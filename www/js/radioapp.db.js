@@ -192,7 +192,7 @@ RadioDb = function() {
                 txt = document.createTextNode(stations.item(i).name);
                 li.appendChild(txt);
                 li.setAttribute('id', 'station-'+ stations.item(i).id);
-                li.onclick = function(ev) { 
+                li.ontouchend = function(ev) { 
           
                     var id = this.getAttribute('id').split('-')[1]; 
                     getStation(id, function(station) {

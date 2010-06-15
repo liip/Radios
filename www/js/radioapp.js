@@ -446,9 +446,9 @@ function init() {
     radioDb.getLastListenedStation(function(station) { 
         // if we listened to a station previously, start it again
         if(station && station.listened_at) {
-            document.getElementById('station-'+station.id).onclick();
+            document.getElementById('station-'+station.id).ontouchend();
         } else {
-            document.getElementById('station-2').onclick();
+            document.getElementById('station-2').ontouchend();
         }
     });
     window.setTimeout(function() {
