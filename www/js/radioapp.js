@@ -188,9 +188,10 @@ var Radio = function () {
                              if (data.images.image.length > 0) {
                                  document.querySelector("#collage").setAttribute('class', '');
                              }
-                             if ( document.getElementById('card').getAttribute('class') == 'flipped') {
+                             if (!isIPhone() || document.getElementById('card').getAttribute('class') == 'flipped') {
                                  that.displayImages(data);
                              }
+                             
                         }
                      }
                  )
@@ -223,7 +224,9 @@ var Radio = function () {
                 area++;
                 
                 if (i <= 6) {
-                    that.displayImageSceensaver(image, i, area);
+                    if ( document.getElementById('card').getAttribute('class') == 'flipped') {
+                        that.displayImageSceensaver(image, i, area);
+                    }
                 }
                 
                 // fade in collage
