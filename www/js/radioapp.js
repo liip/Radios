@@ -130,7 +130,7 @@ var Radio = function () {
         if (isIPhone()) {
             document.querySelector("#stations").style.height = "328px";
             document.querySelector("#artistsong").style.display = 'block';
-            document.querySelector("#artistsong").innerHTML = info;
+            document.querySelector("#artistsong").innerHTML = info.substr(0,90);
             if (!this.scrollingSongInfo) {
                 this.scrollingSongInfo = new iScroll('artistsonginfo');
             }
@@ -282,8 +282,8 @@ var Radio = function () {
         
         // try track search
         that.lastfm.track.search(params, {success: function (data) {
-                debug.log(artist);
-                debug.log(track);
+                debug.log("Artist: " + artist);
+                debug.log("Track: " + track);
                 if (data.results.trackmatches.track) {
                     
                     that.done = false;
@@ -484,10 +484,12 @@ var audio = null;
 var confirmedNonWlan = false;
 
 function playStream(url) {
-
     if (isIDevice()) {
         document.getElementById("mute").setAttribute('class', '');
         plugins.AudioStream.play(url);
+        if (radio.playingEl) {
+            radio.playingEl.appendChild(radio.playing);
+        }
         radio.displayIPhoneSongInfo("Loading ...");
     } else {
         if (audio != null) {
@@ -504,7 +506,7 @@ function playStream(url) {
 }
 
 function playSound(url) {
-    
+    debug.log("playSound" + plugins.AudioStream.getStatus() );
     if (plugins.AudioStream.getStatus() == 'isPlaying') {
         stopSound();       
     }
@@ -552,6 +554,9 @@ function stopSound() {
       
         if (plugins.AudioStream.getStatus() == 'isPlaying') {
              document.getElementById("mute").setAttribute('class', 'muted');
+             if (radio.playing.parentNode) {
+                 radio.playing.parentNode.removeChild(radio.playing);
+             }
              plugins.AudioStream.stop();
         }
     } else {

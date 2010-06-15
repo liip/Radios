@@ -186,7 +186,7 @@ RadioDb = function() {
             var playingOn = document.createTextNode('On');
             playing.setAttribute('class', 'playing');
             playing.appendChild(playingOn);
-
+            radio.playing = playing;
             for( var i=0; i<stations.length; ++i ) {
                 li = document.createElement('li');
                 txt = document.createTextNode(stations.item(i).name);
@@ -197,19 +197,19 @@ RadioDb = function() {
                     var id = this.getAttribute('id').split('-')[1]; 
                     getStation(id, function(station) {
                         var el = document.getElementById('station-'+station.id);
-                        if (radio.station == station.name) {
+                        
+                        if (plugins.AudioStream.getStatus() == 'isPlaying' && station.name == radio.station) {
                              stopSound();
-                             radio.station = null;
-                             radio.stream = null;
-                             el.removeChild(el.querySelector('span'));
+//                             el.removeChild(el.querySelector('span'));
                         } else {
                             radio.station = station.name;
                             radio.stream = station.stream;
+                            radio.playingEl = el;
                             radio.clear();
                             radio.noTrack(true);
-                            if (playSound(station.stream)) {
-                                el.appendChild(playing);
-                            }
+                            playSound(station.stream);
+                                
+                            
                         }
                         // remove mute
                         document.getElementById("mute").setAttribute('class', '');
