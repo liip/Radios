@@ -1,0 +1,8 @@
+--- 
+vendor/AudioStream: 
+  squashed: true
+  url: git://github.com/chregu/phonegap-plugins-audiostream.git
+  branch: master
+  type: git
+  revision: c967c20d749451be1df575a2c76fbaef7158538a
+  remote: braid/vendor/AudioStream
