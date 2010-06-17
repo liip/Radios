@@ -4,5 +4,5 @@ vendor/AudioStream:
   url: git://github.com/chregu/phonegap-plugins-audiostream.git
   branch: master
   type: git
-  revision: c967c20d749451be1df575a2c76fbaef7158538a
+  revision: 306f1062c611805a51af87673a667f09561b9e16
   remote: braid/vendor/AudioStream
