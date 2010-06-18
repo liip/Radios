@@ -229,7 +229,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC18C7E61132A77300EFF1D3 /* Build configuration list for PBXNativeTarget "radioapp-iPad" */;
 			buildPhases = (
-				EC18C7CC1132A77300EFF1D3 /* Copy PhoneGap Javascript */,
+				EC18C7CC1132A77300EFF1D3 /* Copy PhoneGap Javascript and plugin javascripts */,
 				EC18C7CD1132A77300EFF1D3 /* Touch www folder */,
 				EC18C7CE1132A77300EFF1D3 /* Resources */,
 				EC18C7D51132A77300EFF1D3 /* Sources */,
@@ -297,14 +297,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		EC18C7CC1132A77300EFF1D3 /* Copy PhoneGap Javascript */ = {
+		EC18C7CC1132A77300EFF1D3 /* Copy PhoneGap Javascript and plugin javascripts */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy PhoneGap Javascript";
+			name = "Copy PhoneGap Javascript and plugin javascripts";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,12 +435,13 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radioapp_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "radioapp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = "radioapp-iPad";
