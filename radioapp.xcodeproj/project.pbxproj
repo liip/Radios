@@ -309,7 +309,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "make -C \"${PHONEGAPLIB}\"\necho cp ${PHONEGAPLIB}/javascripts/phonegap.js ${PROJECT_DIR}/www/phonegap.js\ncp \"${PHONEGAPLIB}/javascripts/phonegap.js\" \"${PROJECT_DIR}/phonegap.js.tmp\"\n\n# copy all vendor js into phonegap.js\nfor i in `find ${PROJECT_DIR}/vendor -depth 3 -name *.js | grep javascripts`; do cat $i >> phonegap.js.tmp; done\n\n#mv phonegap.js.tmp ${PROJECT_DIR}/www/phonegap.js\n\n";
+			shellScript = "make -C \"${PHONEGAPLIB}\"\necho cp ${PHONEGAPLIB}/javascripts/phonegap.js ${PROJECT_DIR}/www/phonegap.js\ncp \"${PHONEGAPLIB}/javascripts/phonegap.js\" \"${PROJECT_DIR}/phonegap.js.tmp\"\n\n# copy all vendor js into phonegap.js\nfor i in `find ${PROJECT_DIR}/vendor -depth 3 -name *.js | grep javascripts`; do cat $i >> phonegap.js.tmp; done\n\nmv phonegap.js.tmp ${PROJECT_DIR}/www/phonegap.js\n\n";
 		};
 		EC18C7CD1132A77300EFF1D3 /* Touch www folder */ = {
 			isa = PBXShellScriptBuildPhase;
