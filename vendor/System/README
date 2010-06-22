@@ -1,0 +1,15 @@
+Read more about the plugin at
+http://blog.liip.ch/archive/2010/06/09/the-technical-details-behind-the-radios-app.html
+
+INSTALL
+*******
+
+
+To get started, create a folder named Plugins in your project folder if it does not exist. Then add *.h and *.m to it. 
+Now copy *.js to /PROJECT_PATH/www/. 
+
+Import *.js via a script tag in the <head> of your application.
+
+<script src="*.js" type="text/javascript" </script>
+
+
