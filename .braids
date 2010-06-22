@@ -1,15 +1,8 @@
 --- 
-vendor/System: 
-  squashed: true
-  url: git@github.com:chregu/phonegap-plugins-system.git
-  branch: master
-  type: git
-  revision: ec156634d2cd21faf7b368ee6710b2ea019fa01e
-  remote: braid/vendor/System
 vendor/AudioStream: 
   squashed: true
-  url: git://github.com/chregu/phonegap-plugins-audiostream.git
   branch: master
+  url: git://github.com/chregu/phonegap-plugins-audiostream.git
   type: git
   revision: 306f1062c611805a51af87673a667f09561b9e16
   remote: braid/vendor/AudioStream
