@@ -7,9 +7,9 @@ INSTALL
 =======
 
 
-- get and install the plugins branch of chregu's fork of Phonegap at http://github.com/chregu/phonegap-iphone with
+- get and install chregu's fork of Phonegap at http://github.com/chregu/phonegap-iphone with
     
-    git clone -b plugins git://github.com/chregu/phonegap-iphone.git
+    git clone git://github.com/chregu/phonegap-iphone.git
     cd phonegap-iphone
     make
     open  PhoneGapLibInstaller.pkg
