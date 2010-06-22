@@ -29,6 +29,7 @@
 		EC18C7E41132A77300EFF1D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF5C2109A6A2B0062928A /* QuartzCore.framework */; };
 		EC18C7E51132A77300EFF1D3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF5C4109A6A2B0062928A /* SystemConfiguration.framework */; };
 		EC18C7ED1132A77400EFF1D3 /* example.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC18C7EC1132A77400EFF1D3 /* example.xib */; };
+		EC4CD4F611D0D5AD00B3382F /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4CD4F511D0D5AD00B3382F /* System.m */; };
 		EC4DD24911C8B17B007AD97B /* AudioStream.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DD24611C8B17B007AD97B /* AudioStream.m */; };
 		EC4DD24A11C8B17B007AD97B /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DD24811C8B17B007AD97B /* AudioStreamer.m */; };
 		EC6C247F116B6B780031F018 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6C247E116B6B780031F018 /* MobileCoreServices.framework */; };
@@ -81,6 +82,8 @@
 		EC18C7E91132A77300EFF1D3 /* radioapp-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radioapp-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC18C7EC1132A77400EFF1D3 /* example.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = example.xib; path = "Resources-iPad/example.xib"; sourceTree = "<group>"; };
 		EC49AAE611C0CB910011137B /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		EC4CD4F411D0D5AD00B3382F /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System.h; path = vendor/System/Plugins/System.h; sourceTree = SOURCE_ROOT; };
+		EC4CD4F511D0D5AD00B3382F /* System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System.m; path = vendor/System/Plugins/System.m; sourceTree = SOURCE_ROOT; };
 		EC4DD24511C8B17B007AD97B /* AudioStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStream.h; path = vendor/AudioStream/Plugins/AudioStream.h; sourceTree = SOURCE_ROOT; };
 		EC4DD24611C8B17B007AD97B /* AudioStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioStream.m; path = vendor/AudioStream/Plugins/AudioStream.m; sourceTree = SOURCE_ROOT; };
 		EC4DD24711C8B17B007AD97B /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStreamer.h; path = vendor/AudioStream/Plugins/AudioStreamer.h; sourceTree = SOURCE_ROOT; };
@@ -207,6 +210,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				EC4CD4F411D0D5AD00B3382F /* System.h */,
+				EC4CD4F511D0D5AD00B3382F /* System.m */,
 				EC4DD24511C8B17B007AD97B /* AudioStream.h */,
 				EC4DD24611C8B17B007AD97B /* AudioStream.m */,
 				EC4DD24711C8B17B007AD97B /* AudioStreamer.h */,
@@ -337,6 +342,7 @@
 				ECAE7F2F11BFD34500C3671D /* UAApplication.m in Sources */,
 				EC4DD24911C8B17B007AD97B /* AudioStream.m in Sources */,
 				EC4DD24A11C8B17B007AD97B /* AudioStreamer.m in Sources */,
+				EC4CD4F611D0D5AD00B3382F /* System.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

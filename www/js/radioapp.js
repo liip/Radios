@@ -420,10 +420,10 @@ function lang(lang) {
 
 function onDeviceReady() {
     if(isIDevice()){ 
-        if (plugins.Lang && plugins.Lang.lang) {
-            plugins.Lang.lang('lang');
+        if (plugins.System && plugins.System.lang) {
+            plugins.System.lang('lang');
         } else {
-            alert("plugins.Lang.lang not found, taking 'de' as lang");
+            alert("plugins.System.lang not found, taking 'de' as lang");
         }
         navigator.network.isReachable("www.google.com", testReachable_callback);
         
