@@ -124,7 +124,7 @@ body {
 
 #sidebar {
     position: absolute;
-	width: 320px;
+	width: 280px;
 	left: 0;
 	z-index: 3;
 	bottom:0;
@@ -211,12 +211,23 @@ li:first-child {
 
 #stations {
 	width: 100%;
-    height: 100%;
+	 
     overflow: hidden;
     z-index: 1;
     position: relative;
 }
 
+@media screen and (orientation:landscape) and (min-device-width: 481px) and (max-device-width: 1024px) {
+    #stations {
+    height: 668px;
+    }
+}
+
+@media screen and (orientation:portrait) and (min-device-width: 481px) and (max-device-width: 1024px) {
+    #stations {
+    height: 924px;
+    }
+}
 #scrollStations {
     overflow: hidden;
     position: relative;
@@ -452,4 +463,7 @@ display: none;
 		height: 50px;
 	
       }
+      #sidebar {
+        width: 320px;
+        }
 }
