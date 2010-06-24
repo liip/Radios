@@ -12,5 +12,7 @@
 @interface radioappAppDelegate : PhoneGapDelegate {
 }
 
+- (void) javascriptExecute:(NSString*)text;
+
 @end
 

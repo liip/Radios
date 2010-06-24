@@ -79,4 +79,16 @@
 	[ super dealloc ];
 }
 
+
+- (void) javascriptExecute:(NSString*)text
+{
+ 	NSString* jsString = nil;
+	jsString = [[NSString alloc] initWithFormat:@"%@;", text];
+	[webView stringByEvaluatingJavaScriptFromString:jsString];
+    
+	NSLog(@"%@", jsString);
+	[jsString release];
+}   
+
+
 @end
