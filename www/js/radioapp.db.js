@@ -87,12 +87,35 @@ RadioDb = function() {
     };
 
     /** This is used as a data handler for a request that should return no data. */
-    var nullDataHandler = function(t, results) { };
+    var nullDataHandler = function(t, results) {
+        return false;
+    };
   
     var insertDefaults = function(t) {
-        var query = 'INSERT INTO stations(name, stream, logo, listened_at) VALUES(?, ?, ?, NULL);';
+        var insertquery = 'INSERT INTO stations(name, stream, logo, listened_at) VALUES(?, ?, ?, NULL);';
+        var selectquery = 'SELECT id, name FROM stations';
+        var updatequery = 'UPDATE stations SET stream = ?, logo = ? where id = ?';
+        var defaultStationsName = [];
         for( var i=0; i < defaultStations.length; ++i ) {
-            t.executeSql(query, defaultStations[i], nullDataHandler, errorHandler);
+            defaultStationsName[defaultStations[i][0]] = defaultStations[i];
+            //first we try to insert, then update, this could be improved
+            t.executeSql(insertquery, defaultStations[i], nullDataHandler, errorHandler);
+            t.executeSql(selectquery, [] , function(t, results) { 
+                         if (results.rows.length == 0) {
+                          //  
+                         } else {
+                         
+                            for (var j = 0; j < results.rows.length; ++j) {
+                              var row = results.rows.item(j);
+                              var station = defaultStationsName[row['name']];
+                              t.executeSql(updatequery,[station[1],station[2],row['id']], nullDataHandler, function(t,error) {debug.log("ERRROR UPDATE");debug.log(error); return true});
+
+                           }
+                         
+                         }
+                },
+                errorHandler
+                );
         }
     };
 
@@ -160,7 +183,7 @@ RadioDb = function() {
             where = " WHERE name LIKE '%" + filter + "%';"; // FIXME EEEEESCAPE!
         }
         db.transaction(function(t) {
-            t.executeSql("SELECT id, name, stream, logo, listened_at FROM stations " + where + " ORDER BY name ASC", [ ] , function(t, results) {
+            t.executeSql("SELECT id, name, stream, logo, listened_at FROM stations " + where + " ORDER BY logo ASC, name ASC", [ ] , function(t, results) {
                 resultHandler(results.rows);
             }, errorHandler);
         });
