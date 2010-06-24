@@ -89,10 +89,6 @@ RadioDb = function() {
         for( var i=0; i < defaultStations.length; ++i ) {
             t.executeSql(query, defaultStations[i], nullDataHandler, errorHandler);
         }
-		// Remove old stations
-		t.executeSql('DELETE FROM stations WHERE name = ?', ['Radio Argovia'], nullDataHandler, errorHandler);
-		t.executeSql('DELETE FROM stations WHERE name = ?', ['Radio Pilatus'], nullDataHandler, errorHandler);
-		t.executeSql('DELETE FROM stations WHERE name = ?', ['Radio 24'], nullDataHandler, errorHandler);
     };
 
     this.init = function() {
