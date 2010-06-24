@@ -44,20 +44,25 @@ RadioDb = function() {
     var db = null;
 
     var defaultStations = [
-        [ "DRS 1"     , "http://glb-stream11.streamserver.ch/1/regi_zh_sh/mp3_128", "drs1.png"],
-        [ "DRS 3"     , "http://zlz-stream10.streamserver.ch/1/drs3/mp3_128", "drs3.png"],
-        [ "DRS Virus"     , "http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128", "drsvirus.png"],
-        [ "Couleur 3", "http://broadcast.infomaniak.net:80/rsr-couleur3-high.mp3", ""],
-        [ "Radio 1", "http://stream.radio1.ch:8000/radio1", "drs3.png"],
-        ['Energy Zürich', 'http://broadcast.infomaniak.net/energyzuerich-high.mp3.pls', ''],
-        ['Energy Bern', 'http://broadcast.infomaniak.ch/energybern-high.mp3.pls', ''],
-        ['Radio Swiss Jazz', 'http://www.radioswissjazz.ch/live/mp3.m3u', ''],
-        ['Radio Swiss Clas…', 'http://www.radioswissclassic.ch/live/mp3.m3u', ''],
-        ['Rock Nation', 'http://105-stream-02.datacomm.ch:8000/rocknation', ''],
-        ['RSR La Première', 'http://broadcast.infomaniak.net:80/rsr-la1ere-high.mp3', ''],
-        ['Option Musique', 'http://broadcast.infomaniak.ch/rsr-optionmusique-high.mp3', ''],
-        ['Frequence Banane', 'http://www.frequencebanane.ch/fb_128.m3u', ''],
-        ['Backstageradio','http://broadcast.infomaniak.ch/backstageradio-high.mp3.m3u','']
+        [ "DRS 1"     , "http://stream.srg-ssr.ch/drs1/mp3_128.m3u", "a"],
+        [ "DRS 2"     , "http://stream.srg-ssr.ch/drs2/mp3_128.m3u", "a"],
+        [ "DRS 3"     , "http://stream.srg-ssr.ch/drs3/mp3_128.m3u", "a"],
+        [ "DRS Virus"     , "http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128", "a"],
+        [ "Couleur 3", "http://broadcast.infomaniak.net:80/rsr-couleur3-high.mp3", "a"],
+        [ "Radio 1", "http://stream.radio1.ch:8000/radio1", "a"],
+        ['Energy Zürich', 'http://broadcast.infomaniak.net/energyzuerich-high.mp3.pls', 'a'],
+        ['Energy Bern', 'http://broadcast.infomaniak.ch/energybern-high.mp3.pls', 'a'],
+        ['Radio Swiss Jazz', 'http://www.radioswissjazz.ch/live/mp3.m3u', 'a'],
+        ['Radio Swiss Clas…', 'http://www.radioswissclassic.ch/live/mp3.m3u', 'a'],
+        ['Rock Nation', 'http://105-stream-02.datacomm.ch:8000/rocknation', 'a'],
+        ['RSR La Première', 'http://broadcast.infomaniak.net:80/rsr-la1ere-high.mp3', 'a'],
+        ['Option Musique', 'http://broadcast.infomaniak.ch/rsr-optionmusique-high.mp3', 'a'],
+        ['Frequence Banane', 'http://www.frequencebanane.ch/fb_128.m3u', 'a'],
+        ['Backstageradio','http://broadcast.infomaniak.ch/backstageradio-high.mp3.m3u','a'],
+        ['Radio 105','http://212.40.5.105:7000/listen.pls','a'],
+        ['neo1','http://stream-02.neo1.ch/neo1.m3u','b'],
+        ['Lounge-radio.com','http://www.lounge-radio.com/listen128.m3u','b']
+        
         ];
 
     var ERR_NONDB = 0;
