@@ -4,5 +4,5 @@ vendor/System:
   branch: master
   url: git@github.com:chregu/phonegap-plugins-system.git
   type: git
-  revision: 501c52f52ca0f1bafdd98a648928d09bc2044c98
+  revision: c113836fe82bd303995e6176046b8310f0eace66
   remote: braid/vendor/System
