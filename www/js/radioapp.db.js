@@ -44,26 +44,25 @@ RadioDb = function() {
     var db = null;
 
     var defaultStations = [
-        [ "DRS 1"     , "http://stream.srg-ssr.ch/drs1/mp3_128.m3u", "a"],
-        [ "DRS 2"     , "http://stream.srg-ssr.ch/drs2/mp3_128.m3u", "a"],
-        [ "DRS 3"     , "http://stream.srg-ssr.ch/drs3/mp3_128.m3u", "a"],
-        [ "DRS Virus"     , "http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128", "a"],
-        [ "Couleur 3", "http://broadcast.infomaniak.net:80/rsr-couleur3-high.mp3", "a"],
-        [ "Radio 1", "http://stream.radio1.ch:8000/radio1", "a"],
-        ['Energy Zürich', 'http://broadcast.infomaniak.net/energyzuerich-high.mp3.pls', 'a'],
-        ['Energy Bern', 'http://broadcast.infomaniak.ch/energybern-high.mp3.pls', 'a'],
-        ['Radio Swiss Jazz', 'http://www.radioswissjazz.ch/live/mp3.m3u', 'a'],
-        ['Radio Swiss Clas…', 'http://www.radioswissclassic.ch/live/mp3.m3u', 'a'],
-        ['Rock Nation', 'http://105-stream-02.datacomm.ch:8000/rocknation', 'a'],
-        ['RSR La Première', 'http://broadcast.infomaniak.net:80/rsr-la1ere-high.mp3', 'a'],
-        ['Option Musique', 'http://broadcast.infomaniak.ch/rsr-optionmusique-high.mp3', 'a'],
-        ['Frequence Banane', 'http://www.frequencebanane.ch/fb_128.m3u', 'a'],
-        ['Backstageradio','http://broadcast.infomaniak.ch/backstageradio-high.mp3.m3u','a'],
-        ['Radio 105','http://212.40.5.105:7000/listen.pls','a'],
-        ['neo1','http://stream-02.neo1.ch/neo1.m3u','b'],
-        ['Lounge-radio.com','http://www.lounge-radio.com/listen128.m3u','b']
-        
-        ];
+    ['DRS 1',        'http://stream.srg-ssr.ch/drs1/mp3_128.m3u', 'a'],
+    ['DRS 2', 'http://stream.srg-ssr.ch/drs2/mp3_128.m3u', 'a'],
+    ['DRS 3', 'http://stream.srg-ssr.ch/drs3/mp3_128.m3u', 'a'],
+    ['DRS Virus',         'http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128', 'a'],
+    ['Couleur 3',         'http://broadcast.infomaniak.net:80/rsr-couleur3-high.mp3', 'a'],
+    ['Radio 1',           'http://stream.radio1.ch:8000/radio1', 'a'],
+    ['Energy Zürich',     'http://broadcast.infomaniak.net/energyzuerich-high.mp3.pls', 'a'],
+    ['Energy Bern',       'http://broadcast.infomaniak.ch/energybern-high.mp3.pls', 'a'],
+    ['Radio Swiss Jazz',  'http://www.radioswissjazz.ch/live/mp3.m3u', 'a'],
+    ['Radio Swiss Clas…', 'http://www.radioswissclassic.ch/live/mp3.m3u', 'a'],
+    ['Rock Nation',       'http://105-stream-02.datacomm.ch:8000/rocknation', 'a'],
+    ['RSR La Première',   'http://broadcast.infomaniak.net:80/rsr-la1ere-high.mp3', 'a'],
+    ['Option Musique',    'http://broadcast.infomaniak.ch/rsr-optionmusique-high.mp3', 'a'],
+    ['Frequence Banane',  'http://www.frequencebanane.ch/fb_128.m3u', 'a'],
+    ['Backstageradio',    'http://broadcast.infomaniak.ch/backstageradio-high.mp3.m3u','a'],
+    ['Radio 105',         'http://212.40.5.105:7000/listen.pls','a'],
+    ['neo1',              'http://stream-02.neo1.ch/neo1.m3u','b'],
+    ['Lounge-radio.com',  'http://www.lounge-radio.com/listen128.m3u','b']
+    ];
 
     var ERR_NONDB = 0;
     var ERR_OTHER = 1;
@@ -90,7 +89,7 @@ RadioDb = function() {
     var nullDataHandler = function(t, results) {
         return false;
     };
-  
+
     var insertDefaults = function(t) {
         var insertquery = 'INSERT INTO stations(name, stream, logo, listened_at) VALUES(?, ?, ?, NULL);';
         var selectquery = 'SELECT id, name FROM stations';
@@ -100,22 +99,22 @@ RadioDb = function() {
             defaultStationsName[defaultStations[i][0]] = defaultStations[i];
             //first we try to insert, then update, this could be improved
             t.executeSql(insertquery, defaultStations[i], nullDataHandler, errorHandler);
-            t.executeSql(selectquery, [] , function(t, results) { 
-                         if (results.rows.length == 0) {
-                          //  
-                         } else {
-                         
-                            for (var j = 0; j < results.rows.length; ++j) {
-                              var row = results.rows.item(j);
-                              var station = defaultStationsName[row['name']];
-                              t.executeSql(updatequery,[station[1],station[2],row['id']], nullDataHandler, function(t,error) {debug.log("ERRROR UPDATE");debug.log(error); return true});
+            t.executeSql(selectquery, [] , function(t, results) {
+                if (results.rows.length == 0) {
+                    //
+                } else {
 
-                           }
-                         
-                         }
-                },
-                errorHandler
-                );
+                    for (var j = 0; j < results.rows.length; ++j) {
+                        var row = results.rows.item(j);
+                        var station = defaultStationsName[row['name']];
+                        t.executeSql(updatequery,[station[1],station[2],row['id']], nullDataHandler, function(t,error) {debug.log("ERRROR UPDATE");debug.log(error); return true});
+
+                    }
+
+                }
+            },
+            errorHandler
+            );
         }
     };
 
@@ -127,17 +126,17 @@ RadioDb = function() {
                 db = openDatabase('radios_db', '1', 'Radios Database', 524288); // 512KiB
                 debug.log('Current DB Version: ' + db.version);
                 db.transaction(function(t) {
-                    t.executeSql('CREATE TABLE IF NOT EXISTS stations (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT IGNORE, stream TEXT NOT NULL, logo TEXT NOT NULL, listened_at DATE )', 
-                        [], insertDefaults, errorHandler);
+                    t.executeSql('CREATE TABLE IF NOT EXISTS stations (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT IGNORE, stream TEXT NOT NULL, logo TEXT NOT NULL, listened_at DATE )',
+                    [], insertDefaults, errorHandler);
                 });
                 /*
                 db = openDatabase('radios_db', '', 'Radios Database', 524288); // 512KiB
                 debug.log('Current DB Version: ' + db.version);
                 var M = new Migrator(db);
                 M.migration(1, function(t) {
-                        debug.log('ONE');
-                    t.executeSql('CREATE TABLE stations(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT IGNORE, stream TEXT NOT NULL, logo TEXT NOT NULL, listened_at DATE )', 
-                        [], insertDefaults, errorHandler);
+                    debug.log('ONE');
+                    t.executeSql('CREATE TABLE stations(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT IGNORE, stream TEXT NOT NULL, logo TEXT NOT NULL, listened_at DATE )',
+                    [], insertDefaults, errorHandler);
                 });
                 M.doIt();
                 */
@@ -169,7 +168,7 @@ RadioDb = function() {
     var getStation = function(id, resultHandler, doUpdateListen) {
         if( doUpdateListen )
             that.updateListenAt(id);
-        
+
         db.transaction(function(t) {
             t.executeSql("SELECT id, name, stream, logo, listened_at FROM stations WHERE id = ?", [ id ] , function(t, results) {
                 resultHandler( results.rows.length == 0 ? null : results.rows.item(0) );
@@ -202,7 +201,7 @@ RadioDb = function() {
         };
     };
 
-    this.populateStations = function(filter) {  
+    this.populateStations = function(filter) {
         getStations(function(stations) {
             var ul = document.createElement('ul');
             var li, txt;
@@ -216,15 +215,14 @@ RadioDb = function() {
                 txt = document.createTextNode(stations.item(i).name);
                 li.appendChild(txt);
                 li.setAttribute('id', 'station-'+ stations.item(i).id);
-                li.onclick = function(ev) { 
-          
-                    var id = this.getAttribute('id').split('-')[1]; 
+                li.onclick = function(ev) {
+
+                    var id = this.getAttribute('id').split('-')[1];
                     getStation(id, function(station) {
                         var el = document.getElementById('station-'+station.id);
-                        
+
                         if (plugins.AudioStream.getStatus() == 'isPlaying' && station.name == radio.station) {
-                             stopSound();
-//                             el.removeChild(el.querySelector('span'));
+                            stopSound();
                         } else {
                             radio.station = station.name;
                             radio.stream = station.stream;
@@ -232,27 +230,27 @@ RadioDb = function() {
                             radio.clear();
                             radio.noTrack(true);
                             playSound(station.stream);
-                                
-                            
+
+
                         }
                         // remove mute
                         document.getElementById("mute").setAttribute('class', '');
                     }, true);
-            
+
                 };
                 ul.appendChild(li);
             }
             // remove current nav
             var statel = document.getElementById("scrollStations");
             if( statel.hasChildNodes() ) {
-                while( statel.childNodes.length >= 1 ) 
+                while( statel.childNodes.length >= 1 )
                     statel.removeChild(statel.firstChild);
             }
             // append updated nav
             statel.appendChild(ul);
         }, filter);
-        
-      
+
+
     };
 };
 

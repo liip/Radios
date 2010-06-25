@@ -2,76 +2,76 @@
 /* 1024 x 768*/
 div#screensaver
 {
-    background-image: -webkit-gradient(radial, 300 90, 0, 300 90, 460, from(#222), to(#222), color-stop(0%, rgba(255, 255, 255, 0.1)))
+	background-image: -webkit-gradient(radial, 300 90, 0, 300 90, 460, from(#222), to(#222), color-stop(0%, rgba(255, 255, 255, 0.1)))
 }
 
 div.box
 {
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 20px;
+	z-index: 1;
+	background: rgba(255, 255, 255, 0.7);
+	padding: 20px;
 }
 div.box h1, div.box h2
 {
-    font-weight: normal;
-    margin: 0;
-  padding: 0px 10px;
-  line-height: 1.3em;
-} 
+	font-weight: normal;
+	margin: 0;
+	padding: 0px 10px;
+	line-height: 1.3em;
+}
 div#radioname
 {
-  position: absolute;
-  top: 100px;
-  left: 0px;
-  width: 60%;
+	position: absolute;
+	top: 100px;
+	left: 0px;
+	width: 60%;
 }
 /*
 div#radioname p
 {
-  line-height: 0;
-  padding: 0px 10px;
-  color: #000;
+	line-height: 0;
+	padding: 0px 10px;
+	color: #000;
 }
 */
 div#songinfo
 {
-    position: absolute;
-    bottom: 150px;
-    right: 0px;
-    width: 80%;
+	position: absolute;
+	bottom: 150px;
+	right: 0px;
+	width: 80%;
 }
 /*
 div#songinfo p
 {
-  margin: 0px;
+	margin: 0px;
 }
 div#songinfo p#artist
 {
-  padding: 20px 10px 0px 10px;
-  color: #000;
+	padding: 20px 10px 0px 10px;
+	color: #000;
 }
 
 div#songinfo p#song
 {
-  padding: 0px 10px 20px 10px;
-  color: #000;
+	padding: 0px 10px 20px 10px;
+	color: #000;
 }
 */
 /*
 div.image
 {
-  z-index: 0;
-  position: absolute;
+	z-index: 0;
+	position: absolute;
 }
 div#imgContainer
 {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
-#imgContainer > div 
+#imgContainer > div
 {
-    z-index: 0;
-    position: absolute;
+	z-index: 0;
+	position: absolute;
 }
 
 #imgContainer > div > img {
@@ -80,17 +80,17 @@ div#imgContainer
 
 @-webkit-keyframes fade1
 {
-    0%   { opacity: 0; }
-    10% { opacity: 1; }
-    20%   { opacity: 0; }
+	0%   { opacity: 0; }
+	10% { opacity: 1; }
+	20%   { opacity: 0; }
 }
 */
 
 #screensaver #imgContainer div {
-  z-index: 0;
+	z-index: 0;
 }
 #screensaver #imgContainer div {
-  position: absolute;
+	position: absolute;
 	opacity: 1.0;
 	-webkit-transition-property: opacity;
 	-webkit-transition-duration: 3s;
@@ -101,29 +101,29 @@ div#imgContainer
 }
 
 @media screen and (max-device-width: 1480px) {
-div.box h1, div.box h2
-{
-    font-size: 18px;
-  line-height: 1em;
-} 
+	div.box h1, div.box h2
+	{
+		font-size: 18px;
+		line-height: 1em;
+	}
 
-div#songinfo
-{
-    bottom: 30px;
-    width: 90%;
-}
+	div#songinfo
+	{
+		bottom: 30px;
+		width: 90%;
+	}
 
-div#radioname
-{
-    top: 10px;
-    width: auto;
-}
+	div#radioname
+	{
+		top: 10px;
+		width: auto;
+	}
 
 
-div.box
-{
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.5);
-  padding: 5px;
-}
+	div.box
+	{
+		z-index: 1;
+		background: rgba(255, 255, 255, 0.5);
+		padding: 5px;
+	}
 }
