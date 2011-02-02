@@ -434,7 +434,12 @@ function onDeviceReady() {
 
 function testReachable_callback(reachability) {
     navigator.network.updateReachability(reachability);
-    if (reachability.internetConnectionStatus > 0) {
+    if (reachability.internetConnectionStatus) {
+        var reachabilityStatus = reachability.internetConnectionStatus;
+    } else {
+        var reachabilityStatus = reachability;
+    }
+    if (reachabilityStatus > 0) {
         init();
     } else {
         if (language == 'fr') {
