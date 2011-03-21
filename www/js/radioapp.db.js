@@ -61,7 +61,10 @@ RadioDb = function() {
     ['Backstageradio',    'http://broadcast.infomaniak.ch/backstageradio-high.mp3.m3u','a'],
     ['Radio 105',         'http://212.40.5.105:7000/listen.pls','a'],
     ['neo1',              'http://stream-02.neo1.ch/neo1.m3u','b'],
-    ['Lounge-radio.com',  'http://www.lounge-radio.com/listen128.m3u','b']
+    ['Lounge-radio.com',  'http://www.lounge-radio.com/listen128.m3u','b'],
+	['Radio Top',         'http://icecast.radiotop.ch/radiotop','b'],
+	['MagicRadio.CH',     'http://www.magicradio.ch/iphoneAac.m3u','b'],
+	['Radio FM1',         'http://radiofm1.ice.infomaniak.ch/playlists/radiofm1-128.mp3.pls','b']
     ];
 
     var ERR_NONDB = 0;
