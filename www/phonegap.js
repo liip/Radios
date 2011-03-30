@@ -41,7 +41,7 @@ function anomToNameFunk(fun)
 	var funkId = "f" + _anomFunkMapNextId++;
 	var funk = function()
 	{
-		_anomFunkMap[funkId].apply(this,arguments);
+		fun.apply(this,arguments);
 		_anomFunkMap[funkId] = null;
 		delete _anomFunkMap[funkId];	
 	}
@@ -325,9 +325,19 @@ Camera.prototype.getPicture = function(successCallback, errorCallback, options) 
 	PhoneGap.exec("Camera.getPicture", GetFunctionName(successCallback), GetFunctionName(errorCallback), options);
 }
 
+/** 
+ * Defines integers to match iPhone UIImagePickerControllerSourceType enum
+*/
+Camera.prototype.PictureSourceType = {
+		PHOTOLIBRARY : 0,
+		CAMERA : 1,
+		SAVEDPHOTOALBUM : 2
+};
+
 PhoneGap.addConstructor(function() {
     if (typeof navigator.camera == "undefined") navigator.camera = new Camera();
 });
+
 
 
 /**
@@ -394,6 +404,18 @@ PhoneGap.addConstructor(function() {
  * @constructor
  */
 function DebugConsole() {
+    this.logLevel = DebugConsole.INFO_LEVEL;
+}
+
+// from most verbose, to least verbose
+DebugConsole.ALL_LEVEL    = 1; // same as first level
+DebugConsole.INFO_LEVEL   = 1;
+DebugConsole.WARN_LEVEL   = 2;
+DebugConsole.ERROR_LEVEL  = 4;
+DebugConsole.NONE_LEVEL   = 8;
+													
+DebugConsole.prototype.setLevel = function(level) {
+    this.logLevel = level;
 }
 
 /**
@@ -441,7 +463,7 @@ DebugConsole.prototype.processMessage = function(message) {
  * @param {Object|String} message Message or object to print to the console
  */
 DebugConsole.prototype.log = function(message) {
-    if (PhoneGap.available)
+    if (PhoneGap.available && this.logLevel <= DebugConsole.INFO_LEVEL)
         PhoneGap.exec('DebugConsole.log',
             this.processMessage(message),
             { logLevel: 'INFO' }
@@ -455,7 +477,7 @@ DebugConsole.prototype.log = function(message) {
  * @param {Object|String} message Message or object to print to the console
  */
 DebugConsole.prototype.warn = function(message) {
-    if (PhoneGap.available)
+    if (PhoneGap.available && this.logLevel <= DebugConsole.WARN_LEVEL)
         PhoneGap.exec('DebugConsole.log',
             this.processMessage(message),
             { logLevel: 'WARN' }
@@ -469,7 +491,7 @@ DebugConsole.prototype.warn = function(message) {
  * @param {Object|String} message Message or object to print to the console
  */
 DebugConsole.prototype.error = function(message) {
-    if (PhoneGap.available)
+    if (PhoneGap.available && this.logLevel <= DebugConsole.ERROR_LEVEL)
         PhoneGap.exec('DebugConsole.log',
             this.processMessage(message),
             { logLevel: 'ERROR' }
@@ -491,14 +513,14 @@ function Device()
     this.platform = null;
     this.version  = null;
     this.name     = null;
-    this.gap      = null;
+    this.phonegap      = null;
     this.uuid     = null;
     try 
 	{      
 		this.platform = DeviceInfo.platform;
 		this.version  = DeviceInfo.version;
 		this.name     = DeviceInfo.name;
-		this.gap      = DeviceInfo.gap;
+		this.phonegap = DeviceInfo.gap;
 		this.uuid     = DeviceInfo.uuid;
 
     } 
@@ -528,6 +550,7 @@ function FileMgr()
 	this.fileReaders = {};
 
 	this.docsFolderPath = "../../Documents";
+	this.libFolderPath = "../../Library";
 	this.tempFolderPath = "../../tmp";
 	this.freeDiskSpace = -1;
 	this.getFileBasePaths();
@@ -535,10 +558,11 @@ function FileMgr()
 }
 
 // private, called from Native Code
-FileMgr.prototype._setPaths = function(docs,temp)
+FileMgr.prototype._setPaths = function(docs,temp,lib)
 {
 	this.docsFolderPath = docs;
 	this.tempFolderPath = temp;
+    this.libFolderPath = lib;
 }
 
 // private, called from Native Code
@@ -773,6 +797,32 @@ function Geolocation() {
  * getting the position data.
  * @param {PositionOptions} options The options for getting the position data
  * such as timeout.
+ * PositionOptions.forcePrompt:Bool default false, 
+ * - tells iPhone to prompt the user to turn on location services.
+ * - may cause your app to exit while the user is sent to the Settings app
+ * PositionOptions.distanceFilter:double aka Number
+ * - used to represent a distance in meters.
+PositionOptions
+{
+   desiredAccuracy:Number
+   - a distance in meters 
+		< 10   = best accuracy  ( Default value )
+		< 100  = Nearest Ten Meters
+		< 1000 = Nearest Hundred Meters
+		< 3000 = Accuracy Kilometers
+		3000+  = Accuracy 3 Kilometers
+		
+	forcePrompt:Boolean default false ( iPhone Only! )
+    - tells iPhone to prompt the user to turn on location services.
+	- may cause your app to exit while the user is sent to the Settings app
+	
+	distanceFilter:Number
+	- The minimum distance (measured in meters) a device must move laterally before an update event is generated.
+	- measured relative to the previously delivered location
+	- default value: null ( all movements will be reported )
+	
+}
+
  */
 Geolocation.prototype.getCurrentPosition = function(successCallback, errorCallback, options) 
 {
@@ -783,7 +833,6 @@ Geolocation.prototype.getCurrentPosition = function(successCallback, errorCallba
 		if(typeof(errorCallback) == 'function')
 		{
 			errorCallback.call(null,this.lastError);
-			
 		}
 		this.stop();
 		return;
@@ -791,10 +840,10 @@ Geolocation.prototype.getCurrentPosition = function(successCallback, errorCallba
 
 	this.start(options);
 
-    var timeout = 20000; // defaults
-    var interval = 500;
+    var timeout = 30000; // defaults
+    var interval = 2000;
 	
-    if (typeof(options) == 'object' && options.interval)
+    if (options && options.interval)
         interval = options.interval;
 
     if (typeof(successCallback) != 'function')
@@ -804,26 +853,27 @@ Geolocation.prototype.getCurrentPosition = function(successCallback, errorCallba
 
     var dis = this;
     var delay = 0;
-    var timer = setInterval(function() {
-        delay += interval;
-
-        if (typeof(dis.lastPosition) == 'object' && dis.lastPosition.timestamp > referenceTime) 
+	var timer;
+	var onInterval = function()
+	{
+		delay += interval;
+		if(dis.lastPosition != null && dis.lastPosition.timestamp > referenceTime)
 		{
 			clearInterval(timer);
             successCallback(dis.lastPosition);
-            
-        } 
-		else if (delay > timeout) 
+		}
+		else if(delay > timeout)
 		{
 			clearInterval(timer);
             errorCallback("Error Timeout");
-        }
+		}
 		else if(dis.lastError != null)
 		{
 			clearInterval(timer);
 			errorCallback(dis.lastError);
 		}
-    }, interval);
+	}
+    timer = setInterval(onInterval,interval);     
 };
 
 /**
@@ -840,10 +890,8 @@ Geolocation.prototype.watchPosition = function(successCallback, errorCallback, o
 	// determines that the position of the hosting device has changed. 
 	
 	this.getCurrentPosition(successCallback, errorCallback, options);
-	var frequency = 10000;
-        if (typeof(options) == 'object' && options.frequency)
-            frequency = options.frequency;
-	
+	var frequency = (options && options.frequency) ? options.frequency : 10000; // default 10 second refresh
+
 	var that = this;
 	return setInterval(function() 
 	{
@@ -888,7 +936,9 @@ Geolocation.prototype.stop = function() {
     PhoneGap.exec("Location.stopLocation");
 };
 
- // replace origObj's functions ( listed in funkList ) with the same method name on proxyObj
+// replace origObj's functions ( listed in funkList ) with the same method name on proxyObj
+// this is a workaround to prevent UIWebView/MobileSafari default implementation of GeoLocation
+// because it includes the full page path as the title of the alert prompt
 function __proxyObj(origObj,proxyObj,funkList)
 {
     var replaceFunk = function(org,proxy,fName)
@@ -898,7 +948,7 @@ function __proxyObj(origObj,proxyObj,funkList)
            return proxy[fName].apply(proxy,arguments); 
         }; 
     };
-
+	 
     for(var v in funkList) { replaceFunk(origObj,proxyObj,funkList[v]);}
 }
 
@@ -1043,7 +1093,7 @@ PhoneGap.addConstructor(function() {
  *
  */
  
-function Media(src, successCallback, errorCallback) {
+function Media(src, successCallback, errorCallback, downloadCompleteCallback) {
 	
 	if (!src) {
 		src = "documents://" + String((new Date()).getTime()).replace(/\D/gi,''); // random
@@ -1051,9 +1101,10 @@ function Media(src, successCallback, errorCallback) {
 	this.src = src;
 	this.successCallback = successCallback;
 	this.errorCallback = errorCallback;	
+	this.downloadCompleteCallback = downloadCompleteCallback;
     
 	if (this.src != null) {
-		PhoneGap.exec("Sound.prepare", this.src, this.successCallback, this.errorCallback);
+		PhoneGap.exec("Sound.prepare", this.src, this.successCallback, this.errorCallback, this.downloadCompleteCallback);
 	}
 }
  
@@ -1296,7 +1347,7 @@ function Position(coords, timestamp) {
         this.timestamp = new Date().getTime();
 }
 
-function Coordinates(lat, lng, alt, acc, head, vel) {
+function Coordinates(lat, lng, alt, acc, head, vel, altAcc) {
 	/**
 	 * The latitude of the position.
 	 */
@@ -1321,6 +1372,10 @@ function Coordinates(lat, lng, alt, acc, head, vel) {
 	 * The velocity with which the device is moving at the position.
 	 */
 	this.speed = vel;
+	/**
+	 * The altitude accuracy of the position.
+	 */
+	this.altitudeAccuracy = (altacc != 'undefined') ? altacc : null; 
 }
 
 /**
