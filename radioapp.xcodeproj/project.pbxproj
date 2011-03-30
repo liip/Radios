@@ -29,6 +29,8 @@
 		EC18C7E41132A77300EFF1D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF5C2109A6A2B0062928A /* QuartzCore.framework */; };
 		EC18C7E51132A77300EFF1D3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF5C4109A6A2B0062928A /* SystemConfiguration.framework */; };
 		EC18C7ED1132A77400EFF1D3 /* example.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC18C7EC1132A77400EFF1D3 /* example.xib */; };
+		EC327CC41343514A00E240E0 /* StartupIphone-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EC327CC31343514A00E240E0 /* StartupIphone-Portrait~ipad.png */; };
+		EC327CC6134353E900E240E0 /* StartupIphone-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EC327CC5134353E900E240E0 /* StartupIphone-Landscape~ipad.png */; };
 		EC4CD4F611D0D5AD00B3382F /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4CD4F511D0D5AD00B3382F /* System.m */; };
 		EC4DD24911C8B17B007AD97B /* AudioStream.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DD24611C8B17B007AD97B /* AudioStream.m */; };
 		EC4DD24A11C8B17B007AD97B /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DD24811C8B17B007AD97B /* AudioStreamer.m */; };
@@ -81,6 +83,8 @@
 		EC1659C611C24FFF000826DB /* StartupIpad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartupIpad.png; sourceTree = "<group>"; };
 		EC18C7E91132A77300EFF1D3 /* radioapp-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radioapp-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC18C7EC1132A77400EFF1D3 /* example.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = example.xib; path = "Resources-iPad/example.xib"; sourceTree = "<group>"; };
+		EC327CC31343514A00E240E0 /* StartupIphone-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StartupIphone-Portrait~ipad.png"; sourceTree = "<group>"; };
+		EC327CC5134353E900E240E0 /* StartupIphone-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StartupIphone-Landscape~ipad.png"; sourceTree = "<group>"; };
 		EC49AAE611C0CB910011137B /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		EC4CD4F411D0D5AD00B3382F /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System.h; path = vendor/System/Plugins/System.h; sourceTree = SOURCE_ROOT; };
 		EC4CD4F511D0D5AD00B3382F /* System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System.m; path = vendor/System/Plugins/System.m; sourceTree = SOURCE_ROOT; };
@@ -139,6 +143,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				EC327CC5134353E900E240E0 /* StartupIphone-Landscape~ipad.png */,
+				EC327CC31343514A00E240E0 /* StartupIphone-Portrait~ipad.png */,
 				301BF52D109A57CC0062928A /* PhoneGapLib.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				307C750510C5A3420062BCA9 /* Plugins */,
@@ -303,6 +309,8 @@
 				1F27E40A11A48EF100DB5900 /* StartupIphone.png in Resources */,
 				EC1659C711C24FFF000826DB /* StartupIpad.png in Resources */,
 				EC7E59F611C799A30076768E /* icon-iphone.png in Resources */,
+				EC327CC41343514A00E240E0 /* StartupIphone-Portrait~ipad.png in Resources */,
+				EC327CC6134353E900E240E0 /* StartupIphone-Landscape~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +398,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liip AG";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -470,14 +479,18 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Liip AG";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liip AG";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radioapp_Prefix.pch;
 				INFOPLIST_FILE = "radioapp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = "radioapp-iPad";
+				PROVISIONING_PROFILE = "0E273946-A67F-42DA-ADDB-BC6AF84B4275";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E273946-A67F-42DA-ADDB-BC6AF84B4275";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
