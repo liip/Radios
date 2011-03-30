@@ -299,7 +299,7 @@ var Radio = function () {
                     // no track found
                     if (that.metadata) {
                         that.noTrack(true, that.metadata);
-                    } else {
+                    } else {
                         that.noTrack();
                     }
                 }
@@ -531,7 +531,7 @@ function playSound(url) {
         var confirmText = "You are using a mobile connection (3g/Edge). This can lead to huge costs for you. We recommend using a WLAN connection. \n You want to start the stream nevertheless?";
         if (language == 'fr') {
             confirmText = "Vous utilisez une connexion mobile (3G/Edge) en ce moment. Cela peut engendrer des coûts élevés. C'est pourquoi nous vous recommandons de connecter votre appareil à une connexion WLAN. \n Voulez-vous tout de même utiliser Radios avec la connexion mobile?";
-        } else if (language == 'de') {
+        } else if (language == 'de') {
             confirmText = "Sie sind nur über Mobilfunk (3G/Edge) unterwegs. Das kann beim Empfang hohe Kosten verursachen. Wir empfehlen daher, ihr Gerät über ein WLAN mit dem Internet zu verbinden. \n Wollen Sie trotzdem Radios über Mobilfunk empfangen?";
         }
         if (!confirm(confirmText)) {
