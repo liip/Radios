@@ -86,7 +86,7 @@ void MyPropertyListenerProc(	void *							inClientData,
 			UInt32 formatListSize;
 			err = AudioFileStreamGetPropertyInfo(inAudioFileStream, kAudioFileStreamProperty_FormatList, &formatListSize, &writable);
 			if (!err) {
-				NSLog(@"formatListSize %d\n", formatListSize);
+				NSLog(@"formatListSize %lu\n", formatListSize);
 				
 				// get the FormatList data
 				void* formatListData = calloc(1, formatListSize);
@@ -97,7 +97,7 @@ void MyPropertyListenerProc(	void *							inClientData,
 				for (int x = 0; x < formatListSize; x += sizeof(AudioFormatListItem)){
 					AudioStreamBasicDescription *pasbd = formatListData + x;
 					
-					NSLog(@"rate: %lf  Format:%c%c%c%c  FramesPerPacket:%d  bytesPerFrame:%d ChannelsperFrame:%d\r\n",
+					NSLog(@"rate: %lf  Format:%lu%lu%lu%lu  FramesPerPacket:%lu  bytesPerFrame:%lu ChannelsperFrame:%lu\r\n",
 						  pasbd->mSampleRate, (pasbd->mFormatID>>24)&255, (pasbd->mFormatID>>16)&255, (pasbd->mFormatID>>8)&255, (pasbd->mFormatID)&255,
 						  pasbd->mFramesPerPacket, pasbd->mBytesPerFrame, pasbd->mChannelsPerFrame);
 					
