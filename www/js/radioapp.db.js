@@ -66,7 +66,9 @@ RadioDb = function() {
 	['MagicRadio.CH',     'http://www.magicradio.ch/iphoneAac.m3u','b'],
 	['Radio FM1',         'http://radiofm1.ice.infomaniak.ch/playlists/radiofm1-128.mp3.pls','b'],
     ['Radio Swiss Pop',   'http://www.radioswisspop.ch/live/mp3.m3u','a'],
-    ['DRS Musikwelle',     'http://stream.srg-ssr.ch/drsmw/mp3_128.m3u','a']
+    ['DRS Musikwelle',    'http://stream.srg-ssr.ch/drsmw/mp3_128.m3u','a'],
+	['Radio Zürisee',     'http://mp3.radio.ch/radiozuerisee128k','a']
+
     ];
 
     var ERR_NONDB = 0;
