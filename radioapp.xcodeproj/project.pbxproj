@@ -261,6 +261,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0410;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "radioapp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -376,8 +379,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Liip AG";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liip AG";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
@@ -385,8 +390,8 @@
 					"-all_load",
 					"-Obj-C",
 				);
-				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E273946-A67F-42DA-ADDB-BC6AF84B4275";
+				PROVISIONING_PROFILE = "53E6450A-A46D-4CA5-BBA0-CE6D0E081CA1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53E6450A-A46D-4CA5-BBA0-CE6D0E081CA1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "$(PHONEGAPLIB)/Classes";
@@ -398,7 +403,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Liip AG";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liip AG";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -406,7 +411,8 @@
 				INFOPLIST_FILE = "radioapp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = "radioapp-iPad";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E273946-A67F-42DA-ADDB-BC6AF84B4275";
+				PROVISIONING_PROFILE = "53E6450A-A46D-4CA5-BBA0-CE6D0E081CA1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53E6450A-A46D-4CA5-BBA0-CE6D0E081CA1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv6 armv7";
@@ -417,8 +423,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Fabian Vogler (XBNC94H73J)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
@@ -426,7 +434,8 @@
 					"-all_load",
 					"-Obj-C",
 				);
-				PREBINDING = NO;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "$(PHONEGAPLIB)/Classes";
@@ -437,8 +446,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Fabian Vogler (XBNC94H73J)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Liip AG";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liip AG";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
@@ -446,7 +457,8 @@
 					"-all_load",
 					"-Obj-C",
 				);
-				PREBINDING = NO;
+				PROVISIONING_PROFILE = "53E6450A-A46D-4CA5-BBA0-CE6D0E081CA1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53E6450A-A46D-4CA5-BBA0-CE6D0E081CA1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "$(PHONEGAPLIB)/Classes";
@@ -458,6 +470,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -468,6 +481,7 @@
 				INFOPLIST_FILE = "radioapp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = "radioapp-iPad";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -487,8 +501,8 @@
 				INFOPLIST_FILE = "radioapp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = "radioapp-iPad";
-				PROVISIONING_PROFILE = "0E273946-A67F-42DA-ADDB-BC6AF84B4275";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0E273946-A67F-42DA-ADDB-BC6AF84B4275";
+				PROVISIONING_PROFILE = "53E6450A-A46D-4CA5-BBA0-CE6D0E081CA1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53E6450A-A46D-4CA5-BBA0-CE6D0E081CA1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
