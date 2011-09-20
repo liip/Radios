@@ -67,7 +67,8 @@ RadioDb = function() {
 	['Radio FM1',         'http://radiofm1.ice.infomaniak.ch/playlists/radiofm1-128.mp3.pls','b'],
     ['Radio Swiss Pop',   'http://www.radioswisspop.ch/live/mp3.m3u','a'],
     ['DRS Musikwelle',    'http://stream.srg-ssr.ch/drsmw/mp3_128.m3u','a'],
-	['Radio Zürisee',     'http://mp3.radio.ch/radiozuerisee128k','a']
+	['Radio Zürisee',     'http://mp3.radio.ch/radiozuerisee128k','a'],
+	['Radio X',           'http://mp3.radiox.ch/standard.mp3','b']
 
     ];
 
