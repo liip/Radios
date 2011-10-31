@@ -28,6 +28,10 @@ AudioStream.prototype.mute = function() {
 AudioStream.prototype.unmute = function() {
     PhoneGap.exec("AudioStream.unmute");
 };
+AudioStream.prototype.setNowPlaying = function(title) {
+    PhoneGap.exec("AudioStream.setNowPlaying",title);
+};
+
 
 AudioStream.prototype.getMetaData = function(successCallback, errorCallback, options) {
     if (typeof successCallback == "function") {

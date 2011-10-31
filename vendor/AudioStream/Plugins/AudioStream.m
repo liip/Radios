@@ -123,6 +123,20 @@
 	[streamer unmute];
 }
 
+- (void)setNowPlaying:(NSArray*)arguments withDict:(NSDictionary*)options
+{
+    if ([MPNowPlayingInfoCenter class])  {
+        /* we're on iOS 5, so set up the now playing center */
+        //  UIImage *albumArtImage = [UIImage imageNamed:@"HitchHikersGuide"];
+        // albumArt = [[MPMediaItemArtwork alloc] initWithImage:albumArtImage];
+        NSString  *title      = [arguments objectAtIndex:0];
+        
+        NSDictionary *currentlyPlayingTrackInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:title, nil] forKeys:[NSArray arrayWithObjects:MPMediaItemPropertyTitle, nil]];
+        [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = currentlyPlayingTrackInfo;
+    }
+    
+}
+
 - (void)streamError  
 {
 	NSLog(@"Stream Error.");
@@ -141,7 +155,7 @@
 	
     metadata = [metadata stringByReplacingOccurrencesOfString:@"'" withString:@"\\\'"];
     
-	NSString * jsCallBack = [NSString stringWithFormat:@"window.plugins.AudioStream.setMetaData(' %@ ')",  metadata];
+    NSString * jsCallBack = [NSString stringWithFormat:@"window.plugins.AudioStream.setMetaData(' %@ ')",  metadata];
     
     [webView stringByEvaluatingJavaScriptFromString:jsCallBack];
 

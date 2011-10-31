@@ -20,6 +20,7 @@
 - (void)stop:(NSArray*)arguments withDict:(NSDictionary*)options;
 - (void)mute:(NSArray*)arguments withDict:(NSDictionary*)options;
 - (void)unmute:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (void)setNowPlaying:(NSArray*)arguments withDict:(NSDictionary*)options;
 - (void)metaDataUpdated:(NSString *)metaData;
 - (void)statusChanged:(NSString *)status;
 @end

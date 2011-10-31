@@ -139,6 +139,8 @@ var Radio = function () {
 
         }
 
+        plugins.AudioStream.setNowPlaying(info);
+        
     };
 
     this.displaySongInformation = function (artist, track) {
