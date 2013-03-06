@@ -40,7 +40,6 @@
         <plugin name="Device" value="CDVDevice" />
         <plugin name="Logger" value="CDVLogger" />
         <plugin name="Accelerometer" value="CDVAccelerometer" />
-        <plugin name="Camera" value="CDVCamera" />
         <plugin name="NetworkStatus" value="CDVConnection" />
         <plugin name="Contacts" value="CDVContacts" />
         <plugin name="Debug Console" value="CDVDebugConsole" />
@@ -55,7 +54,7 @@
         <plugin name="Battery" value="CDVBattery" />
         <plugin name="Globalization" value="CDVGlobalization" />
         <plugin name="System" value="System" />
-        <plugin name="AudioStreamer" value="AudioStreamer" />
+        <plugin name="AudioStream" value="AudioStream" />
 
     </plugins>
 
