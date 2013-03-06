@@ -15,12 +15,11 @@
 
 }
 
-
-- (void)play:(NSArray*)arguments withDict:(NSDictionary*)options;
-- (void)stop:(NSArray*)arguments withDict:(NSDictionary*)options;
-- (void)mute:(NSArray*)arguments withDict:(NSDictionary*)options;
-- (void)unmute:(NSArray*)arguments withDict:(NSDictionary*)options;
-- (void)setNowPlaying:(NSArray*)arguments withDict:(NSDictionary*)options;
+- (void)play:(CDVInvokedUrlCommand*)command;
+- (void)stop:(CDVInvokedUrlCommand*)command;
+- (void)mute:(CDVInvokedUrlCommand*)command;
+- (void)unmute:(CDVInvokedUrlCommand*)command;
+- (void)setNowPlaying:(CDVInvokedUrlCommand*)command;
 - (void)metaDataUpdated:(NSString *)metaData;
 - (void)statusChanged:(NSString *)status;
 @end

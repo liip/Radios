@@ -519,21 +519,17 @@ function playStream(url) {
 }
 
 function playSound(url) {
-    debug.log("playSound" + plugins.AudioStream.getStatus() );
+    debug.log("playSound " + plugins.AudioStream.getStatus() );
     if (plugins.AudioStream.getStatus() == 'isPlaying') {
         stopSound();
     }
     debug.log('Playing: ' + url);
 
-    if (typeof navigator.network.lastReachability.internetConnectionStatus != 'undefined') {
-        var reachabilityStatus = navigator.network.lastReachability.internetConnectionStatus;
-    } else {
-        var reachabilityStatus = navigator.network.lastReachability;
-    }
 
 
-    if (!confirmedNonWlan && reachabilityStatus == 1) {
-        var confirmText = "You are using a mobile connection (3g/Edge). This can lead to huge costs for you. We recommend using a WLAN connection. \n You want to start the stream nevertheless?";
+
+    if (!confirmedNonWlan && Connection.type == Connection.CELL_2G) {
+        var confirmText = "You are using a mobile connection (3G/Edge). This can lead to huge costs for you. We recommend using a WLAN connection. \n You want to start the stream nevertheless?";
         if (language == 'fr') {
             confirmText = "Vous utilisez une connexion mobile (3G/Edge) en ce moment. Cela peut engendrer des coûts élevés. C'est pourquoi nous vous recommandons de connecter votre appareil à une connexion WLAN. \n Voulez-vous tout de même utiliser Radios avec la connexion mobile?";
         } else if (language == 'de') {

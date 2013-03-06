@@ -13,9 +13,6 @@
 #import <Cordova/CDV.h>
 
 
-#ifndef __IPHONE_3_0
-@synthesize webView;
-#endif
 
 @implementation AudioStream
 
@@ -87,41 +84,45 @@
 */	
 }
 
-- (void)play:(NSArray*)arguments withDict:(NSDictionary*)options
+- (void)play:(CDVInvokedUrlCommand*)command
 {
-	NSString  *url      = [arguments objectAtIndex:0];
-	
+    CDVPluginResult* pluginResult = nil;
+    NSString* url = [command.arguments objectAtIndex:0];
+    //NSString* metaCallback = [command.arguments objectAtIndex:1];
+    
+    
 	//NSUInteger argc = [arguments count];
 	//if (argc > 1) metaCallback = [arguments objectAtIndex:1];
-	
+	NSLog(@"HERE %@", url);
 	
 	[self createStreamer:url ];
 	[streamer start];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-- (void)stop:(NSArray*)arguments withDict:(NSDictionary*)options
+- (void)stop:(CDVInvokedUrlCommand*)command
 {
     NSLog(@"stop");
 	[streamer stop];
 }
 
-- (void)mute:(NSArray*)arguments withDict:(NSDictionary*)options
+- (void)mute:(CDVInvokedUrlCommand *)command
 {
     NSLog(@"mute");
 	[streamer mute];
 }
 
-- (void)unmute:(NSArray*)arguments withDict:(NSDictionary*)options
+- (void)unmute:(CDVInvokedUrlCommand *)command
 {
     NSLog(@"unmute");
 	[streamer unmute];
 }
 
-- (void)setNowPlaying:(NSArray*)arguments withDict:(NSDictionary*)options
+- (void)setNowPlaying:(CDVInvokedUrlCommand *)command
 {
     if (NSClassFromString(@"MPNowPlayingInfoCenter"))  {
         /* we're on iOS 5, so set up the now playing center */
-        NSString  *title      = [arguments objectAtIndex:0];
+        NSString  *title      =  [command.arguments objectAtIndex:0];
         
         NSDictionary *currentlyPlayingTrackInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:title, nil] forKeys:[NSArray arrayWithObjects:MPMediaItemPropertyTitle, nil]];
         [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = currentlyPlayingTrackInfo;

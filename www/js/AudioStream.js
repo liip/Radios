@@ -15,7 +15,12 @@ function AudioStream() {
 }
 
 AudioStream.prototype.play = function(url,metaCallBack) {
-    cordova.exec(null, null, "AudioStream", "play", [url, metaCallback]);
+    try {
+        cordova.exec(null, null, "AudioStream", "play", [url, metaCallBack]);
+    } catch (e) {
+        console.log(e);
+    }
+
     this.isLoading = true;
     this.setStatus("isLoading");
 };
@@ -23,13 +28,13 @@ AudioStream.prototype.stop = function() {
     cordova.exec(null,null,"AudioStream","stop");
 };
 AudioStream.prototype.mute = function() {
-    cordova.exec("AudioStream.mute");
+    cordova.exec(null,null,"AudioStream","mute");
 };
 AudioStream.prototype.unmute = function() {
-    cordova.exec("AudioStream.unmute");
+    cordova.exec(null,null,"AudioStream","unmute");
 };
 AudioStream.prototype.setNowPlaying = function(title) {
-    cordova.exec("AudioStream.setNowPlaying",title);
+    cordova.exec(null,null,"AudioStream","setNowPlaying",[title]);
 };
 
 
