@@ -1,9 +1,0 @@
-//
-// Prefix header for all source files of the 'radioapp' target in the 'radioapp' project
-//
-
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-    #import <UIKit/UIKit.h>
-#endif
-

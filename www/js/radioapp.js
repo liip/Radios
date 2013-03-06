@@ -1,5 +1,5 @@
 
-if (!isIDevice()) {
+//if (!isIDevice()) {
     window.debug = (function() {
 
         that = {};
@@ -10,7 +10,7 @@ if (!isIDevice()) {
 
         return that;
     })();
-}
+//}
 
 var Radio = function () {
 
@@ -140,7 +140,7 @@ var Radio = function () {
         }
 
         plugins.AudioStream.setNowPlaying(info);
-        
+
     };
 
     this.displaySongInformation = function (artist, track) {
@@ -422,26 +422,26 @@ function lang(lang) {
 
 function onDeviceReady() {
     if(isIDevice()){
-        if (plugins.System && plugins.System.lang) {
-            plugins.System.lang('lang');
+        //FIXME: Make Languagedetectino work again
+        /* if (plugins.System && plugins.System.lang) {
+            try {
+               // plugins.System.lang('lang');
+            } catch(e) {
+                console.log(e);
+            }
         } else {
             alert("plugins.System.lang not found, taking 'de' as lang");
-        }
-        navigator.network.isReachable("www.google.com", testReachable_callback);
-
+        }*/
+        testReachable_callback();
     } else {
         init();
     }
 }
 
 function testReachable_callback(reachability) {
-    navigator.network.updateReachability(reachability);
-    if (typeof reachability.internetConnectionStatus != 'undefined') {
-        var reachabilityStatus = reachability.internetConnectionStatus;
-    } else {
-        var reachabilityStatus = reachability;
-    }
-    if (reachabilityStatus > 0) {
+    // FIXME use events for detecting network changes
+    //navigator.network.updateReachability(reachability);
+    if (Connection.type != Connection.NONE) {
         init();
     } else {
         if (language == 'fr') {
@@ -453,9 +453,9 @@ function testReachable_callback(reachability) {
 }
 
 function init() {
-    radio = new Radio();
-
-    radioDb = new RadioDb();
+    try {
+        radio = new Radio();
+   radioDb = new RadioDb();
     radioDb.init();
     radioDb.populateStations();
     //radioDb.autoSearch();
@@ -471,6 +471,9 @@ function init() {
         var scr = new iScroll('scrollStations');
         scr.refresh();
     },1000);
+  } catch (e) {
+        console.log(e);
+    }
 
 }
 
@@ -521,14 +524,14 @@ function playSound(url) {
         stopSound();
     }
     debug.log('Playing: ' + url);
-    
+
     if (typeof navigator.network.lastReachability.internetConnectionStatus != 'undefined') {
         var reachabilityStatus = navigator.network.lastReachability.internetConnectionStatus;
     } else {
         var reachabilityStatus = navigator.network.lastReachability;
     }
 
-    
+
     if (!confirmedNonWlan && reachabilityStatus == 1) {
         var confirmText = "You are using a mobile connection (3g/Edge). This can lead to huge costs for you. We recommend using a WLAN connection. \n You want to start the stream nevertheless?";
         if (language == 'fr') {
