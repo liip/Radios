@@ -55,7 +55,7 @@ RadioDb = function() {
     ['Energy Zürich',     'http://statslive.infomaniak.ch/playlist/energyzuerich/energyzuerich-high.mp3/playlist.pls', 'c'],
     ['Energy Bern',       'http://statslive.infomaniak.ch/playlist/energybern/energybern-high.mp3/playlist.pls', 'c'],
     ['Radio 1',           'http://radio.nello.tv:80/128k', 'c'],
-    ['Radio 105',         'http://212.40.5.105:7000/listen.pls','c'],
+    ['Radio 105',         'http://stream.105.ch:8000/105fm','c'],
     ['Radio 24',          'http://audiotx01.mp3.green.ch/', 'c'],
     ['Radio Top',         'http://icecast.radiotop.ch/radiotop','c'],
 	['Radio Zürisee',     'http://mp3.radio.ch/radiozuerisee128k','c'],
