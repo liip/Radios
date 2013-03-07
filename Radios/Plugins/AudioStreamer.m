@@ -723,8 +723,13 @@ void ReadStreamCallBack
 					
 						if (myData->metaDataBytesRemaining == 0)
 						{
-							NSLog(@"MetaData: %@.", myData.metaDataString);
-							[myData updateMetaData:myData.metaDataString];
+                            
+                            NSString *strResult = nil;
+                            
+                            strResult = [myData.metaDataString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
+							NSLog(@"MetaData: %@.", strResult);
+							[myData updateMetaData:strResult];
 							
 							
 							myData->dataBytesRead = 0;
