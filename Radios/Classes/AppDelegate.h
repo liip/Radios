@@ -31,6 +31,8 @@
 
 @interface AppDelegate : NSObject <UIApplicationDelegate>{}
 
+- (void) javascriptExecute:(NSString*)text;
+
 // invoke string is passed to your app on launch, this is only valid if you
 // edit Radios-Info.plist to add a protocol
 // a simple tutorial can be found here :
