@@ -725,8 +725,10 @@ void ReadStreamCallBack
 						{
                             
                             NSString *strResult = nil;
+                            strResult=[myData.metaDataString stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
+                            strResult=[strResult stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+
                             
-                            strResult = [myData.metaDataString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
 							NSLog(@"MetaData: %@.", strResult);
 							[myData updateMetaData:strResult];
