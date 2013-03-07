@@ -53,7 +53,6 @@
         <plugin name="SplashScreen" value="CDVSplashScreen" />
         <plugin name="Battery" value="CDVBattery" />
         <plugin name="Globalization" value="CDVGlobalization" />
-        <plugin name="System" value="System" />
         <plugin name="AudioStream" value="AudioStream" />
 
     </plugins>
