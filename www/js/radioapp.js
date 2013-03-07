@@ -128,7 +128,11 @@ var Radio = function () {
     this.scrollingSongInfo = null;
     this.displayIPhoneSongInfo = function(info) {
         if (isIPhone()) {
-            document.querySelector("#stations").style.height = "328px";
+            if (isIPhone5()) {
+                document.querySelector("#stations").style.height = "416px";
+            } else {
+                document.querySelector("#stations").style.height = "328px";
+            }
             document.querySelector("#artistsong").style.display = 'block';
             document.querySelector("#artistsong").innerHTML = info.substr(0,100);
             if (!this.scrollingSongInfo) {
@@ -483,7 +487,11 @@ function isIDevice() {
 }
 
 function isIPhone() {
-    return navigator.userAgent.match(/iPhone/i);
+    return screen.availHeight < 549;
+}
+
+function isIPhone5() {
+    return screen.availHeight == 548;
 }
 
 function touchMove(event) {

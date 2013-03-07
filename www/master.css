@@ -217,17 +217,6 @@ li:first-child {
 	position: relative;
 }
 
-@media screen and (orientation:landscape) and (min-device-width: 481px) and (max-device-width: 1024px) {
-	#stations {
-		height: 668px;
-	}
-}
-
-@media screen and (orientation:portrait) and (min-device-width: 481px) and (max-device-width: 1024px) {
-	#stations {
-		height: 924px;
-	}
-}
 #scrollStations {
 	overflow: hidden;
 	position: relative;
@@ -465,5 +454,26 @@ li:first-child {
 	}
 	#sidebar {
 		width: 320px;
+	}
+}
+
+// ipad
+@media screen and (orientation:landscape) and (min-device-width: 481px) and (max-device-width: 1024px)  {
+	#stations {
+		height: 668px;
+	}
+}
+
+// ipad
+@media screen and (orientation:portrait) and  (min-device-width: 481px) and (max-device-width: 1024px) {
+	#stations {
+		height: 924px;
+	}
+}
+
+// iphone 5
+@media screen and (orientation:portrait) and (device-aspect-ratio: 40/71) {
+	#stations {
+		height: 468px;
 	}
 }
