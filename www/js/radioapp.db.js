@@ -44,32 +44,34 @@ RadioDb = function() {
     var db = null;
 
     var defaultStations = [
+    ['Couleur 3',         'http://stream.srg-ssr.ch/couleur3/mp3_128.m3u', 'a'],
     ['SRF 1',             'http://stream.srg-ssr.ch/drs1/mp3_128.m3u', 'a'],
     ['SRF 2',             'http://stream.srg-ssr.ch/drs2/mp3_128.m3u', 'a'],
     ['SRF 3',             'http://stream.srg-ssr.ch/drs3/mp3_128.m3u', 'a'],
     ['SRF 4 News',        'http://stream.srg-ssr.ch/drs4news/mp3_128.m3u', 'a'],
     ['SRF Virus',         'http://stream.srg-ssr.ch/drsvirus/mp3_128.m3u', 'a'],
-    ['Couleur 3',         'http://stream.srg-ssr.ch/couleur3/mp3_128.m3u', 'a'],
-    ['Radio 1',           'http://stream.radio1.ch:8000/radio1', 'c'],
+
+    ['Backstageradio',    'http://broadcast.infomaniak.ch/backstageradio-high.mp3.m3u','c'],
     ['Energy Zürich',     'http://statslive.infomaniak.ch/playlist/energyzuerich/energyzuerich-high.mp3/playlist.pls', 'c'],
     ['Energy Bern',       'http://statslive.infomaniak.ch/playlist/energybern/energybern-high.mp3/playlist.pls', 'c'],
-    ['Radio Swiss Jazz',  'http://stream.srg-ssr.ch/rsj/mp3_128.m3u', 'c'],
-    ['Radio Swiss Clas…', 'http://stream.srg-ssr.ch/rsc_de/mp3_128.m3u', 'c'],
-    ['Rock Nation',       'http://105-stream-02.datacomm.ch:8000/rocknation', 'c'],
-    ['RSR La Première',   'http://broadcast.infomaniak.net:80/rsr-la1ere-high.mp3', 'c'],
-    ['Option Musique',    'http://broadcast.infomaniak.ch/rsr-optionmusique-high.mp3', 'c'],
-    ['Frequence Banane',  'http://www.frequencebanane.ch/fb_128.m3u', 'c'],
-    ['Backstageradio',    'http://broadcast.infomaniak.ch/backstageradio-high.mp3.m3u','c'],
+    ['Radio 1',           'http://stream.radio1.ch:8000/radio1', 'c'],
     ['Radio 105',         'http://212.40.5.105:7000/listen.pls','c'],
-    ['neo1',              'http://stream-02.neo1.ch/neo1.m3u','d'],
-    ['Lounge-radio.com',  'http://www.lounge-radio.com/listen128.m3u','d'],
-	['Radio Top',         'http://icecast.radiotop.ch/radiotop','d'],
-	['MagicRadio.CH',     'http://www.magicradio.ch/iphoneAac.m3u','d'],
-	['Radio FM1',         'http://radiofm1.ice.infomaniak.ch/playlists/radiofm1-128.mp3.pls','d'],
-    ['Radio Swiss Pop',   'http://stream.srg-ssr.ch/rsp/mp3_128.m3u','c'],
-    ['SRF Musikwelle',    'http://stream.srg-ssr.ch/drsmw/mp3_128.m3u','d'],
+    ['Radio Top',         'http://icecast.radiotop.ch/radiotop','c'],
 	['Radio Zürisee',     'http://mp3.radio.ch/radiozuerisee128k','c'],
-	['Radio X',           'http://mp3.radiox.ch/standard.mp3','d']
+
+    ['Radio Swiss Clas…', 'http://stream.srg-ssr.ch/rsc_de/mp3_128.m3u', 'd'],
+    ['Radio Swiss Jazz',  'http://stream.srg-ssr.ch/rsj/mp3_128.m3u', 'd'],
+    ['Radio Swiss Pop',   'http://stream.srg-ssr.ch/rsp/mp3_128.m3u','d'],
+	['SRF Musikwelle',    'http://stream.srg-ssr.ch/drsmw/mp3_128.m3u','d'],
+    ['Frequence Banane',  'http://www.frequencebanane.ch/fb_128.m3u', 'e'],
+    ['Option Musique',    'http://broadcast.infomaniak.ch/rsr-optionmusique-high.mp3', 'e'],
+    ['RSR La Première',   'http://broadcast.infomaniak.net:80/rsr-la1ere-high.mp3', 'e'],
+    ['Lounge-radio.com',  'http://www.lounge-radio.com/listen128.m3u','f'],
+	['Rock Nation',       'http://105-stream-02.datacomm.ch:8000/rocknation', 'f'],
+    ['MagicRadio.CH',     'http://www.magicradio.ch/iphoneAac.m3u','f'],
+	['Radio FM1',         'http://radiofm1.ice.infomaniak.ch/playlists/radiofm1-128.mp3.pls','f'],
+    ['neo1',              'http://stream-02.neo1.ch/neo1.m3u','f'],
+	['Radio X',           'http://mp3.radiox.ch/standard.mp3','f']
 
     ];
 
