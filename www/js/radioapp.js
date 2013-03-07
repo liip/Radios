@@ -421,21 +421,13 @@ var radioDb = null;
 var language = 'de';
 
 function lang(lang) {
-    language = lang;
+    language = lang.value;
 }
 
 function onDeviceReady() {
     if(isIDevice()){
-        //FIXME: Make Languagedetectino work again
-        /* if (plugins.System && plugins.System.lang) {
-            try {
-               // plugins.System.lang('lang');
-            } catch(e) {
-                console.log(e);
-            }
-        } else {
-            alert("plugins.System.lang not found, taking 'de' as lang");
-        }*/
+
+        navigator.globalization.getPreferredLanguage(lang, null);
         testReachable_callback();
     } else {
         init();
