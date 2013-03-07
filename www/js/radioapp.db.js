@@ -102,28 +102,46 @@ RadioDb = function() {
         var insertquery = 'INSERT INTO stations(name, stream, logo, listened_at) VALUES(?, ?, ?, NULL);';
         var selectquery = 'SELECT id, name FROM stations';
         var updatequery = 'UPDATE stations SET stream = ?, logo = ? where id = ?';
+        var deletequery = 'DELETE FROM stations where id = ?';
         var defaultStationsName = [];
         for( var i=0; i < defaultStations.length; ++i ) {
             defaultStationsName[defaultStations[i][0]] = defaultStations[i];
             //first we try to insert, then update, this could be improved
             t.executeSql(insertquery, defaultStations[i], nullDataHandler, errorHandler);
-            t.executeSql(selectquery, [] , function(t, results) {
-                if (results.rows.length == 0) {
-                    //
-                } else {
+        }
+        t.executeSql(selectquery, [] , function(t, results) {
+            if (results.rows.length == 0) {
+                //
+            } else {
 
-                    for (var j = 0; j < results.rows.length; ++j) {
-                        var row = results.rows.item(j);
-                        var station = defaultStationsName[row['name']];
-                        t.executeSql(updatequery,[station[1],station[2],row['id']], nullDataHandler, function(t,error) {debug.log("ERRROR UPDATE");debug.log(error); return true});
-
+                for (var j = 0; j < results.rows.length; ++j) {
+                    var row = results.rows.item(j);
+                    var station = defaultStationsName[row['name']];
+                    if (typeof station != 'undefined') {
+                        t.executeSql(updatequery,[station[1],station[2],row['id']], nullDataHandler,
+                            function(t,error) {
+                                console.log("ERRROR UPDATE");
+                                console.log(error);
+                                return true
+                            }
+                        );
+                    } else {
+                        t.executeSql(deletequery ,[row['id']], nullDataHandler,
+                            function(t,error) {
+                                console.log("ERRROR DELETE");
+                                console.log(error);
+                                return true
+                            }
+                        );
                     }
 
                 }
-            },
-            errorHandler
-            );
-        }
+
+            }
+        },
+        errorHandler
+        );
+
     };
 
     this.init = function() {
@@ -137,7 +155,7 @@ RadioDb = function() {
                     t.executeSql('CREATE TABLE IF NOT EXISTS stations (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE ON CONFLICT IGNORE, stream TEXT NOT NULL, logo TEXT NOT NULL, listened_at DATE )',
                     [], insertDefaults, errorHandler);
                 });
-                /*
+/*
                 db = openDatabase('radios_db', '', 'Radios Database', 524288); // 512KiB
                 debug.log('Current DB Version: ' + db.version);
                 var M = new Migrator(db);
