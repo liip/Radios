@@ -10,7 +10,7 @@
 #import "AudioStreamer.h"
 
 
-@interface AudioStream : CDVPlugin <UITabBarDelegate> {
+@interface AudioStream : CDVPlugin {
 	AudioStreamer *streamer;
 
 }
