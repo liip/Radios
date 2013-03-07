@@ -44,16 +44,17 @@ RadioDb = function() {
     var db = null;
 
     var defaultStations = [
-    ['SRF 1',        'http://stream.srg-ssr.ch/drs1/mp3_128.m3u', 'a'],
-    ['SRF 2', 'http://stream.srg-ssr.ch/drs2/mp3_128.m3u', 'a'],
-    ['SRF 3', 'http://stream.srg-ssr.ch/drs3/mp3_128.m3u', 'a'],
-    ['SRF Virus',         'http://zlz-stream12.streamserver.ch/1/drsvirus/mp3_128', 'a'],
-    ['Couleur 3',         'http://broadcast.infomaniak.net:80/rsr-couleur3-high.mp3', 'a'],
+    ['SRF 1',             'http://stream.srg-ssr.ch/drs1/mp3_128.m3u', 'a'],
+    ['SRF 2',             'http://stream.srg-ssr.ch/drs2/mp3_128.m3u', 'a'],
+    ['SRF 3',             'http://stream.srg-ssr.ch/drs3/mp3_128.m3u', 'a'],
+    ['SRF 4 News',        'http://stream.srg-ssr.ch/drs4news/mp3_128.m3u', 'a'],
+    ['SRF Virus',         'http://stream.srg-ssr.ch/drsvirus/mp3_128.m3u', 'a'],
+    ['Couleur 3',         'http://stream.srg-ssr.ch/couleur3/mp3_128.m3u', 'a'],
     ['Radio 1',           'http://stream.radio1.ch:8000/radio1', 'c'],
     ['Energy Zürich',     'http://statslive.infomaniak.ch/playlist/energyzuerich/energyzuerich-high.mp3/playlist.pls', 'c'],
     ['Energy Bern',       'http://statslive.infomaniak.ch/playlist/energybern/energybern-high.mp3/playlist.pls', 'c'],
-    ['Radio Swiss Jazz',  'http://www.radioswissjazz.ch/live/mp3.m3u', 'c'],
-    ['Radio Swiss Clas…', 'http://www.radioswissclassic.ch/live/mp3.m3u', 'c'],
+    ['Radio Swiss Jazz',  'http://stream.srg-ssr.ch/rsj/mp3_128.m3u', 'c'],
+    ['Radio Swiss Clas…', 'http://stream.srg-ssr.ch/rsc_de/mp3_128.m3u', 'c'],
     ['Rock Nation',       'http://105-stream-02.datacomm.ch:8000/rocknation', 'c'],
     ['RSR La Première',   'http://broadcast.infomaniak.net:80/rsr-la1ere-high.mp3', 'c'],
     ['Option Musique',    'http://broadcast.infomaniak.ch/rsr-optionmusique-high.mp3', 'c'],
@@ -65,8 +66,8 @@ RadioDb = function() {
 	['Radio Top',         'http://icecast.radiotop.ch/radiotop','d'],
 	['MagicRadio.CH',     'http://www.magicradio.ch/iphoneAac.m3u','d'],
 	['Radio FM1',         'http://radiofm1.ice.infomaniak.ch/playlists/radiofm1-128.mp3.pls','d'],
-    ['Radio Swiss Pop',   'http://www.radioswisspop.ch/live/mp3.m3u','c'],
-    ['DRS Musikwelle',    'http://stream.srg-ssr.ch/drsmw/mp3_128.m3u','c'],
+    ['Radio Swiss Pop',   'http://stream.srg-ssr.ch/rsp/mp3_128.m3u','c'],
+    ['SRF Musikwelle',    'http://stream.srg-ssr.ch/drsmw/mp3_128.m3u','d'],
 	['Radio Zürisee',     'http://mp3.radio.ch/radiozuerisee128k','c'],
 	['Radio X',           'http://mp3.radiox.ch/standard.mp3','d']
 
