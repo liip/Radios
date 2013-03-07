@@ -25,15 +25,15 @@
 {
 	if (streamer)
 	{
-		
+
 	/*
 	 [[NSNotificationCenter defaultCenter]
 		 removeObserver:self
 		 name:ASStatusChangedNotification
 		 object:streamer];
-	*/	
-		 
-		
+	*/
+
+
 		 /*
 		 [progressUpdateTimer invalidate];
 		 progressUpdateTimer = nil;
@@ -52,9 +52,9 @@
 //
 - (void)createStreamer:(NSString*)urlin
 {
-	
+
 	[self destroyStreamer];
-	
+
 	NSString *escapedValue =
 	[(NSString *)CFURLCreateStringByAddingPercentEscapes(
 														 nil,
@@ -63,7 +63,7 @@
 														 NULL,
 														 kCFStringEncodingUTF8)
 	 autorelease];
-	
+
 	NSURL *url = [NSURL URLWithString:escapedValue];
 	streamer = [[AudioStreamer alloc] initWithURL:url];
     /*[streamer
@@ -73,15 +73,15 @@
      context:nil];
     */
 	streamer.delegate = self;
-    
-	 
+
+
 /*
  [[NSNotificationCenter defaultCenter]
 	 addObserver:self
 	 selector:@selector(playbackStateChanged:)
 	 name:ASStatusChangedNotification
 	 object:streamer];
-*/	
+*/
 }
 
 - (void)play:(CDVInvokedUrlCommand*)command
@@ -89,12 +89,11 @@
     CDVPluginResult* pluginResult = nil;
     NSString* url = [command.arguments objectAtIndex:0];
     //NSString* metaCallback = [command.arguments objectAtIndex:1];
-    
-    
+
+
 	//NSUInteger argc = [arguments count];
 	//if (argc > 1) metaCallback = [arguments objectAtIndex:1];
-	NSLog(@"HERE %@", url);
-	
+
 	[self createStreamer:url ];
 	[streamer start];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -123,32 +122,32 @@
     if (NSClassFromString(@"MPNowPlayingInfoCenter"))  {
         /* we're on iOS 5, so set up the now playing center */
         NSString  *title      =  [command.arguments objectAtIndex:0];
-        
+
         NSDictionary *currentlyPlayingTrackInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:title, nil] forKeys:[NSArray arrayWithObjects:MPMediaItemPropertyTitle, nil]];
         [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = currentlyPlayingTrackInfo;
     }
-    
+
 }
 
-- (void)streamError  
+- (void)streamError
 {
 	NSLog(@"Stream Error.");
 }
 
 
-- (void)metaDataUpdated:(NSString *)metaData 
+- (void)metaDataUpdated:(NSString *)metaData
 {
-	
+
 	NSArray *listItems = [metaData componentsSeparatedByString:@";"];
 
 	NSString *metadata;
-	
+
 	if ([listItems count] > 0) {
 		metadata = [listItems objectAtIndex:0];
     }
-	
+
     metadata = [metadata stringByReplacingOccurrencesOfString:@"'" withString:@"\\\'"];
-    
+
     NSString * jsCallBack = [NSString stringWithFormat:@"window.plugins.AudioStream.setMetaData(' %@ ')",  metadata];
     [self writeJavascript:jsCallBack];
 
@@ -156,7 +155,7 @@
 
 - (void)statusChanged:(NSString *)status;
 {
-    
+
    NSString * jsCallBack = [NSString stringWithFormat:@"window.plugins.AudioStream.setStatus( '%@')",  status];
    [self writeJavascript:jsCallBack];
 }
