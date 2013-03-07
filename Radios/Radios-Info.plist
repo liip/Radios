@@ -8,18 +8,10 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>icon.png</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>icon-iphone.png</string>
-		<string>icon.png</string>
-		<string>icon-72@2x.png</string>
-		<string>icon.png</string>
-		<string>icon.png</string>
 		<string>icon.png</string>
 		<string>icon-72.png</string>
-		<string>icon.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -27,14 +19,8 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>icon-iphone.png</string>
-				<string>icon.png</string>
-				<string>icon-72@2x.png</string>
-				<string>icon.png</string>
-				<string>icon.png</string>
 				<string>icon.png</string>
 				<string>icon-72.png</string>
-				<string>icon.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -66,6 +52,18 @@
 	</array>
 	<key>UIPrerenderedIcon</key>
 	<true/>
+	<key>UIStatusBarHidden</key>
+	<false/>
+	<key>UIStatusBarTintParameters</key>
+	<dict>
+		<key>UINavigationBar</key>
+		<dict>
+			<key>Style</key>
+			<string>UIBarStyleDefault</string>
+			<key>Translucent</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
