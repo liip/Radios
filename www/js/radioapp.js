@@ -437,7 +437,7 @@ function onDeviceReady() {
 function testReachable_callback(reachability) {
     // FIXME use events for detecting network changes
     //navigator.network.updateReachability(reachability);
-    if (Connection.type != Connection.NONE) {
+    if (navigator.connection.type !== Connection.NONE) {
         init();
     } else {
         if (language == 'fr') {
@@ -525,15 +525,12 @@ function playSound(url) {
     }
     debug.log('Playing: ' + url);
 
-
-
-
-    if (!confirmedNonWlan && Connection.type == Connection.CELL_2G) {
-        var confirmText = "You are using a mobile connection (3G/Edge). This can lead to huge costs for you. We recommend using a WLAN connection. \n You want to start the stream nevertheless?";
+    if (!confirmedNonWlan && navigator.connection.type == Connection.CELL_2G) {
+        var confirmText = "You are using a mobile connection (non WLAN). This can lead to huge costs for you. We recommend using a WLAN connection. \n You want to start the stream nevertheless?";
         if (language == 'fr') {
-            confirmText = "Vous utilisez une connexion mobile (3G/Edge) en ce moment. Cela peut engendrer des coûts élevés. C'est pourquoi nous vous recommandons de connecter votre appareil à une connexion WLAN. \n Voulez-vous tout de même utiliser Radios avec la connexion mobile?";
+            confirmText = "Vous utilisez une connexion mobile (non WLAN) en ce moment. Cela peut engendrer des coûts élevés. C'est pourquoi nous vous recommandons de connecter votre appareil à une connexion WLAN. \n Voulez-vous tout de même utiliser Radios avec la connexion mobile?";
         } else if (language == 'de') {
-            confirmText = "Sie sind nur über Mobilfunk (3G/Edge) unterwegs. Das kann beim Empfang hohe Kosten verursachen. Wir empfehlen daher, ihr Gerät über ein WLAN mit dem Internet zu verbinden. \n Wollen Sie trotzdem Radios über Mobilfunk empfangen?";
+            confirmText = "Sie sind nur über Mobilfunk (kein WLAN) unterwegs. Das kann beim Empfang hohe Kosten verursachen. Wir empfehlen daher, ihr Gerät über ein WLAN mit dem Internet zu verbinden. \n Wollen Sie trotzdem Radios über Mobilfunk empfangen?";
         }
         if (!confirm(confirmText)) {
             return false;
