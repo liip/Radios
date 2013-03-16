@@ -515,7 +515,10 @@ function playStream(url) {
         // simulate a artist
         radio.searchTrackInformation("Icky Thump", "The White Stripes");
     }
-
+    if (radio && radio.station) {
+        track(radio.station);
+    }
+    
 }
 
 function playSound(url) {
@@ -578,6 +581,14 @@ function stopSound() {
         audio = null;
     }
 
+}
+
+function track(name) {
+    var clientLog = new XMLHttpRequest();
+//    clientLog.onreadystatechange = function() {console.log("READY STATE CHANGE " + this.readyState + " " + this.status)};
+    var url = 'http://radios.liip.ch/track/' + name.replace(/ /gi,'_') + '.html';
+    clientLog.open("GET", url);
+    clientLog.send();
 }
 
 function toggleSound() {
