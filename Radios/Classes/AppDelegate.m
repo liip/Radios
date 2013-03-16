@@ -27,6 +27,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import <NewRelicAgent/NewRelicAgent.h>
 
 #import <Cordova/CDVPlugin.h>
 
@@ -59,6 +60,7 @@
  */
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
+    [NewRelicAgent startWithApplicationToken:  @"AA65e4623562de37586c365e6d2b475d0ab93280fc"];
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
 
     self.window = [[[UIWindow alloc] initWithFrame:screenBounds] autorelease];
@@ -75,7 +77,6 @@
 
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
-
     return YES;
 }
 
