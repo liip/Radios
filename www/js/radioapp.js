@@ -586,7 +586,7 @@ function stopSound() {
 function track(name) {
     var clientLog = new XMLHttpRequest();
 //    clientLog.onreadystatechange = function() {console.log("READY STATE CHANGE " + this.readyState + " " + this.status)};
-    var url = 'http://radios.liip.ch/station/' + name.replace(/ /gi,'_') + '.html';
+    var url = 'http://radios.liip.ch/station/' + name.replace(/ /gi,'_') + '.html?d=' + new Date();
     clientLog.open("GET", url);
     clientLog.send();
 }
