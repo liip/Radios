@@ -459,8 +459,6 @@ function init() {
         // if we listened to a station previously, start it again
         if(station && station.listened_at) {
             document.getElementById('station-'+station.id).onclick();
-        } else {
-            document.getElementById('station-2').onclick();
         }
     });
     window.setTimeout(function() {
