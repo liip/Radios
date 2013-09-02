@@ -33,8 +33,9 @@ AudioStream.prototype.mute = function() {
 AudioStream.prototype.unmute = function() {
     cordova.exec(null,null,"AudioStream","unmute", []);
 };
-AudioStream.prototype.setNowPlaying = function(title) {
-    cordova.exec(null,null,"AudioStream","setNowPlaying",[title]);
+AudioStream.prototype.setNowPlaying = function(title, station) {
+    if (!station) { station = "";}
+    cordova.exec(null,null,"AudioStream","setNowPlaying",[title, station]);
 };
 
 

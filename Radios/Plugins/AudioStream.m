@@ -122,8 +122,9 @@
     if (NSClassFromString(@"MPNowPlayingInfoCenter"))  {
         /* we're on iOS 5, so set up the now playing center */
         NSString  *title      =  [command.arguments objectAtIndex:0];
+        NSString  *station      =  [command.arguments objectAtIndex:1];
 
-        NSDictionary *currentlyPlayingTrackInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:title, nil] forKeys:[NSArray arrayWithObjects:MPMediaItemPropertyTitle, nil]];
+        NSDictionary *currentlyPlayingTrackInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:title, station, nil] forKeys:[NSArray arrayWithObjects:MPMediaItemPropertyTitle, MPMediaItemPropertyAlbumTitle, nil]];
         [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = currentlyPlayingTrackInfo;
     }
 

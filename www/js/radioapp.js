@@ -143,7 +143,7 @@ var Radio = function () {
 
         }
 
-        plugins.AudioStream.setNowPlaying(info);
+        plugins.AudioStream.setNowPlaying(info, radio.station);
 
     };
 
