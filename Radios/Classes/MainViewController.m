@@ -71,6 +71,17 @@
     [super viewWillAppear:animated];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+
+    [super viewDidAppear:animated];
+    
+    // Turn on remote control event delivery
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
+    // Set itself as the first responder
+    [self becomeFirstResponder];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

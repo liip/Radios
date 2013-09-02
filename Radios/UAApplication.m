@@ -13,13 +13,6 @@
 
 - (id) init {
     self = [super init];
-    if (self != nil) {
-        [self becomeFirstResponder];
-        UIDevice* device = [UIDevice currentDevice];
-        if ([device respondsToSelector:@selector(isMultitaskingSupported)]) {
-            [self beginReceivingRemoteControlEvents];
-        }
-    }
     return self;
 }
 
