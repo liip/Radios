@@ -39,10 +39,11 @@
             [self.delegate javascriptExecute:@"toggleSound()"];
             break;
         case UIEventSubtypeRemoteControlPlay:
+            [self.delegate javascriptExecute:@"playSound(radio.stream)"];
             break;
         case UIEventSubtypeRemoteControlPause:
-            break;
         case UIEventSubtypeRemoteControlStop:
+            [self.delegate javascriptExecute:@"stopSound()"];
             break;
         case UIEventSubtypeRemoteControlNextTrack:
            
