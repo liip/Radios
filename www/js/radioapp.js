@@ -181,31 +181,39 @@ var Radio = function () {
 
         this.displayIPhoneSongInfo(artist + " - " + track);
         that.lastfm.artist.getInfo(
-        {artist: artist, lang: language},
-        {success: function (data) {
+            {
+                artist: artist,
+                lang: language
+            },
+            {
+                success: function (data) {
 
-                if (!isIPhone()) {
-                    that.displayArtist(data);
-                }
-                that.lastfm.artist.getImages(
-                {artist: data.artist.name, limit: 20},
-                {success: function(data) {
-                        that.lastfmdata = data;
-                        if (data.images.image.length > 0) {
-                            document.querySelector("#collage").setAttribute('class', '');
-                        }
-                        if (!isIPhone() || document.getElementById('card').getAttribute('class') == 'flipped') {
-                            that.displayImages(data);
-                        }
+                    if (!isIPhone()) {
+                        that.displayArtist(data);
+                    }
+                    that.lastfm.artist.getImages(
+                        {
+                            artist: data.artist.name,
+                            limit: 20
+                        },
+                        {
+                            success: function(data) {
+                                that.lastfmdata = data;
+                                if (data.images.image.length > 0) {
+                                    document.querySelector("#collage").setAttribute('class', '');
+                                }
+                                if (!isIPhone() || document.getElementById('card').getAttribute('class') == 'flipped') {
+                                    that.displayImages(data);
+                                }
 
+                            }
+                        }
+                     )
+                },
+                error: function(code, message) {
+                    debug.log('artist.getInfo failed: ' + message);
                 }
-                }
-                )
-        }
-        , error: function(code, message) {
-            debug.log('artist.getInfo failed: ' + message);
-        }
-        }
+            }
         );
     };
     this.displayImages = function(data) {
@@ -516,7 +524,7 @@ function playStream(url) {
     if (radio && radio.station) {
         track(radio.station);
     }
-    
+
 }
 
 function playSound(url) {
