@@ -40,6 +40,8 @@
 		EC40FFD716E8CADA00AC95B2 /* UAApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = EC40FFD616E8CADA00AC95B2 /* UAApplication.m */; };
 		EC443D6F16E7751E0044F6AB /* AudioStream.m in Sources */ = {isa = PBXBuildFile; fileRef = EC443D6B16E7751E0044F6AB /* AudioStream.m */; };
 		EC443D7016E7751E0044F6AB /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC443D6D16E7751E0044F6AB /* AudioStreamer.m */; };
+		ECA84A6B17D5B2F8007197EF /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA84A6A17D5B2F8007197EF /* SDWebImage.framework */; };
+		ECA84A6D17D5B311007197EF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA84A6C17D5B311007197EF /* ImageIO.framework */; };
 		ECD7E0EB16E8DDCF006A1861 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0EA16E8DDCF006A1861 /* icon.png */; };
 		ECD7E0ED16E8DDDA006A1861 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0EC16E8DDDA006A1861 /* icon-72.png */; };
 		ECD7E0F116E8DDF4006A1861 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0F016E8DDF4006A1861 /* Default-568h@2x.png */; };
@@ -118,6 +120,8 @@
 		EC443D6B16E7751E0044F6AB /* AudioStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStream.m; sourceTree = "<group>"; };
 		EC443D6C16E7751E0044F6AB /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
 		EC443D6D16E7751E0044F6AB /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
+		ECA84A6A17D5B2F8007197EF /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
+		ECA84A6C17D5B311007197EF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		ECD7E0EA16E8DDCF006A1861 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		ECD7E0EC16E8DDDA006A1861 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		ECD7E0EE16E8DDE9006A1861 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA84A6D17D5B311007197EF /* ImageIO.framework in Frameworks */,
 				EC2921AA16F452C400CF63BA /* libz.dylib in Frameworks */,
 				301BF5C5109A6A2B0062928A /* SystemConfiguration.framework in Frameworks */,
 				EC2921A816F452B600CF63BA /* CoreTelephony.framework in Frameworks */,
@@ -151,6 +156,7 @@
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */,
 				EC2921A616F4529100CF63BA /* NewRelicAgent.framework in Frameworks */,
+				ECA84A6B17D5B2F8007197EF /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +205,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				ECA84A6C17D5B311007197EF /* ImageIO.framework */,
+				ECA84A6A17D5B2F8007197EF /* SDWebImage.framework */,
 				EC2921A916F452C400CF63BA /* libz.dylib */,
 				EC2921A716F452B600CF63BA /* CoreTelephony.framework */,
 				ECD7E0F416E8DE06006A1861 /* Default-Landscape~ipad.png */,
@@ -510,6 +518,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					/Users/chregu/Downloads,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -518,7 +527,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Radios/Radios-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = Radios;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -540,7 +549,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Radios/Radios-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = Radios;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

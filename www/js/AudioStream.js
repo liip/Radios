@@ -38,6 +38,9 @@ AudioStream.prototype.setNowPlaying = function(title, station) {
     cordova.exec(null,null,"AudioStream","setNowPlaying",[title, station]);
 };
 
+AudioStream.prototype.setArtwork = function(artworkurl) {
+    cordova.exec(null,null,"AudioStream","setArtwork",[artworkurl]);
+};
 
 AudioStream.prototype.getMetaData = function(successCallback, errorCallback, options) {
     if (typeof successCallback == "function") {

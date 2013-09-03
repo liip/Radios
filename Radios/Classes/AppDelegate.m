@@ -28,6 +28,7 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import <NewRelicAgent/NewRelicAgent.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #import <Cordova/CDVPlugin.h>
 
@@ -116,6 +117,9 @@
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication*)application
 {
+    
+    NSLog(@"MEMORY WARNING, clear imageCache");
+    [SDWebImageManager.sharedManager.imageCache clearMemory];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 

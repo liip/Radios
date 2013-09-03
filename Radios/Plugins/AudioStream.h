@@ -8,6 +8,7 @@
 
 #import <Cordova/CDV.h>
 #import "AudioStreamer.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 @interface AudioStream : CDVPlugin {
@@ -20,6 +21,7 @@
 - (void)mute:(CDVInvokedUrlCommand*)command;
 - (void)unmute:(CDVInvokedUrlCommand*)command;
 - (void)setNowPlaying:(CDVInvokedUrlCommand*)command;
+- (void)setArtwork:(CDVInvokedUrlCommand*)command;
 - (void)metaDataUpdated:(NSString *)metaData;
 - (void)statusChanged:(NSString *)status;
 @end

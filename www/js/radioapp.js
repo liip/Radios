@@ -142,7 +142,9 @@ var Radio = function () {
             this.scrollingSongInfo.scrollTo(0,0);
 
         }
-
+        if (that.artworkTimeout) {
+            clearTimeout(that.artworkTimeout);
+        }
         plugins.AudioStream.setNowPlaying(info, radio.station);
 
     };
@@ -202,10 +204,10 @@ var Radio = function () {
                                 if (data.images.image.length > 0) {
                                     document.querySelector("#collage").setAttribute('class', '');
                                 }
-                                if (!isIPhone() || document.getElementById('card').getAttribute('class') == 'flipped') {
+                                 if (!isIPhone() || document.getElementById('card').getAttribute('class') == 'flipped') {
                                     that.displayImages(data);
                                 }
-
+                                that.displayImagesAsArtwork(data);
                             }
                         }
                      )
@@ -215,6 +217,27 @@ var Radio = function () {
                 }
             }
         );
+    };
+
+    this.displayImagesAsArtwork = function(data) {
+        if (data) {
+            if (that.artworkTimeout) {
+                clearTimeout(that.artworkTimeout);
+            }
+            that.artworkIndex = 0;
+            that.artworkData = data.images.image.shuffle();
+        }
+        if (that.artworkData.length <= that.artworkIndex || that.artworkIndex > 5) {
+            that.artworkIndex = 0;
+        }
+        var sizes = that.artworkData[that.artworkIndex].sizes.size;
+        var image = null;
+        image = sizes[0];
+        plugins.AudioStream.setArtwork( image['#text']);
+        that.artworkIndex++;
+        //change picture every 30 seconds
+        that.artworkTimeout = setTimeout(that.displayImagesAsArtwork, 60000);
+
     };
     this.displayImages = function(data) {
         var found = false;
@@ -615,4 +638,16 @@ function onWinLoad() {
     } else {
         onDeviceReady();
     }
+}
+
+Array.prototype.shuffle = function() {
+  var i = this.length, j, temp;
+  if ( i == 0 ) return this;
+  while ( --i ) {
+     j = Math.floor( Math.random() * ( i + 1 ) );
+     temp = this[i];
+     this[i] = this[j];
+     this[j] = temp;
+  }
+  return this;
 }

@@ -130,6 +130,39 @@
 
 }
 
+- (void)setArtwork:(CDVInvokedUrlCommand *)command
+{
+    
+    NSString  *imageURLString      =  [command.arguments objectAtIndex:0];
+    NSURL *imageURL = [NSURL URLWithString: imageURLString];
+    [SDWebImageDownloader.sharedDownloader
+     downloadImageWithURL:imageURL
+     options:0
+     progress:^(NSUInteger receivedSize, long long expectedSize)
+     {
+         // progression tracking code
+     }
+     completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished)
+     {
+         if (image && finished)
+         {
+             NSString  *title      =  @"";
+             NSString  *station    =  @"";
+
+             MPMediaItemArtwork *albumArt = [[[MPMediaItemArtwork alloc] initWithImage: image] autorelease];
+
+             title = [[MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo valueForKey:MPMediaItemPropertyTitle];
+             station = [[MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo valueForKey:MPMediaItemPropertyAlbumTitle];
+        
+             NSDictionary *currentlyPlayingTrackInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:title, station, albumArt, nil] forKeys:[NSArray arrayWithObjects:MPMediaItemPropertyTitle, MPMediaItemPropertyAlbumTitle, MPMediaItemPropertyArtwork, nil]];
+             [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = currentlyPlayingTrackInfo;
+             
+         }
+     }];
+
+    
+}
+
 - (void)streamError
 {
 	NSLog(@"Stream Error.");
