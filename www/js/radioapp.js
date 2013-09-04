@@ -227,7 +227,7 @@ var Radio = function () {
             that.artworkIndex = 0;
             that.artworkData = data.images.image.shuffle();
         }
-        if (that.artworkData.length <= that.artworkIndex || that.artworkIndex > 5) {
+        if (that.artworkData.length <= that.artworkIndex) {
             that.artworkIndex = 0;
         }
         var sizes = that.artworkData[that.artworkIndex].sizes.size;
@@ -235,10 +235,18 @@ var Radio = function () {
         image = sizes[0];
         plugins.AudioStream.setArtwork( image['#text']);
         that.artworkIndex++;
-        //change picture every 30 seconds
+        //change picture every 60 seconds
         that.artworkTimeout = setTimeout(that.displayImagesAsArtwork, 60000);
 
     };
+
+    this.showNextArtwork = function() {
+        if (that.artworkTimeout) {
+            clearTimeout(that.artworkTimeout);
+        }
+        that.displayImagesAsArtwork();
+    };
+
     this.displayImages = function(data) {
         var found = false;
         var area = Math.floor(Math.random() * 4);

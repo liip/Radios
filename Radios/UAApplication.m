@@ -39,8 +39,7 @@
             [self.delegate javascriptExecute:@"stopSound()"];
             break;
         case UIEventSubtypeRemoteControlNextTrack:
-           
-//            [[self.delegate getCommandInstance:@"AudioStream"] unmute:nil withDict:nil];
+            [self.delegate javascriptExecute:@"radio.showNextArtwork()"];
             break;
         case UIEventSubtypeRemoteControlPreviousTrack:
             break;
