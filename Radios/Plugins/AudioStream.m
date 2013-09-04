@@ -137,7 +137,7 @@
     NSURL *imageURL = [NSURL URLWithString: imageURLString];
     [SDWebImageDownloader.sharedDownloader
      downloadImageWithURL:imageURL
-     options:0
+     options: SDWebImageDownloaderUseNSURLCache
      progress:^(NSUInteger receivedSize, long long expectedSize)
      {
          // progression tracking code
