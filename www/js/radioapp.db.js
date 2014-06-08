@@ -61,7 +61,7 @@ RadioDb = function() {
     ['Radio 24 Pop',      'http://icecast.radio24.ch/radio24pop','c'],
     ['Radio Top',         'http://icecast.radiotop.ch/radiotop','c'],
 	['Radio Zürisee',     'http://mp3.radio.ch/radiozuerisee128k','c'],
-    ['Radio Bern1',       'http://capitalfm.ice.infomaniak.ch/capitalfm-high.mp3','c'],
+    ['Radio Bern1',       'http://radio.nello.tv/radiobern1128k','c'],
     ['Radio Swiss Clas…', 'http://stream.srg-ssr.ch/rsc_de/mp3_128.m3u', 'd'],
     ['Radio Swiss Jazz',  'http://stream.srg-ssr.ch/rsj/mp3_128.m3u', 'd'],
     ['Radio Swiss Pop',   'http://stream.srg-ssr.ch/rsp/mp3_128.m3u','d'],
