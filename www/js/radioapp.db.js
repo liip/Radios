@@ -70,7 +70,6 @@ RadioDb = function() {
     ['Option Musique',    'http://stream.srg-ssr.ch/option-musique/mp3_128.m3u', 'e'],
     ['RSR La Première',   'http://stream.srg-ssr.ch/la-1ere/mp3_128.m3u', 'e'],
     ['Lounge-radio.com',  'http://www.lounge-radio.com/listen128.m3u','f'],
-	['Rock Nation',       'http://105-stream-02.datacomm.ch:8000/rocknation', 'f'],
     ['MagicRadio.CH',     'http://www.magicradio.ch/iphoneAac.m3u','f'],
 	['Radio FM1',         'http://radiofm1.ice.infomaniak.ch/playlists/radiofm1-128.mp3.pls','f'],
     ['neo1',              'http://stream-02.neo1.ch/neo1.m3u','f'],
