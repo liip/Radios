@@ -525,20 +525,6 @@ function playSound(url) {
         stopSound();
     }
     debug.log('Playing: ' + url);
-
-    if (!confirmedNonWlan && navigator.connection.type == Connection.CELL_2G) {
-        var confirmText = "You are using a mobile connection (non WLAN). This can lead to huge costs for you. We recommend using a WLAN connection. \n You want to start the stream nevertheless?";
-        if (language == 'fr') {
-            confirmText = "Vous utilisez une connexion mobile (non WLAN) en ce moment. Cela peut engendrer des coûts élevés. C'est pourquoi nous vous recommandons de connecter votre appareil à une connexion WLAN. \n Voulez-vous tout de même utiliser Radios avec la connexion mobile?";
-        } else if (language == 'de') {
-            confirmText = "Sie sind nur über Mobilfunk (kein WLAN) unterwegs. Das kann beim Empfang hohe Kosten verursachen. Wir empfehlen daher, ihr Gerät über ein WLAN mit dem Internet zu verbinden. \n Wollen Sie trotzdem Radios über Mobilfunk empfangen?";
-        }
-        if (!confirm(confirmText)) {
-            return false;
-        } else {
-            confirmedNonWlan = true;
-        }
-    }
     if(url.match(/(m3u|pls)$/)) {
 
         var client = new XMLHttpRequest();
