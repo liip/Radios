@@ -27,7 +27,6 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
-#import <NewRelicAgent/NewRelicAgent.h>
 
 #import <Cordova/CDVPlugin.h>
 

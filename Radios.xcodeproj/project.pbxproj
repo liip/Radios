@@ -34,12 +34,12 @@
 		30A0434914DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434614DC770100060A13 /* Localizable.strings */; };
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
-		EC2921A616F4529100CF63BA /* NewRelicAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2921A516F4529100CF63BA /* NewRelicAgent.framework */; };
 		EC2921A816F452B600CF63BA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2921A716F452B600CF63BA /* CoreTelephony.framework */; };
 		EC2921AA16F452C400CF63BA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2921A916F452C400CF63BA /* libz.dylib */; };
 		EC40FFD716E8CADA00AC95B2 /* UAApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = EC40FFD616E8CADA00AC95B2 /* UAApplication.m */; };
 		EC443D6F16E7751E0044F6AB /* AudioStream.m in Sources */ = {isa = PBXBuildFile; fileRef = EC443D6B16E7751E0044F6AB /* AudioStream.m */; };
 		EC443D7016E7751E0044F6AB /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC443D6D16E7751E0044F6AB /* AudioStreamer.m */; };
+		ECA631531944BDCC0089C237 /* NewRelicAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA631521944BDCC0089C237 /* NewRelicAgent.framework */; };
 		ECD7E0EB16E8DDCF006A1861 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0EA16E8DDCF006A1861 /* icon.png */; };
 		ECD7E0ED16E8DDDA006A1861 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0EC16E8DDDA006A1861 /* icon-72.png */; };
 		ECD7E0F116E8DDF4006A1861 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0F016E8DDF4006A1861 /* Default-568h@2x.png */; };
@@ -109,7 +109,6 @@
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Radios-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Radios-Info.plist"; path = "../Radios-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
-		EC2921A516F4529100CF63BA /* NewRelicAgent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NewRelicAgent.framework; sourceTree = "<group>"; };
 		EC2921A716F452B600CF63BA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		EC2921A916F452C400CF63BA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		EC40FFD516E8CADA00AC95B2 /* UAApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UAApplication.h; path = ../UAApplication.h; sourceTree = "<group>"; };
@@ -118,6 +117,7 @@
 		EC443D6B16E7751E0044F6AB /* AudioStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStream.m; sourceTree = "<group>"; };
 		EC443D6C16E7751E0044F6AB /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
 		EC443D6D16E7751E0044F6AB /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
+		ECA631521944BDCC0089C237 /* NewRelicAgent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NewRelicAgent.framework; sourceTree = "<group>"; };
 		ECD7E0EA16E8DDCF006A1861 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		ECD7E0EC16E8DDDA006A1861 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		ECD7E0EE16E8DDE9006A1861 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -132,9 +132,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2921A816F452B600CF63BA /* CoreTelephony.framework in Frameworks */,
 				EC2921AA16F452C400CF63BA /* libz.dylib in Frameworks */,
 				301BF5C5109A6A2B0062928A /* SystemConfiguration.framework in Frameworks */,
-				EC2921A816F452B600CF63BA /* CoreTelephony.framework in Frameworks */,
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -144,13 +144,13 @@
 				301BF5B7109A6A2B0062928A /* AddressBookUI.framework in Frameworks */,
 				301BF5B9109A6A2B0062928A /* AudioToolbox.framework in Frameworks */,
 				301BF5BB109A6A2B0062928A /* AVFoundation.framework in Frameworks */,
+				ECA631531944BDCC0089C237 /* NewRelicAgent.framework in Frameworks */,
 				301BF5BD109A6A2B0062928A /* CFNetwork.framework in Frameworks */,
 				301BF5BF109A6A2B0062928A /* CoreLocation.framework in Frameworks */,
 				301BF5C1109A6A2B0062928A /* MediaPlayer.framework in Frameworks */,
 				301BF5C3109A6A2B0062928A /* QuartzCore.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */,
-				EC2921A616F4529100CF63BA /* NewRelicAgent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +250,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EC2921A516F4529100CF63BA /* NewRelicAgent.framework */,
+				ECA631521944BDCC0089C237 /* NewRelicAgent.framework */,
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -515,7 +515,8 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -540,7 +541,8 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Radios/Radios-Prefix.pch";
