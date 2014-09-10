@@ -40,8 +40,10 @@
 		EC443D6F16E7751E0044F6AB /* AudioStream.m in Sources */ = {isa = PBXBuildFile; fileRef = EC443D6B16E7751E0044F6AB /* AudioStream.m */; };
 		EC443D7016E7751E0044F6AB /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC443D6D16E7751E0044F6AB /* AudioStreamer.m */; };
 		ECA631531944BDCC0089C237 /* NewRelicAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA631521944BDCC0089C237 /* NewRelicAgent.framework */; };
+		ECA9C30519C0E08D003A4822 /* icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = ECA9C30219C0E08D003A4822 /* icon-76.png */; };
+		ECA9C30619C0E08D003A4822 /* icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = ECA9C30319C0E08D003A4822 /* icon-152.png */; };
+		ECA9C30719C0E08D003A4822 /* icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = ECA9C30419C0E08D003A4822 /* icon-120.png */; };
 		ECD7E0EB16E8DDCF006A1861 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0EA16E8DDCF006A1861 /* icon.png */; };
-		ECD7E0ED16E8DDDA006A1861 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0EC16E8DDDA006A1861 /* icon-72.png */; };
 		ECD7E0F116E8DDF4006A1861 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0F016E8DDF4006A1861 /* Default-568h@2x.png */; };
 		ECD7E0F316E8DDFF006A1861 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0F216E8DDFF006A1861 /* Default-Portrait~ipad.png */; };
 		ECD7E0F516E8DE06006A1861 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0F416E8DE06006A1861 /* Default-Landscape~ipad.png */; };
@@ -74,7 +76,7 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1F766FDD13BBADB100FB74C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		1F766FE013BBADB100FB74C0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
-		1FD150EB1701A7FF0007BD0B /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		1FD150EB1701A7FF0007BD0B /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../../../icon@2x.png"; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
@@ -101,7 +103,6 @@
 		3088BBBC154F3926009F9C59 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
 		308D052E1370CCF300D202BF /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		308D052F1370CCF300D202BF /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		308D05301370CCF300D202BF /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		30A0434414DC770100060A13 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Localizable.strings; sourceTree = "<group>"; };
 		30A0434714DC770100060A13 /* se */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = se; path = Localizable.strings; sourceTree = "<group>"; };
 		30E5649113A7FCAF007403D8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -118,8 +119,10 @@
 		EC443D6C16E7751E0044F6AB /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
 		EC443D6D16E7751E0044F6AB /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
 		ECA631521944BDCC0089C237 /* NewRelicAgent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NewRelicAgent.framework; sourceTree = "<group>"; };
+		ECA9C30219C0E08D003A4822 /* icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-76.png"; path = "../../../icon-76.png"; sourceTree = "<group>"; };
+		ECA9C30319C0E08D003A4822 /* icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-152.png"; path = "../../../icon-152.png"; sourceTree = "<group>"; };
+		ECA9C30419C0E08D003A4822 /* icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-120.png"; path = "../../../icon-120.png"; sourceTree = "<group>"; };
 		ECD7E0EA16E8DDCF006A1861 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		ECD7E0EC16E8DDDA006A1861 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		ECD7E0EE16E8DDE9006A1861 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		ECD7E0F016E8DDF4006A1861 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ECD7E0F216E8DDFF006A1861 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
@@ -205,8 +208,6 @@
 				ECD7E0F216E8DDFF006A1861 /* Default-Portrait~ipad.png */,
 				ECD7E0F016E8DDF4006A1861 /* Default-568h@2x.png */,
 				ECD7E0EE16E8DDE9006A1861 /* Default.png */,
-				1FD150EB1701A7FF0007BD0B /* icon@2x.png */,
-				ECD7E0EC16E8DDDA006A1861 /* icon-72.png */,
 				ECD7E0EA16E8DDCF006A1861 /* icon.png */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
 				301BF56E109A69640062928A /* www */,
@@ -294,8 +295,11 @@
 			isa = PBXGroup;
 			children = (
 				308D052E1370CCF300D202BF /* icon-72.png */,
+				1FD150EB1701A7FF0007BD0B /* icon@2x.png */,
+				ECA9C30219C0E08D003A4822 /* icon-76.png */,
+				ECA9C30319C0E08D003A4822 /* icon-152.png */,
+				ECA9C30419C0E08D003A4822 /* icon-120.png */,
 				308D052F1370CCF300D202BF /* icon.png */,
-				308D05301370CCF300D202BF /* icon@2x.png */,
 			);
 			path = icons;
 			sourceTree = "<group>";
@@ -358,7 +362,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0600;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = QCDJ9EC736;
@@ -410,6 +414,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F840E1F1165FE0F500CFE078 /* config.xml in Resources */,
+				ECA9C30619C0E08D003A4822 /* icon-152.png in Resources */,
+				ECA9C30719C0E08D003A4822 /* icon-120.png in Resources */,
+				ECA9C30519C0E08D003A4822 /* icon-76.png in Resources */,
 				308D05371370CCF300D202BF /* icon-72.png in Resources */,
 				3072F99713A8081B00425683 /* Capture.bundle in Resources */,
 				1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */,
@@ -418,7 +425,6 @@
 				30A0434814DC770100060A13 /* Localizable.strings in Resources */,
 				30A0434914DC770100060A13 /* Localizable.strings in Resources */,
 				ECD7E0EB16E8DDCF006A1861 /* icon.png in Resources */,
-				ECD7E0ED16E8DDDA006A1861 /* icon-72.png in Resources */,
 				ECD7E0F116E8DDF4006A1861 /* Default-568h@2x.png in Resources */,
 				ECD7E0F316E8DDFF006A1861 /* Default-Portrait~ipad.png in Resources */,
 				ECD7E0F516E8DE06006A1861 /* Default-Landscape~ipad.png in Resources */,
@@ -512,6 +518,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -523,10 +530,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Radios/Radios-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "Radios/Radios-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = Radios;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -537,7 +545,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -547,10 +555,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Radios/Radios-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "Radios/Radios-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = Radios;
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -559,7 +568,11 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = (
+					armv7,
+					armv7s,
+					armv6,
+				);
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -577,6 +590,7 @@
 					"\"$(BUILT_PRODUCTS_DIR)\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -592,6 +606,7 @@
 				);
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -599,12 +614,16 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = (
+					armv7,
+					armv7s,
+					armv6,
+				);
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
@@ -632,6 +651,7 @@
 				);
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
