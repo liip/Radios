@@ -43,11 +43,13 @@
 		ECA9C30519C0E08D003A4822 /* icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = ECA9C30219C0E08D003A4822 /* icon-76.png */; };
 		ECA9C30619C0E08D003A4822 /* icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = ECA9C30319C0E08D003A4822 /* icon-152.png */; };
 		ECA9C30719C0E08D003A4822 /* icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = ECA9C30419C0E08D003A4822 /* icon-120.png */; };
+		ECB7002D19C8089800394A35 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB7002C19C8089800394A35 /* ImageIO.framework */; };
 		ECD7E0EB16E8DDCF006A1861 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0EA16E8DDCF006A1861 /* icon.png */; };
 		ECD7E0F116E8DDF4006A1861 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0F016E8DDF4006A1861 /* Default-568h@2x.png */; };
 		ECD7E0F316E8DDFF006A1861 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0F216E8DDFF006A1861 /* Default-Portrait~ipad.png */; };
 		ECD7E0F516E8DE06006A1861 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0F416E8DE06006A1861 /* Default-Landscape~ipad.png */; };
 		ECD7E0F716E8E0DF006A1861 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7E0EE16E8DDE9006A1861 /* Default.png */; };
+		ECF1898C19C807A6008171EF /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF1898B19C807A6008171EF /* SDWebImage.framework */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 /* End PBXBuildFile section */
 
@@ -122,11 +124,13 @@
 		ECA9C30219C0E08D003A4822 /* icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-76.png"; path = "../../../icon-76.png"; sourceTree = "<group>"; };
 		ECA9C30319C0E08D003A4822 /* icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-152.png"; path = "../../../icon-152.png"; sourceTree = "<group>"; };
 		ECA9C30419C0E08D003A4822 /* icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-120.png"; path = "../../../icon-120.png"; sourceTree = "<group>"; };
+		ECB7002C19C8089800394A35 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		ECD7E0EA16E8DDCF006A1861 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		ECD7E0EE16E8DDE9006A1861 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		ECD7E0F016E8DDF4006A1861 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ECD7E0F216E8DDFF006A1861 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		ECD7E0F416E8DE06006A1861 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		ECF1898B19C807A6008171EF /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Radios/config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +139,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECB7002D19C8089800394A35 /* ImageIO.framework in Frameworks */,
+				ECF1898C19C807A6008171EF /* SDWebImage.framework in Frameworks */,
 				EC2921A816F452B600CF63BA /* CoreTelephony.framework in Frameworks */,
 				EC2921AA16F452C400CF63BA /* libz.dylib in Frameworks */,
 				301BF5C5109A6A2B0062928A /* SystemConfiguration.framework in Frameworks */,
@@ -205,6 +211,7 @@
 				EC2921A916F452C400CF63BA /* libz.dylib */,
 				EC2921A716F452B600CF63BA /* CoreTelephony.framework */,
 				ECD7E0F416E8DE06006A1861 /* Default-Landscape~ipad.png */,
+				ECF1898B19C807A6008171EF /* SDWebImage.framework */,
 				ECD7E0F216E8DDFF006A1861 /* Default-Portrait~ipad.png */,
 				ECD7E0F016E8DDF4006A1861 /* Default-568h@2x.png */,
 				ECD7E0EE16E8DDE9006A1861 /* Default.png */,
@@ -251,6 +258,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ECB7002C19C8089800394A35 /* ImageIO.framework */,
 				ECA631521944BDCC0089C237 /* NewRelicAgent.framework */,
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
