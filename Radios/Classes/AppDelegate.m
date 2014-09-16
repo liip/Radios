@@ -27,7 +27,6 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
-#import <NewRelicAgent/NewRelicAgent.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
 #import <Cordova/CDVPlugin.h>
@@ -117,7 +116,7 @@
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication*)application
 {
-    
+
     NSLog(@"MEMORY WARNING, clear imageCache");
     [SDWebImageManager.sharedManager.imageCache clearMemory];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
@@ -128,7 +127,7 @@
  	NSString* jsString = nil;
 	jsString = [[NSString alloc] initWithFormat:@"%@;", text];
 	[self.viewController.webView stringByEvaluatingJavaScriptFromString:jsString];
-    
+
 	NSLog(@"%@", jsString);
 	[jsString release];
 }
